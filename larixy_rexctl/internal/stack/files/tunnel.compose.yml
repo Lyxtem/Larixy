@@ -1,0 +1,8 @@
+services:
+  edge:
+    ports: !override
+      - "${LARIXY_EDGE_BIND:-127.0.0.1:80}:80"
+    environment:
+      LARIXY_EDGE_SITE_ADDRESS: ":80"
+      LARIXY_EDGE_TLS_DIRECTIVE: ""
+      LARIXY_EDGE_TRUSTED_PROXIES: ${LARIXY_EDGE_TRUSTED_PROXIES:-private_ranges}

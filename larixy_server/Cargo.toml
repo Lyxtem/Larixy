@@ -1,0 +1,27 @@
+[package]
+name = "larixy-server"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "larixy-server"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.104"
+larixy_admin = { path = "../larixy_admin" }
+larixy_app_proxy = { path = "../larixy_app_proxy" }
+larixy_common = { path = "../larixy_common", features = ["healthcheck"] }
+larixy-gifs = { path = "../larixy_gifs" }
+larixy-messages = { path = "../larixy_messages" }
+larixy-push = { path = "../larixy_push" }
+larixy-snowflakes = { path = "../larixy_snowflakes" }
+larixy-svc = { path = "../larixy_svc" }
+larixy-unfurl = { path = "../larixy_unfurl" }
+larixy-users = { path = "../larixy_users" }
+rustls = { version = "0.23", default-features = false, features = ["aws_lc_rs"] }
+tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread", "signal", "time"] }
+tokio-util = "0.7.20"
+tracing = "0.1.44"

@@ -1,0 +1,9 @@
+/.velopack/
+/dist-electron/
+
+/native/**/*.node
+/native/webauthn/*.so*
+/native/win-game-capture/larixy-game-hook.*.dll
+/native/win-game-capture/larixy-inject-helper.*.exe
+/native/win-game-capture/larixy-vulkan-layer.*.dll
+/native/win-game-capture/larixy-vulkan-layer.*.json

@@ -1,0 +1,20 @@
+{
+	"name": "@larixy/limits",
+	"version": "0.0.0",
+	"type": "module",
+	"exports": {
+		"./src/*": "./src/*",
+		"./*": "./*"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@larixy/constants": "workspace:*"
+	},
+	"devDependencies": {
+		"typescript": "catalog:ts7",
+		"vitest": "catalog:"
+	}
+}

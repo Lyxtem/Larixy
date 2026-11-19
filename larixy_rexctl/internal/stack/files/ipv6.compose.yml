@@ -1,0 +1,3 @@
+networks:
+  larixy:
+    enable_ipv6: true

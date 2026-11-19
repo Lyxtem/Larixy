@@ -1,0 +1,20 @@
+{{- include "larixy.validate" . }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: larixy-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "larixy.labels" (dict "root" . "name" "larixy-config" "component" "config") | nindent 4 }}
+data:
+  {{- include "larixy.configData" . | nindent 2 }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: larixy-app-proxy
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "larixy.labels" (dict "root" . "name" "larixy-app-proxy" "component" "config") | nindent 4 }}
+data:
+  {{- include "larixy.comProxyConfigData" . | nindent 2 }}

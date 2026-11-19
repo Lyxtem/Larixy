@@ -1,0 +1,24 @@
+services:
+  admin:
+    image: wave-admin:es
+  api:
+    environment:
+      LARIXY_APP_PRODUCT_NAME: "Larixy"
+    volumes:
+      - ./extra/chunk-ZKNE52GF.js:/usr/src/app/larixy_api/dist/chunk-ZKNE52GF.js:ro
+      - ./extra/chunk-T4R7PYWV.js:/usr/src/app/larixy_api/dist/chunk-T4R7PYWV.js:ro
+  static-proxy:
+    volumes:
+      - ./extra/web_icons:/srv/larixy-static/web:ro
+      - ./extra/web_icons/wave-logo-circle.svg:/srv/larixy-static/larixy-logo-color.svg:ro
+  app-proxy:
+    environment:
+      LARIXY_APP_PRODUCT_NAME: "Larixy"
+    volumes:
+      - ./extra/app_static/index.html:/srv/app/static/index.html:ro
+      - ./extra/app_static/auth-index.html:/srv/app/static/auth-index.html:ro
+      - ./extra/app_static/manifest.json:/srv/app/static/manifest.json:ro
+      - ./extra/app_static/assets/b65d6c7bf5d6e1fd.js:/srv/app/static/assets/b65d6c7bf5d6e1fd.js:ro
+      - ./extra/app_static/assets/54038d2d97540f4d.js:/srv/app/static/assets/54038d2d97540f4d.js:ro
+      - ./extra/app_static/assets/0b1b6d66830e360f.js:/srv/app/static/assets/0b1b6d66830e360f.js:ro
+      - ./extra/app_static/assets/f951e531a01953b2.js:/srv/app/static/assets/f951e531a01953b2.js:ro

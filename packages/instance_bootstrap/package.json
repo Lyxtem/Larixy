@@ -1,0 +1,23 @@
+{
+	"name": "@larixy/instance_bootstrap",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./src/*": "./src/*",
+		"./*": "./*"
+	},
+	"scripts": {
+		"test": "node --test 'src/**/*.test.mjs'",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@larixy/constants": "workspace:*",
+		"@larixy/limits": "workspace:*",
+		"@larixy/schema": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:",
+		"typescript": "catalog:ts7"
+	}
+}

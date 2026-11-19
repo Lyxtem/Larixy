@@ -1,0 +1,440 @@
+[
+	{
+		"url": "https://larixy.example",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "https://larixy.example"
+	},
+	{
+		"url": "https://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "https://larixy.example/media"
+	},
+	{
+		"url": "https://larixy.example/admin",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "https://larixy.example/admin"
+	},
+	{
+		"url": "https://larixy.example/admin/oauth2_callback",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "https://larixy.example/admin/oauth2_callback"
+	},
+	{
+		"url": "wss://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "wss://larixy.example/gateway"
+	},
+	{
+		"url": "http://larixy.example",
+		"base_domain": "larixy.example",
+		"public_port": 80,
+		"normalized": "http://larixy.example"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 80,
+		"normalized": "http://larixy.example/media"
+	},
+	{
+		"url": "ws://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 80,
+		"normalized": "ws://larixy.example/gateway"
+	},
+	{
+		"url": "http://larixy.example",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080"
+	},
+	{
+		"url": "http://larixy.example/",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/media"
+	},
+	{
+		"url": "http://larixy.example/api",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/api"
+	},
+	{
+		"url": "http://larixy.example/admin",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/admin"
+	},
+	{
+		"url": "http://larixy.example/admin/oauth2_callback",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/admin/oauth2_callback"
+	},
+	{
+		"url": "ws://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "ws://larixy.example:19080/gateway"
+	},
+	{
+		"url": "https://larixy.example/admin/oauth2_callback",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https://larixy.example:8443/admin/oauth2_callback"
+	},
+	{
+		"url": "wss://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "wss://larixy.example:8443/gateway"
+	},
+	{
+		"url": "https://larixy.example",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https://larixy.example:8443"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "http://larixy.example:443/media"
+	},
+	{
+		"url": "https://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 80,
+		"normalized": "https://larixy.example:80/media"
+	},
+	{
+		"url": "ws://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 443,
+		"normalized": "ws://larixy.example:443/gateway"
+	},
+	{
+		"url": "wss://larixy.example/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 80,
+		"normalized": "wss://larixy.example:80/gateway"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": null,
+		"normalized": "http://larixy.example/media"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 0,
+		"normalized": "http://larixy.example/media"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "",
+		"public_port": 19080,
+		"normalized": "http://larixy.example/media"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "   ",
+		"public_port": 19080,
+		"normalized": "http://larixy.example/media"
+	},
+	{
+		"url": "http://larixy.example:19080/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/media"
+	},
+	{
+		"url": "http://larixy.example:8080/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:8080/media"
+	},
+	{
+		"url": "https://larixy.example:443/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "https://larixy.example:443/media"
+	},
+	{
+		"url": "http://larixy.example:80/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:80/media"
+	},
+	{
+		"url": "https://larixy.example:8443/admin/oauth2_callback",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https://larixy.example:8443/admin/oauth2_callback"
+	},
+	{
+		"url": "ws://larixy.example:19080/gateway",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "ws://larixy.example:19080/gateway"
+	},
+	{
+		"url": "http://larixy.example:8080?a=1",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:8080?a=1"
+	},
+	{
+		"url": "https://cdn.example.net/assets",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "https://cdn.example.net/assets"
+	},
+	{
+		"url": "https://media.example.net",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "https://media.example.net"
+	},
+	{
+		"url": "https://sub.larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "https://sub.larixy.example/media"
+	},
+	{
+		"url": "https://larixy.example/media",
+		"base_domain": "example",
+		"public_port": 19080,
+		"normalized": "https://larixy.example/media"
+	},
+	{
+		"url": "https://larixy.example.evil.net/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "https://larixy.example.evil.net/media"
+	},
+	{
+		"url": "http://api:8080",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://api:8080"
+	},
+	{
+		"url": "http://media-proxy:8080",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://media-proxy:8080"
+	},
+	{
+		"url": "http://LARIXY.example/Media",
+		"base_domain": "Larixy.Example",
+		"public_port": 19080,
+		"normalized": "http://LARIXY.example:19080/Media"
+	},
+	{
+		"url": "HTTPS://larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "HTTPS://larixy.example:8443/media"
+	},
+	{
+		"url": "http://larixy.example./media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example.:19080/media"
+	},
+	{
+		"url": "http://larixy.example/media",
+		"base_domain": "larixy.example.",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/media"
+	},
+	{
+		"url": "http://larixy.example./media",
+		"base_domain": "larixy.example.",
+		"public_port": 19080,
+		"normalized": "http://larixy.example.:19080/media"
+	},
+	{
+		"url": "http://larixy.example?a=1",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080?a=1"
+	},
+	{
+		"url": "http://larixy.example#top",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080#top"
+	},
+	{
+		"url": "http://larixy.example/media/x.png?v=1#frag",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/media/x.png?v=1#frag"
+	},
+	{
+		"url": "http://larixy.example/media/",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/media/"
+	},
+	{
+		"url": "http://larixy.example/a%20b",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080/a%20b"
+	},
+	{
+		"url": "http://larixy.example#/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080#/media"
+	},
+	{
+		"url": "http://user:pass@larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://user:pass@larixy.example:19080/media"
+	},
+	{
+		"url": "http://user:pass@larixy.example:19080/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://user:pass@larixy.example:19080/media"
+	},
+	{
+		"url": "http://user:p@ss@larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://user:p@ss@larixy.example:19080/media"
+	},
+	{
+		"url": "http://[::1]/media",
+		"base_domain": "[::1]",
+		"public_port": 19080,
+		"normalized": "http://[::1]:19080/media"
+	},
+	{
+		"url": "http://[::1]:8080/media",
+		"base_domain": "[::1]",
+		"public_port": 19080,
+		"normalized": "http://[::1]:8080/media"
+	},
+	{
+		"url": "http://127.0.0.1/media",
+		"base_domain": "127.0.0.1",
+		"public_port": 19080,
+		"normalized": "http://127.0.0.1:19080/media"
+	},
+	{
+		"url": "http://[2001:db8::1]/media",
+		"base_domain": "[2001:db8::1]",
+		"public_port": 19080,
+		"normalized": "http://[2001:db8::1]:19080/media"
+	},
+	{
+		"url": "http://[2001:DB8::1]/media",
+		"base_domain": "[2001:db8::1]",
+		"public_port": 19080,
+		"normalized": "http://[2001:DB8::1]:19080/media"
+	},
+	{
+		"url": "",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": ""
+	},
+	{
+		"url": "/api",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "/api"
+	},
+	{
+		"url": "larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "larixy.example/media"
+	},
+	{
+		"url": "not a url",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "not a url"
+	},
+	{
+		"url": "://x",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "://x"
+	},
+	{
+		"url": "file:///x",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "file:///x"
+	},
+	{
+		"url": "mailto:a@larixy.example",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "mailto:a@larixy.example"
+	},
+	{
+		"url": "http://larixy.example\\evil",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "http://larixy.example:19080\\evil"
+	},
+	{
+		"url": "https://larixy.example:/media",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https://larixy.example:/media"
+	},
+	{
+		"url": "//larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 19080,
+		"normalized": "//larixy.example/media"
+	},
+	{
+		"url": "https:larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https:larixy.example/media"
+	},
+	{
+		"url": "https:/larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https:/larixy.example/media"
+	},
+	{
+		"url": "https:////larixy.example/media",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "https:////larixy.example/media"
+	},
+	{
+		"url": "android:apk-key-hash:9NrCFDLVR8_ObZC-EWzaRA",
+		"base_domain": "larixy.example",
+		"public_port": 8443,
+		"normalized": "android:apk-key-hash:9NrCFDLVR8_ObZC-EWzaRA"
+	}
+]

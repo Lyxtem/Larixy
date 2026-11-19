@@ -1,0 +1,32 @@
+[Unit]
+Description=Larixy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+NotifyAccess=main
+User=larixy
+Group=larixy
+ExecStart=/opt/larixy/current/bin/larixyd run
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+RestartSteps=6
+RestartMaxDelaySec=5min
+TimeoutStartSec=15min
+TimeoutStopSec=90
+KillMode=mixed
+RuntimeDirectory=larixy
+RuntimeDirectoryMode=0750
+StateDirectory=larixy
+StateDirectoryMode=0750
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+LimitNOFILE=65536
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/larixy
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

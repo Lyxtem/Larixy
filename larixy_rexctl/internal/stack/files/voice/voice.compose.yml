@@ -1,0 +1,56 @@
+services:
+  livekit:
+    image: ${LARIXY_LIVEKIT_IMAGE:-livekit/livekit-server:v1.12.0}
+    restart: unless-stopped
+    stop_grace_period: ${LARIXY_VOICE_STOP_GRACE:-15m}
+    deploy:
+      resources:
+        limits:
+          memory: ${LARIXY_VOICE_MEMORY_LIMIT:-2g}
+    logging:
+      driver: json-file
+      options:
+        max-size: ${LARIXY_LOG_MAX_SIZE:-10m}
+        max-file: "${LARIXY_LOG_MAX_FILE:-3}"
+    environment:
+      GOMEMLIMIT: ${LARIXY_VOICE_GOMEMLIMIT:-1700MiB}
+      LIVEKIT_KEYS: "${LARIXY_VOICE_API_KEY:?Set LARIXY_VOICE_API_KEY}: ${LARIXY_VOICE_API_SECRET:?Set LARIXY_VOICE_API_SECRET}"
+      LIVEKIT_CONFIG: |
+        port: 7880
+        log_level: ${LARIXY_LIVEKIT_LOG_LEVEL:-info}
+        rtc:
+          tcp_port: ${LARIXY_VOICE_TCP_PORT:-7881}
+          udp_port: ${LARIXY_VOICE_UDP_PORT:-7882}
+          use_external_ip: ${LARIXY_VOICE_USE_EXTERNAL_IP:-true}
+          node_ip: "${LARIXY_VOICE_NODE_IP:-}"
+          ips:
+            includes: ${LARIXY_VOICE_ICE_IPS:-[]}
+          stun_servers:
+            - ${LARIXY_LIVEKIT_STUN_PRIMARY:-stun.l.google.com:19302}
+            - ${LARIXY_LIVEKIT_STUN_SECONDARY:-stun1.l.google.com:19302}
+          turn_servers: ${LARIXY_LIVEKIT_TURN_SERVERS:-[]}
+        turn:
+          enabled: false
+        webhook:
+          api_key: ${LARIXY_VOICE_API_KEY:?Set LARIXY_VOICE_API_KEY}
+          urls:
+            - ${LARIXY_VOICE_WEBHOOK_URL:?Set LARIXY_VOICE_WEBHOOK_URL}
+    ports:
+      - "${LARIXY_VOICE_BIND_IP:+${LARIXY_VOICE_BIND_IP}:}${LARIXY_VOICE_TCP_PORT:-7881}:${LARIXY_VOICE_TCP_PORT:-7881}/tcp"
+      - "${LARIXY_VOICE_BIND_IP:+${LARIXY_VOICE_BIND_IP}:}${LARIXY_VOICE_UDP_PORT:-7882}:${LARIXY_VOICE_UDP_PORT:-7882}/udp"
+    networks:
+      voice:
+        aliases:
+          - voice-${LARIXY_VOICE_ID:?Set LARIXY_VOICE_ID}
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7880/"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+      start_interval: 1s
+
+networks:
+  voice:
+    external: true
+    name: ${LARIXY_VOICE_NETWORK:-larixy-voice}

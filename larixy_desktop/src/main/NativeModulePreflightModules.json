@@ -1,0 +1,97 @@
+[
+	{
+		"name": "@larixy/webauthn",
+		"platforms": ["darwin", "linux", "win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/platform-info",
+		"platforms": ["darwin", "linux", "win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/mac-app-audio",
+		"platforms": ["darwin"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/mac-clipboard",
+		"platforms": ["darwin"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/mac-sysctl",
+		"platforms": ["darwin"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/mac-tcc",
+		"platforms": ["darwin"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/macos-input-hook",
+		"platforms": ["darwin"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/linux-audio-capture",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/linux-evdev",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/linux-input-hook",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/linux-notifications",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/linux-portals",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/system-hunspell",
+		"platforms": ["linux"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/win-clipboard",
+		"platforms": ["win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/win-process-loopback",
+		"platforms": ["win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/win-shell",
+		"platforms": ["win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/windows-input-hook",
+		"platforms": ["win32"],
+		"severity": "fatal"
+	},
+	{
+		"name": "@larixy/app-store",
+		"platforms": ["darwin", "linux", "win32"],
+		"severity": "degraded"
+	},
+	{
+		"name": "@larixy/gateway-socket",
+		"platforms": ["darwin", "linux", "win32"],
+		"severity": "degraded"
+	}
+]

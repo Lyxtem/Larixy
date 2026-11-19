@@ -1,0 +1,64 @@
+services:
+  snowflakes:
+    profiles: [split-rust]
+  users:
+    profiles: [split-rust]
+  messages:
+    profiles: [split-rust]
+  gifs:
+    profiles: [split-rust]
+  unfurl:
+    profiles: [split-rust]
+  push:
+    profiles: [split-rust]
+  app-proxy:
+    profiles: [split-rust]
+  admin:
+    profiles: [split-rust]
+  rust:
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-server:${LARIXY_IMAGE_TAG:-v1}
+    restart: ${LARIXY_RESTART_POLICY:-unless-stopped}
+    stop_grace_period: 30s
+    networks:
+      larixy:
+        aliases: [app-proxy, admin]
+    logging:
+      driver: json-file
+      options:
+        max-size: ${LARIXY_LOG_MAX_SIZE:-10m}
+        max-file: "${LARIXY_LOG_MAX_FILE:-3}"
+    deploy:
+      resources:
+        limits:
+          memory: ${LARIXY_RUST_MEMORY_LIMIT:-1gb}
+    environment:
+      LARIXY_RUST_PROCESS: ${LARIXY_RUST_PROCESS:-}
+      LARIXY_SERVER_SERVICES: snowflakes,users,messages,gifs,unfurl,push,app-proxy,admin
+      TOKIO_WORKER_THREADS: ${LARIXY_RUST_SERVER_TOKIO_WORKER_THREADS:-2}
+      MALLOC_ARENA_MAX: ${LARIXY_MALLOC_ARENA_MAX:-2}
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/larixy-server", "healthcheck"]
+      interval: ${LARIXY_HEALTHCHECK_INTERVAL:-10s}
+      timeout: ${LARIXY_HEALTHCHECK_TIMEOUT:-5s}
+      retries: ${LARIXY_APP_HEALTHCHECK_RETRIES:-30}
+      start_period: ${LARIXY_SVC_HEALTHCHECK_START_PERIOD:-60s}
+      start_interval: ${LARIXY_HEALTHCHECK_START_INTERVAL:-1s}
+    depends_on:
+      nats: {condition: service_healthy}
+      postgres: {condition: service_healthy}
+  edge:
+    environment:
+      LARIXY_ADMIN_UPSTREAM: ${LARIXY_ADMIN_UPSTREAM:-admin:18083}
+  api:
+    depends_on:
+      gifs: !reset null
+      snowflakes: !reset null
+      messages: !reset null
+      users: !reset null
+      rust: {condition: service_healthy}
+  worker:
+    depends_on:
+      snowflakes: !reset null
+      messages: !reset null
+      users: !reset null
+      rust: {condition: service_healthy}

@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+[Desktop Entry]
+Name=Larixy Canary
+GenericName=Instant Messenger
+Comment=Canary build of Larixy
+Exec=app.larixy.LarixyCanary %U
+TryExec=app.larixy.LarixyCanary
+Icon=app.larixy.LarixyCanary
+Type=Application
+Categories=Network;InstantMessaging;Chat;
+Keywords=chat;im;messaging;messenger;voip;voice;video;call;
+StartupWMClass=app.larixy.LarixyCanary
+SingleMainWindow=true
+StartupNotify=true
+MimeType=x-scheme-handler/larixy;
+Terminal=false
+X-GNOME-UsesNotifications=true
+Actions=open-settings;new-dm;
+
+[Desktop Action open-settings]
+Name=Open Settings
+Exec=app.larixy.LarixyCanary --larixy-task=open-settings %U
+
+[Desktop Action new-dm]
+Name=New Direct Message
+Exec=app.larixy.LarixyCanary --larixy-task=new-dm %U

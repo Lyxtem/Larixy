@@ -1,0 +1,92 @@
+[workspace]
+members = [
+	"larixy_admin",
+	"larixy_app_proxy",
+	"larixy_common",
+	"larixy_media_proxy",
+	"larixy_gifs",
+	"larixy_svc",
+	"larixy_messages",
+	"larixy_push",
+	"larixy_snowflakes",
+	"larixy_server",
+	"tools/ci",
+	"tools/dev",
+	"larixy_users",
+	"larixy_unfurl",
+	"packages/markdown_parser/rust",
+	"larixy_app/rust/libfluxcore",
+	"larixy_app/rust/libfluxwebp",
+	"larixy_desktop/native/app-store",
+	"larixy_desktop/native/gateway-socket",
+	"larixy_desktop/native/hardware-encoder",
+	"larixy_desktop/native/linux-audio-capture",
+	"larixy_desktop/native/linux-evdev",
+	"larixy_desktop/native/linux-input-hook",
+	"larixy_desktop/native/linux-notifications",
+	"larixy_desktop/native/linux-portals",
+	"larixy_desktop/native/mac-app-audio",
+	"larixy_desktop/native/mac-clipboard",
+	"larixy_desktop/native/mac-screen-capture",
+	"larixy_desktop/native/mac-sysctl",
+	"larixy_desktop/native/mac-tcc",
+	"larixy_desktop/native/macos-input-hook",
+	"larixy_desktop/native/platform-info",
+	"larixy_desktop/native/rt-thread",
+	"larixy_desktop/native/sample-pool",
+	"larixy_desktop/native/system-hunspell",
+	"larixy_desktop/native/webauthn",
+	"larixy_desktop/native/win-clipboard",
+	"larixy_desktop/native/win-game-capture",
+	"larixy_desktop/native/win-process-loopback",
+	"larixy_desktop/native/win-shell",
+	"larixy_desktop/native/windows-input-hook",
+]
+default-members = [
+	"larixy_admin",
+	"larixy_app_proxy",
+	"larixy_common",
+	"larixy_media_proxy",
+	"larixy_gifs",
+	"larixy_svc",
+	"larixy_messages",
+	"larixy_push",
+	"larixy_snowflakes",
+	"tools/ci",
+	"tools/dev",
+	"larixy_users",
+	"larixy_unfurl",
+	"packages/markdown_parser/rust",
+]
+exclude = [
+	"packages/markdown_parser/rust/fuzz",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "AGPL-3.0-or-later"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+strip = "symbols"
+
+[profile.desktop-native]
+inherits = "release"
+lto = false
+codegen-units = 16
+strip = "none"
+
+[profile.wasm-release]
+inherits = "release"
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = true
+
+[profile.release-fast]
+inherits = "release"
+lto = "thin"
+codegen-units = 16

@@ -1,0 +1,6 @@
+self-hosted-runner:
+  labels:
+    - larixy-desktop-macos-arm64
+    - larixy-electron-build
+
+config-variables: null
