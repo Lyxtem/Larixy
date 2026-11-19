@@ -162,7 +162,7 @@ test('a quote may mention Larixy and its team but not links', async () => {
 			const listing = await setQuote(quote).expect(200).execute();
 			expect(listing.wall_quote).toBe(quote);
 		}
-		for (const quote of ['Join me at https://larixy.com', 'Mail me at ada@example.com']) {
+		for (const quote of ['Join me at https://larixy.xyz', 'Mail me at ada@example.com']) {
 			await setQuote(quote).expect(400, APIErrorCodes.OPERATOR_PASS_WALL_QUOTE_REJECTED).execute();
 		}
 	} finally {

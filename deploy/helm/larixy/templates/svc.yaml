@@ -22,13 +22,13 @@
 {{- $shardEnv = append $shardEnv (dict "name" "LARIXY_ACTIVITYPUB_SIGNING_KEY_BASE64" "valueFrom" (dict "secretKeyRef" (dict "name" "larixy-unfurl-env" "key" "LARIXY_ACTIVITYPUB_SIGNING_KEY_BASE64"))) }}
 {{- end }}
 {{- end }}
-{{- include "larixy.com" (dict "root" $ "name" $name "component" "svc" "w" $router "image" (printf "larixy-%s" $name) "port" 8090 "containerName" "router"
+{{- include "larixy.xyz" (dict "root" $ "name" $name "component" "svc" "w" $router "image" (printf "larixy-%s" $name) "port" 8090 "containerName" "router"
   "env" (append $common (dict "name" "LARIXY_SVC_MODE" "value" "router"))
   "probes" $probes
-  "waitFor" (include "larixy.comWaitFor" (dict "root" $ "usesNats" true) | fromJsonArray)) }}
-{{- include "larixy.com" (dict "root" $ "name" (printf "%s-shard" $name) "component" "svc" "w" $shard "image" (printf "larixy-%s" $name) "port" 8090 "containerName" "shard"
+  "waitFor" (include "larixy.xyzWaitFor" (dict "root" $ "usesNats" true) | fromJsonArray)) }}
+{{- include "larixy.xyz" (dict "root" $ "name" (printf "%s-shard" $name) "component" "svc" "w" $shard "image" (printf "larixy-%s" $name) "port" 8090 "containerName" "shard"
   "kind" "StatefulSet" "serviceName" (printf "%s-shard" $name) "headless" true
   "env" $shardEnv
   "probes" $probes
-  "waitFor" (include "larixy.comWaitFor" (dict "root" $ "usesNats" true "usesPostgres" $usesPostgres) | fromJsonArray)) }}
+  "waitFor" (include "larixy.xyzWaitFor" (dict "root" $ "usesNats" true "usesPostgres" $usesPostgres) | fromJsonArray)) }}
 {{- end }}

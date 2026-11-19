@@ -19,7 +19,7 @@ function createProductionApp(trustClientIpHeader = true): Hono<HonoEnv> {
 	configureMiddleware(routes, {
 		logger: new NoopLogger(),
 		nodeEnv: 'production',
-		corsOrigins: ['https://web.larixy.com'],
+		corsOrigins: ['https://web.larixy.xyz'],
 		trustClientIpHeader,
 		clientIpHeaderName: CLIENT_IP_HEADER_NAME,
 		maxInflightRequests: 100,

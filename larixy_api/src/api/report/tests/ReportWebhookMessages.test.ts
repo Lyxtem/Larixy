@@ -243,7 +243,7 @@ function submitDsa(harness: ApiTestHarness, ticket: string, world: World, messag
 		.body({
 			ticket,
 			report_type: 'message',
-			message_link: `https://web.larixy.com/channels/${world.guildId}/${world.channelId}/${messageId}`,
+			message_link: `https://web.larixy.xyz/channels/${world.guildId}/${world.channelId}/${messageId}`,
 			revision_hash: currentHash('message', 'dsa'),
 			steps: HARASSMENT_WALK,
 			good_faith_confirmed: true,

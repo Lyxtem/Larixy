@@ -261,7 +261,7 @@ mod tests {
 
     const STORED_BYTES: &[u8] = b"raw-stored-bytes";
     const THEME_BYTES: &[u8] = b"body{color:#fff}";
-    const WEB: &str = "https://web.larixy.com";
+    const WEB: &str = "https://web.larixy.xyz";
     const EVIL: &str = "https://evil.example";
     const OPAQUE_ORIGIN: &[u8] = &[0xC3, 0x28];
     const ORIGIN_VARY: &str = "Accept-Encoding, Origin";

@@ -351,7 +351,7 @@ func rootBinary(binary, dir string) error {
 	if p == binary {
 		p = "it"
 	}
-	return ui.Refused(fmt.Sprintf("Automatic upgrades need a rexctl that only root can change. This one is %s, and accounts other than root can change %s.", binary, p), "Install rexctl for root with curl -fsSL https://larixy.com/install.sh | sudo sh and then run "+sudoLine("/usr/local/bin/rexctl", os.Args[1:], dir)+".")
+	return ui.Refused(fmt.Sprintf("Automatic upgrades need a rexctl that only root can change. This one is %s, and accounts other than root can change %s.", binary, p), "Install rexctl for root with curl -fsSL https://larixy.xyz/install.sh | sudo sh and then run "+sudoLine("/usr/local/bin/rexctl", os.Args[1:], dir)+".")
 }
 
 func schedulerError(err error, msg, command, dir string) error {

@@ -17,4 +17,4 @@ metadata:
   labels:
     {{- include "larixy.labels" (dict "root" . "name" "larixy-app-proxy" "component" "config") | nindent 4 }}
 data:
-  {{- include "larixy.comProxyConfigData" . | nindent 2 }}
+  {{- include "larixy.xyzProxyConfigData" . | nindent 2 }}

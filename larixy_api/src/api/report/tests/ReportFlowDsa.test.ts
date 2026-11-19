@@ -134,7 +134,7 @@ async function setupMessageLink(harness: ApiTestHarness): Promise<{link: string;
 	const channel = await getChannel(harness, owner.token, guild.system_channel_id!);
 	const message = await sendChannelMessage(harness, members[0].token, channel.id, 'Reported on the DSA form');
 	return {
-		link: `https://web.larixy.com/channels/${guild.id}/${channel.id}/${message.id}`,
+		link: `https://web.larixy.xyz/channels/${guild.id}/${channel.id}/${message.id}`,
 		authorId: members[0].userId,
 		guildId: guild.id,
 	};
@@ -487,7 +487,7 @@ describe('DSA report flow', () => {
 		const dm = await createDmChannel(harness, members[0].token, owner.userId);
 		const dmMessage = await sendChannelMessage(harness, members[0].token, dm.id, 'A direct message');
 		const link = (guildSegment: string, channelId: string, messageId: string) =>
-			`https://web.larixy.com/channels/${guildSegment}/${channelId}/${messageId}`;
+			`https://web.larixy.xyz/channels/${guildSegment}/${channelId}/${messageId}`;
 		const valid = link(guild.id, systemChannel.id, message.id);
 		const cases: Array<[string, Record<string, unknown>]> = [
 			['unknown channel', {message_link: link(guild.id, TEST_IDS.NONEXISTENT_CHANNEL, message.id)}],
@@ -552,7 +552,7 @@ describe('DSA report flow', () => {
 		const ids = await sendThree(harness, members[0].token, systemChannel.id);
 		const result = await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/${guild.id}/${systemChannel.id}/${ids[1]}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/${guild.id}/${systemChannel.id}/${ids[1]}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.OK)
 			.execute();
@@ -576,7 +576,7 @@ describe('DSA report flow', () => {
 			const {ticket} = await issueTicket(harness);
 			const result = await submitDsa(
 				harness,
-				messageFlowBody(ticket, `https://web.larixy.com/channels/${guild.id}/${channel.id}/${target}`, HATE_WALK),
+				messageFlowBody(ticket, `https://web.larixy.xyz/channels/${guild.id}/${channel.id}/${target}`, HATE_WALK),
 			)
 				.expect(HTTP_STATUS.OK)
 				.execute();
@@ -586,7 +586,7 @@ describe('DSA report flow', () => {
 		const {ticket} = await issueTicket(harness);
 		const result = await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/${guild.id}/${systemChannel.id}/${open[1]}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/${guild.id}/${systemChannel.id}/${open[1]}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.OK)
 			.execute();
@@ -601,7 +601,7 @@ describe('DSA report flow', () => {
 		const {ticket} = await issueTicket(harness);
 		const result = await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/@me/${dm.id}/${target}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/@me/${dm.id}/${target}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.OK)
 			.execute();
@@ -621,13 +621,13 @@ describe('DSA report flow', () => {
 		const {ticket} = await issueTicket(harness);
 		await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/${group.id}/${group.id}/${target}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/${group.id}/${group.id}/${target}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.NOT_FOUND, APIErrorCodes.UNKNOWN_MESSAGE)
 			.execute();
 		const result = await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/@me/${group.id}/${target}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/@me/${group.id}/${target}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.OK)
 			.execute();
@@ -657,7 +657,7 @@ describe('DSA report flow', () => {
 		const {ticket} = await issueTicket(harness);
 		const result = await submitDsa(
 			harness,
-			messageFlowBody(ticket, `https://web.larixy.com/channels/${guild.id}/${channel.id}/${message.id}`, HATE_WALK),
+			messageFlowBody(ticket, `https://web.larixy.xyz/channels/${guild.id}/${channel.id}/${message.id}`, HATE_WALK),
 		)
 			.expect(HTTP_STATUS.OK)
 			.execute();

@@ -8,7 +8,7 @@ import {MS_PER_DAY} from '@larixy/date_utils/src/DateConstants';
 
 const logger = new Logger('AccountEntryStorage');
 
-const DEVICE_PROOF_KEY_PREFIX = 'larixy.comice_proof.';
+const DEVICE_PROOF_KEY_PREFIX = 'larixy.xyzice_proof.';
 const AGE_BLOCK_KEY_PREFIX = 'larixy.age_block_until.';
 
 function readItem(key: string): string | null {

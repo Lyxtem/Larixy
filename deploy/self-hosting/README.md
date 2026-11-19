@@ -1,1 +1,1 @@
-Self-hosting moved to rexctl. Install, upgrade and the compose bundle for each release are in the [self-hosting docs](https://docs.larixy.com/operator/).
+Self-hosting moved to rexctl. Install, upgrade and the compose bundle for each release are in the [self-hosting docs](https://docs.larixy.xyz/operator/).

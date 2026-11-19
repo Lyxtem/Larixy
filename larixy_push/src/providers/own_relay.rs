@@ -117,7 +117,7 @@ mod tests {
     const TOKEN: &str = "3dbc5a5ef1a1c1666afc26f466e1b3ebaaf4c66d92dddeb0fd1b69c49641d4cd";
 
     fn ours() -> Vec<String> {
-        vec!["push.larixy.com".to_owned()]
+        vec!["push.larixy.xyz".to_owned()]
     }
 
     #[test]
@@ -128,18 +128,18 @@ mod tests {
 
     #[test]
     fn a_self_hosted_deployment_configures_no_hosts_and_never_shortcuts() {
-        let endpoint = format!("https://push.larixy.com/relay/v1/apns/canary/production/{TOKEN}");
+        let endpoint = format!("https://push.larixy.xyz/relay/v1/apns/canary/production/{TOKEN}");
         assert!(parse(&endpoint, &[]).is_none());
     }
 
     #[test]
     fn a_malformed_relay_path_is_refused() {
         for endpoint in [
-            "https://push.larixy.com/relay/v1/apns/canary/production",
-            "https://push.larixy.com/relay/v1/apns/canary/production/tok/extra",
-            "https://push.larixy.com/relay/v1/sms/canary/production/tok",
-            "https://push.larixy.com/relay/v2/apns/canary/production/tok",
-            "http://push.larixy.com/relay/v1/apns/canary/production/tok",
+            "https://push.larixy.xyz/relay/v1/apns/canary/production",
+            "https://push.larixy.xyz/relay/v1/apns/canary/production/tok/extra",
+            "https://push.larixy.xyz/relay/v1/sms/canary/production/tok",
+            "https://push.larixy.xyz/relay/v2/apns/canary/production/tok",
+            "http://push.larixy.xyz/relay/v1/apns/canary/production/tok",
         ] {
             assert!(
                 parse(endpoint, &ours()).is_none(),

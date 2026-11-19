@@ -22,4 +22,4 @@ Larixy and the Larixy logo are trademarks of Larixy Platform AB. Neither the AGP
 - A self-hosted instance running such a build may show the Larixy name and logo under the instance's own name and domain, as long as it does not imply affiliation with or endorsement by Larixy Platform AB.
 - You may refer to Larixy by name to describe compatibility, for example "works with Larixy".
 
-Forks with substantive functional changes must use their own name and logo. Any other use needs permission from Larixy Platform AB. Contact support@larixy.com.
+Forks with substantive functional changes must use their own name and logo. Any other use needs permission from Larixy Platform AB. Contact support@larixy.xyz.

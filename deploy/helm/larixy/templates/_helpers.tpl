@@ -280,7 +280,7 @@ public: {{ substr 56 121 $der | b64enc | replace "+" "-" | replace "/" "_" | tri
 {{- end }}
 
 {{- define "larixy.instanceChecksum" -}}
-{{- $parts := list (include "larixy.configData" .) (include "larixy.comProxyConfigData" .) (toJson .Values.secrets.values) (toJson (.Values.secrets.extra | default dict)) (include "larixy.string" .Values.image.revision) (include "larixy.secretData" .) }}
+{{- $parts := list (include "larixy.configData" .) (include "larixy.xyzProxyConfigData" .) (toJson .Values.secrets.values) (toJson (.Values.secrets.extra | default dict)) (include "larixy.string" .Values.image.revision) (include "larixy.secretData" .) }}
 {{- join "\n" $parts | sha256sum }}
 {{- end }}
 
@@ -352,7 +352,7 @@ initContainers:
 {{- end }}
 {{- end }}
 
-{{- define "larixy.comWaitFor" -}}
+{{- define "larixy.xyzWaitFor" -}}
 {{- $out := list }}
 {{- if and .usesNats .root.Values.nats.enabled }}
 {{- $out = append $out "nats:4222" }}

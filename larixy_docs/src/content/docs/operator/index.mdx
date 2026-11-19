@@ -22,19 +22,19 @@ Open TCP ports 80, 443 and 7881 and UDP ports 443 and 7882 in any firewall outsi
 On Linux or macOS:
 
 ```sh
-curl -fsSL https://larixy.com/install.sh | sh
+curl -fsSL https://larixy.xyz/install.sh | sh
 ```
 
 On Windows, run this in PowerShell:
 
 ```powershell
-irm https://larixy.com/install.ps1 | iex
+irm https://larixy.xyz/install.ps1 | iex
 ```
 
 On Linux or macOS, start the install with this command to put your own reverse proxy, such as Caddy or nginx, in front of Larixy.
 
 ```sh
-curl -fsSL https://larixy.com/install.sh | sh -s -- install --behind-proxy --bind 127.0.0.1:8080
+curl -fsSL https://larixy.xyz/install.sh | sh -s -- install --behind-proxy --bind 127.0.0.1:8080
 ```
 
 Larixy then listens on `127.0.0.1:8080` for your proxy. The plain install command also asks whether you want this when another program already uses port 80 or 443 on the machine.
@@ -90,7 +90,7 @@ Before the install, rexctl checks free space on the disks with the instance fold
 To put Larixy on a second drive, set `data-root` in `/etc/docker/daemon.json` to a folder on that drive and restart Docker before you install. Docker then keeps Larixy's data on that drive. If Docker uses the containerd image store, also set `root` in `/etc/containerd/config.toml` to a folder on that drive and restart containerd, so the images go there too. Start the install with `--dir` and a folder on the same drive.
 
 ```sh
-curl -fsSL https://larixy.com/install.sh | sh -s -- install --dir /mnt/data/larixy
+curl -fsSL https://larixy.xyz/install.sh | sh -s -- install --dir /mnt/data/larixy
 ```
 
 ## After you install
@@ -101,4 +101,4 @@ Once your instance is running, these pages help you look after it.
 - [Put Larixy behind your own proxy](/operator/reverse-proxy/) if another web server on the machine already uses ports 80 and 443.
 - The [rexctl reference](/operator/rexctl/) lists every command and flag.
 
-If you get stuck, ask in [Larixy Developers](https://larixy.gg/larixy-developers) or report a bug on [Larixy Feedback](https://feedback.larixy.com).
+If you get stuck, ask in [Larixy Developers](https://larixy.gg/larixy-developers) or report a bug on [Larixy Feedback](https://feedback.larixy.xyz).

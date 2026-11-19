@@ -9,10 +9,10 @@ export type WebPushOriginKind = 'legacy' | 'target';
 export type WebPushOriginReplacement = 'installed' | 'browser';
 
 const WEB_PUSH_ORIGIN_KINDS: ReadonlyMap<string, WebPushOriginKind> = new Map([
-	['https://web.larixy.com', 'legacy'],
-	['https://web.canary.larixy.com', 'legacy'],
-	['https://larixy.com', 'target'],
-	['https://canary.larixy.com', 'target'],
+	['https://web.larixy.xyz', 'legacy'],
+	['https://web.canary.larixy.xyz', 'legacy'],
+	['https://larixy.xyz', 'target'],
+	['https://canary.larixy.xyz', 'target'],
 ]);
 
 const PUSH_ORIGIN_REPLACED_PREFIX = 'push_origin_replaced:';

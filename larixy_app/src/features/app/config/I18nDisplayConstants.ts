@@ -18,9 +18,9 @@ export const APP_STORE_NAME = 'App Store';
 export const GOOGLE_PLAY_NAME = 'Google Play';
 export const PIX_PAYMENT_METHOD = 'Pix';
 export const UPI_PAYMENT_METHOD = 'UPI';
-export const SUPPORT_EMAIL = 'support@larixy.com';
+export const SUPPORT_EMAIL = 'support@larixy.xyz';
 export const SUPPORT_EMAIL_MAILTO = `mailto:${SUPPORT_EMAIL}`;
-export const I18N_WEBLATE_DOMAIN = 'translate.larixy.com';
+export const I18N_WEBLATE_DOMAIN = 'translate.larixy.xyz';
 export const I18N_WEBLATE_URL = `https://${I18N_WEBLATE_DOMAIN}`;
 export const EXAMPLE_DOMAIN = 'example.com';
 export const EXAMPLE_URL = `https://${EXAMPLE_DOMAIN}`;
@@ -37,20 +37,20 @@ export const EXAMPLE_CHANNEL_NAME = 'new-channel';
 export const EXAMPLE_GENERAL_CHANNEL_NAME = 'general';
 export const EXAMPLE_USERNAME_MENTION = '@username';
 export const VISIONARY_LIFETIME_BADGE_LABEL = 'Visionary #42';
-export const LINK_PREVIEW_EXAMPLE_URL = 'https://larixy.com';
+export const LINK_PREVIEW_EXAMPLE_URL = 'https://larixy.xyz';
 export const EXAMPLE_GIF_URLS = `${EXAMPLE_URL}/gif1.gif\n${EXAMPLE_URL}/gif2.gif`;
 export const THE_OTHER_PLATFORM_TEMPLATE_EXAMPLE_URL = `https://${THE_OTHER_PLATFORM.toLowerCase()}.new/abcd1234`;
 const DESKTOP_DOWNLOAD_URLS: Record<string, string> = {
-	stable: 'https://larixy.com/download',
-	canary: 'https://canary.larixy.com/download',
+	stable: 'https://larixy.xyz/download',
+	canary: 'https://canary.larixy.xyz/download',
 	development: 'http://localhost:8088/download',
 };
 
 export const DESKTOP_DOWNLOAD_URL = DESKTOP_DOWNLOAD_URLS[Config.RELEASE_CHANNEL] ?? DESKTOP_DOWNLOAD_URLS.stable;
 export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.larixy';
-export const LARIXY_DOCS_DOMAIN = 'larixy.com';
+export const LARIXY_DOCS_DOMAIN = 'larixy.xyz';
 export const LARIXY_DOCS_URL = `https://${LARIXY_DOCS_DOMAIN}`;
-export const LARIXY_BLUESKY_HANDLE = '@larixy.com';
+export const LARIXY_BLUESKY_HANDLE = '@larixy.xyz';
 export const YOUTUBE_PROVIDER_NAME = 'YouTube';
 export const EVERYONE_MENTION = '@everyone';
 export const HERE_MENTION = '@here';

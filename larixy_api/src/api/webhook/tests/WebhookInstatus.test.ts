@@ -14,21 +14,21 @@ function createInstatusPage() {
 		id: 'pg_123',
 		status_indicator: 'HASISSUES',
 		status_description: 'Partially degraded service',
-		url: 'https://status.larixy.com',
+		url: 'https://status.larixy.xyz',
 	};
 }
 
 function createInstatusMeta() {
 	// `documentation` seems to always be an empty string.
 	// If only we had documentation about it.
-	return {unsubscribe: 'https://status.larixy.com/unsubscribe?id=1&token=abc', documentation: ''};
+	return {unsubscribe: 'https://status.larixy.xyz/unsubscribe?id=1&token=abc', documentation: ''};
 }
 
 function createInstatusIncident(overrides: Record<string, unknown> = {}) {
 	return {
 		id: 'inc_1',
 		name: 'Elevated API latency',
-		url: 'https://status.larixy.com/incident/inc_1',
+		url: 'https://status.larixy.xyz/incident/inc_1',
 		status: 'Investigating',
 		backfilled: false,
 		resolved_at: null,

@@ -57,11 +57,11 @@ const OFFICIAL_ANDROID_PASSKEY_ORIGINS = [
 ];
 
 const DEFAULT_PASSKEY_ORIGINS = [
-	'https://larixy.com',
-	'https://web.larixy.com',
-	'https://web.canary.larixy.com',
-	'https://larixy.com',
-	'https://canary.larixy.com',
+	'https://larixy.xyz',
+	'https://web.larixy.xyz',
+	'https://web.canary.larixy.xyz',
+	'https://larixy.xyz',
+	'https://canary.larixy.xyz',
 	...OFFICIAL_ANDROID_PASSKEY_ORIGINS,
 ];
 

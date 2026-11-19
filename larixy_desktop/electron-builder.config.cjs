@@ -42,7 +42,7 @@ const CHANNELS = {
 		productName: 'Larixy Development',
 		linuxOptDirName: 'larixy-development',
 		artifactProductName: 'Larixy-Development',
-		appId: 'app.larixy.comelopment',
+		appId: 'app.larixy.xyzelopment',
 		iconDirectory: 'icons-development',
 		packageName: 'larixy_desktop_development',
 		linuxPackageName: 'larixy-development',

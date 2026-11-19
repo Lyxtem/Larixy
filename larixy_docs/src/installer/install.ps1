@@ -54,7 +54,7 @@ param(
 		return [string]$value
 	}
 
-	$Resolver = 'https://larixy.com/rexctl/release.json'
+	$Resolver = 'https://larixy.xyz/rexctl/release.json'
 	if ($env:REXCTL_RELEASE_URL) {
 		$Resolver = $env:REXCTL_RELEASE_URL
 	}
@@ -189,7 +189,7 @@ param(
 		try {
 			$Release = Invoke-RestMethod -Uri $Resolver -UseBasicParsing
 		} catch {
-			Stop-Bootstrap "Couldn't find the latest rexctl release." 'Check that this machine can reach larixy.com, then run this again.'
+			Stop-Bootstrap "Couldn't find the latest rexctl release." 'Check that this machine can reach larixy.xyz, then run this again.'
 		}
 		$Asset = $null
 		$Version = ''
@@ -201,7 +201,7 @@ param(
 		}
 		if (-not $Asset -or -not $Asset.PSObject.Properties['sha256'] -or -not $Asset.PSObject.Properties['url'] -or
 			[string]$Asset.sha256 -notmatch '^[0-9a-f]{64}$' -or -not ([string]$Asset.url).StartsWith('https://')) {
-			Stop-Bootstrap "The release information from larixy.com doesn't look right." 'Run this again in a few minutes.'
+			Stop-Bootstrap "The release information from larixy.xyz doesn't look right." 'Run this again in a few minutes.'
 		}
 
 		$Scratch = Join-Path ([System.IO.Path]::GetTempPath()) ('rexctl-' + [guid]::NewGuid().ToString('N'))

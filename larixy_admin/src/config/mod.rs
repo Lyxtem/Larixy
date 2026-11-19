@@ -50,7 +50,7 @@ impl AdminConfig {
     pub fn from_env(env: &EnvMap) -> anyhow::Result<Self> {
         let base_path = normalize_base_path(&env.read("LARIXY_ADMIN_BASE_PATH", ""));
         let admin_endpoint = env.normalize_public_endpoint(&trim_trailing_slash(
-            &env.read("LARIXY_ADMIN_ENDPOINT", "https://admin.larixy.com"),
+            &env.read("LARIXY_ADMIN_ENDPOINT", "https://admin.larixy.xyz"),
         ))?;
         let oauth_redirect_uri = env.normalize_public_endpoint(&env.read(
             "LARIXY_ADMIN_OAUTH_REDIRECT_URI",
@@ -72,13 +72,13 @@ impl AdminConfig {
             secret_key_base,
             base_path,
             api_endpoint: trim_trailing_slash(
-                &env.read("LARIXY_API_ENDPOINT", "https://api.larixy.com"),
+                &env.read("LARIXY_API_ENDPOINT", "https://api.larixy.xyz"),
             ),
             api_public_endpoint: env.normalize_public_endpoint(&trim_trailing_slash(
                 &env.read("LARIXY_API_PUBLIC_ENDPOINT", ""),
             ))?,
             media_endpoint: env.normalize_public_endpoint(&trim_trailing_slash(
-                &env.read("LARIXY_MEDIA_ENDPOINT", "https://media.larixy.com"),
+                &env.read("LARIXY_MEDIA_ENDPOINT", "https://media.larixy.xyz"),
             ))?,
             static_cdn_endpoint: env.normalize_public_endpoint(&trim_trailing_slash(
                 &env.read("LARIXY_STATIC_CDN_ENDPOINT", ""),
@@ -87,7 +87,7 @@ impl AdminConfig {
 
             admin_endpoint,
             web_app_endpoint: env.normalize_public_endpoint(&trim_trailing_slash(
-                &env.read("LARIXY_APP_ENDPOINT", "https://app.larixy.com"),
+                &env.read("LARIXY_APP_ENDPOINT", "https://app.larixy.xyz"),
             ))?,
             oauth_client_id: env.read(
                 "LARIXY_ADMIN_OAUTH_CLIENT_ID",

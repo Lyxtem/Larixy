@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	ResolverURL    = "https://larixy.com/rexctl/release.json"
+	ResolverURL    = "https://larixy.xyz/rexctl/release.json"
 	ResolverURLEnv = "REXCTL_RELEASE_URL"
 	ResumeFlag     = "resume"
 	ResumeRecovery = "recovery"

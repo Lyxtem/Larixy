@@ -5,12 +5,12 @@ import UserSettings from '@app/features/user/state/UserSettings';
 import {makeAutoObservable} from 'mobx';
 
 const BUILT_IN_TRUST_PATTERNS = [
-	'larixy.com',
-	'*.larixy.com',
-	'larixy.com',
-	'*.larixy.com',
-	'larixy.com',
-	'*.larixy.com',
+	'larixy.xyz',
+	'*.larixy.xyz',
+	'larixy.xyz',
+	'*.larixy.xyz',
+	'larixy.xyz',
+	'*.larixy.xyz',
 	'larixystatus.com',
 	'*.larixystatus.com',
 	'larixy.gg',

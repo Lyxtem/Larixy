@@ -114,7 +114,7 @@ describe('Operator Pass terms', () => {
 	});
 
 	it.each(LANGUAGES)('renders the %s terms as a PDF', async (language) => {
-		const pdf = await renderOperatorPassTermsPdf(language, OPERATOR_PASS_TERMS_VERSION, 'https://larixy.com');
+		const pdf = await renderOperatorPassTermsPdf(language, OPERATOR_PASS_TERMS_VERSION, 'https://larixy.xyz');
 		expect((await PDFDocument.load(pdf)).getPageCount()).toBeGreaterThan(1);
 	});
 });

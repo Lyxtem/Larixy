@@ -7,8 +7,8 @@ import type {DomainMigrationDiscoveryResponse} from '@larixy/schema/src/domains/
 import {experimentBucket} from '@larixy/schema/src/domains/experiment/ExperimentBucket';
 
 export const DOMAIN_MIGRATION_SOURCE_TO_TARGET: Readonly<Record<string, string>> = {
-	'https://web.larixy.com': 'https://larixy.com',
-	'https://web.canary.larixy.com': 'https://canary.larixy.com',
+	'https://web.larixy.xyz': 'https://larixy.xyz',
+	'https://web.canary.larixy.xyz': 'https://canary.larixy.xyz',
 };
 
 const DOMAIN_MIGRATION_TARGET_TO_SOURCE: Readonly<Record<string, string>> = Object.fromEntries(

@@ -11,8 +11,8 @@ function getDesktopDownloadArch(arch: NodeJS.Architecture): DesktopDownloadArch 
 const DESKTOP_DOWNLOAD_ARCH = getDesktopDownloadArch(process.arch);
 const PACKAGE_ORIGIN_ENV = 'LARIXY_DESKTOP_PACKAGE_ORIGIN';
 const CHANNEL_PACKAGE_ORIGINS: Record<BuildChannel, string> = {
-	stable: 'https://pkgs.larixy.com',
-	canary: 'https://pkgs.larixy.com',
+	stable: 'https://pkgs.larixy.xyz',
+	canary: 'https://pkgs.larixy.xyz',
 	development: 'http://127.0.0.1:48780',
 };
 

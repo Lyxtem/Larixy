@@ -228,7 +228,7 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 			{
 				label: t('desktop.appMenu.website'),
 				click: async () => {
-					await openExternalDeduped('https://larixy.com');
+					await openExternalDeduped('https://larixy.xyz');
 				},
 			},
 			{
@@ -241,7 +241,7 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 			{
 				label: t('desktop.appMenu.reportIssue'),
 				click: async () => {
-					await openExternalDeduped('https://feedback.larixy.com');
+					await openExternalDeduped('https://feedback.larixy.xyz');
 				},
 			},
 			{type: 'separator'},

@@ -3,7 +3,7 @@
 {{- if kindIs "invalid" $w.replicas }}1{{ else }}{{ $w.replicas | int }}{{ end }}
 {{- end }}
 
-{{- define "larixy.comPod" -}}
+{{- define "larixy.xyzPod" -}}
 {{- $root := .root }}
 {{- $w := .w | default dict }}
 {{- $readsSecret := and (not .noEnvFrom) (not .configMapOnly) }}
@@ -86,7 +86,7 @@ spec:
   {{- end }}
 {{- end }}
 
-{{- define "larixy.com" -}}
+{{- define "larixy.xyz" -}}
 {{- $root := .root }}
 {{- $w := .w | default dict }}
 ---
@@ -113,7 +113,7 @@ spec:
     {{- toYaml .strategy | nindent 4 }}
   {{- end }}
   template:
-    {{- include "larixy.comPod" . | nindent 4 }}
+    {{- include "larixy.xyzPod" . | nindent 4 }}
 {{- if not .noService }}
 ---
 apiVersion: v1

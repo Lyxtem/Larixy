@@ -20,7 +20,7 @@ const PAGE = {
 	issuedAt: new Date('2026-11-01T16:03:29Z'),
 	copy: 'original' as const,
 	source: 'purchase' as const,
-	verificationUrl: 'https://larixy.com/pass/c/Q2VydGlmaWNhdGVfTGluaw',
+	verificationUrl: 'https://larixy.xyz/pass/c/Q2VydGlmaWNhdGVfTGluaw',
 };
 
 function sha256(bytes: Uint8Array): string {
@@ -72,7 +72,7 @@ describe('Operator certificate PDF', () => {
 
 	it('keeps the link line inside the frame at a long marketing address', async () => {
 		const {width, maxWidth} = await measureOperatorPassCertificateVerificationLine(
-			`https://marketing.canary.larixy.com/pass/c/${'W'.repeat(22)}`,
+			`https://marketing.canary.larixy.xyz/pass/c/${'W'.repeat(22)}`,
 		);
 		expect(width).toBeLessThanOrEqual(maxWidth);
 	});

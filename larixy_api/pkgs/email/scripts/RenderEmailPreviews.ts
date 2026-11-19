@@ -59,7 +59,7 @@ const PIX: BillingPaymentMethod = {kind: 'named', name: 'Pix'};
 const NO_METHOD: BillingPaymentMethod = {kind: 'none'};
 const CHARGE_AT = new Date('2026-11-12T08:00:00Z');
 const TIME_ZONE = 'Europe/Stockholm';
-const DONATION_MANAGE_URL = 'https://larixy.com/donate/manage?email=operator%40example.com';
+const DONATION_MANAGE_URL = 'https://larixy.xyz/donate/manage?email=operator%40example.com';
 const SUBSCRIPTION_ID = 'sub_1SJHDHFPC94Os7Fd';
 
 function passTotals(locale: string, quantity: number): BillingTotals {
@@ -103,17 +103,17 @@ const outDir = path.resolve(values.out);
 const locales = values.all ? ['en-US', ...Object.keys(EMAIL_I18N_LOCALE_MESSAGES)] : (values.locale ?? DEFAULT_LOCALES);
 const config: EmailConfig = {
 	enabled: true,
-	fromEmail: 'noreply@m.larixy.com',
+	fromEmail: 'noreply@m.larixy.xyz',
 	fromName: 'Larixy',
-	replyTo: 'support@larixy.com',
-	appBaseUrl: 'https://larixy.com',
-	apiBaseUrl: 'https://api.larixy.com',
-	appealsEmail: 'appeals@larixy.com',
-	privacyEmail: 'privacy@larixy.com',
-	safetyEmail: 'safety@larixy.com',
-	supportEmail: 'support@larixy.com',
+	replyTo: 'support@larixy.xyz',
+	appBaseUrl: 'https://larixy.xyz',
+	apiBaseUrl: 'https://api.larixy.xyz',
+	appealsEmail: 'appeals@larixy.xyz',
+	privacyEmail: 'privacy@larixy.xyz',
+	safetyEmail: 'safety@larixy.xyz',
+	supportEmail: 'support@larixy.xyz',
 	productName: 'Larixy',
-	marketingBaseUrl: 'https://larixy.com',
+	marketingBaseUrl: 'https://larixy.xyz',
 	staticCdnBaseUrl: values['static-base'],
 	legalAddress:
 		'Larixy Platform AB (org. no. 559537-3993, registered office Haninge, Sweden), c/o Embassy House, Östgötagatan 12, 116 25 Stockholm, Sweden',
@@ -217,12 +217,12 @@ const SUSPENSION_NOTICE: EmailTemplateVariables['enforcement_notice'] = {
 	summary: 'We suspended your account until Oct 21, 2026, 10:00 AM UTC.',
 	effects: "You can't sign in or use Larixy anywhere until then. Your account, messages and communities are kept.",
 	rule_title: 'Spam',
-	rule_url: 'https://larixy.com/guidelines#6-spam-and-service-abuse',
+	rule_url: 'https://larixy.xyz/guidelines#6-spam-and-service-abuse',
 	facts:
 		'We found that your account sent unwanted messages in bulk.\n2 messages in #general of Plant Club, between Oct 1, 2026, 9:00 AM UTC and Oct 2, 2026, 6:30 PM UTC.',
 	statement: 'You posted the same link in ten communities.',
 	how_we_decided: 'We found this in our own review, and a person on our team made the decision.',
-	appeals_email: 'appeals@larixy.com',
+	appeals_email: 'appeals@larixy.xyz',
 	appeal_deadline: 'Dec 13, 2026',
 	redress:
 		"If you're in the EU, you can also refer this decision to a certified out-of-court dispute settlement body. The European Commission keeps a [list of these bodies](https://digital-strategy.ec.europa.eu/en/policies/dsa-out-court-dispute-settlement). You can also complain to the Digital Services Coordinator in your EU country, or go to court.",
@@ -294,19 +294,19 @@ const previews: Record<string, Preview> = {
 		service.send(
 			'donation_magic_link',
 			USER,
-			{manageUrl: `https://larixy.com/donate/manage#token=${token}`, expiresAt: DATE},
+			{manageUrl: `https://larixy.xyz/donate/manage#token=${token}`, expiresAt: DATE},
 			locale,
 		),
 	registration_approved: (locale) => service.send('registration_approved', USER, {}, locale),
 	registration_pending: (locale) =>
-		service.send('registration_pending', USER, {reviewUrl: 'https://admin.larixy.com/pending-registrations'}, locale),
+		service.send('registration_pending', USER, {reviewUrl: 'https://admin.larixy.xyz/pending-registrations'}, locale),
 	bulk_message_deletion_completed: (locale) =>
 		service.send('bulk_message_deletion_completed', USER, {message_count: 1240, channel_count: 18}, locale),
 	donation_confirmation: (locale) =>
 		service.send(
 			'donation_confirmation',
 			USER,
-			{amountCents: 1000, currency: 'eur', interval: 'month', manageUrl: 'https://larixy.com/donate/manage'},
+			{amountCents: 1000, currency: 'eur', interval: 'month', manageUrl: 'https://larixy.xyz/donate/manage'},
 			locale,
 		),
 	donation_confirmation_once: (locale) =>
@@ -317,7 +317,7 @@ const previews: Record<string, Preview> = {
 				amountCents: 2500,
 				currency: 'eur',
 				interval: 'once',
-				manageUrl: 'https://larixy.com/donate/manage',
+				manageUrl: 'https://larixy.xyz/donate/manage',
 				paidAt: DATE,
 				reference: '1234-5678',
 				document: sampleDocument('DN-000042'),
@@ -334,7 +334,7 @@ const previews: Record<string, Preview> = {
 				period: {start: DATE, end: new Date('2026-11-09T14:30:00Z')},
 				totals: {totalMinor: 1000, paidMinor: 1000, currency: 'EUR', tax: null, reverseCharge: false},
 				document: sampleDocument('DN-000043'),
-				manageUrl: 'https://larixy.com/donate/manage',
+				manageUrl: 'https://larixy.xyz/donate/manage',
 			},
 			locale,
 		),
@@ -360,7 +360,7 @@ const previews: Record<string, Preview> = {
 				attemptedAt: DATE,
 				amountMinor: 1000,
 				currency: 'EUR',
-				manageUrl: 'https://larixy.com/donate/manage',
+				manageUrl: 'https://larixy.xyz/donate/manage',
 			},
 			locale,
 		),
@@ -369,7 +369,7 @@ const previews: Record<string, Preview> = {
 			'harvest_completed',
 			USER,
 			{
-				downloadUrl: `https://exports.larixy.com/harvest/1234567890.zip?signature=${token}`,
+				downloadUrl: `https://exports.larixy.xyz/harvest/1234567890.zip?signature=${token}`,
 				totalMessages: 48213,
 				fileSize: 734003200,
 				expiresAt: DATE,
@@ -401,7 +401,7 @@ const previews: Record<string, Preview> = {
 				summary: 'We banned your account.',
 				effects: "You can't sign in or use Larixy anywhere. You may not create or use other accounts.",
 				rule_title: 'Child safety',
-				rule_url: 'https://larixy.com/guidelines#4-sexual-content-and-protection-of-minors',
+				rule_url: 'https://larixy.xyz/guidelines#4-sexual-content-and-protection-of-minors',
 				facts: 'We found content or activity on your account that breaks our rules on protecting children.',
 				statement: null,
 			},

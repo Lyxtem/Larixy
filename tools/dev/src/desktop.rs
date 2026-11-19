@@ -15,7 +15,7 @@ use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 pub const DEVELOPMENT_APP_NAME: &str = "Larixy Development";
 pub const DEFAULT_INSTALL_DIR: &str = "/Applications";
 const DEVELOPMENT_CHANNEL: &str = "development";
-const DEVELOPMENT_BUNDLE_ID: &str = "app.larixy.comelopment";
+const DEVELOPMENT_BUNDLE_ID: &str = "app.larixy.xyzelopment";
 const DEVELOPMENT_PROTOCOL_SCHEME: &str = "larixy-development";
 const PRODUCTION_PROTOCOL_SCHEME: &str = "larixy";
 const RENDERER_BUILD_VERSION: &str = "dev";

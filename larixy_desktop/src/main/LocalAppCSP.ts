@@ -10,7 +10,7 @@ const FRAME_SOURCES: ReadonlyArray<string> = Object.freeze([
 ]);
 
 const IMAGE_SOURCES: ReadonlyArray<string> = Object.freeze([
-	'https://*.larixy.com',
+	'https://*.larixy.xyz',
 	'https://i.ytimg.com',
 	'https://*.youtube.com',
 	'https://*.larixy.media',
@@ -18,33 +18,33 @@ const IMAGE_SOURCES: ReadonlyArray<string> = Object.freeze([
 ]);
 
 const MEDIA_SOURCES: ReadonlyArray<string> = Object.freeze([
-	'https://*.larixy.com',
+	'https://*.larixy.xyz',
 	'https://*.youtube.com',
 	'https://*.larixy.media',
 	'https://larixy.media',
 ]);
 
-const SCRIPT_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.com']);
+const SCRIPT_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.xyz']);
 
 const STYLE_SOURCES: ReadonlyArray<string> = Object.freeze([
-	'https://*.larixy.com',
-	'https://*.larixy.com',
-	'https://larixy.com',
+	'https://*.larixy.xyz',
+	'https://*.larixy.xyz',
+	'https://larixy.xyz',
 	'https://fonts.googleapis.com',
 	'https://api.fonts.coollabs.io',
 ]);
 
 const FONT_SOURCES: ReadonlyArray<string> = Object.freeze([
-	'https://*.larixy.com',
-	'https://*.larixy.com',
-	'https://larixy.com',
+	'https://*.larixy.xyz',
+	'https://*.larixy.xyz',
+	'https://larixy.xyz',
 	'https://fonts.gstatic.com',
 	'https://cdn.fonts.coollabs.io',
 ]);
 
 const CONNECT_SOURCES: ReadonlyArray<string> = Object.freeze([
-	'https://*.larixy.com',
-	'wss://*.larixy.com',
+	'https://*.larixy.xyz',
+	'wss://*.larixy.xyz',
 	'https://*.larixy.media',
 	'wss://*.larixy.media',
 	'https://larixy-uploads.ewr1.vultrobjects.com',
@@ -58,9 +58,9 @@ const LOOPBACK_HTTP_SOURCES: ReadonlyArray<string> = Object.freeze([
 	'http://127.0.0.1:*',
 ]);
 
-const WORKER_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.com', 'blob:']);
+const WORKER_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.xyz', 'blob:']);
 
-const MANIFEST_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.com']);
+const MANIFEST_SOURCES: ReadonlyArray<string> = Object.freeze(['https://*.larixy.xyz']);
 
 const SELF_SOURCE = "'self'";
 const NONE_SOURCE = "'none'";

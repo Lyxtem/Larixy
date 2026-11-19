@@ -85,7 +85,7 @@ describe('desktopExecRunsPath', () => {
 
 	it('reads paths quoted and escaped the way our own entry writes them', () => {
 		expect(desktopExecRunsPath('"/home/u/My Apps/Flu\\\\$x.AppImage" %U', '/home/u/My Apps/Flu$x.AppImage')).toBe(true);
-		expect(desktopExecRunsPath("'/home/u/My Apps/larixy.comimage' %U", '/home/u/My Apps/larixy.comimage')).toBe(true);
+		expect(desktopExecRunsPath("'/home/u/My Apps/larixy.xyzimage' %U", '/home/u/My Apps/larixy.xyzimage')).toBe(true);
 	});
 });
 
@@ -117,7 +117,7 @@ describe('isWindowDesktopEntry', () => {
 });
 
 describe('isAppImageIntegratorEntry', () => {
-	const appImage = '/home/u/AppImages/larixy.comimage';
+	const appImage = '/home/u/AppImages/larixy.xyzimage';
 
 	it('accepts the entry Gear Lever writes for the AppImage', () => {
 		const gearLever = entry(

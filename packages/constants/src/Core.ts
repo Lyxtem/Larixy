@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 export const LARIXY_EPOCH = 1420070400000;
-export const LARIXY_USER_AGENT = 'Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.com)';
+export const LARIXY_USER_AGENT = 'Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.xyz)';
 export const ADMIN_OAUTH2_APPLICATION_ID = 1234567890123456789n;
 export const URL_REGEX = /https?:\/\/[^\s/$.?#].[^\s]*/g;
 export const DeletionReasons = {

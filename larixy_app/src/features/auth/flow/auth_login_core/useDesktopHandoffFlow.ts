@@ -26,7 +26,7 @@ const HANDOFF_REQUEST_EXPIRED_DESCRIPTOR = msg({
 const TYPED_CODE_NOT_FOUND_DESCRIPTOR = msg({
 	message: 'That code is not valid on {instanceHost}. Check the code in the {productName} app and try again.',
 	comment:
-		'Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.com. productName is the app name, such as Larixy.',
+		'Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.xyz. productName is the app name, such as Larixy.',
 });
 const COULDN_T_VERIFY_THAT_CODE_PLEASE_TRY_AGAIN_DESCRIPTOR = msg({
 	message: "Couldn't verify that code. Try again.",

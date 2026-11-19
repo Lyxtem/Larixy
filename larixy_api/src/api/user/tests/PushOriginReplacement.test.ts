@@ -8,8 +8,8 @@ import {classifyWebPushOrigin, sameUserAgentFamily} from '@app/api/user/services
 import {listPushSubscriptions} from '@app/api/user/tests/UserTestUtils';
 import {afterAll, beforeAll, beforeEach, describe, expect, it} from 'vitest';
 
-const LEGACY_ORIGIN = 'https://web.larixy.com';
-const TARGET_ORIGIN = 'https://larixy.com';
+const LEGACY_ORIGIN = 'https://web.larixy.xyz';
+const TARGET_ORIGIN = 'https://larixy.xyz';
 const IPHONE_UA =
 	'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 const IPHONE_UPDATED_UA =
@@ -40,11 +40,11 @@ interface HandoffStatusResponse {
 
 describe('classifyWebPushOrigin', () => {
 	it.each([
-		{origin: 'https://web.larixy.com', kind: 'legacy'},
-		{origin: 'https://web.canary.larixy.com', kind: 'legacy'},
-		{origin: 'https://larixy.com', kind: 'target'},
-		{origin: 'https://canary.larixy.com', kind: 'target'},
-		{origin: 'https://larixy.com', kind: null},
+		{origin: 'https://web.larixy.xyz', kind: 'legacy'},
+		{origin: 'https://web.canary.larixy.xyz', kind: 'legacy'},
+		{origin: 'https://larixy.xyz', kind: 'target'},
+		{origin: 'https://canary.larixy.xyz', kind: 'target'},
+		{origin: 'https://larixy.xyz', kind: null},
 		{origin: 'https://example.com', kind: null},
 		{origin: undefined, kind: null},
 		{origin: null, kind: null},
@@ -212,7 +212,7 @@ describe('web push origin replacement', () => {
 	it('never removes another new-origin subscription of the same session', async () => {
 		const account = await createTestAccount(harness);
 		const first = await subscribeFrom(account.token, TARGET_ORIGIN, 'https://push.example.com/target-a');
-		const second = await subscribeFrom(account.token, 'https://canary.larixy.com', 'https://push.example.com/target-b');
+		const second = await subscribeFrom(account.token, 'https://canary.larixy.xyz', 'https://push.example.com/target-b');
 		expect(await listSubscriptionIds(account.token)).toEqual([first, second].sort());
 	});
 

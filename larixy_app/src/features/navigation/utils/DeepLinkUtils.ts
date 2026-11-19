@@ -231,7 +231,7 @@ export async function startDeepLinkHandling(): Promise<void> {
 	}
 }
 
-const OFFICIAL_INTERNAL_APP_HOSTS = [...OFFICIAL_WEB_APP_HOSTS, 'larixy.com', 'canary.larixy.com'];
+const OFFICIAL_INTERNAL_APP_HOSTS = [...OFFICIAL_WEB_APP_HOSTS, 'larixy.xyz', 'canary.larixy.xyz'];
 const getNormalizedWebAppHost = (): string => {
 	try {
 		return new URL(RuntimeConfig.webAppBaseUrl).host.toLowerCase();

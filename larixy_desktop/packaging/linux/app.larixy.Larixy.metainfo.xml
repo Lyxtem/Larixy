@@ -44,14 +44,14 @@
     <screenshots>
         <screenshot type="default" xml:lang="en">
             <caption>The main Larixy window.</caption>
-            <image type="source" width="2560" height="2227">https://larixy.com/static/img/screenshots-desktop-2560w.d16e05c99b8b6b2b.avif</image>
+            <image type="source" width="2560" height="2227">https://larixy.xyz/static/img/screenshots-desktop-2560w.d16e05c99b8b6b2b.avif</image>
         </screenshot>
     </screenshots>
-    <url type="bugtracker">https://feedback.larixy.com</url>
-    <url type="homepage">https://larixy.com</url>
-    <url type="donation">https://larixy.com/donate</url>
-    <url type="contact">https://larixy.com/company-information#contact</url>
-    <url type="translate">https://translate.larixy.com/</url>
+    <url type="bugtracker">https://feedback.larixy.xyz</url>
+    <url type="homepage">https://larixy.xyz</url>
+    <url type="donation">https://larixy.xyz/donate</url>
+    <url type="contact">https://larixy.xyz/company-information#contact</url>
+    <url type="translate">https://translate.larixy.xyz/</url>
     <url type="vcs-browser">https://github.com/larixyapp/larixy.git</url>
     <update_contact>fen@unix.dog</update_contact>
     <provides>

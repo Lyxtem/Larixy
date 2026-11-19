@@ -19,7 +19,7 @@ import DomainMigrationRollout from '@app/features/app/domain_migration/DomainMig
 import {getProtectedLocalStorage} from '@app/features/platform/state/ProtectedWebStorage';
 import {makeAutoObservable} from 'mobx';
 
-const FALLBACK_TARGET = DOMAIN_MIGRATION_SOURCE_TO_TARGET['https://web.larixy.com'];
+const FALLBACK_TARGET = DOMAIN_MIGRATION_SOURCE_TO_TARGET['https://web.larixy.xyz'];
 
 function readDismissedAt(): number | null {
 	try {

@@ -4,12 +4,12 @@ import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import * as CodeLinkUtils from '@app/features/messaging/utils/CodeLinkUtils';
 
 const OFFICIAL_GIFT_URL_BASES = Object.freeze([
-	'https://larixy.com/gift',
-	'https://canary.larixy.com/gift',
-	'https://web.larixy.com/gift',
-	'https://web.canary.larixy.com/gift',
-	'https://larixy.com/gift',
-	'https://canary.larixy.com/gift',
+	'https://larixy.xyz/gift',
+	'https://canary.larixy.xyz/gift',
+	'https://web.larixy.xyz/gift',
+	'https://web.canary.larixy.xyz/gift',
+	'https://larixy.xyz/gift',
+	'https://canary.larixy.xyz/gift',
 	'https://larixy.gift',
 	'https://larixy.gift/gift',
 ]);

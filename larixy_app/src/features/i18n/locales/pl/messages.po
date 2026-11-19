@@ -2066,32 +2066,32 @@ msgstr "Aplikacja {productName} wykryła potencjalny nalot, więc nowi użytkown
 msgid "{productName} failed to start properly. This could be due to corrupted data or a temporary issue."
 msgstr "Aplikacja {productName} nie uruchomiła się poprawnie. Może to być spowodowane uszkodzonymi danymi lub tymczasowym problemem."
 
-#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.com. Home Screen and Dock are Apple names.
+#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.xyz. Home Screen and Dock are Apple names.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Add it to your Home Screen or Dock, then sign in with this app."
 msgstr "Aplikacja {productName} została przeniesiona do {host}. Dodaj ją do ekranu początkowego lub Docka, a następnie zaloguj się za pomocą tej aplikacji."
 
-#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install it from your browser, then sign in with this app."
 msgstr "Aplikacja {productName} została przeniesiona do {host}. Zainstaluj ją z przeglądarki, a następnie zaloguj się za pomocą tej aplikacji."
 
-#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install the new app and you will already be signed in."
 msgstr "Aplikacja {productName} została przeniesiona do {host}. Zainstaluj nową aplikację, a będziesz już zalogowany."
 
-#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Open it in your browser to install the new app."
 msgstr "Aplikacja {productName} została przeniesiona do {host}. Otwórz ją w przeglądarce, aby zainstalować nową aplikację."
 
-#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there, then sign in with this app."
 msgstr "{productName} jest teraz pod adresem {host}. Zainstaluj go stamtąd, a następnie zaloguj się za pomocą tej aplikacji."
 
-#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there."
 msgstr "{productName} jest teraz pod adresem {host}. Zainstaluj go stamtąd."
@@ -2427,7 +2427,7 @@ msgstr "{username} obserwuje {name} w tym kanale. Wiadomości publikowane tam b�
 msgid "{username} has left the group."
 msgstr "{username}: opuszczono grupę."
 
-#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.com.
+#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.xyz.
 #: src/features/theme_settings/components/ThisAccountSection.tsx
 msgid "{username} on {instanceName}"
 msgstr "{username} na {instanceName}"
@@ -5281,7 +5281,7 @@ msgstr "Zastosuj motyw"
 msgid "Apply to all communities"
 msgstr "Zastosuj do wszystkich społeczności"
 
-#. Hint under the sign-in option on larixy.com that pairs a newly installed app with the old installed app. productName is the app name.
+#. Hint under the sign-in option on larixy.xyz that pairs a newly installed app with the old installed app. productName is the app name.
 #: src/features/auth/flow/AuthLoginLayout.tsx
 msgid "Approve this app from the {productName} app you already use. No password needed."
 msgstr "Zatwierdź tę aplikację w aplikacji {productName}, której już używasz. Hasło nie jest potrzebne."
@@ -14156,7 +14156,7 @@ msgstr "Nie usuwaj żadnych"
 msgid "Don't have an account?"
 msgstr "Nie masz konta?"
 
-#. Link under the Weblate line in the language settings. It opens a help article on larixy.com about suggesting a new language and helping translate the app. Keep it a short question.
+#. Link under the Weblate line in the language settings. It opens a help article on larixy.xyz about suggesting a new language and helping translate the app. Keep it a short question.
 #: src/features/user/components/modals/tabs/LanguageTab.tsx
 msgid "Don't see your language?"
 msgstr "Nie widzisz swojego języka?"
@@ -18853,7 +18853,7 @@ msgstr "Ukryj {appName}"
 msgid "Hide {premiumProductName} purchase date"
 msgstr "Ukryj datę zakupu {premiumProductName}"
 
-#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.com.
+#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.xyz.
 #: src/features/channel/components/direct_message/DirectMessageList.tsx
 msgid "Hide {productName} button"
 msgstr ""
@@ -25742,7 +25742,7 @@ msgstr "Na stronie płatności podaj nazwę firmy, adres i numer VAT."
 msgid "On the wall"
 msgstr "Na ścianie"
 
-#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.com/login?handoff=1.
+#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.xyz/login?handoff=1.
 #: src/features/auth/flow/auth_login_core/AuthLoginBrowserStep.tsx
 msgid "On your other device, sign in at {signInAddress} and enter this code when asked."
 msgstr "Na drugim urządzeniu zaloguj się na {signInAddress} i wpisz ten kod, gdy zostaniesz o to poproszony."
@@ -26019,12 +26019,12 @@ msgstr "Otwórz {contextName}"
 msgid "Open {displayName}"
 msgstr "Otwórz {displayName}"
 
-#. First install step on Apple devices. host is the new domain, for example larixy.com. Safari is the browser.
+#. First install step on Apple devices. host is the new domain, for example larixy.xyz. Safari is the browser.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in Safari."
 msgstr "Otwórz {host} w Safari."
 
-#. First install step on other devices. host is the new domain, for example larixy.com.
+#. First install step on other devices. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in your browser."
 msgstr "Otwórz {host} w przeglądarce."
@@ -34187,7 +34187,7 @@ msgstr "Zaloguj się nazwą użytkownika"
 msgid "Sign in with your browser"
 msgstr "Zaloguj się przez przeglądarkę"
 
-#. Sign-in option and modal title on larixy.com that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
+#. Sign-in option and modal title on larixy.xyz that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
 #: src/features/auth/flow/BrowserLoginHandoffModal.tsx
 msgid "Sign in with your old {productName} app"
 msgstr "Zaloguj się za pomocą swojej starej aplikacji {productName}"
@@ -36774,7 +36774,7 @@ msgstr "Dziękujemy za informację. To samo w sobie nie narusza naszych zasad, w
 msgid "That account can't receive a pass right now, for example because it's being deleted or can't have an Operator Pass."
 msgstr "To konto nie może teraz otrzymać przepustki, na przykład dlatego, że jest usuwane lub nie może mieć Operator Pass."
 
-#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.com. productName is the app name, such as Larixy.
+#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.xyz. productName is the app name, such as Larixy.
 #: src/features/auth/flow/auth_login_core/useDesktopHandoffFlow.ts
 msgid "That code is not valid on {instanceHost}. Check the code in the {productName} app and try again."
 msgstr "Ten kod nie jest prawidłowy w witrynie {instanceHost}. Sprawdź kod w aplikacji {productName} i spróbuj ponownie."
@@ -41046,7 +41046,7 @@ msgstr "Użyj innego konta"
 msgid "Use a different email"
 msgstr "Użyj innego adresu e-mail"
 
-#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.com.
+#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.xyz.
 #: src/features/auth/AuthMessageDescriptors.ts
 msgid "Use a passkey saved for {host}"
 msgstr "Użyj klucza dostępu zapisanego dla {host}"

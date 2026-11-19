@@ -14,8 +14,8 @@ const CHANNEL_APP_PROTOCOLS: Record<BuildChannel, string> = {
 	development: 'larixy-development',
 };
 export const APP_PROTOCOL = CHANNEL_APP_PROTOCOLS[BUILD_CHANNEL];
-export const STABLE_APP_URL = 'https://web.larixy.com';
-const CANARY_APP_URL = 'https://web.canary.larixy.com';
+export const STABLE_APP_URL = 'https://web.larixy.xyz';
+const CANARY_APP_URL = 'https://web.canary.larixy.xyz';
 const DEVELOPMENT_APP_URL = 'http://localhost:8088';
 export const CHANNEL_APP_URLS: Record<BuildChannel, string> = {
 	stable: STABLE_APP_URL,
@@ -24,12 +24,12 @@ export const CHANNEL_APP_URLS: Record<BuildChannel, string> = {
 };
 export const LOCAL_DEVELOPMENT_INSTANCE_URL = BUILD_CHANNEL === 'development' ? DEVELOPMENT_APP_URL : null;
 export const DOWNLOAD_PAGE_URLS: Record<BuildChannel, string> = {
-	stable: 'https://larixy.com/download',
-	canary: 'https://canary.larixy.com/download',
+	stable: 'https://larixy.xyz/download',
+	canary: 'https://canary.larixy.xyz/download',
 	development: 'http://localhost:8088/download',
 };
-export const STABLE_MIGRATED_APP_ORIGIN = 'https://larixy.com';
-export const CANARY_MIGRATED_APP_ORIGIN = 'https://canary.larixy.com';
+export const STABLE_MIGRATED_APP_ORIGIN = 'https://larixy.xyz';
+export const CANARY_MIGRATED_APP_ORIGIN = 'https://canary.larixy.xyz';
 export const DESKTOP_APP_SCHEME = DESKTOP_LOCAL_APP_SCHEME;
 export const DESKTOP_APP_HOST = DESKTOP_LOCAL_APP_HOST;
 export const DESKTOP_APP_ORIGIN = DESKTOP_LOCAL_APP_ORIGIN;

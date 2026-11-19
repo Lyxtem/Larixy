@@ -102,10 +102,10 @@ const FRAME_SOURCES: &[&str] = &[
 ];
 
 const IMAGE_SOURCES: &[&str] = &[
-    "https://*.larixy.com",
-    "https://*.larixy.com",
-    "https://larixy.com",
-    "https://larixy.com",
+    "https://*.larixy.xyz",
+    "https://*.larixy.xyz",
+    "https://larixy.xyz",
+    "https://larixy.xyz",
     "https://i.ytimg.com",
     "https://*.youtube.com",
     "https://*.larixy.media",
@@ -113,38 +113,38 @@ const IMAGE_SOURCES: &[&str] = &[
 ];
 
 const MEDIA_SOURCES: &[&str] = &[
-    "https://*.larixy.com",
-    "https://*.larixy.com",
-    "https://larixy.com",
-    "https://larixy.com",
+    "https://*.larixy.xyz",
+    "https://*.larixy.xyz",
+    "https://larixy.xyz",
+    "https://larixy.xyz",
     "https://*.youtube.com",
     "https://*.larixy.media",
     "https://larixy.media",
 ];
 
-const SCRIPT_SOURCES: &[&str] = &["https://*.larixy.com"];
+const SCRIPT_SOURCES: &[&str] = &["https://*.larixy.xyz"];
 
 const STYLE_SOURCES: &[&str] = &[
-    "https://*.larixy.com",
-    "https://*.larixy.com",
-    "https://larixy.com",
+    "https://*.larixy.xyz",
+    "https://*.larixy.xyz",
+    "https://larixy.xyz",
     "https://fonts.googleapis.com",
     "https://api.fonts.coollabs.io",
 ];
 
 const FONT_SOURCES: &[&str] = &[
-    "https://*.larixy.com",
-    "https://*.larixy.com",
-    "https://larixy.com",
+    "https://*.larixy.xyz",
+    "https://*.larixy.xyz",
+    "https://larixy.xyz",
     "https://fonts.gstatic.com",
     "https://cdn.fonts.coollabs.io",
 ];
 
 const CONNECT_SOURCES: &[&str] = &[
-    "https://*.larixy.com",
-    "https://*.larixy.com",
-    "wss://*.larixy.com",
-    "wss://*.larixy.com",
+    "https://*.larixy.xyz",
+    "https://*.larixy.xyz",
+    "wss://*.larixy.xyz",
+    "wss://*.larixy.xyz",
     "https://*.larixy.media",
     "wss://*.larixy.media",
     "https://larixy-uploads.ewr1.vultrobjects.com",
@@ -152,9 +152,9 @@ const CONNECT_SOURCES: &[&str] = &[
     "https://larixy.media",
 ];
 
-const WORKER_SOURCES: &[&str] = &["https://*.larixy.com", "blob:"];
+const WORKER_SOURCES: &[&str] = &["https://*.larixy.xyz", "blob:"];
 
-const MANIFEST_SOURCES: &[&str] = &["https://*.larixy.com"];
+const MANIFEST_SOURCES: &[&str] = &["https://*.larixy.xyz"];
 
 #[derive(Debug, thiserror::Error)]
 pub enum CspCompileError {

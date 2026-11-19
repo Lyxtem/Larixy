@@ -230,7 +230,7 @@ describe('buildEnforcementNotice', () => {
 			facts: ["We don't have more detail on record for this decision."],
 			statement: null,
 			how_we_decided: [],
-			appeal: {email: 'appeals@larixy.com', deadline: null, account_has_email: true},
+			appeal: {email: 'appeals@larixy.xyz', deadline: null, account_has_email: true},
 		});
 		const banned = buildEnforcementNotice(
 			{

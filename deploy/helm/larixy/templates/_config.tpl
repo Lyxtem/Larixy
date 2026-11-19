@@ -90,7 +90,7 @@
 {{- toYaml $out }}
 {{- end }}
 
-{{- define "larixy.comProxyConfigData" -}}
+{{- define "larixy.xyzProxyConfigData" -}}
 {{- $v := .Values }}
 {{- $s3 := include "larixy.s3Endpoint" . }}
 {{- $c := dict }}

@@ -5,8 +5,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 11:17+0200\n"
 "PO-Revision-Date: 2026-09-23 00:04+0000\n"
-"Last-Translator: Hampus <hampus@larixy.com>\n"
-"Language-Team: Ukrainian <https://translate.larixy.com/projects/larixy/app/uk/>\n"
+"Last-Translator: Hampus <hampus@larixy.xyz>\n"
+"Language-Team: Ukrainian <https://translate.larixy.xyz/projects/larixy/app/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2066,32 +2066,32 @@ msgstr "{productName} виявив потенційний рейд, тому н�
 msgid "{productName} failed to start properly. This could be due to corrupted data or a temporary issue."
 msgstr "{productName} не вдалося запустити належним чином. Це може бути пов’язано з пошкодженими даними або тимчасовою проблемою."
 
-#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.com. Home Screen and Dock are Apple names.
+#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.xyz. Home Screen and Dock are Apple names.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Add it to your Home Screen or Dock, then sign in with this app."
 msgstr "{productName} переїхав на {host}. Додайте його на Початковий екран або в Dock, а потім увійдіть за допомогою цього застосунку."
 
-#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install it from your browser, then sign in with this app."
 msgstr "{productName} переїхав на {host}. Встановіть його з браузера, а потім увійдіть за допомогою цього застосунку."
 
-#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install the new app and you will already be signed in."
 msgstr "{productName} переїхав на {host}. Установіть новий застосунок, і вхід уже буде виконано."
 
-#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Open it in your browser to install the new app."
 msgstr "{productName} переїхав на {host}. Відкрийте його у браузері, щоб установити новий застосунок."
 
-#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there, then sign in with this app."
 msgstr "{productName} тепер за адресою {host}. Встановіть його звідти, а потім увійдіть за допомогою цієї програми."
 
-#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there."
 msgstr "{productName} тепер за адресою {host}. Встановіть звідти."
@@ -2427,7 +2427,7 @@ msgstr "{username} підписався на {name} у цьому каналі. 
 msgid "{username} has left the group."
 msgstr "{username} вийшов(-ла) з групи."
 
-#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.com.
+#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.xyz.
 #: src/features/theme_settings/components/ThisAccountSection.tsx
 msgid "{username} on {instanceName}"
 msgstr "{username} на {instanceName}"
@@ -5281,7 +5281,7 @@ msgstr "Застосувати тему"
 msgid "Apply to all communities"
 msgstr "Застосувати до всіх спільнот"
 
-#. Hint under the sign-in option on larixy.com that pairs a newly installed app with the old installed app. productName is the app name.
+#. Hint under the sign-in option on larixy.xyz that pairs a newly installed app with the old installed app. productName is the app name.
 #: src/features/auth/flow/AuthLoginLayout.tsx
 msgid "Approve this app from the {productName} app you already use. No password needed."
 msgstr "Підтвердьте цей застосунок у застосунку {productName}, яким ви вже користуєтеся. Пароль не потрібен."
@@ -14156,7 +14156,7 @@ msgstr "Не видаляти жодних"
 msgid "Don't have an account?"
 msgstr "Не маєте облікового запису?"
 
-#. Link under the Weblate line in the language settings. It opens a help article on larixy.com about suggesting a new language and helping translate the app. Keep it a short question.
+#. Link under the Weblate line in the language settings. It opens a help article on larixy.xyz about suggesting a new language and helping translate the app. Keep it a short question.
 #: src/features/user/components/modals/tabs/LanguageTab.tsx
 msgid "Don't see your language?"
 msgstr "Не бачите своєї мови?"
@@ -18853,7 +18853,7 @@ msgstr "Сховати {appName}"
 msgid "Hide {premiumProductName} purchase date"
 msgstr "Приховати дату придбання {premiumProductName}"
 
-#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.com.
+#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.xyz.
 #: src/features/channel/components/direct_message/DirectMessageList.tsx
 msgid "Hide {productName} button"
 msgstr ""
@@ -25742,7 +25742,7 @@ msgstr "На сторінці оплати вкажіть назву компа�
 msgid "On the wall"
 msgstr "На стіні"
 
-#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.com/login?handoff=1.
+#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.xyz/login?handoff=1.
 #: src/features/auth/flow/auth_login_core/AuthLoginBrowserStep.tsx
 msgid "On your other device, sign in at {signInAddress} and enter this code when asked."
 msgstr "На іншому пристрої увійдіть за адресою {signInAddress} і введіть цей код, коли буде запропоновано."
@@ -26019,12 +26019,12 @@ msgstr "Відкрити {contextName}"
 msgid "Open {displayName}"
 msgstr "Відкрити {displayName}"
 
-#. First install step on Apple devices. host is the new domain, for example larixy.com. Safari is the browser.
+#. First install step on Apple devices. host is the new domain, for example larixy.xyz. Safari is the browser.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in Safari."
 msgstr "Відкрийте {host} у Safari."
 
-#. First install step on other devices. host is the new domain, for example larixy.com.
+#. First install step on other devices. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in your browser."
 msgstr "Відкрийте {host} у браузері."
@@ -34187,7 +34187,7 @@ msgstr "Увійти за допомогою імені користувача"
 msgid "Sign in with your browser"
 msgstr "Увійти через браузер"
 
-#. Sign-in option and modal title on larixy.com that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
+#. Sign-in option and modal title on larixy.xyz that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
 #: src/features/auth/flow/BrowserLoginHandoffModal.tsx
 msgid "Sign in with your old {productName} app"
 msgstr "Увійти за допомогою старого застосунку {productName}"
@@ -36774,7 +36774,7 @@ msgstr "Дякуємо, що повідомили нам. Це саме по с�
 msgid "That account can't receive a pass right now, for example because it's being deleted or can't have an Operator Pass."
 msgstr "Цей обліковий запис зараз не може отримати пропуск, наприклад тому що його видаляють або він не може мати Operator Pass."
 
-#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.com. productName is the app name, such as Larixy.
+#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.xyz. productName is the app name, such as Larixy.
 #: src/features/auth/flow/auth_login_core/useDesktopHandoffFlow.ts
 msgid "That code is not valid on {instanceHost}. Check the code in the {productName} app and try again."
 msgstr "Цей код недійсний на {instanceHost}. Перевірте код у додатку {productName} та спробуйте ще раз."
@@ -41046,7 +41046,7 @@ msgstr "Використати інший обліковий запис"
 msgid "Use a different email"
 msgstr "Використати іншу електронну пошту"
 
-#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.com.
+#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.xyz.
 #: src/features/auth/AuthMessageDescriptors.ts
 msgid "Use a passkey saved for {host}"
 msgstr "Використати ключ доступу, збережений для {host}"

@@ -88,7 +88,7 @@ pub fn public_url_env(public_url: &str) -> Result<Vec<(String, String)>> {
         (
             "LARIXY_MARKETING_ENDPOINT".to_owned(),
             std::env::var("LARIXY_MARKETING_ENDPOINT")
-                .unwrap_or_else(|_| "https://larixy.com".to_owned()),
+                .unwrap_or_else(|_| "https://larixy.xyz".to_owned()),
         ),
         (
             "LARIXY_MEDIA_PROXY_PUBLIC_ENDPOINT".to_owned(),

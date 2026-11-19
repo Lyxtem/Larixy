@@ -13,12 +13,12 @@ import {ChannelTypes, GUILD_TEXT_BASED_CHANNEL_TYPES, Permissions} from '@larixy
 import {compareChannelOrdering} from '@larixy/schema/src/domains/channel/GuildChannelOrdering';
 
 const OFFICIAL_INVITE_URL_BASES = Object.freeze([
-	'https://larixy.com/invite',
-	'https://canary.larixy.com/invite',
-	'https://web.larixy.com/invite',
-	'https://web.canary.larixy.com/invite',
-	'https://larixy.com/invite',
-	'https://canary.larixy.com/invite',
+	'https://larixy.xyz/invite',
+	'https://canary.larixy.xyz/invite',
+	'https://web.larixy.xyz/invite',
+	'https://web.canary.larixy.xyz/invite',
+	'https://larixy.xyz/invite',
+	'https://canary.larixy.xyz/invite',
 	'https://larixy.gg',
 	'https://larixy.gg/invite',
 ]);

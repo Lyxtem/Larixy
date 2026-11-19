@@ -4,7 +4,7 @@ title: Downloads overview
 description: Where Larixy publishes desktop builds and Linux package repositories.
 ---
 
-Larixy publishes desktop builds and Linux package repositories at `https://pkgs.larixy.com`. You don't need to sign in to download anything.
+Larixy publishes desktop builds and Linux package repositories at `https://pkgs.larixy.xyz`. You don't need to sign in to download anything.
 
 | Page | What it has |
 | --- | --- |

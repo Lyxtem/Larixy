@@ -108,7 +108,7 @@ describe('DSA email delivery through SMTP', () => {
 			kind: 'message',
 			receipt: 'We received your Digital Services Act report about a message on Larixy.',
 			request: (target) => ({
-				message_link: `https://web.larixy.com/channels/${target.guildId}/${target.channelId}/${target.messageId}`,
+				message_link: `https://web.larixy.xyz/channels/${target.guildId}/${target.channelId}/${target.messageId}`,
 				steps: [
 					{screen_id: 'root_message', option_id: 'abuse'},
 					{screen_id: 'abuse', option_id: 'hate'},

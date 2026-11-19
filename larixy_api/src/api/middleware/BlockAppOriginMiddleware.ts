@@ -4,7 +4,7 @@ import {Config} from '@app/api/Config';
 import {InvalidApiOriginError} from '@larixy/errors/src/domains/core/InvalidApiOriginError';
 import type {Context, Next} from 'hono';
 
-const LEGACY_APP_ORIGINS = ['https://web.larixy.com', 'https://web.canary.larixy.com'];
+const LEGACY_APP_ORIGINS = ['https://web.larixy.xyz', 'https://web.canary.larixy.xyz'];
 
 export async function BlockAppOriginMiddleware(ctx: Context, next: Next) {
 	const origin = ctx.req.header('origin');

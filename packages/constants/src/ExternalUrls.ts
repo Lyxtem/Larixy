@@ -2,5 +2,5 @@
 
 export const ExternalUrls = {
 	SERVICE_STATUS: 'https://larixystatus.com',
-	BLUESKY: 'https://bsky.app/profile/larixy.com',
+	BLUESKY: 'https://bsky.app/profile/larixy.xyz',
 } as const;

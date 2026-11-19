@@ -5,7 +5,7 @@ pub const DESKTOP_APP_ORIGIN: &str = "larixy-app://app";
 pub(crate) const OPERATOR_WALL_PATH_PREFIX: &str = "/operator-wall/";
 
 pub const OUTBOUND_USER_AGENT: &str =
-    "Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.com)";
+    "Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.xyz)";
 pub const MAX_MEDIA_IMAGE_DIMENSION_DEFAULT: u32 = 16_384;
 pub const MAX_MEDIA_IMAGE_PIXELS_DEFAULT: usize =
     MAX_MEDIA_IMAGE_DIMENSION_DEFAULT as usize * MAX_MEDIA_IMAGE_DIMENSION_DEFAULT as usize;

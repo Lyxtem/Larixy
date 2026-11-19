@@ -11,7 +11,7 @@ import {parseAcceptLanguage} from '@larixy/i18n/src/locale/resolution/AcceptLang
 import type {Context} from 'hono';
 import {createMiddleware} from 'hono/factory';
 
-const CANARY_ORIGINS = new Set(['https://canary.larixy.com', 'https://web.canary.larixy.com']);
+const CANARY_ORIGINS = new Set(['https://canary.larixy.xyz', 'https://web.canary.larixy.xyz']);
 const UA_MAX_CHARS = 512;
 
 export interface ActivityRequestContext {

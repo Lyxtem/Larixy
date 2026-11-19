@@ -6,8 +6,8 @@ import type {WebAuthnCredential} from '@app/api/models/WebAuthnCredential';
 import {PASSKEY_MIGRATION_RP_ID} from '@larixy/constants/src/PasskeyConstants';
 
 const PASSKEY_TARGET_TO_LEGACY_ORIGIN: ReadonlyMap<string, string> = new Map([
-	['https://larixy.com', 'https://web.larixy.com'],
-	['https://canary.larixy.com', 'https://web.canary.larixy.com'],
+	['https://larixy.xyz', 'https://web.larixy.xyz'],
+	['https://canary.larixy.xyz', 'https://web.canary.larixy.xyz'],
 ]);
 
 export interface CredentialRpSelection {

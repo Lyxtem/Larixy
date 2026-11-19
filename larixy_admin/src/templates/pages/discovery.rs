@@ -141,7 +141,7 @@ fn guild_card(config: &AdminConfig, base: &str, guild: &DiscoveryGuild, actions:
                         }
                         @if guild.guild_nsfw && !config.self_hosted {
                             p class="text-sm text-amber-700" {
-                                "Not shown in Explore on larixy.com, because \"Mature content\" is on."
+                                "Not shown in Explore on larixy.xyz, because \"Mature content\" is on."
                             }
                         }
                         p class="text-sm text-neutral-500 break-all" {

@@ -4,7 +4,7 @@ import type {RuntimeConfigSnapshot} from '@app/features/app/state/RuntimeConfig'
 import {isDesktop} from '@app/features/ui/utils/NativeUtils';
 import {isOfficialInstanceHost} from '@larixy/instance_bootstrap/src/OfficialInstance';
 
-const DESKTOP_PASSKEY_RELYING_PARTIES: ReadonlyArray<string> = Object.freeze(['larixy.com', 'larixy.com']);
+const DESKTOP_PASSKEY_RELYING_PARTIES: ReadonlyArray<string> = Object.freeze(['larixy.xyz', 'larixy.xyz']);
 
 function hostFromEndpoint(endpoint: string | undefined): string | null {
 	if (endpoint == null || endpoint.length === 0) {

@@ -8,22 +8,22 @@ import {
 
 export const OFFICIAL_INSTANCE_NAME = 'Larixy';
 
-export const OFFICIAL_INSTANCE_DISPLAY_HOST = 'larixy.com';
+export const OFFICIAL_INSTANCE_DISPLAY_HOST = 'larixy.xyz';
 
-export const OFFICIAL_INSTANCE_DISPLAY_NAME = 'larixy.com';
+export const OFFICIAL_INSTANCE_DISPLAY_NAME = 'larixy.xyz';
 
 export const OFFICIAL_STABLE_MARKETING_ORIGIN = `https://${OFFICIAL_INSTANCE_DISPLAY_HOST}`;
 
 export const OFFICIAL_CLIENT_API_ENDPOINTS = Object.freeze({
-	stable: 'https://web.larixy.com/api',
-	canary: 'https://web.canary.larixy.com/api',
+	stable: 'https://web.larixy.xyz/api',
+	canary: 'https://web.canary.larixy.xyz/api',
 } as const);
 
 export type OfficialReleaseChannel = keyof typeof OFFICIAL_CLIENT_API_ENDPOINTS;
 
 const OFFICIAL_CLIENT_API_TRANSPORT_ENDPOINTS = Object.freeze({
-	stable: 'https://larixy.com/api',
-	canary: 'https://canary.larixy.com/api',
+	stable: 'https://larixy.xyz/api',
+	canary: 'https://canary.larixy.xyz/api',
 } as const) satisfies Record<OfficialReleaseChannel, string>;
 
 export function officialClientApiTransportEndpoint(apiEndpoint: string): string | null {
@@ -37,7 +37,7 @@ export function officialClientApiTransportEndpoint(apiEndpoint: string): string 
 
 export const OFFICIAL_MARKETING_ORIGINS = Object.freeze({
 	stable: OFFICIAL_STABLE_MARKETING_ORIGIN,
-	canary: 'https://canary.larixy.com',
+	canary: 'https://canary.larixy.xyz',
 } as const) satisfies Record<OfficialReleaseChannel, string>;
 
 export function officialMarketingOrigin(releaseChannel: string | null | undefined): string {
@@ -45,8 +45,8 @@ export function officialMarketingOrigin(releaseChannel: string | null | undefine
 }
 
 const OFFICIAL_MIGRATED_WEB_APP_HOSTS = Object.freeze({
-	stable: 'larixy.com',
-	canary: 'canary.larixy.com',
+	stable: 'larixy.xyz',
+	canary: 'canary.larixy.xyz',
 } as const) satisfies Record<OfficialReleaseChannel, string>;
 
 const OFFICIAL_CLIENT_API_PATH = '/api';
@@ -81,13 +81,13 @@ export function officialClientApiEndpointForAlias(apiEndpoint: string): string |
 
 export const OFFICIAL_INSTANCE_HOSTS: ReadonlyArray<string> = Object.freeze([
 	OFFICIAL_INSTANCE_DISPLAY_HOST,
-	'larixy.com',
-	'web.larixy.com',
-	'api.larixy.com',
-	'canary.larixy.com',
-	'web.canary.larixy.com',
-	'api.canary.larixy.com',
-	'canary.larixy.com',
+	'larixy.xyz',
+	'web.larixy.xyz',
+	'api.larixy.xyz',
+	'canary.larixy.xyz',
+	'web.canary.larixy.xyz',
+	'api.canary.larixy.xyz',
+	'canary.larixy.xyz',
 ]);
 
 const OFFICIAL_HOST_LOOKUP_RULE: CanonicalNetworkEndpointRule = Object.freeze({

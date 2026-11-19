@@ -46,7 +46,7 @@ export const VOICE_JOIN_TOKEN_PREFIX = 'fvj_';
 
 export function voiceJoinCommand(webApp: string, baseDomain: string, token: string): string {
 	const instance = URL.parse(webApp)?.host || baseDomain;
-	return `curl -fsSL https://larixy.com/install.sh | sh -s -- voice ${instance} ${token}`;
+	return `curl -fsSL https://larixy.xyz/install.sh | sh -s -- voice ${instance} ${token}`;
 }
 
 const VOICE_NODE_AUDIENCE = 'larixy-voice-node';

@@ -38,7 +38,7 @@ use tempfile::TempDir;
 use walkdir::WalkDir;
 use zip::write::SimpleFileOptions;
 
-const PACKAGE_ORIGIN_BASE: &str = "https://pkgs.larixy.com";
+const PACKAGE_ORIGIN_BASE: &str = "https://pkgs.larixy.xyz";
 const PACKAGE_ORIGIN_BASE_ENV: &str = "PKGS_DOWNLOAD_BASE_URL";
 const PNPM_VERSION: &str = "12.4.2";
 const RUST_TOOLCHAIN: &str = "1.98.1";
@@ -7923,7 +7923,7 @@ mod tests {
 
         assert_eq!(
             releases["releases"][0]["updateTo"]["url"],
-            "https://pkgs.larixy.com/desktop/canary/darwin/arm64/Larixy-2026.520.1-arm64.zip"
+            "https://pkgs.larixy.xyz/desktop/canary/darwin/arm64/Larixy-2026.520.1-arm64.zip"
         );
         assert!(temp.path().join("releases.json").exists());
     }
@@ -8202,7 +8202,7 @@ mod tests {
                 assert_eq!(
                     entry.url,
                     format!(
-                        "https://pkgs.larixy.com/desktop/canary/modules/{}/{}/package.br",
+                        "https://pkgs.larixy.xyz/desktop/canary/modules/{}/{}/package.br",
                         module.module, module.sha256
                     )
                 );

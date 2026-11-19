@@ -89,7 +89,7 @@ export function buildUserSettingsDeepLink(tabType: UserSettingsTabType, sectionI
 
 export function parseUserSettingsDeepLinkPath(path: string): UserSettingsDeepLinkTarget | null {
 	try {
-		const parsed = new URL(path, 'https://larixy.com');
+		const parsed = new URL(path, 'https://larixy.xyz');
 		const normalizedPath = parsed.pathname.replace(/\/+$/, '') || '/';
 		if (normalizedPath !== USER_SETTINGS_DEEP_LINK_PATH) return null;
 		const tab = parsed.searchParams.get('tab');

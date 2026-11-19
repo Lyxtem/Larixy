@@ -98,7 +98,7 @@ jobs:
           body="$(cat <<'BODY'
           Pulls reviewed translation updates from Weblate and includes generated runtime artifacts.
 
-          Weblate project: https://translate.larixy.com/projects/larixy/
+          Weblate project: https://translate.larixy.xyz/projects/larixy/
           BODY
           )"
           if [[ -z "$pr_number" ]]; then

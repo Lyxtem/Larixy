@@ -163,8 +163,8 @@ const WEBHOOK_AUDIT_ACTIONS = {
 
 const WEBHOOK_AVATAR_MISSING_CACHE_VALUE = '__larixy_webhook_avatar_missing__';
 const HOSTED_WEBHOOK_AVATAR_URLS = {
-	github: 'https://larixy.com/static/img/app-webhook-github.2d0319169a3aee33.webp',
-	instatus: 'https://larixy.com/static/img/app-webhook-instatus.22ad5aee16da872c.webp',
+	github: 'https://larixy.xyz/static/img/app-webhook-github.2d0319169a3aee33.webp',
+	instatus: 'https://larixy.xyz/static/img/app-webhook-instatus.22ad5aee16da872c.webp',
 } as const;
 
 export class WebhookService {

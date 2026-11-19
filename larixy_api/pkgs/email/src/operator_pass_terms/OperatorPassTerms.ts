@@ -19,7 +19,7 @@ const OPERATOR_PASS_TERMS_BY_VERSION: Readonly<
 
 const OPERATOR_PASS_TERMS_PATH = '/operator-pass-terms';
 
-export const OPERATOR_PASS_TRADER_EMAIL = 'support@larixy.com';
+export const OPERATOR_PASS_TRADER_EMAIL = 'support@larixy.xyz';
 
 export const OPERATOR_PASS_TRADER_PHONE = '+46 79 101 18 18';
 

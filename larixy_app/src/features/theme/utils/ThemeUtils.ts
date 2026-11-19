@@ -6,12 +6,12 @@ import * as CodeLinkUtils from '@app/features/messaging/utils/CodeLinkUtils';
 import {wrapDesktopLocalResourceURLForInstance} from '@app/features/messaging/utils/DesktopResourceUrl';
 
 const OFFICIAL_THEME_URL_BASES = Object.freeze([
-	'https://larixy.com/theme',
-	'https://canary.larixy.com/theme',
-	'https://web.larixy.com/theme',
-	'https://web.canary.larixy.com/theme',
-	'https://larixy.com/theme',
-	'https://canary.larixy.com/theme',
+	'https://larixy.xyz/theme',
+	'https://canary.larixy.xyz/theme',
+	'https://web.larixy.xyz/theme',
+	'https://web.canary.larixy.xyz/theme',
+	'https://larixy.xyz/theme',
+	'https://canary.larixy.xyz/theme',
 ]);
 const appendThemePath = (endpoint: string | null | undefined): string | null => {
 	if (!endpoint) return null;

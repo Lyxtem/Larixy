@@ -679,8 +679,8 @@ mod tests {
             notification: NotificationFields {
                 title: "Elias".to_owned(),
                 body: "see you tomorrow".to_owned(),
-                icon: "https://media.larixy.com/avatars/1/a.webp".to_owned(),
-                badge: Some("https://media.larixy.com/badge.png".to_owned()),
+                icon: "https://media.larixy.xyz/avatars/1/a.webp".to_owned(),
+                badge: Some("https://media.larixy.xyz/badge.png".to_owned()),
                 tag: format!("channel:{CHANNEL_ID}:{MESSAGE_ID}"),
                 notification_tag: format!("channel:{CHANNEL_ID}"),
                 url: format!("/channels/@me/{CHANNEL_ID}"),

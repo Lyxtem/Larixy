@@ -10,7 +10,7 @@ const DESKTOP_APP_NAMES: Record<BuildChannel, string> = {
 const MACOS_BUNDLE_IDS: Record<BuildChannel, string> = {
 	stable: 'app.larixy',
 	canary: 'app.larixy.canary',
-	development: 'app.larixy.comelopment',
+	development: 'app.larixy.xyzelopment',
 };
 const LINUX_DESKTOP_ENTRY_IDS: Record<BuildChannel, string> = {
 	stable: 'app.larixy.LarixyDesktop',

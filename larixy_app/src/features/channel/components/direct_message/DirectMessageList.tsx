@@ -288,7 +288,7 @@ export const DMList = observer(() => {
 					}}
 					data-flx="channel.direct-message.dm-list.plutonium-context-menu.menu-item.hide-plutonium-button"
 				>
-					<Trans comment="Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.com.">
+					<Trans comment="Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.xyz.">
 						Hide {productName} button
 					</Trans>
 				</MenuItem>

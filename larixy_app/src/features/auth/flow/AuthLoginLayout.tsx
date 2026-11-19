@@ -121,7 +121,7 @@ const CHOOSE_INSTANCE_DESCRIPTOR = msg({
 const OLD_APP_SIGN_IN_HINT_DESCRIPTOR = msg({
 	message: 'Approve this app from the {productName} app you already use. No password needed.',
 	comment:
-		'Hint under the sign-in option on larixy.com that pairs a newly installed app with the old installed app. productName is the app name.',
+		'Hint under the sign-in option on larixy.xyz that pairs a newly installed app with the old installed app. productName is the app name.',
 });
 
 export interface AuthLoginLayoutProps {

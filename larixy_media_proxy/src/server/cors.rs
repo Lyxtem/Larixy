@@ -127,8 +127,8 @@ mod tests {
     use super::*;
     use crate::test_fixtures::ADVERSARIAL_TEXT_INPUTS;
 
-    const WEB: &str = "https://web.larixy.com";
-    const CANARY: &str = "https://web.canary.larixy.com";
+    const WEB: &str = "https://web.larixy.xyz";
+    const CANARY: &str = "https://web.canary.larixy.xyz";
 
     fn allowlist() -> Vec<HeaderValue> {
         vec![
@@ -162,11 +162,11 @@ mod tests {
         for refused in [
             "null",
             "https://evil.example",
-            "https://web.larixy.com/",
+            "https://web.larixy.xyz/",
             "HTTPS://WEB.LARIXY.APP",
-            "https://web.larixy.com:443",
-            "http://web.larixy.com",
-            "https://web.larixy.com.evil.example",
+            "https://web.larixy.xyz:443",
+            "http://web.larixy.xyz",
+            "https://web.larixy.xyz.evil.example",
             "",
         ] {
             assert_eq!(

@@ -390,7 +390,7 @@ describe('payment dispute review alerts through SMTP', () => {
 				},
 			]);
 			expect(smtp.delivered).toEqual([]);
-			expect(smtp.attempts).toMatchObject([{from: '<reviews@example.com>', to: '<support@larixy.com>'}]);
+			expect(smtp.attempts).toMatchObject([{from: '<reviews@example.com>', to: '<support@larixy.xyz>'}]);
 			expect(smtp.attempts[0].body).toContain('Subject: Plutonium payment dispute dp_test_1');
 			expect(smtp.attempts[0].body).toContain(
 				'A Plutonium payment dispute opened and needs a review.\r\n\r\nDispute: dp_test_1\r\nInvoice: ABCD1234-0001\r\nAccount: 1001\r\nAmount: $4.99\r\nReason: general\r\nEvidence due: not given\r\nNothing in the terms rules out finding it unjustified.\r\n\r\nReview it: https://admin.example.test/payment-disputes',

@@ -32,7 +32,7 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		},
 		{
 			kind: 'paragraph',
-			text: 'Each page also has its own private link, which is printed on the page. Anyone with the link can open a page on larixy.com that shows the certificate number, the name on the page, the date and time of payment, when that copy was made and whether the page is still valid, and can open the PDF file of that page from there. In your settings, you can open each page, copy its link and replace the link with a new one.',
+			text: 'Each page also has its own private link, which is printed on the page. Anyone with the link can open a page on larixy.xyz that shows the certificate number, the name on the page, the date and time of payment, when that copy was made and whether the page is still valid, and can open the PDF file of that page from there. In your settings, you can open each page, copy its link and replace the link with a new one.',
 		},
 		{
 			kind: 'paragraph',
@@ -334,11 +334,11 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		{kind: 'subheading', text: '7.2 Withdrawal form'},
 		{
 			kind: 'paragraph',
-			text: "While you can still withdraw, you can copy this form, fill it in and send it to <support@larixy.com>. You don't have to use the form to withdraw.",
+			text: "While you can still withdraw, you can copy this form, fill it in and send it to <support@larixy.xyz>. You don't have to use the form to withdraw.",
 		},
 		{
 			kind: 'quote',
-			text: 'To Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Stockholm, Sweden, support@larixy.com:',
+			text: 'To Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Stockholm, Sweden, support@larixy.xyz:',
 		},
 		{
 			kind: 'quote',
@@ -609,7 +609,7 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		},
 		{
 			kind: 'paragraph',
-			text: 'Varje sida har också en egen privat länk, som står på sidan. Den som har länken kan öppna en sida på larixy.com som visar certifikatnumret, namnet på sidan, datum och tid för betalningen, när den kopian gjordes och om sidan fortfarande är giltig, och kan därifrån öppna sidans PDF-fil. I dina inställningar kan du öppna varje sida, kopiera dess länk och byta ut länken mot en ny.',
+			text: 'Varje sida har också en egen privat länk, som står på sidan. Den som har länken kan öppna en sida på larixy.xyz som visar certifikatnumret, namnet på sidan, datum och tid för betalningen, när den kopian gjordes och om sidan fortfarande är giltig, och kan därifrån öppna sidans PDF-fil. I dina inställningar kan du öppna varje sida, kopiera dess länk och byta ut länken mot en ny.',
 		},
 		{
 			kind: 'paragraph',
@@ -914,11 +914,11 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		{kind: 'subheading', text: '7.2 Formulär för att ångra köpet'},
 		{
 			kind: 'paragraph',
-			text: 'Så länge du kan ångra köpet kan du kopiera formuläret, fylla i det och skicka det till <support@larixy.com>. Du behöver inte använda det.',
+			text: 'Så länge du kan ångra köpet kan du kopiera formuläret, fylla i det och skicka det till <support@larixy.xyz>. Du behöver inte använda det.',
 		},
 		{
 			kind: 'quote',
-			text: 'Till Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Stockholm, Sverige, support@larixy.com:',
+			text: 'Till Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Stockholm, Sverige, support@larixy.xyz:',
 		},
 		{kind: 'quote', text: 'Jag/Vi (*) meddelar härmed att jag/vi (*) frånträder mitt/vårt (*) avtal om Operator Pass.'},
 		{kind: 'quote', text: 'Beställdes den (*)/mottogs den (*):'},
@@ -1172,7 +1172,7 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		},
 		{
 			kind: 'paragraph',
-			text: 'O Operator Pass é uma compra única e opcional que apoia o Larixy, e nós o vendemos pela internet. Quem vende o passe é a Larixy Platform AB, empresa sueca com número de registro 559537-3993 no Bolagsverket, o registro de empresas da Suécia, com sede (säte) em Haninge, Suécia. O nosso endereço é c/o Embassy House, Östgötagatan 12, 116 25 Estocolmo, Suécia, e o nosso e-mail é <support@larixy.com>. Uma compra pode incluir até 25 passes, e você pode fazer quantas compras quiser. **O preço paga integralmente o seu certificado Operator da seção 2, um PDF para imprimir que entregamos assim que você paga. Tudo o que a seção 3 descreve vem com o passe além disso.** Por razões jurídicas e contábeis, o preço paga apenas o certificado, que entregamos integralmente de uma vez. **Por isso, não nos comprometemos a oferecer nada do que a seção 3 descreve por um período determinado, e podemos mudar como essas coisas funcionam à medida que o Larixy cresce, dentro dos limites da seção 3.**',
+			text: 'O Operator Pass é uma compra única e opcional que apoia o Larixy, e nós o vendemos pela internet. Quem vende o passe é a Larixy Platform AB, empresa sueca com número de registro 559537-3993 no Bolagsverket, o registro de empresas da Suécia, com sede (säte) em Haninge, Suécia. O nosso endereço é c/o Embassy House, Östgötagatan 12, 116 25 Estocolmo, Suécia, e o nosso e-mail é <support@larixy.xyz>. Uma compra pode incluir até 25 passes, e você pode fazer quantas compras quiser. **O preço paga integralmente o seu certificado Operator da seção 2, um PDF para imprimir que entregamos assim que você paga. Tudo o que a seção 3 descreve vem com o passe além disso.** Por razões jurídicas e contábeis, o preço paga apenas o certificado, que entregamos integralmente de uma vez. **Por isso, não nos comprometemos a oferecer nada do que a seção 3 descreve por um período determinado, e podemos mudar como essas coisas funcionam à medida que o Larixy cresce, dentro dos limites da seção 3.**',
 		},
 		{kind: 'heading', text: '2. Seu certificado Operator'},
 		{
@@ -1181,7 +1181,7 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		},
 		{
 			kind: 'paragraph',
-			text: 'Cada página também tem um link privado próprio, que vem impresso na página. Quem tiver o link pode abrir uma página em larixy.com que mostra o número do certificado, o nome na página, a data e a hora do pagamento, quando aquela via foi emitida e se a página ainda é válida, e pode abrir o arquivo PDF dessa página a partir dela. Nas suas configurações, você pode abrir cada página, copiar o link dela e trocar o link por um novo.',
+			text: 'Cada página também tem um link privado próprio, que vem impresso na página. Quem tiver o link pode abrir uma página em larixy.xyz que mostra o número do certificado, o nome na página, a data e a hora do pagamento, quando aquela via foi emitida e se a página ainda é válida, e pode abrir o arquivo PDF dessa página a partir dela. Nas suas configurações, você pode abrir cada página, copiar o link dela e trocar o link por um novo.',
 		},
 		{
 			kind: 'paragraph',
@@ -1483,11 +1483,11 @@ export const OPERATOR_PASS_TERMS_TEXT_2026_11_01 = {
 		{kind: 'subheading', text: '7.2 Formulário de desistência'},
 		{
 			kind: 'paragraph',
-			text: 'Enquanto você ainda puder desistir, pode copiar este formulário, preenchê-lo e enviá-lo para <support@larixy.com>. Você não precisa usar o formulário para desistir.',
+			text: 'Enquanto você ainda puder desistir, pode copiar este formulário, preenchê-lo e enviá-lo para <support@larixy.xyz>. Você não precisa usar o formulário para desistir.',
 		},
 		{
 			kind: 'quote',
-			text: 'Para Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Estocolmo, Suécia, support@larixy.com:',
+			text: 'Para Larixy Platform AB, c/o Embassy House, Östgötagatan 12, 116 25 Estocolmo, Suécia, support@larixy.xyz:',
 		},
 		{
 			kind: 'quote',

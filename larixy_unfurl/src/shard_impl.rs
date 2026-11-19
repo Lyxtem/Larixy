@@ -275,7 +275,7 @@ fn build_l2_cache(
 
 fn base_http_client_builder() -> reqwest::ClientBuilder {
     reqwest::Client::builder()
-        .user_agent("Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.com)")
+        .user_agent("Mozilla/5.0 (compatible; Larixybot/1.0; +https://larixy.xyz)")
         .timeout(Duration::from_secs(10))
         .redirect(reqwest::redirect::Policy::none())
         .no_gzip()

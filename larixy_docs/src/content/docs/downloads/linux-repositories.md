@@ -18,9 +18,9 @@ Larixy publishes apt, dnf, pacman and Flatpak repositories, all signed with the 
 ```sh
 sudo install -d -m 0755 /etc/apt/keyrings
 sudo curl -fsSL -o /etc/apt/keyrings/larixy-archive-keyring.gpg \
-  https://pkgs.larixy.com/keys/larixy-archive-keyring.gpg
+  https://pkgs.larixy.xyz/keys/larixy-archive-keyring.gpg
 sudo curl -fsSL -o /etc/apt/sources.list.d/larixy.sources \
-  https://pkgs.larixy.com/deb/larixy.sources
+  https://pkgs.larixy.xyz/deb/larixy.sources
 sudo apt update && sudo apt install larixy
 ```
 
@@ -28,7 +28,7 @@ A `.deb` you downloaded only gets updates after you add the entry for its channe
 
 ```sh
 sudo curl -fsSL -o /etc/apt/sources.list.d/larixy-canary.sources \
-  https://pkgs.larixy.com/deb/larixy-canary.sources
+  https://pkgs.larixy.xyz/deb/larixy-canary.sources
 sudo apt update && sudo apt install larixy-canary
 ```
 
@@ -38,7 +38,7 @@ RHEL, Rocky, Alma and CentOS Stream need `sudo dnf install epel-release` first, 
 
 ```sh
 sudo curl -fsSL -o /etc/yum.repos.d/larixy.repo \
-  https://pkgs.larixy.com/rpm/larixy.repo
+  https://pkgs.larixy.xyz/rpm/larixy.repo
 sudo dnf install larixy
 ```
 
@@ -48,7 +48,7 @@ For canary, add the canary entry and install `larixy-canary`.
 
 ```sh
 sudo curl -fsSL -o /etc/yum.repos.d/larixy-canary.repo \
-  https://pkgs.larixy.com/rpm/larixy-canary.repo
+  https://pkgs.larixy.xyz/rpm/larixy-canary.repo
 sudo dnf install larixy-canary
 ```
 
@@ -61,7 +61,7 @@ Add the signing key to the pacman keyring once, or pacman refuses the repository
 ```sh
 sudo pacman-key --init
 curl -fsSL -o /tmp/larixy-archive-keyring.asc \
-  https://pkgs.larixy.com/keys/larixy-archive-keyring.asc
+  https://pkgs.larixy.xyz/keys/larixy-archive-keyring.asc
 sudo pacman-key --add /tmp/larixy-archive-keyring.asc
 sudo pacman-key --lsign-key 09D01339EE128925F75E675C855C5BDE34D205D2
 ```
@@ -73,7 +73,7 @@ sudo tee -a /etc/pacman.conf >/dev/null <<'REPO'
 
 [larixy]
 SigLevel = Required TrustedOnly
-Server = https://pkgs.larixy.com/arch/$repo/os/$arch
+Server = https://pkgs.larixy.xyz/arch/$repo/os/$arch
 REPO
 sudo pacman -Syu larixy
 ```
@@ -83,11 +83,11 @@ sudo pacman -Syu larixy
 Stable is also on Flathub as `app.larixy.Larixy`, but canary is only in the Larixy repository. The reference file adds a remote called `larixy` and installs the app.
 
 ```sh
-flatpak install https://pkgs.larixy.com/flatpak/larixy.flatpakref
+flatpak install https://pkgs.larixy.xyz/flatpak/larixy.flatpakref
 ```
 
 For canary, use the canary reference file.
 
 ```sh
-flatpak install https://pkgs.larixy.com/flatpak/larixy-canary.flatpakref
+flatpak install https://pkgs.larixy.xyz/flatpak/larixy-canary.flatpakref
 ```

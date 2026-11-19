@@ -94,7 +94,7 @@ describe('Enforcement suspensions', () => {
 			kind_label: 'suspension',
 			neutral: 'no',
 			rule_title: 'Spam',
-			appeals_email: 'appeals@larixy.com',
+			appeals_email: 'appeals@larixy.xyz',
 			appeal_deadline: deadline,
 			decision_id: decisionId,
 		});

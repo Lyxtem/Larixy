@@ -2,7 +2,7 @@
 
 import {posix} from 'node:path';
 
-export const PKGS_BASE_URL = 'https://pkgs.larixy.com';
+export const PKGS_BASE_URL = 'https://pkgs.larixy.xyz';
 export const DOWNLOAD_PREFIX = '/dl';
 export const DESKTOP_REDIRECT_PREFIX = `${DOWNLOAD_PREFIX}/desktop`;
 

@@ -28,7 +28,7 @@ import (
 )
 
 const (
-	docsURL                = "https://docs.larixy.com/operator/"
+	docsURL                = "https://docs.larixy.xyz/operator/"
 	changeHowLarixyRunsURL = docsURL + "running/#change-how-larixy-runs"
 )
 

@@ -19,7 +19,7 @@ To see whether there's a new version without upgrading, run `rexctl upgrade --ch
 If you installed Larixy before rexctl existed, upgrade it with the current install script. It installs rexctl and hands your instance to it with your data and settings as they are.
 
 ```sh
-curl -fsSL https://larixy.com/install.sh | sh -s -- --update --dir /path/to/your/instance
+curl -fsSL https://larixy.xyz/install.sh | sh -s -- --update --dir /path/to/your/instance
 ```
 
 ### Upgrade by itself
@@ -100,7 +100,7 @@ rexctl checks that each change can work, backs up your instance once, stops the 
 
 ### New installs
 
-`rexctl install --experimental-native` installs a new instance as one systemd service on Debian 13, with all four changes made. Run it with sudo, as you do every command for that instance. If rexctl is in `~/.local/bin`, run it as `sudo ~/.local/bin/rexctl`. Automatic upgrades for a native instance need rexctl installed for root, with `curl -fsSL https://larixy.com/install.sh | sudo sh`. rexctl sizes Larixy for the machine's CPUs and memory and runs the bundled LiveKit for calls. If people connect to the machine at another address than the one LiveKit finds through STUN, pass that address with `--voice-ip`.
+`rexctl install --experimental-native` installs a new instance as one systemd service on Debian 13, with all four changes made. Run it with sudo, as you do every command for that instance. If rexctl is in `~/.local/bin`, run it as `sudo ~/.local/bin/rexctl`. Automatic upgrades for a native instance need rexctl installed for root, with `curl -fsSL https://larixy.xyz/install.sh | sudo sh`. rexctl sizes Larixy for the machine's CPUs and memory and runs the bundled LiveKit for calls. If people connect to the machine at another address than the one LiveKit finds through STUN, pass that address with `--voice-ip`.
 
 ### Uploads after the move off SeaweedFS
 
@@ -137,7 +137,7 @@ rexctl restore /opt/larixy/backups/larixy-chat.example.com-20261105-120000.tar.z
 Back up your instance on the old machine with `rexctl backup` and copy the backup file to the new one. A backup without uploads can't move an instance. On the new machine, install rexctl and restore the backup with one command, run from the folder you copied the backup to.
 
 ```sh
-curl -fsSL https://larixy.com/install.sh | sh -s -- restore larixy-chat.example.com-20261105-120000.tar.zst
+curl -fsSL https://larixy.xyz/install.sh | sh -s -- restore larixy-chat.example.com-20261105-120000.tar.zst
 ```
 
 Then change your domain's `A` record to the new machine's address.

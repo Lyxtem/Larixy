@@ -43,7 +43,7 @@ modules:
     build-commands:
       - install -Dm755 app.larixy.LarixyCanary.sh ${FLATPAK_DEST}/bin/${FLATPAK_ID}
       - install -d ${FLATPAK_DEST}/share/larixy
-      - printf '%s\n' https://pkgs.larixy.com/flatpak/ > ${FLATPAK_DEST}/share/larixy/flatpak-repository
+      - printf '%s\n' https://pkgs.larixy.xyz/flatpak/ > ${FLATPAK_DEST}/share/larixy/flatpak-repository
       - mkdir -p ${FLATPAK_DEST}/larixy
       - cp -a app/. ${FLATPAK_DEST}/larixy/
       - patch-electron-desktop-filename ${FLATPAK_DEST}/larixy/resources/app.asar

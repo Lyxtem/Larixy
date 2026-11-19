@@ -15,7 +15,7 @@ function localesTranslating(key: string): Array<string> {
 describe('ErrorI18n global IP block messages', () => {
 	const HOSTED = {
 		ipAddress: '203.0.113.20',
-		appealEmail: 'support@larixy.com',
+		appealEmail: 'support@larixy.xyz',
 		expiresAt: 'Jan 12, 2027, 9:00 AM UTC',
 		reason: 'none',
 		product_name: 'Larixy',
@@ -30,7 +30,7 @@ describe('ErrorI18n global IP block messages', () => {
 				expect(neutral, `${locale} ${code}`).toContain('chat.example.org');
 				expect(neutral, `${locale} ${code}`).not.toContain('Larixy');
 				const hosted = getErrorMessageUnsafe(code, locale, HOSTED);
-				expect(hosted, `${locale} ${code}`).toContain('support@larixy.com');
+				expect(hosted, `${locale} ${code}`).toContain('support@larixy.xyz');
 				expect(hosted, `${locale} ${code}`).toContain('203.0.113.20');
 				expect(hosted, `${locale} ${code}`).toContain('Larixy');
 			}
@@ -42,7 +42,7 @@ describe('ErrorI18n self-hosted payment error', () => {
 	it('has a translated neutral variant without a support contact in every locale', () => {
 		const english = getErrorMessageUnsafe('STRIPE_ERROR', 'en-US', {supportEmail: null});
 		for (const locale of localesTranslating('stripe.error')) {
-			const hosted = getErrorMessageUnsafe('STRIPE_ERROR', locale, {supportEmail: 'support@larixy.com'});
+			const hosted = getErrorMessageUnsafe('STRIPE_ERROR', locale, {supportEmail: 'support@larixy.xyz'});
 			const neutral = getErrorMessageUnsafe('STRIPE_ERROR', locale, {supportEmail: null});
 			expect(neutral, locale).not.toBe(hosted);
 			expect(neutral, locale).not.toMatch(/@|\bnull\b|\{|support/i);

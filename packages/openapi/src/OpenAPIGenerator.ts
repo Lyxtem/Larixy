@@ -41,7 +41,7 @@ function createGeneratorSettings(options: OpenAPIGeneratorOptions): GeneratorSet
 		title: options.title ?? 'Larixy API',
 		version: options.version ?? '1.0.0',
 		description: options.description ?? 'The Larixy API',
-		serverUrl: options.serverUrl ?? 'https://api.larixy.com',
+		serverUrl: options.serverUrl ?? 'https://api.larixy.xyz',
 		routeScope: options.routeScope ?? 'public',
 		schemaTarget: options.schemaTarget ?? 'draft-2020-12',
 	};
@@ -90,7 +90,7 @@ export class OpenAPIGenerator {
 				description: this.settings.description,
 				contact: {
 					name: 'Larixy Platform AB',
-					email: 'support@larixy.com',
+					email: 'support@larixy.xyz',
 				},
 				license: {
 					name: 'AGPL-3.0',

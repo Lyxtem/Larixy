@@ -15,7 +15,7 @@ pkgver="${LARIXY_VERSION:?LARIXY_VERSION must be set}"
 pkgrel=1
 pkgdesc='Instant messaging and VoIP application'
 arch=('x86_64' 'aarch64')
-url='https://larixy.com'
+url='https://larixy.xyz'
 license=('AGPL-3.0-or-later')
 depends=(
 	'alsa-lib'

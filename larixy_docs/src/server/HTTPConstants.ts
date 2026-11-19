@@ -24,7 +24,7 @@ export const HTTPHeader = Object.freeze({
 	X_FRAME_OPTIONS: 'X-Frame-Options',
 } as const);
 
-export const OUTBOUND_USER_AGENT = 'Larixy (https://larixy.com)';
+export const OUTBOUND_USER_AGENT = 'Larixy (https://larixy.xyz)';
 
 export const CanonicalNetworkProtocol = Object.freeze({
 	HTTP: 'http:',

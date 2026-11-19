@@ -95,7 +95,7 @@ async function buildTargetSpec(basePath: string, target: GenerateTarget): Promis
 		title: 'Larixy API',
 		version: '1.0.0',
 		description: API_DESCRIPTION,
-		serverUrl: 'https://api.larixy.com/v1',
+		serverUrl: 'https://api.larixy.xyz/v1',
 		routeScope: target,
 		schemaTarget: target === 'admin' ? 'openapi-3.0' : 'draft-2020-12',
 	});

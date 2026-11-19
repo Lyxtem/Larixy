@@ -1,6 +1,6 @@
 # Code of Conduct
 
-The [Larixy community guidelines](https://larixy.com/guidelines) define the standards of conduct for this repository. They apply to issues, pull requests, reviews, discussions, commits, branch names and all submitted content.
+The [Larixy community guidelines](https://larixy.xyz/guidelines) define the standards of conduct for this repository. They apply to issues, pull requests, reviews, discussions, commits, branch names and all submitted content.
 
 They also apply to conduct outside this repository when that conduct creates a safety risk for anyone participating in it.
 
@@ -10,7 +10,7 @@ Maintainers may reject contributions, decline feature requests, close threads an
 
 ## Reporting violations
 
-Report conduct violations to [safety@larixy.com](mailto:safety@larixy.com). Include a description of the conduct, where it occurred, the people involved and any relevant links. Do not post the report in the affected thread.
+Report conduct violations to [safety@larixy.xyz](mailto:safety@larixy.xyz). Include a description of the conduct, where it occurred, the people involved and any relevant links. Do not post the report in the affected thread.
 
 Larixy staff handle all reports. We disclose information only to those who need it to investigate the report, enforce this policy, protect safety or comply with a legal obligation. The circumstances of a report may reveal the reporter's identity even if Larixy does not disclose their name.
 

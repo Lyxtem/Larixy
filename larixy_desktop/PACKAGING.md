@@ -12,7 +12,7 @@ Linux on x64 and arm64 is supported. We build the macOS and Windows apps ourselv
 
 ## Source and version
 
-Package the stable version our own Linux packages ship. It's `shell.latest_version` in [the stable feed](https://pkgs.larixy.com/desktop/stable/linux/x64/modules.json), and you can read it with `curl -fsS https://pkgs.larixy.com/desktop/stable/linux/x64/modules.json | jq -r .shell.latest_version`. Build that version from the tag `larixy-desktop-stable@<version>`, which points at its source commit.
+Package the stable version our own Linux packages ship. It's `shell.latest_version` in [the stable feed](https://pkgs.larixy.xyz/desktop/stable/linux/x64/modules.json), and you can read it with `curl -fsS https://pkgs.larixy.xyz/desktop/stable/linux/x64/modules.json | jq -r .shell.latest_version`. Build that version from the tag `larixy-desktop-stable@<version>`, which points at its source commit.
 
 Don't take the newest `larixy-desktop-stable@` tag instead. We also tag releases that only update the web app inside our own installs, and builds we hold back, and neither of them is a version we shipped as a desktop app. Please package stable, because canary comes out several times a day.
 

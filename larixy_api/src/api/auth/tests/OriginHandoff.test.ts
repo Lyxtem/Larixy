@@ -171,14 +171,14 @@ describe('Origin handoff', () => {
 	});
 
 	it('accepts a redeem from a configured web app origin alias', async () => {
-		getConfig().endpoints.webAppOrigins = [webAppOrigin, 'https://larixy.com'];
+		getConfig().endpoints.webAppOrigins = [webAppOrigin, 'https://larixy.xyz'];
 		const account = await createTestAccount(harness);
 		const {nonce, nonceHash} = createNonce();
 		const handoffId = await createHandoff(account.token, nonceHash);
 
 		const redeemed = await createBuilderWithoutAuth<OriginHandoffRedeemResponse>(harness)
 			.post(REDEEM_PATH)
-			.header('origin', 'https://larixy.com')
+			.header('origin', 'https://larixy.xyz')
 			.body({handoff_id: handoffId, nonce})
 			.execute();
 		expect(redeemed.payload).toBe(PAYLOAD);

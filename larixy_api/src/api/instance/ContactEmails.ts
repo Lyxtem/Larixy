@@ -10,10 +10,10 @@ export interface ContactEmails {
 }
 
 const HOSTED_CONTACT_EMAILS: ContactEmails = {
-	appealsEmail: 'appeals@larixy.com',
-	privacyEmail: 'privacy@larixy.com',
-	safetyEmail: 'safety@larixy.com',
-	supportEmail: 'support@larixy.com',
+	appealsEmail: 'appeals@larixy.xyz',
+	privacyEmail: 'privacy@larixy.xyz',
+	safetyEmail: 'safety@larixy.xyz',
+	supportEmail: 'support@larixy.xyz',
 };
 
 const SELF_HOSTED_CONTACT_EMAILS: ContactEmails = {

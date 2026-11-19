@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		python3 && \
 	rm -rf /var/lib/apt/lists/*
 
-ENV LARIXY_DOCS_ENDPOINT=https://docs.larixy.com
+ENV LARIXY_DOCS_ENDPOINT=https://docs.larixy.xyz
 ENV LARIXY_DOCS_SEARCH_INDEXING=true
 
 COPY . .
@@ -46,8 +46,8 @@ LABEL org.opencontainers.image.title="larixy-docs"
 LABEL org.opencontainers.image.description="Larixy API and protocol reference"
 LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
-LABEL org.opencontainers.image.url="https://larixy.com"
-LABEL org.opencontainers.image.documentation="https://docs.larixy.com"
+LABEL org.opencontainers.image.url="https://larixy.xyz"
+LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
 LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
@@ -64,7 +64,7 @@ ENV NODE_ENV=production
 ENV NODE_OPTIONS="--enable-source-maps"
 ENV NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 ENV BUILD_VERSION=${BUILD_VERSION}
-ENV LARIXY_DOCS_ENDPOINT=https://docs.larixy.com
+ENV LARIXY_DOCS_ENDPOINT=https://docs.larixy.xyz
 ENV LARIXY_DOCS_SEARCH_INDEXING=true
 
 USER 65532:65532

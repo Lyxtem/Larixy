@@ -2066,32 +2066,32 @@ msgstr "{productName} זיהה פשיטה אפשרית, ולכן משתמשים 
 msgid "{productName} failed to start properly. This could be due to corrupted data or a temporary issue."
 msgstr "{productName} נכשל בהפעלה תקינה. ייתכן שהדבר נגרם עקב נתונים פגומים או בעיה זמנית."
 
-#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.com. Home Screen and Dock are Apple names.
+#. Banner in a web app installed on iPhone, iPad or Mac. productName is the app name. host is the new domain, for example larixy.xyz. Home Screen and Dock are Apple names.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Add it to your Home Screen or Dock, then sign in with this app."
 msgstr "{productName} עבר ל-{host}. הוסף אותו למסך הבית או ל-Dock, ואז התחבר באמצעות האפליקציה הזו."
 
-#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed web app on other browsers. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install it from your browser, then sign in with this app."
 msgstr "{productName} עבר ל-{host}. התקן אותו מהדפדפן שלך, ואז התחבר באמצעות האפליקציה הזו."
 
-#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed desktop web app after the account moved to the new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Install the new app and you will already be signed in."
 msgstr "{productName} עבר ל-{host}. התקן את האפליקציה החדשה וכבר תהיה מחובר."
 
-#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.com.
+#. Banner in an installed Android web app. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/components/layout/app_layout/nagbars/DomainMovedNagbar.tsx
 msgid "{productName} has moved to {host}. Open it in your browser to install the new app."
 msgstr "{productName} עבר ל-{host}. פתח אותו בדפדפן כדי להתקין את האפליקציה החדשה."
 
-#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there, then sign in with this app."
 msgstr "{productName} נמצא כעת בכתובת {host}. התקן אותו משם, ולאחר מכן היכנס באמצעות האפליקציה הזו."
 
-#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.com.
+#. Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "{productName} is now at {host}. Install it from there."
 msgstr "{productName} נמצא כעת בכתובת {host}. התקן משם."
@@ -2427,7 +2427,7 @@ msgstr "{username} עקב אחרי {name} לערוץ הזה. הודעות שפו
 msgid "{username} has left the group."
 msgstr "{username} עזב/ה את הקבוצה."
 
-#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.com.
+#. Option under "Theme to edit" for the current account's own theme. {username} is the account's username and {instanceName} is the instance it is on, like larixy.xyz.
 #: src/features/theme_settings/components/ThisAccountSection.tsx
 msgid "{username} on {instanceName}"
 msgstr "{username} בְּ־{instanceName}"
@@ -5281,7 +5281,7 @@ msgstr "החל ערכת נושא"
 msgid "Apply to all communities"
 msgstr "החל על כל הקהילות"
 
-#. Hint under the sign-in option on larixy.com that pairs a newly installed app with the old installed app. productName is the app name.
+#. Hint under the sign-in option on larixy.xyz that pairs a newly installed app with the old installed app. productName is the app name.
 #: src/features/auth/flow/AuthLoginLayout.tsx
 msgid "Approve this app from the {productName} app you already use. No password needed."
 msgstr "אשר את האפליקציה הזו מתוך אפליקציית {productName} שבה אתה כבר משתמש. אין צורך בסיסמה."
@@ -14156,7 +14156,7 @@ msgstr "אל תמחק כלום"
 msgid "Don't have an account?"
 msgstr "אין לך חשבון?"
 
-#. Link under the Weblate line in the language settings. It opens a help article on larixy.com about suggesting a new language and helping translate the app. Keep it a short question.
+#. Link under the Weblate line in the language settings. It opens a help article on larixy.xyz about suggesting a new language and helping translate the app. Keep it a short question.
 #: src/features/user/components/modals/tabs/LanguageTab.tsx
 msgid "Don't see your language?"
 msgstr "השפה שלך לא מופיעה?"
@@ -18853,7 +18853,7 @@ msgstr "הסתר את {appName}"
 msgid "Hide {premiumProductName} purchase date"
 msgstr "הסתרת תאריך הרכישה של {premiumProductName}"
 
-#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.com.
+#. Context menu item on the Plutonium button in the direct messages list. Hides the button. productName is the premium product name, Plutonium on larixy.xyz.
 #: src/features/channel/components/direct_message/DirectMessageList.tsx
 msgid "Hide {productName} button"
 msgstr ""
@@ -25742,7 +25742,7 @@ msgstr "בדף התשלום, יש להוסיף את שם החברה, הכתוב�
 msgid "On the wall"
 msgstr "בקיר"
 
-#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.com/login?handoff=1.
+#. One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.xyz/login?handoff=1.
 #: src/features/auth/flow/auth_login_core/AuthLoginBrowserStep.tsx
 msgid "On your other device, sign in at {signInAddress} and enter this code when asked."
 msgstr "במכשיר אחר, היכנס ל- {signInAddress} והזן את הקוד הזה כשתידרש."
@@ -26019,12 +26019,12 @@ msgstr "פתח את {contextName}"
 msgid "Open {displayName}"
 msgstr "פתח את {displayName}"
 
-#. First install step on Apple devices. host is the new domain, for example larixy.com. Safari is the browser.
+#. First install step on Apple devices. host is the new domain, for example larixy.xyz. Safari is the browser.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in Safari."
 msgstr "פתח את {host} בספארי."
 
-#. First install step on other devices. host is the new domain, for example larixy.com.
+#. First install step on other devices. host is the new domain, for example larixy.xyz.
 #: src/features/app/domain_migration/DomainMovedStepsModal.tsx
 msgid "Open {host} in your browser."
 msgstr "פתח את {host} בדפדפן שלך."
@@ -34187,7 +34187,7 @@ msgstr "התחבר עם שם משתמש"
 msgid "Sign in with your browser"
 msgstr "התחבר דרך הדפדפן שלך"
 
-#. Sign-in option and modal title on larixy.com that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
+#. Sign-in option and modal title on larixy.xyz that pairs a newly installed app with the old installed app still signed in on the previous domain. productName is the app name.
 #: src/features/auth/flow/BrowserLoginHandoffModal.tsx
 msgid "Sign in with your old {productName} app"
 msgstr "התחבר עם אפליקציית {productName} הישנה שלך"
@@ -36774,7 +36774,7 @@ msgstr "תודה שסיפרת לנו. זה לא מפר את הכללים שלנ�
 msgid "That account can't receive a pass right now, for example because it's being deleted or can't have an Operator Pass."
 msgstr "החשבון הזה לא יכול לקבל Operator Pass כרגע, למשל כי הוא בתהליך מחיקה או כי אסור לו להחזיק Operator Pass."
 
-#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.com. productName is the app name, such as Larixy.
+#. Error in the browser when a code typed from the app is not found. instanceHost is the server the browser checked, such as api.larixy.xyz. productName is the app name, such as Larixy.
 #: src/features/auth/flow/auth_login_core/useDesktopHandoffFlow.ts
 msgid "That code is not valid on {instanceHost}. Check the code in the {productName} app and try again."
 msgstr "הקוד הזה אינו חוקי ב-{instanceHost}. בדוק את הקוד באפליקציית {productName} ונסה שוב."
@@ -41046,7 +41046,7 @@ msgstr "השתמש בחשבון אחר"
 msgid "Use a different email"
 msgstr "השתמש באימייל אחר"
 
-#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.com.
+#. Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.xyz.
 #: src/features/auth/AuthMessageDescriptors.ts
 msgid "Use a passkey saved for {host}"
 msgstr "השתמש במפתח גישה שנשמר עבור {host}"

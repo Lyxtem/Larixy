@@ -343,7 +343,7 @@ function OtherDeviceContent({
 				className={flxElementClassName(styles.browserStatusText)}
 				data-flx="auth.flow.auth-login-core.auth-login-browser-step.other-device-text"
 			>
-				<Trans comment="One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.com/login?handoff=1.">
+				<Trans comment="One line explanation in the desktop app above the code. signInAddress is the web address of the sign-in page, such as web.larixy.xyz/login?handoff=1.">
 					On your other device, sign in at {signInAddress} and enter this code when asked.
 				</Trans>
 			</flx-auth-login-browser-step-status-text>

@@ -34,7 +34,7 @@ const DESKTOP_APP_THEME_DESCRIPTOR = msg({
 const ACCOUNT_ON_INSTANCE_DESCRIPTOR = msg({
 	message: '{username} on {instanceName}',
 	comment:
-		'Option under "Theme to edit" for the current account\'s own theme. {username} is the account\'s username and {instanceName} is the instance it is on, like larixy.com.',
+		'Option under "Theme to edit" for the current account\'s own theme. {username} is the account\'s username and {instanceName} is the instance it is on, like larixy.xyz.',
 });
 const EDITING_OWN_THEME_WHILE_FOLLOWING_DESCRIPTOR = msg({
 	message:

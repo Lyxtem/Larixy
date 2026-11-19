@@ -88,7 +88,7 @@ describe('GuildSearchSerializer', () => {
 		expect(result.discoveryDescription).toBeNull();
 		expect(result.discoveryTags).toEqual([]);
 	});
-	it('an 18+ guild with DISCOVERABLE is not discoverable on larixy.com', () => {
+	it('an 18+ guild with DISCOVERABLE is not discoverable on larixy.xyz', () => {
 		const original = Config.instance.selfHosted;
 		Config.instance.selfHosted = false;
 		try {

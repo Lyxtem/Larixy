@@ -18,10 +18,10 @@ import type {
 	PasskeyBridgeSudoRedeemResponse,
 } from '@larixy/schema/src/domains/auth/PasskeyBridgeSchemas';
 
-export const TARGET_ORIGIN = 'https://larixy.com';
-export const LEGACY_ORIGIN = 'https://web.larixy.com';
+export const TARGET_ORIGIN = 'https://larixy.xyz';
+export const LEGACY_ORIGIN = 'https://web.larixy.xyz';
 export const LEGACY_RP_ID = 'localhost';
-export const TARGET_RP_ID = 'larixy.com';
+export const TARGET_RP_ID = 'larixy.xyz';
 
 export interface PasskeyCredentialListItem {
 	id: string;

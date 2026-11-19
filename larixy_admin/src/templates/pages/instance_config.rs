@@ -602,7 +602,7 @@ fn push_relay_section(
                         "Until this is accepted official mobile app notifications are dropped. \
                          Self-hosted UnifiedPush and ntfy endpoints never reach the relay and are \
                          unaffected. "
-                        a href="https://larixy.com/push-relay" target="_blank" rel="noreferrer"
+                        a href="https://larixy.xyz/push-relay" target="_blank" rel="noreferrer"
                             class="text-neutral-900 underline decoration-neutral-300 hover:text-neutral-600 hover:decoration-neutral-500" {
                             "Read the notice"
                         }

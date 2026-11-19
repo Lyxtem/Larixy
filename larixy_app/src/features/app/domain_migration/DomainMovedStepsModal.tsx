@@ -22,21 +22,21 @@ const TITLE_DESCRIPTOR = msg({
 const INTRO_DESCRIPTOR = msg({
 	message: '{productName} is now at {host}. Install it from there, then sign in with this app.',
 	comment:
-		'Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.com.',
+		'Intro in the modal that explains how to install the app from its new domain. productName is the app name. host is the new domain, for example larixy.xyz.',
 });
 const INSTALL_INTRO_DESCRIPTOR = msg({
 	message: '{productName} is now at {host}. Install it from there.',
 	comment:
-		'Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.com.',
+		'Intro in the modal that explains how to install the app from its new domain when the account already moved. productName is the app name. host is the new domain, for example larixy.xyz.',
 });
 const OPEN_IN_SAFARI_STEP_DESCRIPTOR = msg({
 	message: 'Open {host} in Safari.',
 	comment:
-		'First install step on Apple devices. host is the new domain, for example larixy.com. Safari is the browser.',
+		'First install step on Apple devices. host is the new domain, for example larixy.xyz. Safari is the browser.',
 });
 const OPEN_IN_BROWSER_STEP_DESCRIPTOR = msg({
 	message: 'Open {host} in your browser.',
-	comment: 'First install step on other devices. host is the new domain, for example larixy.com.',
+	comment: 'First install step on other devices. host is the new domain, for example larixy.xyz.',
 });
 const ADD_TO_HOME_SCREEN_STEP_DESCRIPTOR = msg({
 	message: 'Tap Share, then Add to Home Screen.',

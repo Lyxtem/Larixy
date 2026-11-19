@@ -29,8 +29,8 @@ import {resolveClientIpHeaderName} from '@larixy/ip_utils/src/ClientIp';
 import type {LoggerInterface} from '@larixy/logger/src/LoggerInterface';
 
 const WEB_HOST_ALLOWED_ORIGINS: ReadonlyMap<string, ReadonlySet<string>> = new Map([
-	['web.larixy.com', new Set(['https://web.larixy.com', 'https://larixy.com'])],
-	['web.canary.larixy.com', new Set(['https://web.canary.larixy.com', 'https://canary.larixy.com'])],
+	['web.larixy.xyz', new Set(['https://web.larixy.xyz', 'https://larixy.xyz'])],
+	['web.canary.larixy.xyz', new Set(['https://web.canary.larixy.xyz', 'https://canary.larixy.xyz'])],
 ]);
 
 interface MiddlewarePipelineOptions {

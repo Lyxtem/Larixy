@@ -5,10 +5,10 @@
 		"title": "Larixy API",
 		"version": "1.0.0",
 		"description": "API for Larixy, a free and open source instant messaging and VoIP chat app built for friends, groups, and communities.",
-		"contact": {"name": "Larixy Platform AB", "email": "support@larixy.com"},
+		"contact": {"name": "Larixy Platform AB", "email": "support@larixy.xyz"},
 		"license": {"name": "AGPL-3.0", "url": "https://www.gnu.org/licenses/agpl-3.0.html"}
 	},
-	"servers": [{"url": "https://api.larixy.com/v1", "description": "Production API"}],
+	"servers": [{"url": "https://api.larixy.xyz/v1", "description": "Production API"}],
 	"paths": {
 		"/admin/acls": {
 			"get": {

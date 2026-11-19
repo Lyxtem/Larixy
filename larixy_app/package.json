@@ -3,8 +3,8 @@
 	"version": "0.0.0",
 	"private": true,
 	"description": "Larixy is a free and open source instant messaging and VoIP chat app built for friends, groups, and communities.",
-	"homepage": "https://larixy.com",
-	"author": "Larixy Platform AB <support@larixy.com>",
+	"homepage": "https://larixy.xyz",
+	"author": "Larixy Platform AB <support@larixy.xyz>",
 	"sideEffects": [
 		"*.css",
 		"**/*.css",

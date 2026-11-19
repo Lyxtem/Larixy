@@ -25,11 +25,11 @@
     <string>3G5837T29K.app.larixy.canary</string>
     <key>com.apple.developer.associated-domains</key>
     <array>
-        <string>webcredentials:larixy.com</string>
-        <string>webcredentials:web.larixy.com</string>
-        <string>webcredentials:web.canary.larixy.com</string>
-        <string>webcredentials:larixy.com</string>
-        <string>webcredentials:canary.larixy.com</string>
+        <string>webcredentials:larixy.xyz</string>
+        <string>webcredentials:web.larixy.xyz</string>
+        <string>webcredentials:web.canary.larixy.xyz</string>
+        <string>webcredentials:larixy.xyz</string>
+        <string>webcredentials:canary.larixy.xyz</string>
     </array>
 </dict>
 </plist>

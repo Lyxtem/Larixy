@@ -51,7 +51,7 @@ const LANGUAGE_FLAG_DESCRIPTOR = msg({message: '{languageName} flag'});
 const MISSING_LANGUAGE_DESCRIPTOR = msg({
 	message: "Don't see your language?",
 	comment:
-		'Link under the Weblate line in the language settings. It opens a help article on larixy.com about suggesting a new language and helping translate the app. Keep it a short question.',
+		'Link under the Weblate line in the language settings. It opens a help article on larixy.xyz about suggesting a new language and helping translate the app. Keep it a short question.',
 });
 
 const REGIONAL_FORMAT_EXAMPLE_DESCRIPTOR = msg({

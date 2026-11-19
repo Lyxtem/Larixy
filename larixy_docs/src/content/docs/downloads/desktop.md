@@ -4,7 +4,7 @@ title: Desktop builds
 description: Download paths for Larixy desktop builds, their SHA-256 checksums and the update feeds.
 ---
 
-Desktop builds are on `https://pkgs.larixy.com`, and you can download them without signing in. Each path has a channel (`stable` or `canary`), a platform, an architecture (`x64` or `arm64`) and, for a file, a format from the table below.
+Desktop builds are on `https://pkgs.larixy.xyz`, and you can download them without signing in. Each path has a channel (`stable` or `canary`), a platform, an architecture (`x64` or `arm64`) and, for a file, a format from the table below.
 
 | Platform | Path value | Formats |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ GET /desktop/{channel}/{platform}/{arch}/{version}/{format}.sha256
 GET /desktop/{channel}/linux/{arch}/{version}/appimage.zsync
 ```
 
-`version` is a release version such as `2026.904.135113`, or `latest` for the newest one. Add `.sha256` to a download path to get the file's SHA-256 checksum. For example, `https://pkgs.larixy.com/desktop/stable/win32/x64/latest/setup` downloads the newest Windows installer.
+`version` is a release version such as `2026.904.135113`, or `latest` for the newest one. Add `.sha256` to a download path to get the file's SHA-256 checksum. For example, `https://pkgs.larixy.xyz/desktop/stable/win32/x64/latest/setup` downloads the newest Windows installer.
 
 AppImage builds also have an `appimage.zsync` file, which AppImage update tools use to download only the blocks that changed.
 

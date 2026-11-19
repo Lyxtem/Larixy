@@ -5,7 +5,7 @@ type: application
 version: 0.1.0
 appVersion: "v1"
 kubeVersion: ">=1.29.0-0"
-home: https://docs.larixy.com/operator/kubernetes/
+home: https://docs.larixy.xyz/operator/kubernetes/
 sources:
   - https://github.com/larixyapp/larixy/tree/main/deploy/helm/larixy
 keywords:

@@ -21,7 +21,7 @@ export const SIGN_IN_WITH_A_PASSKEY_DESCRIPTOR = msg({
 export const USE_A_PASSKEY_SAVED_FOR_HOST_DESCRIPTOR = msg({
 	message: 'Use a passkey saved for {host}',
 	comment:
-		'Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.com.',
+		'Action label on the sign-in screen that starts sign-in with a passkey or security key registered on the old web address. host is that address, for example web.larixy.xyz.',
 });
 export const SIGN_IN_WITH_BROWSER_DESCRIPTOR = msg({
 	message: 'Sign in with your browser',

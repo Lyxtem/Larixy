@@ -30,7 +30,7 @@ import {
 	useState,
 } from 'react';
 
-const PUSH_RELAY_NOTICE_URL = 'https://larixy.com/push-relay';
+const PUSH_RELAY_NOTICE_URL = 'https://larixy.xyz/push-relay';
 const MIN_COMMUNITY_NAME_LENGTH = 1;
 const MAX_COMMUNITY_NAME_LENGTH = 100;
 

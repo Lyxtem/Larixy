@@ -6,19 +6,19 @@ This policy applies to all commits and pull requests.
 
 To prevent spam, only approved contributors may submit pull requests.
 
-To request approval, comment on the [feedback.larixy.com](https://feedback.larixy.com) post you want to implement and ask to work on it. For work that extends beyond a defect fix, post a feature request there first.
+To request approval, comment on the [feedback.larixy.xyz](https://feedback.larixy.xyz) post you want to implement and ask to work on it. For work that extends beyond a defect fix, post a feature request there first.
 
 Every pull request must:
 
 - Target the repository's default branch.
-- Link each feedback.larixy.com post it resolves.
+- Link each feedback.larixy.xyz post it resolves.
 - Receive approval from a maintainer before it is merged.
 
 Place each link on a separate line:
 
 ```text
-Resolves https://feedback.larixy.com/p/123
-Resolves https://feedback.larixy.com/p/456
+Resolves https://feedback.larixy.xyz/p/123
+Resolves https://feedback.larixy.xyz/p/456
 ```
 
 ## Authorship
@@ -91,13 +91,13 @@ A build stops with an error when it finds one of the old names `PUBLIC_BUILD_VER
 
 ## Reports and other contributions
 
-Report bugs and request features at [feedback.larixy.com](https://feedback.larixy.com).
+Report bugs and request features at [feedback.larixy.xyz](https://feedback.larixy.xyz).
 
-Report security vulnerabilities privately through [larixy.com/security](https://larixy.com/security). Never post them publicly.
+Report security vulnerabilities privately through [larixy.xyz/security](https://larixy.xyz/security). Never post them publicly.
 
-Read the [operator documentation](https://larixy.com) for self-hosting questions.
+Read the [operator documentation](https://larixy.xyz) for self-hosting questions.
 
-Submit translations through [Weblate](https://translate.larixy.com), not through pull requests.
+Submit translations through [Weblate](https://translate.larixy.xyz), not through pull requests.
 
 All repository activity is governed by the [Code of Conduct](https://github.com/larixyapp/larixy/blob/main/.github/CODE_OF_CONDUCT.md).
 

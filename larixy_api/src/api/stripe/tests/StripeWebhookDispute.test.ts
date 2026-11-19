@@ -445,7 +445,7 @@ describe('Plutonium payment disputes', () => {
 			await subscriber('pi_open_alert');
 			await openDispute('pi_open_alert');
 			await sendDispute('charge.dispute.updated', 'pi_open_alert', {status: 'needs_response', dueInDays: 12});
-			const alerts = (await listTestEmails(harness, {recipient: 'support@larixy.com'})).filter(
+			const alerts = (await listTestEmails(harness, {recipient: 'support@larixy.xyz'})).filter(
 				(email) => email.type === 'payment_dispute_review_alert' && email.metadata.dispute_id === 'dp_pi_open_alert',
 			);
 			expect(alerts).toHaveLength(1);

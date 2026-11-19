@@ -389,7 +389,7 @@ describe('Report profile snapshots', () => {
 		expect(reportsBucketHas(harness, guildSnapshot.guild?.icon?.key)).toBe(true);
 		const messageNotice = await submitDsa(harness, await issueTicket(harness), {
 			report_type: 'message',
-			message_link: `https://web.larixy.com/channels/${guild.id}/${channel.id}/${message.id}`,
+			message_link: `https://web.larixy.xyz/channels/${guild.id}/${channel.id}/${message.id}`,
 		})
 			.expect(HTTP_STATUS.OK)
 			.execute();

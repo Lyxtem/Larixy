@@ -177,14 +177,14 @@ mod consent_tests {
     const TOKEN: &str = "3dbc5a5ef1a1c1666afc26f466e1b3ebaaf4c66d92dddeb0fd1b69c49641d4cd";
 
     fn managed_endpoint() -> String {
-        format!("https://push.larixy.com/relay/v1/apns/stable/production/{TOKEN}")
+        format!("https://push.larixy.xyz/relay/v1/apns/stable/production/{TOKEN}")
     }
 
     fn state(relay_consent_accepted: bool) -> AppState {
         let cfg = DeliveryConfig::load_from_iter([
             ("LARIXY_INTERNAL_API_ENDPOINT", "http://127.0.0.1:8080"),
             ("LARIXY_GATEWAY_RPC_AUTH_TOKEN", "rpc-token"),
-            ("LARIXY_VAPID_EMAIL", "ops@larixy.com"),
+            ("LARIXY_VAPID_EMAIL", "ops@larixy.xyz"),
             ("LARIXY_VAPID_PUBLIC_KEY", "public-key"),
             ("LARIXY_VAPID_PRIVATE_KEY", "private-key"),
             (

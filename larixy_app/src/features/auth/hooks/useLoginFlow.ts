@@ -62,7 +62,7 @@ const logger = Logger.create('useLoginFlow');
 
 const LOGIN_CONNECTING_STATUS_DELAY_MS = 1500;
 
-const PASSKEY_LEGACY_RP_ID = 'larixy.com';
+const PASSKEY_LEGACY_RP_ID = 'larixy.xyz';
 
 const PASSKEY_UNAVAILABLE_DESCRIPTOR = msg({
 	message: 'Passkey sign-in is unavailable here.',
