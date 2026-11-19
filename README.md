@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./larixy_static/marketing/branding/logo-white.svg">
-    <img src="./larixy_static/marketing/branding/logo-color.svg" alt="Larixy logo" width="400">
+    <img src="" alt="Larixy logo" width="400">
   </picture>
 </p>
 
