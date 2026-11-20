@@ -1,23 +1,21 @@
 ---
 # SPDX-License-Identifier: AGPL-3.0-or-later
-title: Larixy API and self-hosting docs
-description: Reference for the Larixy HTTP API, Gateway, voice and media proxy, and guides for running your own Larixy instance.
+title: Larixy Developer Documentation
+description: Reference for the Larixy HTTP API, Gateway WebSocket, voice connections, media proxy and bots.
 head:
   - tag: title
-    content: Larixy API and self-hosting docs
+    content: Larixy Developer Documentation
 ---
 
-Larixy is a self-hostable chat platform. You can build clients and bots with its HTTP API and Gateway, or run your own instance.
+Welcome to the Larixy Developer Documentation. You can build bots, applications, webhooks and integrations with the Larixy HTTP API and Gateway.
 
 | Section | Description |
 | --- | --- |
 | [HTTP API](/http-api/) | Read and change users, guilds, channels and messages |
 | [Gateway](/gateway/overview/) | Receive [events](/gateway/events/) over a WebSocket connection |
-| [Voice](/voice/) | Join voice calls and share your screen |
+| [Voice](/voice/) | Join voice calls and stream audio/video |
 | [Media Proxy](/media-proxy/overview/) | Load media and upload files |
-| [Admin API](/admin-api/) | Manage an instance with admin access |
-| [Self-hosting](/operator/) | Install and run an instance |
-| [Downloads](/downloads/overview/) | Download desktop builds and add the Linux package repositories |
+| [Downloads](/downloads/overview/) | Download desktop builds |
 
 [Authentication](/authentication/), [Errors](/http-api/errors/), [Rate limits](/topics/rate-limits/) and [Locales](/topics/locales/) describe behavior that the APIs share. Each page says where it differs. Most IDs are [snowflakes](/snowflakes/).
 
