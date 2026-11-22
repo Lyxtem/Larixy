@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
 )
 
 func init() {

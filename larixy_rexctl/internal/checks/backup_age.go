@@ -9,7 +9,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/backup"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/backup"
 )
 
 const backupMaxAge = 7 * 24 * time.Hour

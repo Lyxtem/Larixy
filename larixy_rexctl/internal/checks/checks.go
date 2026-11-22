@@ -9,10 +9,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
 )
 
 type Status string

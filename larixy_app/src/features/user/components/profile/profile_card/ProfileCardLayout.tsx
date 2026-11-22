@@ -9,6 +9,7 @@ import {useMemo} from 'react';
 
 interface ProfileCardLayoutProps {
 	borderColor: string;
+	bannerColor?: string | null;
 	showPreviewLabel?: boolean;
 	hoverRef?: (instance: HTMLDivElement | null) => void;
 	className?: string;
@@ -17,8 +18,18 @@ interface ProfileCardLayoutProps {
 }
 
 export const ProfileCardLayout: React.FC<ProfileCardLayoutProps> = observer(
-	({borderColor, showPreviewLabel = false, hoverRef, className, style, children}) => {
-		const cardStyle = useMemo<React.CSSProperties>(() => ({...style, borderColor}), [borderColor, style]);
+	({borderColor, bannerColor, showPreviewLabel = false, hoverRef, className, style, children}) => {
+		const cardStyle = useMemo<React.CSSProperties>(() => {
+			const hasGradient = Boolean(bannerColor != null && bannerColor !== '' && borderColor != null && borderColor !== '');
+			const background = style?.background || (hasGradient
+				? `linear-gradient(135deg, ${bannerColor} 0%, ${borderColor} 100%)`
+				: undefined);
+			return {
+				...style,
+				borderColor: borderColor || bannerColor || style?.borderColor,
+				background,
+			};
+		}, [bannerColor, borderColor, style]);
 		return (
 			<div data-flx="user.profile.profile-card.profile-card-layout.div">
 				{showPreviewLabel && (

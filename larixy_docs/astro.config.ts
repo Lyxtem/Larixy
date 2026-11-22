@@ -1,18 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
-import {type RehypePlugin, unified} from '@astrojs/markdown-remark';
+import { fileURLToPath } from 'node:url';
+import { type RehypePlugin, unified } from '@astrojs/markdown-remark';
 import mdx from '@astrojs/mdx';
 import node from '@astrojs/node';
 import starlight from '@astrojs/starlight';
-import {defineConfig} from 'astro/config';
-import type {Root, RootContent} from 'hast';
-import {jetBrainsMonoFont, notoSansFont, radioCanadaBigFont} from './src/fonts/Fonts';
-import {docsBaseDomain, docsListenHost, docsListenPort, docsPublicEndpoint} from './src/server/DocsConfig';
-import {resolveViteDevWebSocket} from './src/server/ViteDevWebSocket';
-import {larixyDarkCodeTheme, larixyLightCodeTheme} from './src/styles/CodeTheme';
-import {rehypeTableColumnWidths} from './src/table/RehypeTableColumns.ts';
+import { defineConfig } from 'astro/config';
+import type { Root, RootContent } from 'hast';
+import { jetBrainsMonoFont, notoSansFont, radioCanadaBigFont } from './src/fonts/Fonts';
+import { docsBaseDomain, docsListenHost, docsListenPort, docsPublicEndpoint } from './src/server/DocsConfig';
+import { resolveViteDevWebSocket } from './src/server/ViteDevWebSocket';
+import { larixyDarkCodeTheme, larixyLightCodeTheme } from './src/styles/CodeTheme';
+import { rehypeTableColumnWidths } from './src/table/RehypeTableColumns.ts';
 
 const docsEndpoint = new URL(docsPublicEndpoint());
 const staticDirectory = fileURLToPath(new URL('../larixy_static/', import.meta.url));
@@ -61,18 +61,18 @@ const prefixRootRelativeLinks = (node: Root | RootContent, prefix: string): void
 
 const rehypeRootRelativeLinkPrefix =
 	(prefix: string): RehypePlugin =>
-	() =>
-	(tree) => {
-		if (prefix.length === 0) {
-			return;
-		}
-		prefixRootRelativeLinks(tree, prefix);
-	};
+		() =>
+			(tree) => {
+				if (prefix.length === 0) {
+					return;
+				}
+				prefixRootRelativeLinks(tree, prefix);
+			};
 
 const basePath = resolveDocsBasePath(docsEndpoint);
 
 export default defineConfig({
-	adapter: node({mode: 'middleware'}),
+	adapter: node({ mode: 'middleware' }),
 	base: docsEndpoint.pathname,
 	devToolbar: {
 		enabled: false,
@@ -157,7 +157,7 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Reference',
-					items: [{label: 'Introduction', link: '/'}, 'authentication', 'snowflakes'],
+					items: [{ label: 'Introduction', link: '/' }, 'authentication', 'snowflakes'],
 				},
 				{
 					label: 'Topics',
@@ -175,7 +175,7 @@ export default defineConfig({
 				{
 					label: 'HTTP API',
 					items: [
-						{label: 'Overview', link: '/http-api/'},
+						{ label: 'Overview', link: '/http-api/' },
 						'http-api/instance',
 						'http-api/authentication',
 						'http-api/gateway',
@@ -283,12 +283,12 @@ export default defineConfig({
 			],
 			social: [
 				{
-					href: 'https://github.com/larixyapp/larixy',
+					href: 'https://github.com/Lyxtem/larixy',
 					icon: 'github',
 					label: 'GitHub',
 				},
 			],
-			tableOfContents: {maxHeadingLevel: 2, minHeadingLevel: 2},
+			tableOfContents: { maxHeadingLevel: 2, minHeadingLevel: 2 },
 			title: 'Larixy API',
 		}),
 		mdx(),
@@ -343,7 +343,7 @@ export default defineConfig({
 					'**/*.{sqlite,sqlite3,db}',
 				],
 			},
-			ws: resolveViteDevWebSocket({endpoint: docsEndpoint, path: resolveDocsWebSocketPath(basePath)}),
+			ws: resolveViteDevWebSocket({ endpoint: docsEndpoint, path: resolveDocsWebSocketPath(basePath) }),
 		},
 	},
 });

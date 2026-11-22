@@ -1,4 +1,4 @@
-module github.com/larixyapp/larixy/larixy_rexctl
+module github.com/Lyxtem/larixy/larixy_rexctl
 
 go 1.27.0
 

@@ -10,11 +10,11 @@ RUN npm install -g pnpm@11.27.0
 FROM base AS deploy
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		build-essential \
-		gcc \
-		libvips-dev \
-		pkg-config \
-		python3 && \
+	build-essential \
+	gcc \
+	libvips-dev \
+	pkg-config \
+	python3 && \
 	rm -rf /var/lib/apt/lists/*
 
 ENV LARIXY_DOCS_ENDPOINT=https://docs.larixy.xyz
@@ -35,8 +35,8 @@ ARG SOURCE_DATE=""
 WORKDIR /usr/src/app/larixy_docs
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		ca-certificates \
-		libvips42t64 && \
+	ca-certificates \
+	libvips42t64 && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm@11.27.0
@@ -48,7 +48,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"

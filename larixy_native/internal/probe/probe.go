@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 const defaultTimeout = 5 * time.Second

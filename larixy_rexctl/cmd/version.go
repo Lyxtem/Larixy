@@ -8,9 +8,9 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/native"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/native"
 )
 
 type versionJSON struct {

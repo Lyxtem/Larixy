@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
 )
 
 func init() {

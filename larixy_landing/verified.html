@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Servidores y Cuentas — Larixy</title>
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0b0c10; color: #f1f2f6; }
+    .nav-glass { background: rgba(11, 12, 16, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .card-verified { background: #111218; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-glass">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-brand flex items-center justify-center p-2 shadow-lg shadow-brand/20">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+        </div>
+        <span class="font-display font-extrabold text-2xl tracking-tight text-white">Larixy</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
+        <a href="/partner" class="text-slate-300 hover:text-white transition-colors">Partner</a>
+        <a href="/docs" class="text-slate-300 hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir Larixy</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        <span>Autenticidad y Confianza</span>
+      </div>
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase leading-tight">
+        Servidores y Perfiles Verificados
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
+        La insignia de verificación confirma que un servidor o usuario representa a la entidad oficial, creador o proyecto original que dice ser.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      
+      <!-- Tipos de verificación -->
+      <div class="card-verified p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2">
+          <i data-lucide="badge-check" class="w-6 h-6 text-blue-400"></i>
+          <span>¿Quién puede obtener la insignia de Verificado?</span>
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+          La verificación está destinada a:
+        </p>
+        <ul class="space-y-2 text-sm text-slate-400 list-disc pl-5">
+          <li>Empresas, marcas y organizaciones constituidas.</li>
+          <li>Proyectos de código abierto y desarrolladores con trayectoria pública comprobable.</li>
+          <li>Figuras públicas, streamers, artistas y creadores con audiencia consolidada.</li>
+        </ul>
+      </div>
+
+      <!-- Verificación técnica de dominio -->
+      <div class="card-verified p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2">
+          <i data-lucide="globe" class="w-6 h-6 text-emerald-400"></i>
+          <span>Verificación criptográfica de dominio</span>
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+          Larixy permite vincular y verificar la propiedad de un dominio directamente en tu perfil mediante dos métodos transparentes:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div class="p-4 rounded-xl bg-dark-900 border border-dark-border">
+            <h4 class="font-bold text-sm text-white mb-1">1. Registro DNS TXT</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Añade un registro TXT en el subdominio <code class="text-emerald-400 font-mono">_larixy.tudominio.com</code> con el valor de token asignado.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-dark-900 border border-dark-border">
+            <h4 class="font-bold text-sm text-white mb-1">2. Archivo HTTP Token</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Sube el archivo de verificación en la ruta pública <code class="text-emerald-400 font-mono">/.well-known/larixy-verification</code> en tu servidor web.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cómo solicitar -->
+      <div class="card-verified p-8 text-center bg-dark-900">
+        <h3 class="font-display font-bold text-2xl text-white mb-3">¿Deseas verificar tu comunidad?</h3>
+        <p class="text-sm text-slate-300 max-w-lg mx-auto mb-6">
+          Ingresa a la aplicación, accede al menú de ajustes de tu servidor o perfil y completa el formulario de solicitud de verificación.
+        </p>
+        <a href="/app" class="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-brand text-white font-bold hover:bg-brand-hover text-sm">
+          <span>Abrir Larixy y Gestionar</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-dark-950 border-t border-dark-border py-12 text-sm text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-xs">
+        <a href="/terms" class="hover:text-white">Términos</a>
+        <a href="/privacy" class="hover:text-white">Privacidad</a>
+        <a href="/partner" class="hover:text-white">Partner</a>
+        <a href="/verified" class="hover:text-white">Verificación</a>
+        <a href="/docs" class="hover:text-white">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

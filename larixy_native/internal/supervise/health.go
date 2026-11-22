@@ -6,9 +6,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/logs"
-	"github.com/larixyapp/larixy/larixy_native/internal/probe"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/logs"
+	"github.com/Lyxtem/larixy/larixy_native/internal/probe"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 type watched struct {

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {createHash} from 'node:crypto';
-import {isGuardedAttachmentUrl} from '@app/api/attachment/AttachmentPublicUrl';
-import {stripOwnAttachmentSignature} from '@app/api/attachment/AttachmentUrls';
-import {Config} from '@app/api/Config';
-import {Logger} from '@app/api/Logger';
+import { createHash } from 'node:crypto';
+import { isGuardedAttachmentUrl } from '@app/api/attachment/AttachmentPublicUrl';
+import { stripOwnAttachmentSignature } from '@app/api/attachment/AttachmentUrls';
+import { Config } from '@app/api/Config';
+import { Logger } from '@app/api/Logger';
 import * as InviteUtils from '@app/api/utils/InviteUtils';
-import {URL_REGEX} from '@larixy/constants/src/Core';
+import { URL_REGEX } from '@larixy/constants/src/Core';
 
 const CLIENT_ROUTE_PATH_PREFIXES = ['/channels/', '/theme/', '/invite/', '/gift/', '/oauth2/', '/users/'];
 
@@ -32,7 +32,7 @@ function getWebAppHostnames(): Array<string> {
 function endpointLinkBase(endpoint: string): ExcludedLinkBase | null {
 	try {
 		const url = new URL(endpoint);
-		return {hostname: normalizeHostname(url.hostname), pathPrefix: `${url.pathname.replace(/\/+$/, '')}/`};
+		return { hostname: normalizeHostname(url.hostname), pathPrefix: `${url.pathname.replace(/\/+$/, '')}/` };
 	} catch {
 		return null;
 	}
@@ -43,13 +43,13 @@ let _excludedLinkBases: Array<ExcludedLinkBase> | null = null;
 function getExcludedLinkBases(): Array<ExcludedLinkBase> {
 	if (!_excludedLinkBases) {
 		const bases: Array<ExcludedLinkBase | null> = [
-			...Config.hosts.unfurlIgnored.map((hostname) => ({hostname: normalizeHostname(hostname), pathPrefix: '/'})),
+			...Config.hosts.unfurlIgnored.map((hostname) => ({ hostname: normalizeHostname(hostname), pathPrefix: '/' })),
 			endpointLinkBase(Config.endpoints.invite),
 			endpointLinkBase(Config.endpoints.gift),
 		];
 		for (const hostname of [...getWebAppHostnames(), Config.hosts.marketing]) {
 			for (const pathPrefix of CLIENT_ROUTE_PATH_PREFIXES) {
-				bases.push({hostname: normalizeHostname(hostname), pathPrefix});
+				bases.push({ hostname: normalizeHostname(hostname), pathPrefix });
 			}
 		}
 		_excludedLinkBases = bases.filter((base): base is ExcludedLinkBase => base !== null && base.hostname !== '');
@@ -64,7 +64,7 @@ function idnaEncodeURL(url: string) {
 		parsedUrl.password = '';
 		return parsedUrl.toString();
 	} catch (error) {
-		Logger.error({error}, 'Failed to encode URL');
+		Logger.error({ error }, 'Failed to encode URL');
 		return '';
 	}
 }
@@ -78,7 +78,7 @@ function isValidURL(url: string) {
 	}
 }
 
-function isLarixyAppExcludedURL(url: string) {
+function isLyxtemExcludedURL(url: string) {
 	try {
 		const parsedUrl = new URL(url);
 		const hostname = normalizeHostname(parsedUrl.hostname);
@@ -106,7 +106,7 @@ export function extractURLs(inputText: string) {
 	for (const url of urls) {
 		if (!isValidURL(url)) continue;
 		if (InviteUtils.findInvite(url) != null) continue;
-		if (isLarixyAppExcludedURL(url) || isGuardedAttachmentUrl(url)) continue;
+		if (isLyxtemExcludedURL(url) || isGuardedAttachmentUrl(url)) continue;
 		const encoded = idnaEncodeURL(url);
 		if (!encoded) continue;
 		const canonical = stripOwnAttachmentSignature(encoded);

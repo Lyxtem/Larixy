@@ -14,9 +14,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 type EjectOptions struct {

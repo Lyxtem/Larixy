@@ -3,7 +3,7 @@
 import {createRequire} from 'node:module';
 import {BUILD_CHANNEL} from '@electron/common/BuildChannel';
 import {loadDesktopConfig} from '@electron/common/DesktopConfig';
-import {WINDOWS_APP_USER_MODEL_ID, WINDOWS_TOAST_ACTIVATOR_CLSID} from '@electron/common/DesktopIdentity';
+import {DESKTOP_APP_NAME, WINDOWS_APP_USER_MODEL_ID, WINDOWS_TOAST_ACTIVATOR_CLSID} from '@electron/common/DesktopIdentity';
 import {createChildLogger, writeLogFilesUnder} from '@electron/common/Logger';
 import {resolveModulePollPlan} from '@electron/common/ModulePollPlan';
 import {
@@ -99,6 +99,9 @@ if (process.platform === 'win32') {
 	app.setToastActivatorCLSID(WINDOWS_TOAST_ACTIVATOR_CLSID);
 	app.setAppUserModelId(WINDOWS_APP_USER_MODEL_ID);
 }
+
+app.name = DESKTOP_APP_NAME;
+app.setName(DESKTOP_APP_NAME);
 
 armOpenUrlForwarding();
 
@@ -235,6 +238,10 @@ async function runBootstrap(): Promise<void> {
 			if (!hasQuitStarted()) logger.warn('Failed to admit the served renderer boot frame', {error});
 		});
 	await appendWindowsGpuDriverWorkaroundSwitches();
+	const remotePort = process.env.REMOTE_DEBUGGING_PORT || process.argv.find((a) => a.startsWith('--remote-debugging-port='))?.split('=')[1];
+	if (remotePort) {
+		app.commandLine.appendSwitch('remote-debugging-port', remotePort);
+	}
 	await app.whenReady();
 	const whenReadyMs = process.uptime() * 1000;
 	if (hasQuitStarted()) return;

@@ -21,9 +21,9 @@ RUN apt-get update \
 
 RUN npm install --no-audit --no-fund @tailwindcss/cli@4.2.1 tailwindcss@4.2.1
 RUN case "${TARGETARCH}" in \
-		amd64) OXIDE_PKG="@tailwindcss/oxide-linux-x64-gnu" ;; \
-		arm64) OXIDE_PKG="@tailwindcss/oxide-linux-arm64-gnu" ;; \
-		*) echo "unsupported TARGETARCH: ${TARGETARCH}" >&2; exit 1 ;; \
+	amd64) OXIDE_PKG="@tailwindcss/oxide-linux-x64-gnu" ;; \
+	arm64) OXIDE_PKG="@tailwindcss/oxide-linux-arm64-gnu" ;; \
+	*) echo "unsupported TARGETARCH: ${TARGETARCH}" >&2; exit 1 ;; \
 	esac \
 	&& npm install --no-audit --no-fund "${OXIDE_PKG}@4.2.1" \
 	&& test -x node_modules/.bin/tailwindcss
@@ -47,7 +47,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"

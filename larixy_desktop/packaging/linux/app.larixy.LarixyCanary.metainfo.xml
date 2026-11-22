@@ -50,7 +50,7 @@
     <url type="bugtracker">https://feedback.larixy.xyz</url>
     <url type="homepage">https://canary.larixy.xyz</url>
     <url type="donation">https://larixy.xyz/donate</url>
-    <url type="vcs-browser">https://github.com/larixyapp/larixy.git</url>
+    <url type="vcs-browser">https://github.com/Lyxtem/larixy.git</url>
     <update_contact>fen@unix.dog</update_contact>
     <provides>
         <binary>app.larixy.LarixyCanary</binary>

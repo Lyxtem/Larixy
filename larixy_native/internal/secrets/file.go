@@ -10,8 +10,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/config"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/config"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 func Fill(l spec.Layout, env spec.Env) error {

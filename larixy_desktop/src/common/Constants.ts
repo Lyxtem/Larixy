@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {BUILD_CHANNEL, type BuildChannel} from '@electron/common/BuildChannel';
+import { BUILD_CHANNEL, type BuildChannel } from '@electron/common/BuildChannel';
 import {
 	DESKTOP_LOCAL_APP_HOST,
 	DESKTOP_LOCAL_APP_ORIGIN,
@@ -14,7 +14,7 @@ const CHANNEL_APP_PROTOCOLS: Record<BuildChannel, string> = {
 	development: 'larixy-development',
 };
 export const APP_PROTOCOL = CHANNEL_APP_PROTOCOLS[BUILD_CHANNEL];
-export const STABLE_APP_URL = 'https://web.larixy.xyz';
+export const STABLE_APP_URL = 'https://larixy.xyz';
 const CANARY_APP_URL = 'https://web.canary.larixy.xyz';
 const DEVELOPMENT_APP_URL = 'http://localhost:8088';
 export const CHANNEL_APP_URLS: Record<BuildChannel, string> = {
@@ -38,7 +38,7 @@ export const DESKTOP_APP_LANDING_URL = `${DESKTOP_LOCAL_APP_URL}channels/@me`;
 export const DESKTOP_PREBOOT_THEME_CHANNEL = 'desktop-preboot-theme:report';
 export const RELEASE_RENDERER_MEMORY_CHANNEL = 'desktop-renderer-memory:release';
 export const DESKTOP_FIRST_CONTENT_PAINTED_CHANNEL = 'desktop-window:first-content-painted';
-export const STATIC_CDN_URL = 'https://larixystatic.com';
+export const STATIC_CDN_URL = 'https://larixy.xyz';
 export const DEFAULT_WINDOW_WIDTH = 1280;
 export const DEFAULT_WINDOW_HEIGHT = 800;
 export const MIN_WINDOW_WIDTH = 800;

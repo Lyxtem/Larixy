@@ -9,7 +9,7 @@ import (
 
 	"github.com/nats-io/nats-server/v2/server"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 const readyTimeout = 10 * time.Second

@@ -22,12 +22,12 @@ import (
 	"go.yaml.in/yaml/v4"
 	"golang.org/x/term"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/deploy"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/deploy"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 const (

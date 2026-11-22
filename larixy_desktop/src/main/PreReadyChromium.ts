@@ -44,6 +44,12 @@ export function applyPreReadyChromiumConfiguration(channel: BuildChannel, argv: 
 		});
 	}
 	app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
+	const remotePortArg = argv.find((a) => a.startsWith('--remote-debugging-port='));
+	if (remotePortArg) {
+		app.commandLine.appendSwitch('remote-debugging-port', remotePortArg.split('=')[1]);
+	} else if (process.env.REMOTE_DEBUGGING_PORT) {
+		app.commandLine.appendSwitch('remote-debugging-port', process.env.REMOTE_DEBUGGING_PORT);
+	}
 	const windowBehaviorSettings = getDesktopWindowBehaviorSettings();
 	app.commandLine.appendSwitch(
 		windowBehaviorSettings.smoothScrolling ? 'enable-smooth-scrolling' : 'disable-smooth-scrolling',

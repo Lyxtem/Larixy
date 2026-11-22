@@ -82,6 +82,9 @@ export class UserAccountProfileService {
 		if (data.accent_color !== undefined) {
 			await this.processAccentColorUpdate({user, accentColor: data.accent_color, updates});
 		}
+		if (data.banner_color !== undefined) {
+			updates.banner_color = data.banner_color;
+		}
 		if (data.timezone !== undefined) {
 			const nextTimezone = this.processTimezoneUpdate({user, timezone: data.timezone, updates});
 			if (nextTimezone !== null && user.timezone === null && data.timezone_privacy_flags === undefined) {

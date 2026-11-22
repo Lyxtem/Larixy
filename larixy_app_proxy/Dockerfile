@@ -26,8 +26,8 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 	PATH=/usr/local/cargo/bin:$PATH
 RUN set -eux; \
 	curl --retry 3 --retry-all-errors --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs \
-		| sh -s -- -y --no-modify-path --profile minimal --default-toolchain "${RUST_VERSION}" \
-			--target wasm32-unknown-unknown; \
+	| sh -s -- -y --no-modify-path --profile minimal --default-toolchain "${RUST_VERSION}" \
+	--target wasm32-unknown-unknown; \
 	rustc --version; cargo --version
 
 
@@ -118,15 +118,15 @@ RUN apk add --no-cache brotli
 RUN --mount=type=bind,from=app-dist,source=/dist,target=/dist \
 	cp -a /dist /assets \
 	&& if [ "${BUNDLE_LOCAL_ASSETS}" != "true" ]; then \
-		case "${PUBLIC_ASSET_BASE_URL}" in \
-		http://* | https://*) ;; \
-		*) \
-			echo "BUNDLE_LOCAL_ASSETS=false requires an absolute PUBLIC_ASSET_BASE_URL." >&2; \
-			echo "Without one, index.html links same-origin /assets/* that this image would no longer contain." >&2; \
-			exit 1 \
-			;; \
-		esac; \
-		find /assets/assets -type f ! -name 'fonts-*.txt' -delete; \
+	case "${PUBLIC_ASSET_BASE_URL}" in \
+	http://* | https://*) ;; \
+	*) \
+	echo "BUNDLE_LOCAL_ASSETS=false requires an absolute PUBLIC_ASSET_BASE_URL." >&2; \
+	echo "Without one, index.html links same-origin /assets/* that this image would no longer contain." >&2; \
+	exit 1 \
+	;; \
+	esac; \
+	find /assets/assets -type f ! -name 'fonts-*.txt' -delete; \
 	fi \
 	&& find /assets/assets -type f -name '*.map' -delete \
 	&& /usr/local/bin/precompress_assets.sh /assets
@@ -179,7 +179,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"

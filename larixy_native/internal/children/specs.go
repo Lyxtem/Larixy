@@ -15,13 +15,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/edge"
-	"github.com/larixyapp/larixy/larixy_native/internal/envdiff"
-	"github.com/larixyapp/larixy/larixy_native/internal/natsembed"
-	"github.com/larixyapp/larixy/larixy_native/internal/pg"
-	"github.com/larixyapp/larixy/larixy_native/internal/probe"
-	"github.com/larixyapp/larixy/larixy_native/internal/seaweed"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/edge"
+	"github.com/Lyxtem/larixy/larixy_native/internal/envdiff"
+	"github.com/Lyxtem/larixy/larixy_native/internal/natsembed"
+	"github.com/Lyxtem/larixy/larixy_native/internal/pg"
+	"github.com/Lyxtem/larixy/larixy_native/internal/probe"
+	"github.com/Lyxtem/larixy/larixy_native/internal/seaweed"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 const serverBinary = "larixy-server"

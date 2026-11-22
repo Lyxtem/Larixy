@@ -1,0 +1,162 @@
+un tier me
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos de Servicio — Larixy</title>
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0b0c10;
+      color: #f1f2f6;
+    }
+
+    .nav-glass {
+      background: rgba(11, 12, 16, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .prose-custom h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .prose-custom p {
+      color: #94a3b8;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .prose-custom ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+    }
+
+    .prose-custom li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-glass">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-brand flex items-center justify-center p-2 shadow-lg shadow-brand/20">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+        </div>
+        <span class="font-display font-extrabold text-2xl tracking-tight text-white">Larixy</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
+        <a href="/docs" class="text-slate-300 hover:text-white transition-colors">Docs</a>
+        <a href="/app"
+          class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir
+          Larixy</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5 py-16 sm:py-24">
+    <div class="border-b border-dark-border pb-8 mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-brand font-display">Legal</span>
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2">Términos de Servicio</h1>
+      <p class="text-sm text-slate-400 mt-3">Última actualización: 19 de noviembre de 2026</p>
+    </div>
+
+    <div class="prose-custom bg-dark-900 border border-dark-border p-6 sm:p-10 rounded-2xl shadow-xl">
+      <h2>1. Aceptación de los Términos</h2>
+      <p>
+        Al registrarte, acceder o utilizar la plataforma Larixy (en web, cliente de escritorio o mediante nuestras
+        APIs), aceptas cumplir estos Términos de Servicio y todas las leyes aplicables. Si no estás de acuerdo con
+        alguna disposición, no debes utilizar el servicio.
+      </p>
+
+      <h2>2. Uso de la Cuenta y Seguridad</h2>
+      <p>
+        Eres responsable de mantener la confidencialidad de tus credenciales de inicio de sesión y de todas las
+        actividades que ocurran bajo tu cuenta. Notifícanos de inmediato si sospechas de un acceso no autorizado. Larixy
+        no se hace responsable de pérdidas causadas por descuidos en la seguridad de tus contraseñas o tokens de sesión.
+      </p>
+
+      <h2>3. Conducta de la Comunidad</h2>
+      <p>
+        Larixy promueve la libre comunicación y el respeto mutuo. Queda estrictamente prohibido utilizar la plataforma
+        para:
+      </p>
+      <ul>
+        <li>Difundir contenido ilícito, explotador o que viole derechos de autor.</li>
+        <li>Acosar, amenazar, extorsionar o vulnerar la integridad de otros usuarios.</li>
+        <li>Realizar ataques de denegación de servicio (DDoS), saturación deliberada de servidores o explotación de
+          vulnerabilidades.</li>
+        <li>Distribuir malware, scripts maliciosos o enlaces fraudulentos (phishing).</li>
+        <li>Spam masivo no deseado en canales públicos o mensajes directos.</li>
+      </ul>
+
+      <h2>4. Bots y Uso de la API</h2>
+      <p>
+        El desarrollo y uso de bots o herramientas automatizadas está permitido siempre y cuando respete las tasas
+        límite (rate limits) establecidas y no se use para recolectar datos masivos indebidos o perturbar comunidades
+        sin el consentimiento de sus administradores.
+      </p>
+
+      <h2>5. Moderación y Suspensión</h2>
+      <p>
+        Los administradores de cada servidor son responsables de su propia comunidad. Larixy se reserva el derecho de
+        suspender o revocar el acceso a cuentas o comunidades que infrinjan de manera grave o reiterada estos términos.
+      </p>
+
+      <h2>6. Modificaciones</h2>
+      <p>
+        Podemos actualizar estos términos periódicamente para reflejar mejoras técnicas o requerimientos legales. El uso
+        continuo de la plataforma constituye la aceptación de los nuevos términos.
+      </p>
+    </div>
+  </main>
+
+  <footer class="bg-dark-950 border-t border-dark-border py-12 text-sm text-slate-400 mt-20">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-xs">
+        <a href="/terms" class="hover:text-white">Términos</a>
+        <a href="/privacy" class="hover:text-white">Privacidad</a>
+        <a href="/docs" class="hover:text-white">Documentación</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

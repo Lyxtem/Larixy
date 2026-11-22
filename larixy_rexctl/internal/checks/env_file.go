@@ -9,10 +9,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/release"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/release"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func init() {

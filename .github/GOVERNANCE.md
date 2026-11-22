@@ -8,11 +8,11 @@ External contributions do not grant voting rights, commit access, employment or 
 
 ## Licence and contributor rights
 
-Source code owned by Larixy Platform AB in this repository is distributed under the [GNU Affero General Public License, version 3.0 or later](https://github.com/larixyapp/larixy/blob/main/LICENSE). The licence permits its use, modification and redistribution subject to its terms.
+Source code owned by Larixy Platform AB in this repository is distributed under the [GNU Affero General Public License, version 3.0 or later](https://github.com/Lyxtem/larixy/blob/main/LICENSE). The licence permits its use, modification and redistribution subject to its terms.
 
 Larixy Platform AB does not require contributors to sign a contributor licence agreement or assign their copyright. Contributors retain the copyright in their work.
 
-Every commit made by a contributor must include the [Developer Certificate of Origin](https://developercertificate.org) sign-off required by the [contributing guidelines](https://github.com/larixyapp/larixy/blob/main/.github/CONTRIBUTING.md). Pull requests opened by Larixy repository automation are exempt from this requirement.
+Every commit made by a contributor must include the [Developer Certificate of Origin](https://developercertificate.org) sign-off required by the [contributing guidelines](https://github.com/Lyxtem/larixy/blob/main/.github/CONTRIBUTING.md). Pull requests opened by Larixy repository automation are exempt from this requirement.
 
 ## Name and marks
 

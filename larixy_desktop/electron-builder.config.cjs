@@ -9,15 +9,15 @@ const {promisify} = require('node:util');
 const execFileAsync = promisify(execFile);
 const CHANNELS = {
 	stable: {
-		productName: 'Wave',
-		linuxOptDirName: 'Wave',
-		artifactProductName: 'Wave',
-		appId: 'app.wave',
+		productName: 'Larixy',
+		linuxOptDirName: 'larixy',
+		artifactProductName: 'Larixy',
+		appId: 'app.larixy',
 		iconDirectory: 'icons-stable',
-		packageName: 'wave_desktop',
-		linuxPackageName: 'wave',
-		linuxDesktopId: 'app.wave.WaveDesktop',
-		linuxComment: 'Wave - Instant messaging and VoIP',
+		packageName: 'larixy_desktop',
+		linuxPackageName: 'larixy',
+		linuxDesktopId: 'app.larixy.LarixyDesktop',
+		linuxComment: 'Larixy - Instant messaging and VoIP',
 		protocolScheme: 'larixy',
 		macEntitlements: 'build_resources/entitlements.mac.stable.plist',
 		notarize: true,
@@ -154,6 +154,10 @@ const macTargetArchs = targetNativeArch ? [targetNativeArch] : supportedTargetAr
 const winGameCaptureTargetArchs =
 	targetPlatform === 'win32' && targetNativeArch ? [targetNativeArch] : supportedTargetArchs;
 const winTargets = [
+	{
+		target: 'nsis',
+		arch: targetArchs,
+	},
 	{
 		target: 'dir',
 		arch: targetArchs,
@@ -879,6 +883,7 @@ async function beforePack(context) {
 }
 
 async function verifyPackagedNativeArtifacts(context) {
+	if (process.env.LARIXY_SKIP_NATIVE === 'true') return;
 	const platform = context.electronPlatformName;
 	const arch = normalizeArch(context.arch);
 	const appDir = resolveAppDir(context);
@@ -914,6 +919,7 @@ async function verifyPackagedNativeArtifacts(context) {
 }
 
 async function copyMissingPackagedNativeArtifacts(context) {
+	if (process.env.LARIXY_SKIP_NATIVE === 'true') return;
 	const platform = context.electronPlatformName;
 	const arch = normalizeArch(context.arch);
 	const appDir = resolveAppDir(context);
@@ -1180,6 +1186,7 @@ async function readAsarFileList(asarPath) {
 }
 
 async function verifyPreflightModulesPackaged(context) {
+	if (process.env.LARIXY_SKIP_NATIVE === 'true') return;
 	const platform = context.electronPlatformName === 'mas' ? 'darwin' : context.electronPlatformName;
 	const asarPath = path.join(packagedResourcesDir(context), 'app.asar');
 	const files = await readAsarFileList(asarPath);
@@ -1884,6 +1891,18 @@ module.exports = {
 	win: {
 		icon: `build_resources/${iconDir}/icon.ico`,
 		target: winTargets,
+	},
+	nsis: {
+		oneClick: false,
+		perMachine: false,
+		allowToChangeInstallationDirectory: true,
+		createDesktopShortcut: 'always',
+		createStartMenuShortcut: true,
+		shortcutName: 'Larixy',
+		installerIcon: `build_resources/${iconDir}/icon.ico`,
+		uninstallerIcon: `build_resources/${iconDir}/icon.ico`,
+		installerHeaderIcon: `build_resources/${iconDir}/icon.ico`,
+		runAfterFinish: true,
 	},
 	linux: {
 		icon: `build_resources/${iconDir}`,

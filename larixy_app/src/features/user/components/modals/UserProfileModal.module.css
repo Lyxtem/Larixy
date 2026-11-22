@@ -239,8 +239,9 @@
 	top: calc(var(--profile-modal-avatar-top, -4.05rem) * var(--profile-modal-scale));
 	inset-inline-start: calc(var(--profile-modal-avatar-left, 1rem) * var(--profile-modal-scale));
 	z-index: 0;
-	border: var(--profile-modal-avatar-border, 0.3rem) solid var(--background-primary);
-	background-color: var(--background-primary);
+	border: var(--profile-modal-avatar-border, 0.3rem) solid transparent;
+	border-radius: 50%;
+	background-color: transparent;
 }
 
 .actionButtonsContainer {

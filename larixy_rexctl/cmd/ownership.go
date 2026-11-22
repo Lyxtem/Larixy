@@ -9,8 +9,8 @@ import (
 	"os/user"
 	"strconv"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func checkOwnership(app *App, inst *instance.Instance) error {

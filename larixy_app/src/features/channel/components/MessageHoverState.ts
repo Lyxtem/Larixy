@@ -17,6 +17,8 @@ export interface MessageHoverState {
 	isHovering: boolean;
 	isPopoutOpen: boolean;
 	handlePopoutToggle: (isOpen: boolean) => void;
+	handleMouseEnter: () => void;
+	handleMouseLeave: () => void;
 }
 
 export function useMessageHoverState({
@@ -34,6 +36,16 @@ export function useMessageHoverState({
 		isHoveringDesktopRef.current = isHovered;
 		setIsHoveringDesktop(isHovered);
 	}, []);
+	const handleMouseEnter = useCallback(() => {
+		if (!mobileLayoutEnabled) {
+			setDesktopHoverState(true);
+		}
+	}, [mobileLayoutEnabled, setDesktopHoverState]);
+	const handleMouseLeave = useCallback(() => {
+		if (!mobileLayoutEnabled) {
+			setDesktopHoverState(false);
+		}
+	}, [mobileLayoutEnabled, setDesktopHoverState]);
 	const handlePopoutToggle = useCallback((isOpen: boolean) => {
 		setIsPopoutOpen(isOpen);
 	}, []);
@@ -61,5 +73,7 @@ export function useMessageHoverState({
 		isHovering: mobileLayoutEnabled ? false : isHoveringDesktop,
 		isPopoutOpen,
 		handlePopoutToggle,
+		handleMouseEnter,
+		handleMouseLeave,
 	};
 }

@@ -17,9 +17,9 @@ import (
 
 	"github.com/compose-spec/compose-go/v2/template"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 var (

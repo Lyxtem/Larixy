@@ -16,7 +16,7 @@ services:
   admin:
     profiles: [split-rust]
   rust:
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-server:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-server:${LARIXY_IMAGE_TAG:-v1}
     restart: ${LARIXY_RESTART_POLICY:-unless-stopped}
     stop_grace_period: 30s
     networks:

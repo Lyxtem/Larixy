@@ -79,3 +79,8 @@ index_remote.html
 /manifest.larixy.json
 /wave-logo-*
 /DOCUMENTACION_ARQUITECTURA_LARIXY.md
+/AUDITORIA_ENLACES_Y_SUBDOMINIOS.md
+/docs.fluxer.md
+*.bak
+/scratch/
+/scripts/

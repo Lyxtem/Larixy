@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {DESKTOP_APP_NAME} from '@electron/common/DesktopIdentity';
-import {checkForUpdatesFromShell} from '@electron/main/DesktopUpdatePrompt';
-import {shouldDisableModuleUpdatesForLaunch} from '@electron/main/LaunchOptions';
-import {onLocaleChange, t} from '@electron/main/MainI18n';
-import {openExternalDeduped} from '@electron/main/OpenExternal';
-import {buildTroubleshootingMenuItems} from '@electron/main/Troubleshooting';
-import {getMainWindow, reloadWindowAfterBootStateFlush, toggleWindowDevTools} from '@electron/main/Window';
-import {type BaseWindow, BrowserWindow, Menu, type MenuItem, type MenuItemConstructorOptions} from 'electron';
+import { DESKTOP_APP_NAME } from '@electron/common/DesktopIdentity';
+import { checkForUpdatesFromShell } from '@electron/main/DesktopUpdatePrompt';
+import { shouldDisableModuleUpdatesForLaunch } from '@electron/main/LaunchOptions';
+import { onLocaleChange, t } from '@electron/main/MainI18n';
+import { openExternalDeduped } from '@electron/main/OpenExternal';
+import { buildTroubleshootingMenuItems } from '@electron/main/Troubleshooting';
+import { getMainWindow, reloadWindowAfterBootStateFlush, toggleWindowDevTools } from '@electron/main/Window';
+import { type BaseWindow, BrowserWindow, Menu, type MenuItem, type MenuItemConstructorOptions } from 'electron';
 
 const MACOS_HELP_MENU_TITLE_AUTODETECT_OPT_OUT = '\u200C';
 
@@ -30,10 +30,10 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 			submenu: [
 				{
 					role: 'about',
-					label: t('desktop.appMenu.about', {appName}),
+					label: t('desktop.appMenu.about', { appName }),
 				},
 				...(shouldDisableModuleUpdatesForLaunch() ? [] : [checkForUpdatesItem()]),
-				{type: 'separator'},
+				{ type: 'separator' },
 				{
 					label: t('desktop.appMenu.preferences'),
 					accelerator: 'Cmd+,',
@@ -44,19 +44,19 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 						}
 					},
 				},
-				{type: 'separator'},
-				{role: 'services'},
-				{type: 'separator'},
+				{ type: 'separator' },
+				{ role: 'services' },
+				{ type: 'separator' },
 				{
 					role: 'hide',
-					label: t('desktop.appMenu.hide', {appName}),
+					label: t('desktop.appMenu.hide', { appName }),
 				},
-				{role: 'hideOthers'},
-				{role: 'unhide'},
-				{type: 'separator'},
+				{ role: 'hideOthers' },
+				{ role: 'unhide' },
+				{ type: 'separator' },
 				{
 					role: 'quit',
-					label: t('desktop.appMenu.quit', {appName}),
+					label: t('desktop.appMenu.quit', { appName }),
 				},
 			],
 		});
@@ -64,53 +64,53 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 	template.push({
 		label: t('desktop.appMenu.file'),
 		submenu: isMac
-			? [{role: 'close'}]
+			? [{ role: 'close' }]
 			: [
-					{
-						label: t('desktop.appMenu.preferencesPlain'),
-						accelerator: 'Ctrl+,',
-						click: () => {
-							const mainWindow = getMainWindow();
-							if (mainWindow) {
-								mainWindow.webContents.send('open-settings');
-							}
-						},
+				{
+					label: t('desktop.appMenu.preferencesPlain'),
+					accelerator: 'Ctrl+,',
+					click: () => {
+						const mainWindow = getMainWindow();
+						if (mainWindow) {
+							mainWindow.webContents.send('open-settings');
+						}
 					},
-					{type: 'separator'},
-					{
-						role: 'quit',
-						label: t('desktop.appMenu.exit'),
-					},
-				],
+				},
+				{ type: 'separator' },
+				{
+					role: 'quit',
+					label: t('desktop.appMenu.exit'),
+				},
+			],
 	});
 	template.push({
 		label: t('desktop.appMenu.edit'),
 		submenu: [
-			{role: 'undo', label: t('desktop.appMenu.undo')},
-			{role: 'redo', label: t('desktop.appMenu.redo')},
-			{type: 'separator'},
-			{role: 'cut', label: t('desktop.appMenu.cut')},
-			{role: 'copy', label: t('desktop.appMenu.copy')},
-			{role: 'paste', label: t('desktop.appMenu.paste')},
+			{ role: 'undo', label: t('desktop.appMenu.undo') },
+			{ role: 'redo', label: t('desktop.appMenu.redo') },
+			{ type: 'separator' },
+			{ role: 'cut', label: t('desktop.appMenu.cut') },
+			{ role: 'copy', label: t('desktop.appMenu.copy') },
+			{ role: 'paste', label: t('desktop.appMenu.paste') },
 			...(isMac
 				? [
-						{role: 'pasteAndMatchStyle' as const, label: t('desktop.appMenu.pasteAndMatchStyle')},
-						{role: 'delete' as const, label: t('desktop.appMenu.delete')},
-						{role: 'selectAll' as const, label: t('desktop.appMenu.selectAll')},
-						{type: 'separator' as const},
-						{
-							label: t('desktop.appMenu.speech'),
-							submenu: [
-								{role: 'startSpeaking' as const, label: t('desktop.appMenu.startSpeaking')},
-								{role: 'stopSpeaking' as const, label: t('desktop.appMenu.stopSpeaking')},
-							],
-						},
-					]
+					{ role: 'pasteAndMatchStyle' as const, label: t('desktop.appMenu.pasteAndMatchStyle') },
+					{ role: 'delete' as const, label: t('desktop.appMenu.delete') },
+					{ role: 'selectAll' as const, label: t('desktop.appMenu.selectAll') },
+					{ type: 'separator' as const },
+					{
+						label: t('desktop.appMenu.speech'),
+						submenu: [
+							{ role: 'startSpeaking' as const, label: t('desktop.appMenu.startSpeaking') },
+							{ role: 'stopSpeaking' as const, label: t('desktop.appMenu.stopSpeaking') },
+						],
+					},
+				]
 				: [
-						{role: 'delete' as const, label: t('desktop.appMenu.delete')},
-						{type: 'separator' as const},
-						{role: 'selectAll' as const, label: t('desktop.appMenu.selectAll')},
-					]),
+					{ role: 'delete' as const, label: t('desktop.appMenu.delete') },
+					{ type: 'separator' as const },
+					{ role: 'selectAll' as const, label: t('desktop.appMenu.selectAll') },
+				]),
 		],
 	});
 	const zoomInHandler = () => {
@@ -148,7 +148,7 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 					}
 				},
 			},
-			{type: 'separator'},
+			{ type: 'separator' },
 			{
 				label: t('desktop.appMenu.actualSize'),
 				accelerator: 'CmdOrCtrl+0',
@@ -180,43 +180,43 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 					}
 				},
 			},
-			{type: 'separator'},
-			{role: 'togglefullscreen', label: t('desktop.appMenu.toggleFullScreen')},
+			{ type: 'separator' },
+			{ role: 'togglefullscreen', label: t('desktop.appMenu.toggleFullScreen') },
 			...(isMac
 				? []
 				: [
-						{
-							role: 'togglefullscreen' as const,
-							label: t('desktop.appMenu.toggleFullScreen'),
-							accelerator: 'Alt+Enter',
-							visible: false,
-						},
-					]),
+					{
+						role: 'togglefullscreen' as const,
+						label: t('desktop.appMenu.toggleFullScreen'),
+						accelerator: 'Alt+Enter',
+						visible: false,
+					},
+				]),
 		],
 	});
 	template.push({
 		label: t('desktop.appMenu.window'),
 		submenu: [
-			{role: 'minimize', label: t('desktop.appMenu.minimize')},
-			{role: 'zoom', label: t('desktop.appMenu.zoomWindow')},
+			{ role: 'minimize', label: t('desktop.appMenu.minimize') },
+			{ role: 'zoom', label: t('desktop.appMenu.zoomWindow') },
 			...(isMac
 				? [
-						{type: 'separator' as const},
-						{role: 'front' as const},
-						{type: 'separator' as const},
-						{role: 'window' as const},
-					]
+					{ type: 'separator' as const },
+					{ role: 'front' as const },
+					{ type: 'separator' as const },
+					{ role: 'window' as const },
+				]
 				: [
-						{
-							label: t('desktop.appMenu.close'),
-							click: (_menuItem: MenuItem, browserWindow: BaseWindow | undefined) => {
-								const targetWindow = browserWindow ?? getMainWindow();
-								if (targetWindow && !targetWindow.isDestroyed()) {
-									targetWindow.close();
-								}
-							},
+					{
+						label: t('desktop.appMenu.close'),
+						click: (_menuItem: MenuItem, browserWindow: BaseWindow | undefined) => {
+							const targetWindow = browserWindow ?? getMainWindow();
+							if (targetWindow && !targetWindow.isDestroyed()) {
+								targetWindow.close();
+							}
 						},
-					]),
+					},
+				]),
 		],
 	});
 	template.push({
@@ -224,7 +224,7 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 			? `${t('desktop.appMenu.help')}${MACOS_HELP_MENU_TITLE_AUTODETECT_OPT_OUT}`
 			: t('desktop.appMenu.help'),
 		submenu: [
-			...(isMac || shouldDisableModuleUpdatesForLaunch() ? [] : [checkForUpdatesItem(), {type: 'separator' as const}]),
+			...(isMac || shouldDisableModuleUpdatesForLaunch() ? [] : [checkForUpdatesItem(), { type: 'separator' as const }]),
 			{
 				label: t('desktop.appMenu.website'),
 				click: async () => {
@@ -234,17 +234,17 @@ function buildTemplate(): Array<MenuItemConstructorOptions> {
 			{
 				label: t('desktop.appMenu.github'),
 				click: async () => {
-					await openExternalDeduped('https://github.com/larixyapp/larixy');
+					await openExternalDeduped('https://github.com/Lyxtem/larixy');
 				},
 			},
-			{type: 'separator'},
+			{ type: 'separator' },
 			{
 				label: t('desktop.appMenu.reportIssue'),
 				click: async () => {
 					await openExternalDeduped('https://feedback.larixy.xyz');
 				},
 			},
-			{type: 'separator'},
+			{ type: 'separator' },
 			{
 				label: t('desktop.appMenu.troubleshooting'),
 				submenu: buildTroubleshootingMenuItems(),

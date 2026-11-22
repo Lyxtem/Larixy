@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/lock"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/lock"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 const (

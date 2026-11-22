@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
 )
 
 var sudoPath = []string{"/usr/sbin", "/usr/bin", "/sbin", "/bin"}

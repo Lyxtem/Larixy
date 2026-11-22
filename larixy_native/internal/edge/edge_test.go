@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 func freePort(t *testing.T) int {

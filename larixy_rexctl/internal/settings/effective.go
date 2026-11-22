@@ -12,8 +12,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 func Effective(set *stack.Set, chosen, secrets, adminImport map[string]string) (map[string]string, error) {

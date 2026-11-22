@@ -20,7 +20,7 @@ import (
 
 	"github.com/klauspost/compress/zstd"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/release"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/release"
 )
 
 var (

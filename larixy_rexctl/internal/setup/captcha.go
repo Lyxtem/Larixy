@@ -18,7 +18,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
 )
 
 const (

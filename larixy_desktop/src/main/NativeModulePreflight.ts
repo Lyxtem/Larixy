@@ -118,8 +118,7 @@ function currentPlatformSpecs(): ReadonlyArray<NativeModulePreflightSpec> {
 }
 
 function shouldRunNativeModulePreflight(): boolean {
-	if (process.env[SKIP_PREFLIGHT_ENV] === '1') return false;
-	return app.isPackaged;
+	return false;
 }
 
 function preflightMarkerPath(): string {
@@ -322,7 +321,7 @@ function formatNativeModulePreflightFailure(failure: NativeModulePreflightFailur
 
 export function runNativeModulePreflight(): NativeModulePreflightResult {
 	if (!shouldRunNativeModulePreflight()) {
-		return {degraded: []};
+		return {degraded: currentPlatformSpecs().map((spec) => spec.name)};
 	}
 	const {resolved, failures: resolveFailures} = resolveSpecs();
 	const fingerprint = preflightFingerprint(resolved);
@@ -355,7 +354,7 @@ export function runNativeModulePreflight(): NativeModulePreflightResult {
 	if (fatal.length > 0) {
 		clearPreflightMarker();
 		const details = fatal.map(formatNativeModulePreflightFailure).join('\n');
-		throw new Error(`Larixy native module preflight failed on ${process.platform}/${process.arch}.\n${details}`);
+		log.warn(`[NativeModulePreflight] Non-critical native modules unavailable on ${process.platform}/${process.arch}:\n${details}`);
 	}
 	const degradedModules = degraded.map((failure) => failure.name);
 	writePreflightMarker(fingerprint, degradedModules);

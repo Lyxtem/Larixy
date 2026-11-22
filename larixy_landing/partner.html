@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa de Partners — Larixy</title>
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0b0c10; color: #f1f2f6; }
+    .nav-glass { background: rgba(11, 12, 16, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .card-partner { background: #111218; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; transition: border-color 0.2s, transform 0.15s; }
+    .card-partner:hover { border-color: rgba(88, 101, 242, 0.5); transform: translateY(-2px); }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-glass">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-brand flex items-center justify-center p-2 shadow-lg shadow-brand/20">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+        </div>
+        <span class="font-display font-extrabold text-2xl tracking-tight text-white">Larixy</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
+        <a href="/verified" class="text-slate-300 hover:text-white transition-colors">Verificación</a>
+        <a href="/docs" class="text-slate-300 hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir Larixy</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Partner -->
+  <section class="max-w-5xl mx-auto px-5 pt-20 pb-16 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+      <span>Programa Oficial</span>
+    </div>
+    <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-white tracking-tight uppercase max-w-3xl mx-auto leading-tight">
+      Lleva tu comunidad al siguiente nivel con Partner
+    </h1>
+    <p class="mt-6 text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+      El Programa de Partners de Larixy premia y apoya a creadores de contenido, comunidades apasionadas y proyectos de código abierto con herramientas exclusivas y visibilidad destacada.
+    </p>
+  </section>
+
+  <!-- Beneficios de Partner -->
+  <section class="max-w-6xl mx-auto px-5 py-12">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-white text-center mb-12">
+      Beneficios exclusivos para Partners
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="card-partner p-6">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+          <i data-lucide="award" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Insignia Partner Distintiva</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Insignia especial de Partner en el perfil del propietario y en la insignia de servidor, destacando tu autenticidad ante toda la plataforma.
+        </p>
+      </div>
+
+      <div class="card-partner p-6">
+        <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center mb-4">
+          <i data-lucide="link" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Enlace de Invitación Personalizado</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Consigue un enlace de invitación vanidoso único para tu comunidad (ej: larixy.xyz/invite/tucomunidad) fácil de compartir.
+        </p>
+      </div>
+
+      <div class="card-partner p-6">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+          <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-lg text-white mb-2">Soporte Prioritario</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Canal directo de comunicación con el equipo de Larixy para resolver incidencias, sugerencias y acceso anticipado a novedades.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requisitos -->
+  <section class="max-w-4xl mx-auto px-5 py-16">
+    <div class="bg-dark-900 border border-dark-border p-8 sm:p-12 rounded-2xl">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-white mb-6">
+        Requisitos para postular
+      </h2>
+      <ul class="space-y-4 text-sm sm:text-base text-slate-300">
+        <li class="flex items-start gap-3">
+          <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+          <span><strong>Comunidad activa y saludable:</strong> Conversación regular en canales de texto o actividad en salas de voz.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+          <span><strong>Moderación responsable:</strong> Cumplimiento estricto de las normas comunitarias y términos de servicio de Larixy.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+          <span><strong>Originalidad del contenido:</strong> Servidores dedicados a proyectos, gaming, arte, tecnología o grupos temáticos reales.</span>
+        </li>
+      </ul>
+
+      <div class="mt-8 pt-6 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h4 class="font-bold text-white text-base">¿Cumples los criterios?</h4>
+          <p class="text-xs text-slate-400">Solicítalo directamente desde el servidor oficial de soporte o contactando con el equipo.</p>
+        </div>
+        <a href="/app" class="px-6 py-3 rounded-full bg-brand text-white font-bold hover:bg-brand-hover text-sm shrink-0">
+          Postular mi servidor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-950 border-t border-dark-border py-12 text-sm text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-xs">
+        <a href="/terms" class="hover:text-white">Términos</a>
+        <a href="/privacy" class="hover:text-white">Privacidad</a>
+        <a href="/partner" class="hover:text-white">Partner</a>
+        <a href="/verified" class="hover:text-white">Verificación</a>
+        <a href="/docs" class="hover:text-white">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

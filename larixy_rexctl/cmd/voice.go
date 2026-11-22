@@ -17,12 +17,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/voice"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/voice"
 )
 
 const defaultDrainTimeout = 15 * time.Minute

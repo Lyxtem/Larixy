@@ -3,6 +3,7 @@
 import {getActiveInstanceProductName} from '@app/features/app/state/ActiveInstanceProductName';
 import InstanceSnapshotStore, {type RuntimeConfigSnapshot} from '@app/features/app/state/InstanceSnapshotStore';
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
+import {OFFICIAL_CLIENT_API_ENDPOINTS} from '@larixy/instance_bootstrap/src/OfficialInstance';
 import authPageStyles from '@app/features/auth/flow/AuthPageStyles.module.css';
 import {AuthRouteLoadError} from '@app/features/auth/flow/AuthRouteLoadError';
 import {AuthShellLoadingState} from '@app/features/auth/flow/AuthShellLoadingState';
@@ -177,7 +178,7 @@ async function resolveDesktopAuthRuntime(signal: AbortSignal): Promise<RuntimeCo
 	if (api === undefined) {
 		throw new DesktopAuthRuntimeUnavailableError();
 	}
-	const initialInput = await api.initialInput();
+	const initialInput = (await api.initialInput()) ?? OFFICIAL_CLIENT_API_ENDPOINTS.stable;
 	signal.throwIfAborted();
 	if (initialInput === null) {
 		return null;

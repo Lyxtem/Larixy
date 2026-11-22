@@ -10,9 +10,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/secrets"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/secrets"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 type Kind int

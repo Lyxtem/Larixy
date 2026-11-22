@@ -15,12 +15,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/release"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/release"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 const upgradeFix = "Run rexctl upgrade to put this instance on the release this rexctl knows."

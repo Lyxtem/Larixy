@@ -86,7 +86,11 @@
 :global(:where(html.window-focused, html.unfocused-fully-interactive):not(.window-focus-activation-guard))
 	.messageCompact.messageHovered:not(.messageMentioned):not(.messageReplying):not(.messageHighlight):not(
 		.messagePreview
-	) {
+	),
+.message:hover:not(.messageMentioned):not(.messageReplying):not(.messageHighlight):not(.messagePreview),
+.messageCompact:hover:not(.messageMentioned):not(.messageReplying):not(.messageHighlight):not(
+	.messagePreview
+) {
 	background-color: var(--background-modifier-hover);
 }
 

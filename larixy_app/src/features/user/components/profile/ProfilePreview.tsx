@@ -1,44 +1,44 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {CustomStatusDisplay} from '@app/features/app/components/shared/custom_status_display/CustomStatusDisplay';
+import { CustomStatusDisplay } from '@app/features/app/components/shared/custom_status_display/CustomStatusDisplay';
 import Guilds from '@app/features/guild/state/Guilds';
-import type {GuildMember} from '@app/features/member/models/GuildMember';
-import {Button} from '@app/features/ui/button/Button';
+import type { GuildMember } from '@app/features/member/models/GuildMember';
+import { Button } from '@app/features/ui/button/Button';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
-import {modal} from '@app/features/ui/commands/ModalCommands';
+import { modal } from '@app/features/ui/commands/ModalCommands';
 import FocusRing from '@app/features/ui/focus_ring/FocusRing';
-import {Tooltip} from '@app/features/ui/tooltip/Tooltip';
-import {UserProfileModal} from '@app/features/user/components/modals/UserProfileModal';
-import {UserProfileBadges} from '@app/features/user/components/popouts/UserProfileBadges';
+import { Tooltip } from '@app/features/ui/tooltip/Tooltip';
+import { UserProfileModal } from '@app/features/user/components/modals/UserProfileModal';
+import { UserProfileBadges } from '@app/features/user/components/popouts/UserProfileBadges';
 import {
 	UserProfileMembershipInfo,
 	UserProfilePreviewBio,
 	UserProfileTimezoneInfo,
 } from '@app/features/user/components/popouts/UserProfileShared';
 import styles from '@app/features/user/components/profile/ProfilePreview.module.css';
-import {ProfileCardBanner} from '@app/features/user/components/profile/profile_card/ProfileCardBanner';
-import {ProfileCardContent} from '@app/features/user/components/profile/profile_card/ProfileCardContent';
-import {ProfileCardFooter} from '@app/features/user/components/profile/profile_card/ProfileCardFooter';
-import {ProfileCardLayout} from '@app/features/user/components/profile/profile_card/ProfileCardLayout';
-import {ProfileCardUserInfo} from '@app/features/user/components/profile/profile_card/ProfileCardUserInfo';
-import {useProfileCardDisplayState} from '@app/features/user/components/profile/useProfileCardDisplayState';
-import {useAutoplayExpandedProfileAnimations} from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
-import {useOwnProfileBadges} from '@app/features/user/hooks/useOwnProfileBadges';
-import type {Profile} from '@app/features/user/models/Profile';
-import type {User} from '@app/features/user/models/User';
-import type {CustomStatus} from '@app/features/user/state/CustomStatus';
+import { ProfileCardBanner } from '@app/features/user/components/profile/profile_card/ProfileCardBanner';
+import { ProfileCardContent } from '@app/features/user/components/profile/profile_card/ProfileCardContent';
+import { ProfileCardFooter } from '@app/features/user/components/profile/profile_card/ProfileCardFooter';
+import { ProfileCardLayout } from '@app/features/user/components/profile/profile_card/ProfileCardLayout';
+import { ProfileCardUserInfo } from '@app/features/user/components/profile/profile_card/ProfileCardUserInfo';
+import { useProfileCardDisplayState } from '@app/features/user/components/profile/useProfileCardDisplayState';
+import { useAutoplayExpandedProfileAnimations } from '@app/features/user/hooks/useAutoplayExpandedProfileAnimations';
+import { useOwnProfileBadges } from '@app/features/user/hooks/useOwnProfileBadges';
+import type { Profile } from '@app/features/user/models/Profile';
+import type { User } from '@app/features/user/models/User';
+import type { CustomStatus } from '@app/features/user/state/CustomStatus';
 import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
-import type {ProfilePreviewOverrides} from '@app/features/user/utils/ProfileDisplayUtils';
-import {createMockProfile} from '@app/features/user/utils/ProfileUtils';
-import {YOU_CAN_T_MESSAGE_YOURSELF_DESCRIPTOR} from '@app/features/user/utils/UserMessageDescriptors';
-import type {ProfileBadgeResponse} from '@larixy/schema/src/domains/user/ProfileBadgeSchemas';
-import type {UserProfile} from '@larixy/schema/src/domains/user/UserResponseSchemas';
-import {msg} from '@lingui/core/macro';
-import {Trans, useLingui} from '@lingui/react/macro';
-import {ChatTeardropIcon} from '@phosphor-icons/react';
-import {observer} from 'mobx-react-lite';
+import type { ProfilePreviewOverrides } from '@app/features/user/utils/ProfileDisplayUtils';
+import { createMockProfile } from '@app/features/user/utils/ProfileUtils';
+import { YOU_CAN_T_MESSAGE_YOURSELF_DESCRIPTOR } from '@app/features/user/utils/UserMessageDescriptors';
+import type { ProfileBadgeResponse } from '@larixy/schema/src/domains/user/ProfileBadgeSchemas';
+import type { UserProfile } from '@larixy/schema/src/domains/user/UserResponseSchemas';
+import { msg } from '@lingui/core/macro';
+import { Trans, useLingui } from '@lingui/react/macro';
+import { ChatTeardropIcon } from '@phosphor-icons/react';
+import { observer } from 'mobx-react-lite';
 import type React from 'react';
-import {useCallback, useMemo} from 'react';
+import { useCallback, useMemo } from 'react';
 
 const PROFILE_PREVIEW_PRESS_ENTER_TO_OPEN_FULL_PREVIEW_DESCRIPTOR = msg({
 	message: 'Profile preview (press Enter to open full preview)',
@@ -54,6 +54,7 @@ interface ProfilePreviewProps {
 	previewBio?: string | null;
 	previewPronouns?: string | null;
 	previewAccentColor?: number | null;
+	previewBannerColor?: number | null;
 	previewTimezoneOffset?: number | null;
 	previewGlobalName?: string | null;
 	previewNick?: string | null;
@@ -80,6 +81,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		previewBio,
 		previewPronouns,
 		previewAccentColor,
+		previewBannerColor,
 		previewTimezoneOffset,
 		previewGlobalName,
 		previewNick,
@@ -95,7 +97,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		previewCustomStatus,
 		onAvatarClick,
 	}) => {
-		const {i18n} = useLingui();
+		const { i18n } = useLingui();
 		const previewOverrides = useMemo<ProfilePreviewOverrides>(
 			() => ({
 				previewAvatarUrl,
@@ -120,11 +122,11 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		const previewUser = useMemo(() => {
 			const globalName = previewGlobalName !== undefined ? previewGlobalName : user.globalName;
 			if (isCommunityProfile) {
-				return user.withUpdates({global_name: globalName});
+				return user.withUpdates({ global_name: globalName });
 			}
 			const bio = previewBio !== undefined ? previewBio : user.bio;
 			const pronouns = previewPronouns !== undefined ? previewPronouns : user.pronouns;
-			return user.withUpdates({bio, pronouns, global_name: globalName});
+			return user.withUpdates({ bio, pronouns, global_name: globalName });
 		}, [user, previewBio, previewPronouns, previewGlobalName, isCommunityProfile]);
 		const mockProfile = useMemo(() => {
 			if (isCommunityProfile && guildId && guildMemberProfile) {
@@ -219,8 +221,12 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 		const pronouns = previewPronouns !== undefined ? previewPronouns : user.pronouns;
 		const displayName =
 			previewNick || (guildId ? NicknameUtils.getNickname(previewUser, guildId) : previewUser.displayName);
+		const rawBannerColor = previewBannerColor !== undefined ? previewBannerColor : user.bannerColor;
+		const resolvedBannerColor = rawBannerColor != null
+			? (typeof rawBannerColor === 'number' ? `#${(rawBannerColor >>> 0).toString(16).padStart(6, '0')}` : rawBannerColor)
+			: null;
 		const borderColor = accentColor;
-		const bannerColor = accentColor;
+		const bannerColor = resolvedBannerColor || accentColor;
 		const selectedGuild = guildId ? Guilds.getGuild(guildId) : null;
 		const hasPreviewStatus = previewCustomStatus !== undefined;
 		const handlePreviewKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -240,6 +246,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 				>
 					<ProfileCardLayout
 						borderColor={borderColor}
+						bannerColor={resolvedBannerColor}
 						showPreviewLabel={showPreviewLabel}
 						data-flx="user.profile.profile-preview.profile-card-layout"
 					>
@@ -291,7 +298,7 @@ export const ProfilePreview: React.FC<ProfilePreviewProps> = observer(
 							/>
 							{showMembershipInfo && (
 								<UserProfileMembershipInfo
-									profile={{...mockProfile, guild: selectedGuild, guildMember} as Profile}
+									profile={{ ...mockProfile, guild: selectedGuild, guildMember } as Profile}
 									user={previewUser}
 									data-flx="user.profile.profile-preview.user-profile-membership-info"
 								/>

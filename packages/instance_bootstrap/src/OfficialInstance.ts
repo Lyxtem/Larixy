@@ -15,7 +15,7 @@ export const OFFICIAL_INSTANCE_DISPLAY_NAME = 'larixy.xyz';
 export const OFFICIAL_STABLE_MARKETING_ORIGIN = `https://${OFFICIAL_INSTANCE_DISPLAY_HOST}`;
 
 export const OFFICIAL_CLIENT_API_ENDPOINTS = Object.freeze({
-	stable: 'https://web.larixy.xyz/api',
+	stable: 'https://larixy.xyz/api',
 	canary: 'https://web.canary.larixy.xyz/api',
 } as const);
 

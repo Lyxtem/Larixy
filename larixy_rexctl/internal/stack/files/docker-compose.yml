@@ -245,7 +245,7 @@ x-larixy-logging: &larixy-logging
 
 x-larixy-service: &larixy-service
   restart: ${LARIXY_RESTART_POLICY:-unless-stopped}
-  networks: [larixy]
+  networks: [ larixy ]
   logging: *larixy-logging
 
 x-larixy-healthcheck: &larixy-healthcheck
@@ -265,7 +265,7 @@ x-larixy-app-healthcheck: &larixy-app-healthcheck
 x-larixy-svc-healthcheck: &larixy-svc-healthcheck
   <<: *larixy-app-healthcheck
   start_period: ${LARIXY_SVC_HEALTHCHECK_START_PERIOD:-60s}
-  test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8090 && printf \"GET /_health HTTP/1.0\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'"]
+  test: [ "CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8090 && printf \"GET /_health HTTP/1.0\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'" ]
 
 services:
   edge:
@@ -294,11 +294,11 @@ services:
       - edge-data:/data
       - edge-config:/config
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:2019/config/"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:2019/config/" ]
       <<: *larixy-healthcheck
     depends_on:
-      api: {condition: service_healthy}
-      gateway: {condition: service_healthy}
+      api: { condition: service_healthy }
+      gateway: { condition: service_healthy }
 
   postgres:
     <<: *larixy-service
@@ -310,32 +310,7 @@ services:
         reservations:
           memory: ${LARIXY_POSTGRES_MEMORY_RESERVATION:-3gb}
     command: >
-      postgres
-      -c max_connections=${LARIXY_POSTGRES_SERVER_MAX_CONNECTIONS:-150}
-      -c shared_buffers=${LARIXY_POSTGRES_SHARED_BUFFERS:-512MB}
-      -c effective_cache_size=${LARIXY_POSTGRES_EFFECTIVE_CACHE_SIZE:-2GB}
-      -c work_mem=${LARIXY_POSTGRES_WORK_MEM:-8MB}
-      -c maintenance_work_mem=${LARIXY_POSTGRES_MAINTENANCE_WORK_MEM:-256MB}
-      -c autovacuum_work_mem=${LARIXY_POSTGRES_AUTOVACUUM_WORK_MEM:-128MB}
-      -c random_page_cost=${LARIXY_POSTGRES_RANDOM_PAGE_COST:-1.1}
-      -c effective_io_concurrency=${LARIXY_POSTGRES_EFFECTIVE_IO_CONCURRENCY:-200}
-      -c default_statistics_target=${LARIXY_POSTGRES_DEFAULT_STATISTICS_TARGET:-200}
-      -c jit=${LARIXY_POSTGRES_JIT:-off}
-      -c min_wal_size=${LARIXY_POSTGRES_MIN_WAL_SIZE:-80MB}
-      -c max_wal_size=${LARIXY_POSTGRES_MAX_WAL_SIZE:-2GB}
-      -c checkpoint_completion_target=${LARIXY_POSTGRES_CHECKPOINT_COMPLETION_TARGET:-0.9}
-      -c wal_buffers=${LARIXY_POSTGRES_WAL_BUFFERS:-16MB}
-      -c wal_compression=${LARIXY_POSTGRES_WAL_COMPRESSION:-zstd}
-      -c bgwriter_delay=${LARIXY_POSTGRES_BGWRITER_DELAY:-50ms}
-      -c bgwriter_lru_maxpages=${LARIXY_POSTGRES_BGWRITER_LRU_MAXPAGES:-1000}
-      -c autovacuum_vacuum_scale_factor=${LARIXY_POSTGRES_AUTOVACUUM_VACUUM_SCALE_FACTOR:-0.05}
-      -c autovacuum_analyze_scale_factor=${LARIXY_POSTGRES_AUTOVACUUM_ANALYZE_SCALE_FACTOR:-0.02}
-      -c autovacuum_vacuum_cost_limit=${LARIXY_POSTGRES_AUTOVACUUM_VACUUM_COST_LIMIT:-2000}
-      -c autovacuum_max_workers=${LARIXY_POSTGRES_AUTOVACUUM_MAX_WORKERS:-3}
-      -c max_parallel_workers_per_gather=${LARIXY_POSTGRES_MAX_PARALLEL_WORKERS_PER_GATHER:-2}
-      -c max_parallel_workers=${LARIXY_POSTGRES_MAX_PARALLEL_WORKERS:-8}
-      -c track_io_timing=${LARIXY_POSTGRES_TRACK_IO_TIMING:-on}
-      -c shared_preload_libraries=${LARIXY_POSTGRES_SHARED_PRELOAD_LIBRARIES:-pg_stat_statements}
+      postgres -c max_connections=${LARIXY_POSTGRES_SERVER_MAX_CONNECTIONS:-150} -c shared_buffers=${LARIXY_POSTGRES_SHARED_BUFFERS:-512MB} -c effective_cache_size=${LARIXY_POSTGRES_EFFECTIVE_CACHE_SIZE:-2GB} -c work_mem=${LARIXY_POSTGRES_WORK_MEM:-8MB} -c maintenance_work_mem=${LARIXY_POSTGRES_MAINTENANCE_WORK_MEM:-256MB} -c autovacuum_work_mem=${LARIXY_POSTGRES_AUTOVACUUM_WORK_MEM:-128MB} -c random_page_cost=${LARIXY_POSTGRES_RANDOM_PAGE_COST:-1.1} -c effective_io_concurrency=${LARIXY_POSTGRES_EFFECTIVE_IO_CONCURRENCY:-200} -c default_statistics_target=${LARIXY_POSTGRES_DEFAULT_STATISTICS_TARGET:-200} -c jit=${LARIXY_POSTGRES_JIT:-off} -c min_wal_size=${LARIXY_POSTGRES_MIN_WAL_SIZE:-80MB} -c max_wal_size=${LARIXY_POSTGRES_MAX_WAL_SIZE:-2GB} -c checkpoint_completion_target=${LARIXY_POSTGRES_CHECKPOINT_COMPLETION_TARGET:-0.9} -c wal_buffers=${LARIXY_POSTGRES_WAL_BUFFERS:-16MB} -c wal_compression=${LARIXY_POSTGRES_WAL_COMPRESSION:-zstd} -c bgwriter_delay=${LARIXY_POSTGRES_BGWRITER_DELAY:-50ms} -c bgwriter_lru_maxpages=${LARIXY_POSTGRES_BGWRITER_LRU_MAXPAGES:-1000} -c autovacuum_vacuum_scale_factor=${LARIXY_POSTGRES_AUTOVACUUM_VACUUM_SCALE_FACTOR:-0.05} -c autovacuum_analyze_scale_factor=${LARIXY_POSTGRES_AUTOVACUUM_ANALYZE_SCALE_FACTOR:-0.02} -c autovacuum_vacuum_cost_limit=${LARIXY_POSTGRES_AUTOVACUUM_VACUUM_COST_LIMIT:-2000} -c autovacuum_max_workers=${LARIXY_POSTGRES_AUTOVACUUM_MAX_WORKERS:-3} -c max_parallel_workers_per_gather=${LARIXY_POSTGRES_MAX_PARALLEL_WORKERS_PER_GATHER:-2} -c max_parallel_workers=${LARIXY_POSTGRES_MAX_PARALLEL_WORKERS:-8} -c track_io_timing=${LARIXY_POSTGRES_TRACK_IO_TIMING:-on} -c shared_preload_libraries=${LARIXY_POSTGRES_SHARED_PRELOAD_LIBRARIES:-pg_stat_statements}
     shm_size: ${LARIXY_POSTGRES_SHM_SIZE:-1gb}
     environment:
       POSTGRES_DB: ${LARIXY_POSTGRES_DATABASE:-larixy}
@@ -344,7 +319,7 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      test: [ "CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\"" ]
       <<: *larixy-healthcheck
 
   valkey:
@@ -354,14 +329,11 @@ services:
       resources:
         limits:
           memory: ${LARIXY_VALKEY_MEMORY_LIMIT:-256mb}
-    command: ["valkey-server", "--appendonly", "yes", "--appendfsync", "${LARIXY_VALKEY_APPENDFSYNC:-everysec}", "--dir", "/data",
-              "--save", "${LARIXY_VALKEY_SAVE:-}",
-              "--maxmemory", "${LARIXY_VALKEY_MAXMEMORY:-192mb}",
-              "--maxmemory-policy", "${LARIXY_VALKEY_MAXMEMORY_POLICY:-noeviction}"]
+    command: [ "valkey-server", "--appendonly", "yes", "--appendfsync", "${LARIXY_VALKEY_APPENDFSYNC:-everysec}", "--dir", "/data", "--save", "${LARIXY_VALKEY_SAVE:-}", "--maxmemory", "${LARIXY_VALKEY_MAXMEMORY:-192mb}", "--maxmemory-policy", "${LARIXY_VALKEY_MAXMEMORY_POLICY:-noeviction}" ]
     volumes:
       - valkey-data:/data
     healthcheck:
-      test: ["CMD", "valkey-cli", "ping"]
+      test: [ "CMD", "valkey-cli", "ping" ]
       <<: *larixy-healthcheck
 
   nats:
@@ -379,13 +351,11 @@ services:
       - sh
       - -c
       - >
-        printf 'http_port: 8222\njetstream {\n  store_dir: /data\n  max_memory_store: %s\n  max_file_store: %s\n}\n'
-        "$$LARIXY_NATS_MAX_MEMORY_STORE" "$$LARIXY_NATS_MAX_FILE_STORE" > /tmp/nats.conf
-        && exec nats-server -c /tmp/nats.conf
+        printf 'http_port: 8222\njetstream {\n  store_dir: /data\n  max_memory_store: %s\n  max_file_store: %s\n}\n' "$$LARIXY_NATS_MAX_MEMORY_STORE" "$$LARIXY_NATS_MAX_FILE_STORE" > /tmp/nats.conf && exec nats-server -c /tmp/nats.conf
     volumes:
       - nats-data:/data
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8222/healthz"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8222/healthz" ]
       <<: *larixy-healthcheck
 
   meilisearch:
@@ -406,7 +376,7 @@ services:
     volumes:
       - meilisearch-data:/meili_data
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7700/health"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7700/health" ]
       <<: *larixy-healthcheck
 
   seaweedfs:
@@ -420,11 +390,11 @@ services:
       GOMEMLIMIT: ${LARIXY_SEAWEEDFS_GOMEMLIMIT:-1536MiB}
       WEED_MASTER_VOLUME_GROWTH_COPY_1: ${LARIXY_SEAWEEDFS_VOLUME_GROWTH:-1}
       WEED_FILER_OPTIONS_MAX_FILE_NAME_LENGTH: "1024"
-    command: ["server", "-s3", "-s3.iam=false", "-dir=/data", "-master.telemetry=${LARIXY_SEAWEEDFS_TELEMETRY:-false}", "-master.volumeSizeLimitMB=${LARIXY_SEAWEEDFS_VOLUME_SIZE_LIMIT_MB:-1024}", "-master.garbageThreshold=${LARIXY_SEAWEEDFS_GARBAGE_THRESHOLD:-0.1}", "-volume.max=${LARIXY_SEAWEEDFS_VOLUME_MAX:-10000}", "-s3.concurrentFileUploadLimit=${LARIXY_SEAWEEDFS_S3_CONCURRENT_UPLOADS:-5}"]
+    command: [ "server", "-s3", "-s3.iam=false", "-dir=/data", "-master.telemetry=${LARIXY_SEAWEEDFS_TELEMETRY:-false}", "-master.volumeSizeLimitMB=${LARIXY_SEAWEEDFS_VOLUME_SIZE_LIMIT_MB:-1024}", "-master.garbageThreshold=${LARIXY_SEAWEEDFS_GARBAGE_THRESHOLD:-0.1}", "-volume.max=${LARIXY_SEAWEEDFS_VOLUME_MAX:-10000}", "-s3.concurrentFileUploadLimit=${LARIXY_SEAWEEDFS_S3_CONCURRENT_UPLOADS:-5}" ]
     volumes:
       - seaweedfs-data:/data
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8333/healthz"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8333/healthz" ]
       <<: *larixy-healthcheck
       retries: ${LARIXY_SEAWEEDFS_HEALTHCHECK_RETRIES:-20}
       start_period: ${LARIXY_SEAWEEDFS_HEALTHCHECK_START_PERIOD:-60s}
@@ -435,10 +405,10 @@ services:
       resources:
         limits:
           memory: ${LARIXY_SEAWEEDFS_INIT_MEMORY_LIMIT:-128mb}
-    networks: [larixy]
+    networks: [ larixy ]
     logging: *larixy-logging
     depends_on:
-      seaweedfs: {condition: service_healthy, restart: true}
+      seaweedfs: { condition: service_healthy, restart: true }
     restart: "no"
     environment:
       LARIXY_S3_ACCESS_KEY: ${LARIXY_S3_ACCESS_KEY:-}
@@ -453,9 +423,7 @@ services:
       - /bin/sh
       - -c
       - >
-        buckets="$$LARIXY_S3_BUCKET_CDN $$LARIXY_S3_BUCKET_UPLOADS $$LARIXY_S3_BUCKET_REPORTS $$LARIXY_S3_BUCKET_HARVESTS";
-        missing="$$buckets";
-        for attempt in $$(seq 1 $$LARIXY_SEAWEEDFS_INIT_ATTEMPTS); do
+        buckets="$$LARIXY_S3_BUCKET_CDN $$LARIXY_S3_BUCKET_UPLOADS $$LARIXY_S3_BUCKET_REPORTS $$LARIXY_S3_BUCKET_HARVESTS"; missing="$$buckets"; for attempt in $$(seq 1 $$LARIXY_SEAWEEDFS_INIT_ATTEMPTS); do
           if ! nc -z seaweedfs 9333 2>/dev/null; then
             sleep 2;
             continue;
@@ -487,13 +455,11 @@ services:
             echo "s3.bucket.create -name $$b" | timeout 10 weed shell -master=seaweedfs:9333 >/dev/null 2>&1;
           done;
           sleep 2;
-        done;
-        if [ -n "$$failure" ]; then
+        done; if [ -n "$$failure" ]; then
           echo "seaweedfs-init $$failure" >&2;
         else
           echo "seaweedfs-init could not verify buckets: $$missing" >&2;
-        fi;
-        exit 1;
+        fi; exit 1;
 
   livekit:
     <<: *larixy-service
@@ -525,12 +491,12 @@ services:
       - "${LARIXY_LIVEKIT_TCP_PORT:-7881}:${LARIXY_LIVEKIT_TCP_PORT:-7881}"
       - "${LARIXY_LIVEKIT_UDP_PORT:-7882}:${LARIXY_LIVEKIT_UDP_PORT:-7882}/udp"
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7880/"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:7880/" ]
       <<: *larixy-healthcheck
 
   api:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-api:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-api:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -550,22 +516,22 @@ services:
     volumes:
       - ./ca:/etc/larixy/ca:ro
     healthcheck:
-      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health HTTP/1.0\\r\\nHost: 127.0.0.1\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'"]
+      test: [ "CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health HTTP/1.0\\r\\nHost: 127.0.0.1\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'" ]
       <<: *larixy-app-healthcheck
     depends_on:
-      postgres: {condition: service_healthy}
-      valkey: {condition: service_healthy}
-      nats: {condition: service_healthy}
-      meilisearch: {condition: service_healthy}
-      seaweedfs-init: {condition: service_completed_successfully}
-      gifs: {condition: service_healthy}
-      snowflakes: {condition: service_healthy}
-      messages: {condition: service_healthy}
-      users: {condition: service_healthy}
+      postgres: { condition: service_healthy }
+      valkey: { condition: service_healthy }
+      nats: { condition: service_healthy }
+      meilisearch: { condition: service_healthy }
+      seaweedfs-init: { condition: service_completed_successfully }
+      gifs: { condition: service_healthy }
+      snowflakes: { condition: service_healthy }
+      messages: { condition: service_healthy }
+      users: { condition: service_healthy }
 
   worker:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-api:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-api:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       replicas: ${LARIXY_WORKER_REPLICAS:-1}
       resources:
@@ -573,7 +539,7 @@ services:
           memory: ${LARIXY_WORKER_MEMORY_LIMIT:-2560mb}
         reservations:
           memory: ${LARIXY_WORKER_MEMORY_RESERVATION:-1gb}
-    command: ["node", "dist/WorkerEntrypoint.js"]
+    command: [ "node", "dist/WorkerEntrypoint.js" ]
     environment:
       <<: *larixy-env
       NODE_OPTIONS: --max-old-space-size${LARIXY_WORKER_NODE_HEAP_MB:+=}${LARIXY_WORKER_NODE_HEAP_MB:--percentage=55}${LARIXY_WORKER_NODE_OPTIONS:+ ${LARIXY_WORKER_NODE_OPTIONS:-}}
@@ -586,21 +552,21 @@ services:
     volumes:
       - ./ca:/etc/larixy/ca:ro
     healthcheck:
-      test: ["CMD-SHELL", "find /tmp/larixy-worker-heartbeat -newermt '-30 seconds' | grep -q ."]
+      test: [ "CMD-SHELL", "find /tmp/larixy-worker-heartbeat -newermt '-30 seconds' | grep -q ." ]
       <<: *larixy-app-healthcheck
       retries: ${LARIXY_WORKER_HEALTHCHECK_RETRIES:-3}
     depends_on:
-      postgres: {condition: service_healthy}
-      valkey: {condition: service_healthy}
-      nats: {condition: service_healthy}
-      seaweedfs-init: {condition: service_completed_successfully}
-      snowflakes: {condition: service_healthy}
-      messages: {condition: service_healthy}
-      users: {condition: service_healthy}
+      postgres: { condition: service_healthy }
+      valkey: { condition: service_healthy }
+      nats: { condition: service_healthy }
+      seaweedfs-init: { condition: service_completed_successfully }
+      snowflakes: { condition: service_healthy }
+      messages: { condition: service_healthy }
+      users: { condition: service_healthy }
 
   gateway:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-gateway:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-gateway:${LARIXY_IMAGE_TAG:-v1}
     ulimits:
       nofile:
         soft: 65536
@@ -640,15 +606,15 @@ services:
       LARIXY_ERLANG_DIRTY_CPU_SCHEDULERS: ${LARIXY_ERLANG_DIRTY_CPU_SCHEDULERS:-}
       LARIXY_ERLANG_DIRTY_IO_SCHEDULERS: ${LARIXY_ERLANG_DIRTY_IO_SCHEDULERS:-}
     healthcheck:
-      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health/ready HTTP/1.0\\r\\nHost: 127.0.0.1\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'"]
+      test: [ "CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health/ready HTTP/1.0\\r\\nHost: 127.0.0.1\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'" ]
       <<: *larixy-app-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
-      valkey: {condition: service_healthy}
+      nats: { condition: service_healthy }
+      valkey: { condition: service_healthy }
 
   media-proxy:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-media-proxy:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-media-proxy:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -690,16 +656,16 @@ services:
     volumes:
       - media-proxy-tmp:/tmp
     healthcheck:
-      test: ["CMD", "/usr/local/bin/larixy-media-proxy", "healthcheck"]
+      test: [ "CMD", "/usr/local/bin/larixy-media-proxy", "healthcheck" ]
       <<: *larixy-healthcheck
       interval: ${LARIXY_MEDIA_PROXY_HEALTHCHECK_INTERVAL:-30s}
     depends_on:
-      seaweedfs-init: {condition: service_completed_successfully}
-      nats: {condition: service_healthy}
+      seaweedfs-init: { condition: service_completed_successfully }
+      nats: { condition: service_healthy }
 
   push:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-push:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-push:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -724,27 +690,27 @@ services:
       LARIXY_PUSH_FCM_TOKEN_URI: ${LARIXY_PUSH_FCM_TOKEN_URI:-}
       LARIXY_PUSH_FCM_APPS: ${LARIXY_PUSH_FCM_APPS:-}
     healthcheck:
-      test: ["CMD", "/usr/local/bin/larixy-push", "healthcheck"]
+      test: [ "CMD", "/usr/local/bin/larixy-push", "healthcheck" ]
       <<: *larixy-app-healthcheck
       start_period: ${LARIXY_SVC_HEALTHCHECK_START_PERIOD:-60s}
     depends_on:
-      nats: {condition: service_healthy}
-      api: {condition: service_healthy}
+      nats: { condition: service_healthy }
+      api: { condition: service_healthy }
 
   static-proxy:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-static:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-static:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
           memory: ${LARIXY_STATIC_PROXY_MEMORY_LIMIT:-256mb}
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/avatars/0.png"]
+      test: [ "CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/avatars/0.png" ]
       <<: *larixy-healthcheck
 
   app-proxy:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-app-proxy-self-hosted:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-app-proxy-self-hosted:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -785,17 +751,17 @@ services:
       LARIXY_CSP_EXTRA_MANIFEST_SRC: ${LARIXY_CSP_EXTRA_MANIFEST_SRC:-}
       LARIXY_CSP_REPORT_URI: ${LARIXY_CSP_REPORT_URI:-}
     healthcheck:
-      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8080/_ready"]
+      test: [ "CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8080/_ready" ]
       <<: *larixy-healthcheck
       interval: ${LARIXY_APP_PROXY_HEALTHCHECK_INTERVAL:-30s}
     depends_on:
-      api: {condition: service_healthy}
-      edge: {condition: service_healthy}
+      api: { condition: service_healthy }
+      edge: { condition: service_healthy }
 
   snowflakes:
     <<: *larixy-service
     stop_grace_period: 30s
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-snowflakes:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-snowflakes:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -807,12 +773,12 @@ services:
       LARIXY_SNOWFLAKES_WORKER_GUARD: "true"
     healthcheck: *larixy-svc-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
+      nats: { condition: service_healthy }
 
   users:
     <<: *larixy-service
     stop_grace_period: 30s
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-users:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-users:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -824,13 +790,13 @@ services:
       LARIXY_POSTGRES_MAX_CONNECTIONS: "${LARIXY_USERS_POSTGRES_MAX_CONNECTIONS:-20}"
     healthcheck: *larixy-svc-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
-      postgres: {condition: service_healthy}
+      nats: { condition: service_healthy }
+      postgres: { condition: service_healthy }
 
   gifs:
     <<: *larixy-service
     stop_grace_period: 30s
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-gifs:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-gifs:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -842,12 +808,12 @@ services:
       LARIXY_GIFS_SHARD_CACHE_MAX_BYTES: ${LARIXY_GIFS_SHARD_CACHE_MAX_BYTES:-134217728}
     healthcheck: *larixy-svc-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
+      nats: { condition: service_healthy }
 
   messages:
     <<: *larixy-service
     stop_grace_period: 30s
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-messages:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-messages:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -859,13 +825,13 @@ services:
       LARIXY_POSTGRES_MAX_CONNECTIONS: "${LARIXY_MESSAGES_POSTGRES_MAX_CONNECTIONS:-20}"
     healthcheck: *larixy-svc-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
-      postgres: {condition: service_healthy}
+      nats: { condition: service_healthy }
+      postgres: { condition: service_healthy }
 
   unfurl:
     <<: *larixy-service
     stop_grace_period: 30s
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-unfurl:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-unfurl:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -878,11 +844,11 @@ services:
       LARIXY_ACTIVITYPUB_SIGNING_KEY_BASE64: ${LARIXY_ACTIVITYPUB_SIGNING_KEY_BASE64:-}
     healthcheck: *larixy-svc-healthcheck
     depends_on:
-      nats: {condition: service_healthy}
+      nats: { condition: service_healthy }
 
   admin:
     <<: *larixy-service
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-admin:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-admin:${LARIXY_IMAGE_TAG:-v1}
     deploy:
       resources:
         limits:
@@ -898,11 +864,11 @@ services:
       LARIXY_ADMIN_SSO_DISPLAY_NAME: ${LARIXY_ADMIN_SSO_DISPLAY_NAME:-}
       LARIXY_ADMIN_SSO_ONLY: ${LARIXY_ADMIN_SSO_ONLY:-}
     healthcheck:
-      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health HTTP/1.0\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'"]
+      test: [ "CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/8080 && printf \"GET /_health HTTP/1.0\\r\\n\\r\\n\" >&3 && head -n 1 <&3 | grep -q \" 200 \"'" ]
       <<: *larixy-app-healthcheck
       start_period: ${LARIXY_SVC_HEALTHCHECK_START_PERIOD:-60s}
     depends_on:
-      api: {condition: service_healthy}
+      api: { condition: service_healthy }
 
 networks:
   larixy:

@@ -34,9 +34,9 @@
 	top: var(--profile-popout-avatar-top, 3.4375rem);
 	inset-inline-start: var(--profile-popout-avatar-left, 0.625rem);
 	z-index: 1;
-	border: var(--profile-popout-avatar-border, 0.2rem) solid var(--background-primary);
-	border-radius: 624.9375rem;
-	background-color: var(--background-primary);
+	border: var(--profile-popout-avatar-border, 0.2rem) solid transparent;
+	border-radius: 50%;
+	background-color: transparent;
 	padding: 0;
 	outline: none;
 	overflow: visible;

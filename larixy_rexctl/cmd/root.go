@@ -18,9 +18,9 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/native"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/release"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/native"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/release"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func exitCodesHelp() string {

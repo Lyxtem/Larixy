@@ -21,8 +21,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 var ErrAlreadyManaged = errors.New("instance: already managed by rexctl")

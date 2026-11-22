@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {OUTBOUND_USER_AGENT} from '@/server/HTTPConstants';
+import { OUTBOUND_USER_AGENT } from '@/server/HTTPConstants';
 
-const RELEASES_API = 'https://api.github.com/repos/larixyapp/larixy/releases';
+const RELEASES_API = 'https://api.github.com/repos/Lyxtem/larixy/releases';
 const TAG_PREFIX = 'larixy-release@';
 const METADATA_ASSET = 'rexctl-release.json';
 const CHECKSUMS_ASSET = 'checksums.txt';
@@ -21,12 +21,12 @@ const DEFAULT_MIN_DOCKER = '24.0.0';
 const DEFAULT_STATE_SCHEMA = 1;
 
 export const REXCTL_TARGETS = [
-	{os: 'linux', arch: 'amd64'},
-	{os: 'linux', arch: 'arm64'},
-	{os: 'darwin', arch: 'amd64'},
-	{os: 'darwin', arch: 'arm64'},
-	{os: 'windows', arch: 'amd64'},
-	{os: 'windows', arch: 'arm64'},
+	{ os: 'linux', arch: 'amd64' },
+	{ os: 'linux', arch: 'arm64' },
+	{ os: 'darwin', arch: 'amd64' },
+	{ os: 'darwin', arch: 'arm64' },
+	{ os: 'windows', arch: 'amd64' },
+	{ os: 'windows', arch: 'arm64' },
 ] as const;
 
 const NATIVE_ARCHES = ['amd64', 'arm64'] as const;
@@ -75,14 +75,14 @@ let githubRetryAt = 0;
 let rateLimitRemaining = Number.POSITIVE_INFINITY;
 let rateLimitResetAt = 0;
 
-export class ResolverUnavailableError extends Error {}
+export class ResolverUnavailableError extends Error { }
 
 export function isCalVer(value: string): boolean {
 	return CALVER.test(value);
 }
 
 export function compareCalVer(a: string, b: string): number {
-	return a.localeCompare(b, 'en', {numeric: true});
+	return a.localeCompare(b, 'en', { numeric: true });
 }
 
 function archiveName(version: string, os: string, arch: string): string {
@@ -123,7 +123,7 @@ async function getJSON<T>(url: string): Promise<T | null> {
 
 async function getText(url: string): Promise<string | null> {
 	const response = await fetch(url, {
-		headers: {'user-agent': OUTBOUND_USER_AGENT},
+		headers: { 'user-agent': OUTBOUND_USER_AGENT },
 		redirect: 'follow',
 		signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
 	});
@@ -179,14 +179,14 @@ async function toRexctlRelease(release: GitHubRelease, version: string): Promise
 		if (!asset || sha256 === null) {
 			return null;
 		}
-		assets.push({os: target.os, arch: target.arch, url: asset.browser_download_url, sha256});
+		assets.push({ os: target.os, arch: target.arch, url: asset.browser_download_url, sha256 });
 	}
 	const dist: Array<RexctlAsset> = [];
 	for (const arch of NATIVE_ARCHES) {
 		const asset = byName.get(nativeName(version, arch));
 		const sha256 = asset ? await sha256Of(asset) : null;
 		if (asset && sha256 !== null) {
-			dist.push({os: 'linux', arch, url: asset.browser_download_url, sha256});
+			dist.push({ os: 'linux', arch, url: asset.browser_download_url, sha256 });
 		}
 	}
 	let minFrom = '';
@@ -241,7 +241,7 @@ async function toRexctlRelease(release: GitHubRelease, version: string): Promise
 }
 
 async function resolveLatest(): Promise<RexctlRelease | null> {
-	const candidates: Array<{release: GitHubRelease; version: string}> = [];
+	const candidates: Array<{ release: GitHubRelease; version: string }> = [];
 	for (let page = 1; page <= PAGES && candidates.length === 0; page++) {
 		const releases = await getJSON<ReadonlyArray<GitHubRelease>>(`${RELEASES_API}?per_page=100&page=${page}`);
 		if (!releases || releases.length === 0) {
@@ -250,12 +250,12 @@ async function resolveLatest(): Promise<RexctlRelease | null> {
 		for (const release of releases) {
 			const version = versionOf(release);
 			if (version && !release.draft && !release.prerelease && hasEveryArchive(release, version)) {
-				candidates.push({release, version});
+				candidates.push({ release, version });
 			}
 		}
 	}
 	candidates.sort((a, b) => compareCalVer(b.version, a.version));
-	for (const {release, version} of candidates) {
+	for (const { release, version } of candidates) {
 		const resolved = await toRexctlRelease(release, version);
 		if (resolved) {
 			return resolved;
@@ -289,7 +289,7 @@ export async function resolveRexctlRelease(version: string | null): Promise<Rexc
 	const now = Date.now();
 	let entry = cache.get(key);
 	if (!entry) {
-		entry = {value: null, fetchedAt: 0, failedAt: 0, pending: null};
+		entry = { value: null, fetchedAt: 0, failedAt: 0, pending: null };
 		evictOldest();
 		cache.set(key, entry);
 	}

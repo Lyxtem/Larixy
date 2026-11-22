@@ -319,11 +319,26 @@ function installStartupNativeTitlebar(activeUseNativeTitleBar: boolean): void {
 		titlebar.setAttribute('aria-hidden', 'true');
 		titlebar.setAttribute('data-native-titlebar', '');
 		titlebar.setAttribute('data-platform', getStartupPlatform());
+		titlebar.style.cssText = 'position:fixed;top:0;left:0;right:0;height:var(--native-titlebar-height,32px);display:flex;align-items:center;padding-left:12px;z-index:99999;background:#1a181e;';
 		titlebar.innerHTML = buildNativeTitlebarStartupHtml(layout, readServedProductName());
 		if (layout === 'controls') {
 			wireStartupNativeTitlebarControls(titlebar);
 		}
 		document.body.prepend(titlebar);
+
+		// Safety cleanup: ensure startup titlebar is removed once app mounts
+		const safetyCleanup = () => {
+			const el = document.getElementById(STARTUP_NATIVE_TITLEBAR_ID);
+			if (el && document.querySelector(`.${NATIVE_TITLEBAR_CLASS.root}:not(#${STARTUP_NATIVE_TITLEBAR_ID})`)) {
+				el.remove();
+			}
+		};
+		const observer = new MutationObserver(safetyCleanup);
+		observer.observe(document.body, {childList: true, subtree: true});
+		setTimeout(() => {
+			observer.disconnect();
+			safetyCleanup();
+		}, 10_000);
 	};
 	if (document.body) {
 		install();

@@ -26,7 +26,7 @@ import {
 	requireDiscoveryDeclaresItsOwnOrigin,
 } from '@larixy/instance_bootstrap/src/Discovery';
 import {InstanceEndpointKind, normalizeInstanceEndpoint} from '@larixy/instance_bootstrap/src/EndpointNormalization';
-import {officialClientApiEndpointForAlias} from '@larixy/instance_bootstrap/src/OfficialInstance';
+import {OFFICIAL_CLIENT_API_ENDPOINTS, officialClientApiEndpointForAlias} from '@larixy/instance_bootstrap/src/OfficialInstance';
 
 const log = createChildLogger('DesktopRuntimeDiscovery');
 
@@ -215,7 +215,7 @@ async function restoreRememberedRuntimePlanAt(
 }
 
 export function desktopRuntimeInitialInput(): string | null {
-	return getLaunchInstanceEndpointOverride();
+	return getLaunchInstanceEndpointOverride() ?? OFFICIAL_CLIENT_API_ENDPOINTS.stable;
 }
 
 async function fetchRuntimePlan(

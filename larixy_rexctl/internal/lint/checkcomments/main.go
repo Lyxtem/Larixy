@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/lint"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/lint"
 )
 
 func main() {

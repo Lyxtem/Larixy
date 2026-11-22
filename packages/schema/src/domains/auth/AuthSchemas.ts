@@ -338,7 +338,7 @@ export const UsernameAvailabilityResponse = z.object({
 
 export type UsernameAvailabilityResponse = z.infer<typeof UsernameAvailabilityResponse>;
 
-const DESKTOP_HANDOFF_RETURN_URI_PATTERN = /^larixy(?:-canary|-development)?:\/\/handoff$/u;
+const DESKTOP_HANDOFF_RETURN_URI_PATTERN = /^(?:larixy|fluxer)(?:-canary|-development)?:\/\/handoff$/u;
 
 export const DesktopHandoffReturnMethod = z.enum(['deep_link', 'code']);
 

@@ -11,10 +11,10 @@ import (
 
 	"go.yaml.in/yaml/v4"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/mdx"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/secrets"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/mdx"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/secrets"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 const (

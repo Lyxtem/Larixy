@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func init() {

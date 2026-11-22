@@ -82,6 +82,9 @@ export const UserUpdateRequest = z
 			.describe('User biography text, up to the instance max_bio_length limit (320 by default)'),
 		pronouns: createStringType(1, 40).nullish().describe('User pronouns (max 40 characters)'),
 		accent_color: ColorType.nullish().describe('Profile accent color as integer'),
+		banner_color: ColorType.nullish().describe(
+			'Profile primary banner color as integer for gradient theme',
+		),
 		timezone: createStringType(1, 128).nullish().describe('IANA timezone identifier saved for profile local time'),
 		timezone_privacy_flags: createBitflagInt32Type(
 			ProfileFieldPrivacyFlags,

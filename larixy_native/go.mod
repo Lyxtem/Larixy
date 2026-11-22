@@ -1,4 +1,4 @@
-module github.com/larixyapp/larixy/larixy_native
+module github.com/Lyxtem/larixy/larixy_native
 
 go 1.27.0
 

@@ -25,7 +25,7 @@ Resolves https://feedback.larixy.xyz/p/456
 
 You must understand every line you submit and be able to explain why the change is correct.
 
-The [LLM usage policy](https://github.com/larixyapp/larixy/blob/main/.github/LLM_USAGE_POLICY.md) defines the authorship requirements for contributors who do not have write access.
+The [LLM usage policy](https://github.com/Lyxtem/larixy/blob/main/.github/LLM_USAGE_POLICY.md) defines the authorship requirements for contributors who do not have write access.
 
 Each contribution must contain one coherent change. Do not include unrelated fixes, refactoring or formatting changes.
 
@@ -99,6 +99,6 @@ Read the [operator documentation](https://larixy.xyz) for self-hosting questions
 
 Submit translations through [Weblate](https://translate.larixy.xyz), not through pull requests.
 
-All repository activity is governed by the [Code of Conduct](https://github.com/larixyapp/larixy/blob/main/.github/CODE_OF_CONDUCT.md).
+All repository activity is governed by the [Code of Conduct](https://github.com/Lyxtem/larixy/blob/main/.github/CODE_OF_CONDUCT.md).
 
-Larixy is distributed under the [GNU Affero General Public License, version 3.0 or later](https://github.com/larixyapp/larixy/blob/main/LICENSE). By adding a DCO sign-off, you certify that you have the right to submit the contribution under that licence.
+Larixy is distributed under the [GNU Affero General Public License, version 3.0 or later](https://github.com/Lyxtem/larixy/blob/main/LICENSE). By adding a DCO sign-off, you certify that you have the right to submit the contribution under that licence.

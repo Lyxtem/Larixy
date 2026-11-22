@@ -4,7 +4,7 @@ services:
   seaweedfs-init:
     profiles: [bundled-object-store]
   objects-init:
-    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}/larixy-media-proxy:${LARIXY_IMAGE_TAG:-v1}
+    image: ${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}/larixy-media-proxy:${LARIXY_IMAGE_TAG:-v1}
     user: "0:0"
     network_mode: none
     logging:

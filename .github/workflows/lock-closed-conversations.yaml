@@ -41,7 +41,7 @@ concurrency:
 jobs:
   automatic:
     name: Lock closed conversation
-    if: github.repository == 'larixyapp/larixy' && github.event_name != 'workflow_dispatch' && github.event_name != 'schedule'
+    if: github.repository == 'Lyxtem/larixy' && github.event_name != 'workflow_dispatch' && github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - name: Create token
@@ -50,7 +50,7 @@ jobs:
         with:
           client-id: ${{ vars.LARIXY_CI_APP_ID }}
           private-key: ${{ secrets.LARIXY_CI_APP_KEY }}
-          owner: larixyapp
+          owner: Lyxtem
           repositories: larixy
           permission-discussions: write
           permission-issues: write
@@ -155,7 +155,7 @@ jobs:
 
   retroactive:
     name: Lock closed conversations retroactively
-    if: github.repository == 'larixyapp/larixy' && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
+    if: github.repository == 'Lyxtem/larixy' && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
     runs-on: ubuntu-latest
     steps:
       - name: Create token
@@ -164,7 +164,7 @@ jobs:
         with:
           client-id: ${{ vars.LARIXY_CI_APP_ID }}
           private-key: ${{ secrets.LARIXY_CI_APP_KEY }}
-          owner: larixyapp
+          owner: Lyxtem
           repositories: larixy
           permission-discussions: write
           permission-issues: write

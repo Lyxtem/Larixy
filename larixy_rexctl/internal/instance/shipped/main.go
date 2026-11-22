@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 const path = "internal/instance/shipped.json"

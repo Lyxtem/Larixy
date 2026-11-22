@@ -6,7 +6,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
 )
 
 var ErrEjected = errors.New("instance: managed by hand after rexctl eject")

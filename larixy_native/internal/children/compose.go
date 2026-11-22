@@ -2,7 +2,7 @@
 
 package children
 
-import "github.com/larixyapp/larixy/larixy_native/internal/spec"
+import "github.com/Lyxtem/larixy/larixy_native/internal/spec"
 
 const (
 	edgeService = "edge"

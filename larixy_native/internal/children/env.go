@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/sizing"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/sizing"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 const overridePrefix = "LARIXY_NATIVE_"

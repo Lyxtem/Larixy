@@ -115,10 +115,14 @@ export function useResolvedPasskeyLoginCapability(): PasskeyLoginCapability | nu
 }
 
 function requireLoginRuntimeSnapshot(runtimeSnapshot: RuntimeConfigSnapshot | null): RuntimeConfigSnapshot {
-	if (runtimeSnapshot == null) {
-		throw new Error('Authentication cannot start without a selected instance runtime');
+	if (runtimeSnapshot != null) {
+		return runtimeSnapshot;
 	}
-	return runtimeSnapshot;
+	const fallback = RuntimeConfig.getSnapshotOrNull();
+	if (fallback != null) {
+		return fallback;
+	}
+	throw new Error('Authentication cannot start without a selected instance runtime');
 }
 
 type LegacyPasskeyLoginOutcome = LoginSuccessPayload | 'cancelled' | 'navigating';

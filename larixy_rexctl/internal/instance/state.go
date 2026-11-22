@@ -15,9 +15,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/voice"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/voice"
 )
 
 const StateSchema = generatedSchema + 3

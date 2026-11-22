@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/release"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/release"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func otherArch() string {

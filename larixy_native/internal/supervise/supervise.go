@@ -13,8 +13,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/logs"
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/logs"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 var (

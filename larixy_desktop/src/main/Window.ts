@@ -512,8 +512,8 @@ function getWindowBackgroundColor(allowTransparency: boolean): string {
 }
 
 function getLaunchTitleWindowOptions(): Pick<Electron.BrowserWindowConstructorOptions, 'title'> {
-	const title = getLaunchProductName();
-	return title === null ? {} : {title};
+	const title = getLaunchProductName() ?? 'Larixy';
+	return {title};
 }
 
 function getWindowShadowOptions(

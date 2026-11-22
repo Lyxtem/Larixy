@@ -17,7 +17,7 @@ concurrency:
 jobs:
   dispatch:
     name: Dispatch regeneration
-    if: github.repository == 'larixyapp/larixy'
+    if: github.repository == 'Lyxtem/larixy'
     runs-on: ubuntu-latest
     steps:
       - name: Create token
@@ -26,7 +26,7 @@ jobs:
         with:
           client-id: ${{ vars.LARIXY_CI_APP_ID }}
           private-key: ${{ secrets.LARIXY_CI_APP_KEY }}
-          owner: larixyapp
+          owner: Lyxtem
           repositories: dart_sdk
           permission-contents: write
 
@@ -34,5 +34,5 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.create-token.outputs.token }}
         run: |
-          gh api --method POST repos/larixyapp/dart_sdk/dispatches \
+          gh api --method POST repos/Lyxtem/dart_sdk/dispatches \
             --field event_type=larixy-openapi-updated

@@ -77,7 +77,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"
@@ -90,7 +90,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     && apt-get update \
     && apt-get install -y --no-install-recommends postgresql-common \
     && sed -ri 's/^#?[[:space:]]*create_main_cluster[[:space:]]*=.*/create_main_cluster = false/' \
-        /etc/postgresql-common/createcluster.conf \
+    /etc/postgresql-common/createcluster.conf \
     && grep -q '^create_main_cluster = false$' /etc/postgresql-common/createcluster.conf \
     && apt-get install -y --no-install-recommends tini libcap2-bin $(cat /run/runtime-packages) \
     && rm -f /usr/lib/*/libheif.so.1* \
@@ -104,8 +104,8 @@ RUN groupadd --gid 65532 larixy \
     && install -d -o 65532 -g 65532 -m 0700 /var/lib/larixy /run/larixy \
     && setcap cap_net_bind_service=+p /opt/larixy/current/bin/larixyd \
     && for f in /opt/larixy/current/bin/* /opt/larixy/current/gateway/erts-*/bin/beam.smp; do \
-        out="$(LD_LIBRARY_PATH=/opt/larixy/current/lib ldd "$f" 2>&1)" || continue; \
-        if printf '%s\n' "$out" | grep 'not found'; then echo "$f has unresolved libraries" >&2; exit 1; fi; \
+    out="$(LD_LIBRARY_PATH=/opt/larixy/current/lib ldd "$f" 2>&1)" || continue; \
+    if printf '%s\n' "$out" | grep 'not found'; then echo "$f has unresolved libraries" >&2; exit 1; fi; \
     done
 
 ENV LARIXY_DATA_DIR=/var/lib/larixy

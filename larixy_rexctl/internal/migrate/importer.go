@@ -14,9 +14,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/native"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/native"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 const (

@@ -656,7 +656,7 @@ export function setPrebootTheme(theme: string): void {
 }
 
 export function getLaunchProductName(): string | null {
-	return sanitizeInstanceProductNames(config.instance_product_names)?.[0]?.product_name ?? null;
+	return sanitizeInstanceProductNames(config.instance_product_names)?.[0]?.product_name ?? 'Larixy';
 }
 
 export function rememberInstanceProductName(report: unknown): void {

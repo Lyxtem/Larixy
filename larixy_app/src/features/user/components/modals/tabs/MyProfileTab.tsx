@@ -191,6 +191,7 @@ interface FormInputs {
 	global_name: string | null;
 	pronouns: string | null;
 	accent_color: number | null;
+	banner_color?: number | null;
 	timezone: string | null;
 	timezone_privacy_flags: number;
 	nick?: string | null;
@@ -266,6 +267,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 			global_name: null,
 			pronouns: null,
 			accent_color: null,
+			banner_color: null,
 			timezone: user?.timezone ?? null,
 			timezone_privacy_flags: user?.timezonePrivacyFlags ?? ProfileFieldPrivacyFlags.EVERYONE,
 			nick: null,
@@ -364,6 +366,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 				global_name: user.globalName || null,
 				pronouns: user.pronouns || null,
 				accent_color: typeof user.accentColor === 'number' ? user.accentColor : null,
+				banner_color: typeof user.bannerColor === 'number' ? user.bannerColor : null,
 				nick: null,
 			},
 			bioMarkdown: markdownBio || '',
@@ -541,6 +544,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 					global_name: data.global_name,
 					pronouns: data.pronouns,
 					accent_color: data.accent_color,
+					banner_color: data.banner_color,
 				};
 				assignProfileAssetUploadPatch(updateData, 'avatar', avatarAsset);
 				assignProfileAssetUploadPatch(updateData, 'banner', bannerAsset);
@@ -581,6 +585,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 						global_name: newUser.global_name || null,
 						pronouns: newUser.pronouns || null,
 						accent_color: typeof newUser.accent_color === 'number' ? newUser.accent_color : null,
+						banner_color: typeof newUser.banner_color === 'number' ? newUser.banner_color : null,
 						timezone: newUser.timezone ?? null,
 						timezone_privacy_flags: newUser.timezone_privacy_flags ?? ProfileFieldPrivacyFlags.EVERYONE,
 						nick: null,
@@ -934,7 +939,16 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 									>
 										<AccentColorPicker
 											value={form.watch('accent_color') ?? null}
-											onChange={(value: number | null) => form.setValue('accent_color', value, {shouldDirty: true})}
+											onChange={(value: number | null) =>
+												form.setValue('accent_color', value, {shouldDirty: true, shouldValidate: true})
+											}
+											bannerColor={!isPerGuildProfile ? (form.watch('banner_color') ?? null) : undefined}
+											onBannerColorChange={
+												!isPerGuildProfile
+													? (value: number | null) =>
+															form.setValue('banner_color', value, {shouldDirty: true, shouldValidate: true})
+													: undefined
+											}
 											disabled={isProfileCustomizationLocked || isPerGuildProfileCustomizationDisabled}
 											errorMessage={form.formState.errors.accent_color?.message}
 											data-flx="user.my-profile-tab.my-profile-tab-component.accent-color-picker.set-value"
@@ -984,6 +998,7 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 										previewBio={actualBio}
 										previewPronouns={form.watch('pronouns')}
 										previewAccentColor={form.watch('accent_color')}
+										previewBannerColor={form.watch('banner_color')}
 										previewTimezoneOffset={previewTimezoneOffset}
 										previewGlobalName={!isPerGuildProfile ? form.watch('global_name') : undefined}
 										previewNick={isPerGuildProfile ? form.watch('nick') : undefined}

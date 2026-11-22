@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 func Explain(err error) error {

@@ -11,12 +11,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/voice"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/voice"
 )
 
 func VoiceBundled(inst *instance.Instance) bool {

@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 //go:embed configschema.json

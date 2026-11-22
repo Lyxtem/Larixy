@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/adminapi"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/adminapi"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
 )
 
 func SendAdminImport(ctx context.Context, inst *instance.Instance, api *adminapi.Client) error {

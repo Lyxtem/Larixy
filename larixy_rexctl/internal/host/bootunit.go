@@ -18,7 +18,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
 )
 
 const LibexecBinary = "/usr/local/libexec/rexctl/rexctl"

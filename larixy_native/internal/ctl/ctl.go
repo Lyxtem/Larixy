@@ -13,8 +13,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
-	"github.com/larixyapp/larixy/larixy_native/internal/supervise"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/supervise"
 )
 
 func Listen(path string) (net.Listener, error) {

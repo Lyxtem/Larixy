@@ -504,7 +504,7 @@ export const Message: React.FC<MessageProps> = observer((props) => {
 		setMobileLongPressLinkUrl(undefined);
 	}, []);
 	const keyboardModeEnabled = KeyboardMode.keyboardModeEnabled;
-	const {isHovering, isPopoutOpen, handlePopoutToggle} = useMessageHoverState({
+	const {isHovering, isPopoutOpen, handlePopoutToggle, handleMouseEnter, handleMouseLeave} = useMessageHoverState({
 		messageRef,
 		mobileLayoutEnabled,
 		contextMenuOpen,
@@ -690,7 +690,7 @@ export const Message: React.FC<MessageProps> = observer((props) => {
 	const isActionBarActive = isHovering || isActionBarForcedVisible;
 	const wasActionBarActivatedRef = useRef(false);
 	wasActionBarActivatedRef.current = wasActionBarActivatedRef.current || isActionBarActive;
-	const shouldMountActionBar = shouldShowActionBar && wasActionBarActivatedRef.current;
+	const shouldMountActionBar = shouldShowActionBar;
 	const shouldShowBottomSheet = useMemo(
 		() =>
 			mobileLayoutEnabled && showActionBar && !previewContext && message.state !== MessageStates.SENDING && !isEditing,
@@ -748,6 +748,8 @@ export const Message: React.FC<MessageProps> = observer((props) => {
 					tabIndex={keyboardModeEnabled ? -1 : undefined}
 					className={messageClasses}
 					ref={messageRef}
+					onMouseEnter={handleMouseEnter}
+					onMouseLeave={handleMouseLeave}
 					onClickCapture={handleClickCapture}
 					onClick={handleAltClick}
 					onDoubleClick={handleDoubleClick}

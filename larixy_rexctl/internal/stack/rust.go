@@ -14,7 +14,7 @@ import (
 
 	"go.yaml.in/yaml/v4"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envdiff"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envdiff"
 )
 
 const (

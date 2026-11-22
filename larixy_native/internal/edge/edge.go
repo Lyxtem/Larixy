@@ -18,7 +18,7 @@ import (
 	_ "github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
 	_ "github.com/caddyserver/caddy/v2/modules/standard"
 
-	"github.com/larixyapp/larixy/larixy_native/internal/spec"
+	"github.com/Lyxtem/larixy/larixy_native/internal/spec"
 )
 
 //go:embed Caddyfile.native

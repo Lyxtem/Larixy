@@ -1,19 +1,5 @@
-* text=auto
-larixy_static/** -text -diff
-larixy_static/**/*.md text diff
-larixy_static/*.sh text eol=lf diff
-larixy_static/*.sha256 text eol=lf diff
-packages/fonts/files/** -text -diff
-larixy_app/src/features/voice/utils/noise_suppression/deepfilternet3/*.wasm -text -diff
-larixy_app/src/features/voice/utils/noise_suppression/deepfilternet3/*.tar.gz -text -diff
-larixy_app/src/features/i18n/locales/** linguist-generated
-**/weblate/locales/** linguist-generated
-larixy_api/src/api/openapi/openapi.json linguist-generated
-larixy_admin/openapi-admin.json linguist-generated
-deploy/**/*.sh text eol=lf
-deploy/**/Caddyfile text eol=lf
-deploy/helm/larixy/files/Caddyfile linguist-generated
-larixy_docs/src/installer/install.sh text eol=lf
-larixy_docs/src/installer/install.ps1 text eol=lf
-larixy_rexctl/internal/stack/files/** text eol=lf
-larixy_docs/src/content/docs/operator/rexctl.mdx text eol=lf linguist-generated
+* text=auto eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.json text eol=lf

@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
 )
 
 const minMemory = 3584 << 20

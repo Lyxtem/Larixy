@@ -13,13 +13,13 @@ use std::fs;
 use std::path::{Path, PathBuf};
 
 const SCHEMA_VERSION: u8 = 1;
-const DEFAULT_REGISTRY: &str = "ghcr.io/larixyapp";
+const DEFAULT_REGISTRY: &str = "ghcr.io/Lyxtem";
 const DEFAULT_MOVING_TAGS: &str = "v1,latest";
 const DEFAULT_FROM_TAG: &str = "v1";
 const DEFAULT_OUT_DIR: &str = "release-out";
 const RELEASE_COMPONENT: &str = "larixy-release";
 const COMPOSE_IMAGE_PREFIX: &str =
-    "${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-larixyapp}}";
+    "${LARIXY_REGISTRY:-ghcr.io/${LARIXY_REGISTRY_OWNER:-Lyxtem}}";
 const OCI_INDEX_MEDIA_TYPE: &str = "application/vnd.oci.image.index.v1+json";
 const DOCKER_MANIFEST_LIST_MEDIA_TYPE: &str =
     "application/vnd.docker.distribution.manifest.list.v2+json";
@@ -1028,7 +1028,7 @@ mod tests {
     fn promote_command_targets_the_digest() {
         let digest = format!("sha256:{}", "0".repeat(64));
         let spec = promote_command(
-            "ghcr.io/larixyapp/larixy-api",
+            "ghcr.io/Lyxtem/larixy-api",
             &digest,
             &["v1".to_string(), "latest".to_string()],
         );
@@ -1040,10 +1040,10 @@ mod tests {
                 "imagetools",
                 "create",
                 "-t",
-                "ghcr.io/larixyapp/larixy-api:v1",
+                "ghcr.io/Lyxtem/larixy-api:v1",
                 "-t",
-                "ghcr.io/larixyapp/larixy-api:latest",
-                &format!("ghcr.io/larixyapp/larixy-api@{digest}"),
+                "ghcr.io/Lyxtem/larixy-api:latest",
+                &format!("ghcr.io/Lyxtem/larixy-api@{digest}"),
             ]
         );
     }

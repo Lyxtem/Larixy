@@ -207,7 +207,7 @@ fn bake_command(targets: &[&str]) -> Result<CommandSpec> {
 }
 
 fn default_app_proxy_cache_ref() -> String {
-    let owner = ghcr_owner().unwrap_or_else(|_| "larixyapp".to_string());
+    let owner = ghcr_owner().unwrap_or_else(|_| "Lyxtem".to_string());
     format!("type=registry,ref=ghcr.io/{owner}/larixy-app-proxy:buildcache-amd64")
 }
 

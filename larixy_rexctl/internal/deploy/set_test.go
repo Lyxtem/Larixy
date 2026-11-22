@@ -5,8 +5,8 @@ package deploy
 import (
 	"testing"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/secrets"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/secrets"
 )
 
 func vapidInstance(t *testing.T, public, private string) *instance.Instance {

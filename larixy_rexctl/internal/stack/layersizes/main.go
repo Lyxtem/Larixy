@@ -25,7 +25,7 @@ import (
 	"github.com/distribution/reference"
 	"github.com/klauspost/compress/zstd"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 var platforms = []string{"linux/amd64", "linux/arm64"}

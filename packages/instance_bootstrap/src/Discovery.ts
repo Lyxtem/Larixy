@@ -47,6 +47,7 @@ import type {LimitConfigSnapshot, LimitConfigWireFormat, LimitFilter, LimitRule}
 import {EXPERIMENT_BUCKET_RESOLUTION} from '@larixy/schema/src/domains/experiment/ExperimentBucket';
 
 export const INSTANCE_DISCOVERY_PATH = '/.well-known/larixy';
+export const LEGACY_INSTANCE_DISCOVERY_PATH = '/.well-known/fluxer';
 const INSTANCE_DISCOVERY_CONVENTIONAL_ENDPOINT_PATH = '/api';
 export const INSTANCE_DISCOVERY_MAX_BYTES = 1024 * 1024;
 export const INSTANCE_DISCOVERY_MAX_CHUNKS = 1024;
@@ -272,10 +273,13 @@ export function buildInstanceDiscoveryCandidates({
 	const endpointPath = normalizeDiscoveryPath(knownEndpointPath) ?? carriedPath;
 	const candidates: Array<string> = [];
 	appendCandidate(candidates, `${origin}${INSTANCE_DISCOVERY_PATH}`);
+	appendCandidate(candidates, `${origin}${LEGACY_INSTANCE_DISCOVERY_PATH}`);
 	if (endpointPath != null) {
 		appendCandidate(candidates, `${origin}${endpointPath}${INSTANCE_DISCOVERY_PATH}`);
+		appendCandidate(candidates, `${origin}${endpointPath}${LEGACY_INSTANCE_DISCOVERY_PATH}`);
 	}
 	appendCandidate(candidates, `${origin}${INSTANCE_DISCOVERY_CONVENTIONAL_ENDPOINT_PATH}${INSTANCE_DISCOVERY_PATH}`);
+	appendCandidate(candidates, `${origin}${INSTANCE_DISCOVERY_CONVENTIONAL_ENDPOINT_PATH}${LEGACY_INSTANCE_DISCOVERY_PATH}`);
 	return candidates;
 }
 

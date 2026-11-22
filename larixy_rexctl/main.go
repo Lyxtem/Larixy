@@ -5,7 +5,7 @@ package main
 import (
 	"os"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/cmd"
+	"github.com/Lyxtem/larixy/larixy_rexctl/cmd"
 )
 
 var (

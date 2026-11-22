@@ -9,9 +9,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-        ca-certificates curl xz-utils build-essential pkg-config cmake nasm yasm git \
-        zlib1g-dev libde265-dev libdav1d-dev libaom-dev \
-        libvips-dev libwebp-dev liblcms2-dev libyuv-dev \
+    ca-certificates curl xz-utils build-essential pkg-config cmake nasm yasm git \
+    zlib1g-dev libde265-dev libdav1d-dev libaom-dev \
+    libvips-dev libwebp-dev liblcms2-dev libyuv-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY larixy_media_proxy/tools/install-native-deps.sh /tmp/install-native-deps.sh
@@ -30,9 +30,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-        ca-certificates pkg-config build-essential \
-        libcurl4-openssl-dev libvips-dev libwebp-dev \
-        liblcms2-dev libyuv-dev libde265-dev libdav1d-dev libaom-dev \
+    ca-certificates pkg-config build-essential \
+    libcurl4-openssl-dev libvips-dev libwebp-dev \
+    liblcms2-dev libyuv-dev libde265-dev libdav1d-dev libaom-dev \
     && rm -rf /var/lib/apt/lists/* \
     && rm -f /usr/lib/*/libheif.so.1* \
     && ldconfig \
@@ -59,7 +59,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"
@@ -71,11 +71,11 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-        ca-certificates tini \
-        libcurl4t64 libvips42t64 \
-        libwebp7 libwebpmux3 libwebpdemux2 \
-        liblcms2-2 libyuv0 libde265-0 libdav1d7 libaom3 \
-        libjemalloc2 \
+    ca-certificates tini \
+    libcurl4t64 libvips42t64 \
+    libwebp7 libwebpmux3 libwebpdemux2 \
+    liblcms2-2 libyuv0 libde265-0 libdav1d7 libaom3 \
+    libjemalloc2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -f /usr/lib/*/libheif.so.1* \

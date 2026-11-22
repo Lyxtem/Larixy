@@ -10,12 +10,12 @@ RUN npm install -g pnpm@11.27.0
 FROM base AS deploy
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		build-essential \
-		gcc \
-		libssl-dev \
-		pkg-config \
-		openssl \
-		python3 && \
+	build-essential \
+	gcc \
+	libssl-dev \
+	pkg-config \
+	openssl \
+	python3 && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY . .
@@ -38,7 +38,7 @@ LABEL org.opencontainers.image.licenses="AGPL-3.0-or-later"
 LABEL org.opencontainers.image.vendor="Larixy"
 LABEL org.opencontainers.image.url="https://larixy.xyz"
 LABEL org.opencontainers.image.documentation="https://docs.larixy.xyz"
-LABEL org.opencontainers.image.source="https://github.com/larixyapp/larixy"
+LABEL org.opencontainers.image.source="https://github.com/Lyxtem/larixy"
 LABEL org.opencontainers.image.version="${BUILD_VERSION}"
 LABEL org.opencontainers.image.revision="${SOURCE_SHA}"
 LABEL org.opencontainers.image.created="${SOURCE_DATE}"
@@ -47,7 +47,7 @@ LABEL app.larixy.build-version="${BUILD_VERSION}"
 WORKDIR /usr/src/app/larixy_api
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		ca-certificates && \
+	ca-certificates && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY --from=deploy --chown=65532:65532 /out ./

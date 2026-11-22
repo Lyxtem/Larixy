@@ -22,18 +22,18 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/backup"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/checks"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/deploy"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/envfile"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/instance"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/migrate"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/native"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/backup"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/checks"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/deploy"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/envfile"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/instance"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/migrate"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/native"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 const (

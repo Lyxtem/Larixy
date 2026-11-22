@@ -18,7 +18,8 @@
 	pointer-events: auto;
 }
 
-:global([data-flx-action-bar][data-flx-action-bar-active]) .actionBarContainer {
+:global([data-flx-action-bar][data-flx-action-bar-active]) .actionBarContainer,
+:global([data-flx-action-bar]:hover) .actionBarContainer {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
@@ -30,13 +31,6 @@
 		visibility: hidden;
 		pointer-events: none;
 	}
-}
-
-:global(html:not(.window-focused):not(.unfocused-fully-interactive)) .actionBarContainer,
-:global(.window-focus-activation-guard) .actionBarContainer {
-	opacity: 0 !important;
-	visibility: hidden !important;
-	pointer-events: none !important;
 }
 
 .actionBar {

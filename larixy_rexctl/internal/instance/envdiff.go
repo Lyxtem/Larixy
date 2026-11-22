@@ -7,9 +7,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/secrets"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/settings"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/secrets"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/settings"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 type ChangeKind int

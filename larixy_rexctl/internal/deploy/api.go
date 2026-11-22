@@ -2,7 +2,7 @@
 
 package deploy
 
-import "github.com/larixyapp/larixy/larixy_rexctl/internal/engine"
+import "github.com/Lyxtem/larixy/larixy_rexctl/internal/engine"
 
 type ApplyOptions struct {
 	Pull    bool

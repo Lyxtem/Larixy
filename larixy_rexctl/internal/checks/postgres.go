@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/host"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/host"
 )
 
 const maxSCRAMIterations = 100000

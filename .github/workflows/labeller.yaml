@@ -5,7 +5,7 @@ permissions: {}
 jobs:
   label:
     name: Label
-    if: github.repository == 'larixyapp/larixy'
+    if: github.repository == 'Lyxtem/larixy'
     runs-on: ubuntu-latest
     steps:
       - name: Create token
@@ -14,7 +14,7 @@ jobs:
         with:
           client-id: ${{ vars.LARIXY_CI_APP_ID }}
           private-key: ${{ secrets.LARIXY_CI_APP_KEY }}
-          owner: larixyapp
+          owner: Lyxtem
           repositories: larixy
           permission-pull-requests: write
 

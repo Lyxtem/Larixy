@@ -9,8 +9,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/checks"
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/ui"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/checks"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/ui"
 )
 
 const testDoctorPhase checks.Phase = 1 << 10

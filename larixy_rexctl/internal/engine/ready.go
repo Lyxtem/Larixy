@@ -7,7 +7,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/larixyapp/larixy/larixy_rexctl/internal/stack"
+	"github.com/Lyxtem/larixy/larixy_rexctl/internal/stack"
 )
 
 const (

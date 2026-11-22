@@ -29,7 +29,7 @@ jobs:
         with:
           client-id: ${{ vars.LARIXY_CI_APP_ID }}
           private-key: ${{ secrets.LARIXY_CI_APP_KEY }}
-          owner: larixyapp
+          owner: Lyxtem
           repositories: larixy
           permission-contents: write
           permission-pull-requests: write

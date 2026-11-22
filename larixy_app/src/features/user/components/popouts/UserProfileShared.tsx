@@ -344,7 +344,7 @@ export const UserProfileMembershipInfo: React.FC<{profile: Profile; user: User}>
 				className={styles.membershipTitle}
 				data-flx="user.user-profile-shared.user-profile-membership-info.membership-title--2"
 			>
-				{i18n._(PRODUCT_MEMBER_SINCE_DESCRIPTOR, {productName: RuntimeConfig.productName})}
+				{i18n._(PRODUCT_MEMBER_SINCE_DESCRIPTOR, {productName: RuntimeConfig.productName || 'Larixy'})}
 			</span>
 			<span
 				className={styles.membershipDateText}
