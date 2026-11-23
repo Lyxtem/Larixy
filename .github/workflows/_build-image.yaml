@@ -108,6 +108,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - name: resolve source date
         id: source
         run: echo "date=$(TZ=UTC git log -1 --no-show-signature --pretty=%cd --date=format-local:%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
@@ -145,6 +147,8 @@ jobs:
       contents: write
       packages: write
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
