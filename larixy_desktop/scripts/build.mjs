@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import * as fs from 'node:fs';
 import {createRequire} from 'node:module';
 import * as path from 'node:path';
@@ -24,6 +25,9 @@ const REQUIRED_RENDERER_ENTRIES = Object.freeze(['index.html', 'assets']);
 const BUNDLED_RENDERER_ENTRIES = Object.freeze([...REQUIRED_RENDERER_ENTRIES, 'version.json']);
 const BUNDLED_RENDERER_VERSION_PATTERN = /^\d+\.\d+\.\d+$/u;
 const FORBIDDEN_RENDERER_ENTRIES = Object.freeze(['sw.js', 'sw.js.map']);
+const DESKTOP_RENDERER_HTML_FILES = Object.freeze(['index.html', 'auth-index.html']);
+const DESKTOP_CSP_NONCE_PLACEHOLDER = '{{CSP_NONCE_PLACEHOLDER}}';
+const DESKTOP_PRELOAD_JSON_OPEN_TAG = /<script type="application\/json" id="(?:larixy|fluxer)-boot-app-preloads">/u;
 const SUPPORTED_BUILD_ARGUMENTS = Object.freeze(['--shared-assets', '--use-shared-renderer']);
 const MAIN_LAUNCH_ENTRY_NAME = 'index';
 const MAIN_BOOTSTRAP_ENTRY_NAME = 'Bootstrap';
@@ -839,6 +843,109 @@ function buildRendererBundle() {
 	});
 }
 
+function stampDesktopCspNonces(html) {
+	return html.replace(/<script\b[^>]*>/giu, (tag) => {
+		if (/\btype\s*=\s*(["'])application\/(?:ld\+)?json\1/iu.test(tag)) {
+			return tag;
+		}
+		if (/\bnonce\s*=/iu.test(tag)) {
+			return tag.replace(/\bnonce\s*=\s*(["'])[^"']*\1/iu, `nonce="${DESKTOP_CSP_NONCE_PLACEHOLDER}"`);
+		}
+		return `${tag.slice(0, -1)} nonce="${DESKTOP_CSP_NONCE_PLACEHOLDER}">`;
+	});
+}
+
+function rendererAssetIntegrity(url) {
+	let pathname;
+	try {
+		const parsedURL = new URL(url, 'https://renderer.invalid');
+		if (parsedURL.origin !== 'https://renderer.invalid') {
+			return null;
+		}
+		pathname = parsedURL.pathname;
+	} catch {
+		return null;
+	}
+	if (!pathname.startsWith('/assets/')) {
+		return null;
+	}
+	const assetPath = path.resolve(RENDERER_DIST_DIR, ...pathname.slice(1).split('/'));
+	if (!assetPath.startsWith(`${RENDERER_DIST_DIR}${path.sep}`) || !fs.existsSync(assetPath)) {
+		return null;
+	}
+	const digest = createHash('sha384').update(fs.readFileSync(assetPath)).digest('base64');
+	return `sha384-${digest}`;
+}
+
+function refreshDesktopHtmlAssetIntegrities(html) {
+	return html.replace(/<(?:script|link)\b[^>]*>/giu, (tag) => {
+		const urlAttribute = /\b(?:src|href)\s*=\s*(["'])([^"']+)\1/iu.exec(tag);
+		const integrityAttribute = /\bintegrity\s*=\s*(["'])([^"']+)\1/iu.exec(tag);
+		if (urlAttribute == null || integrityAttribute == null) {
+			return tag;
+		}
+		const integrity = rendererAssetIntegrity(urlAttribute[2] ?? '');
+		if (integrity == null || integrity === integrityAttribute[2]) {
+			return tag;
+		}
+		const quote = integrityAttribute[1] ?? '"';
+		const before = tag.slice(0, integrityAttribute.index);
+		const after = tag.slice(integrityAttribute.index + integrityAttribute[0].length);
+		return `${before}integrity=${quote}${integrity}${quote}${after}`;
+	});
+}
+
+function refreshDesktopPreloadIntegrities(html) {
+	const openTag = DESKTOP_PRELOAD_JSON_OPEN_TAG.exec(html);
+	if (openTag == null) {
+		return html;
+	}
+	const contentStart = openTag.index + openTag[0].length;
+	const contentEnd = html.indexOf('</script>', contentStart);
+	if (contentEnd < 0) {
+		return html;
+	}
+	let entries;
+	try {
+		entries = JSON.parse(html.slice(contentStart, contentEnd));
+	} catch {
+		return html;
+	}
+	if (!Array.isArray(entries)) {
+		return html;
+	}
+	let changed = false;
+	const refreshedEntries = entries.map((entry) => {
+		if (typeof entry !== 'object' || entry === null || typeof entry.href !== 'string') {
+			return entry;
+		}
+		const integrity = rendererAssetIntegrity(entry.href);
+		if (integrity == null || integrity === entry.integrity) {
+			return entry;
+		}
+		changed = true;
+		return {...entry, integrity};
+	});
+	if (!changed) {
+		return html;
+	}
+	return `${html.slice(0, contentStart)}${JSON.stringify(refreshedEntries)}${html.slice(contentEnd)}`;
+}
+
+function prepareDesktopRendererHtml() {
+	for (const fileName of DESKTOP_RENDERER_HTML_FILES) {
+		const filePath = path.join(RENDERER_DIST_DIR, fileName);
+		if (!fs.existsSync(filePath)) {
+			continue;
+		}
+		let html = fs.readFileSync(filePath, 'utf8');
+		html = stampDesktopCspNonces(html);
+		html = refreshDesktopHtmlAssetIntegrities(html);
+		html = refreshDesktopPreloadIntegrities(html);
+		fs.writeFileSync(filePath, html);
+	}
+}
+
 function copyRendererIntoDist() {
 	const startedAt = Date.now();
 	const missing = findMissingEntries(REQUIRED_RENDERER_ENTRIES, APP_DIST_DIR);
@@ -847,6 +954,7 @@ function copyRendererIntoDist() {
 	}
 	fs.rmSync(RENDERER_DIST_DIR, {force: true, recursive: true});
 	fs.cpSync(APP_DIST_DIR, RENDERER_DIST_DIR, {recursive: true});
+	prepareDesktopRendererHtml();
 	const present = FORBIDDEN_RENDERER_ENTRIES.filter((entry) => fs.existsSync(path.join(RENDERER_DIST_DIR, entry)));
 	if (present.length > 0) {
 		throw new RendererServiceWorkerPresentError(present);

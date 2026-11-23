@@ -1,4 +1,3 @@
-un tier me
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
@@ -45,10 +44,26 @@ un tier me
     .prose-custom h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #fff;
-      margin-top: 2rem;
+      margin-top: 2.25rem;
       margin-bottom: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .prose-custom h2:first-of-type {
+      margin-top: 1rem;
+      border-top: none;
+    }
+
+    .prose-custom h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .prose-custom p {
@@ -63,15 +78,24 @@ un tier me
       padding-left: 1.5rem;
       color: #94a3b8;
       margin-bottom: 1.25rem;
+      line-height: 1.7;
     }
 
     .prose-custom li {
       margin-bottom: 0.5rem;
     }
+
+    .highlight-box {
+      background: rgba(88, 101, 242, 0.06);
+      border: 1px solid rgba(88, 101, 242, 0.2);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
   </style>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased flex flex-col min-h-screen">
   <header class="sticky top-0 z-50 nav-glass">
     <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
@@ -83,66 +107,112 @@ un tier me
       <div class="flex items-center gap-4 text-sm font-semibold">
         <a href="/" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
         <a href="/docs" class="text-slate-300 hover:text-white transition-colors">Docs</a>
+        <a href="/privacy" class="text-slate-300 hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="text-slate-300 hover:text-white transition-colors">Reembolsos</a>
         <a href="/app"
-          class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir
-          Larixy</a>
+          class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir Larixy</a>
       </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-5 py-16 sm:py-24">
+  <main class="max-w-4xl mx-auto px-5 py-16 sm:py-24 flex-grow">
     <div class="border-b border-dark-border pb-8 mb-10">
-      <span class="text-xs font-bold uppercase tracking-wider text-brand font-display">Legal</span>
+      <span class="text-xs font-bold uppercase tracking-wider text-brand font-display">Acuerdo Legal</span>
       <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-2">Términos de Servicio</h1>
-      <p class="text-sm text-slate-400 mt-3">Última actualización: 19 de noviembre de 2026</p>
+      <p class="text-sm text-slate-400 mt-3">Última actualización: 23 de noviembre de 2026 • Entrada en vigor: 23 de noviembre de 2026</p>
     </div>
 
     <div class="prose-custom bg-dark-900 border border-dark-border p-6 sm:p-10 rounded-2xl shadow-xl">
-      <h2>1. Aceptación de los Términos</h2>
+      <div class="highlight-box">
+        <p class="text-sm text-slate-200 mb-0 font-medium">
+          Al registrarte o utilizar <strong>Larixy</strong> (en web, cliente de escritorio o mediante nuestras APIs), aceptas cumplir estos Términos de Servicio, nuestra <a href="/privacy" class="text-brand underline">Política de Privacidad</a> y nuestra <a href="/refunds" class="text-brand underline">Política de Reembolsos</a>.
+        </p>
+      </div>
+
+      <h2>1. Acuerdo y Elegibilidad</h2>
       <p>
-        Al registrarte, acceder o utilizar la plataforma Larixy (en web, cliente de escritorio o mediante nuestras
-        APIs), aceptas cumplir estos Términos de Servicio y todas las leyes aplicables. Si no estás de acuerdo con
-        alguna disposición, no debes utilizar el servicio.
+        Estos términos constituyen un contrato vinculante entre tú y <strong>Larixy</strong> ("nosotros", "nuestro"). Si no estás de acuerdo con alguna de las cláusulas aquí recogidas, no debes utilizar la plataforma.
+      </p>
+      <p>
+        <strong>Requisito de edad mínima:</strong> Debes tener al menos 13 años (o la edad mínima legal exigida en tu país de residencia para consentir el procesamiento de servicios digitales sin supervisión parental). Si tienes la edad mínima pero no cuentas con la capacidad legal completa para contratar por ti mismo, tu padre, madre o tutor legal debe revisar y aceptar estos términos en tu nombre antes de que utilices Larixy.
       </p>
 
-      <h2>2. Uso de la Cuenta y Seguridad</h2>
+      <h2>2. Tu Cuenta y Uso Aceptable</h2>
       <p>
-        Eres responsable de mantener la confidencialidad de tus credenciales de inicio de sesión y de todas las
-        actividades que ocurran bajo tu cuenta. Notifícanos de inmediato si sospechas de un acceso no autorizado. Larixy
-        no se hace responsable de pérdidas causadas por descuidos en la seguridad de tus contraseñas o tokens de sesión.
+        Eres responsable de mantener en estricta confidencialidad tus credenciales de inicio de sesión y de toda actividad efectuada desde tu cuenta. Notifícanos de inmediato si sospechas de un acceso o uso no autorizado.
       </p>
-
-      <h2>3. Conducta de la Comunidad</h2>
       <p>
-        Larixy promueve la libre comunicación y el respeto mutuo. Queda estrictamente prohibido utilizar la plataforma
-        para:
+        <strong>Conducta comunitaria y tolerancia cero al abuso:</strong> Larixy aplica una política estricta de tolerancia cero ante conductas o contenidos abusivos. Queda expresamente prohibido:
       </p>
       <ul>
-        <li>Difundir contenido ilícito, explotador o que viole derechos de autor.</li>
-        <li>Acosar, amenazar, extorsionar o vulnerar la integridad de otros usuarios.</li>
-        <li>Realizar ataques de denegación de servicio (DDoS), saturación deliberada de servidores o explotación de
-          vulnerabilidades.</li>
-        <li>Distribuir malware, scripts maliciosos o enlaces fraudulentos (phishing).</li>
-        <li>Spam masivo no deseado en canales públicos o mensajes directos.</li>
+        <li>Alojar, distribuir o enlazar material que constituya explotación o abuso infantil de cualquier naturaleza (motivo de suspensión inmediata, reporte legal y bloqueo irrevocable).</li>
+        <li>Acosar, amenazar, intimidar, doxxear o vulnerar la privacidad de otros usuarios.</li>
+        <li>Distribuir virus informáticos, malware, troyanos, scripts dañinos o realizar ataques de denegación de servicio (DDoS).</li>
+        <li>Spam deliberado, automatización no autorizada fuera de los límites de rate limiting de la API o envío masivo de mensajes no solicitados.</li>
       </ul>
 
-      <h2>4. Bots y Uso de la API</h2>
+      <h2>3. Disponibilidad y Cambios en el Servicio</h2>
       <p>
-        El desarrollo y uso de bots o herramientas automatizadas está permitido siempre y cuando respete las tasas
-        límite (rate limits) establecidas y no se use para recolectar datos masivos indebidos o perturbar comunidades
-        sin el consentimiento de sus administradores.
+        Larixy no cuenta con un acuerdo formal de nivel de servicio (SLA). Aunque dedicamos nuestros mejores esfuerzos técnicos para garantizar un servicio ininterrumpido y seguro, pueden producirse cortes temporales, labores de mantenimiento o incidencias derivadas de proveedores de red. Nos reservamos el derecho de agregar, modificar o descontinuar características o funciones de la plataforma previa notificación razonable.
       </p>
 
-      <h2>5. Moderación y Suspensión</h2>
+      <h2>4. Tu Contenido y Propiedad Intelectual</h2>
       <p>
-        Los administradores de cada servidor son responsables de su propia comunidad. Larixy se reserva el derecho de
-        suspender o revocar el acceso a cuentas o comunidades que infrinjan de manera grave o reiterada estos términos.
+        <strong>Conservas la propiedad de tu contenido:</strong> Todo el texto, imágenes, archivos de audio o multimedia que envías, compartes o transmites en Larixy te pertenecen íntegramente a ti (o a sus legítimos titulares).
+      </p>
+      <p>
+        Para que podamos operar la plataforma, nos concedes una licencia no exclusiva, libre de regalías y mundial para alojar, almacenar, retransmitir y mostrar tu contenido únicamente en la medida requerida para prestar el servicio a ti y a los usuarios con los que interactúas.
       </p>
 
-      <h2>6. Modificaciones</h2>
+      <h2>5. Servicios de Pago, Suscripciones y Facturación (Paddle)</h2>
       <p>
-        Podemos actualizar estos términos periódicamente para reflejar mejoras técnicas o requerimientos legales. El uso
-        continuo de la plataforma constituye la aceptación de los nuevos términos.
+        <strong>Larixy Plutonium:</strong> Es un servicio de suscripción premium que añade funciones cosméticas y capacidades ampliadas a tu cuenta (personalización estética, carga ampliada de archivos, uso global de emojis e insignias distintivas). Requiere una cuenta en buen estado y acceso a internet.
+      </p>
+      <p>
+        <strong>Comerciante de Registro (Merchant of Record):</strong> Las transacciones y cobros de suscripciones digitales en Larixy son gestionados de forma segura a través de <strong>Paddle</strong> (<em>Paddle Payments Limited</em> o <em>Paddle.com Inc</em>) u otros procesadores autorizados. Paddle actúa como el Comerciante de Registro a efectos legales y fiscales, procesando pagos, recaudando los impuestos aplicables (como IVA/GST) y gestionando la emisión de facturas.
+      </p>
+      <p>
+        <strong>Renovación periódica automática:</strong> Al suscribirte a un plan mensual o anual de Plutonium, autorizas a nuestro procesador a cobrar periódicamente la tarifa acordada hasta que decidas cancelar. Puedes cancelar la renovación en cualquier momento desde los Ajustes de Usuario de la aplicación. La cancelación surtirá efecto al finalizar el ciclo pagado en curso.
+      </p>
+
+      <h2>6. Política de Reembolsos y Derecho de Desistimiento</h2>
+      <p>
+        Nuestra política de reembolsos completa, transparente y detallada está disponible en nuestra página dedicada: <a href="/refunds" class="text-brand font-semibold underline">Política de Reembolsos de Larixy (/refunds)</a>.
+      </p>
+      <p>
+        <strong>Derecho de desistimiento estatutario (UE, EEE y Reino Unido):</strong> Los consumidores de la Unión Europea, el EEE y el Reino Unido tienen derecho a desistir de una suscripción nueva de Plutonium en un plazo de <strong>14 días naturales</strong>. Para compras con inicio de servicio inmediato, se reembolsará el importe proporcional no consumido.
+      </p>
+      <p>
+        <strong>Brasil:</strong> Conforme al Artículo 49 del Código de Defensa del Consumidor (Ley Nº 8.078/1990), los usuarios residentes en Brasil cuentan con 7 días para ejercer el derecho de desistimiento de su primer pago con reembolso íntegro.
+      </p>
+
+      <h2>7. Pagos Fallidos y Gestión de Disputas</h2>
+      <p>
+        Si un pago de renovación no puede completarse por fondos insuficientes o tarjeta expirada, el procesador reintentará el cobro durante un período razonable y las ventajas de Plutonium podrán pausarse hasta que se regularice la situación. Si consideras que se te ha cobrado erróneamente, te invitamos a contactar directamente a nuestro equipo de soporte (<a href="mailto:support@larixy.xyz" class="text-brand underline">support@larixy.xyz</a>) para resolver la situación de buena fe antes de iniciar una disputa bancaria.
+      </p>
+
+      <h2>8. Moderación, Suspensión y Cierre de Cuenta</h2>
+      <p>
+        <strong>Desactivación y eliminación por parte del usuario:</strong> Puedes desactivar o solicitar el borrado de tu cuenta en cualquier momento desde los ajustes. La solicitud de eliminación activa un <strong>período de gracia de 14 días</strong> durante el cual puedes revertir la decisión iniciando sesión nuevamente.
+      </p>
+      <p>
+        <strong>Medidas de moderación:</strong> Si determinamos razonablemente que se han vulnerado estos términos, las normas de la comunidad o la legalidad vigente, podemos restringir canales, retirar contenido o suspender cuentas. Salvo en situaciones de riesgo inminente, fraude financiero o infracción legal flagrante, proporcionaremos aviso previo y los motivos de la decisión.
+      </p>
+
+      <h2>9. Exención de Garantías y Limitación de Responsabilidad</h2>
+      <p>
+        Larixy se suministra "tal cual" y "según disponibilidad". En la máxima medida permitida por la ley aplicable, Larixy no otorga garantías expresas o implícitas sobre la adecuación del servicio para un propósito particular, la ausencia total de errores o la persistencia indefinida de datos almacenados.
+      </p>
+      <p>
+        En ningún caso Larixy será responsable de daños indirectos, incidentales, lucro cesante o pérdidas de beneficios derivados del uso o de la imposibilidad de uso de la plataforma. La responsabilidad máxima agregada no superará el importe total efectivamente abonado por el usuario a Larixy en los doce (12) meses previos al suceso.
+      </p>
+
+      <h2>10. Ley Aplicable y Resolución de Controversias</h2>
+      <p>
+        Para la resolución de cualquier desacuerdo, te animamos a ponerte en contacto primero con nosotros en <a href="mailto:support@larixy.xyz" class="text-brand underline">support@larixy.xyz</a> para intentar llegar a una solución amistosa e informal en un plazo de 30 días.
+      </p>
+      <p>
+        Estos términos se rigen por la legislación civil y mercantil aplicable, sin perjuicio de las disposiciones imperativas y de orden público de protección al consumidor del país en el que residas legalmente.
       </p>
     </div>
   </main>
@@ -151,12 +221,17 @@ un tier me
     <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p>© 2026 Larixy. Todos los derechos reservados.</p>
       <div class="flex gap-6 text-xs">
-        <a href="/terms" class="hover:text-white">Términos</a>
-        <a href="/privacy" class="hover:text-white">Privacidad</a>
-        <a href="/docs" class="hover:text-white">Documentación</a>
+        <a href="/terms" class="text-white font-medium hover:text-brand transition-colors">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/docs" class="hover:text-white transition-colors">Documentación</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>

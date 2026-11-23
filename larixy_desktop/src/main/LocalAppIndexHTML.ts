@@ -22,7 +22,7 @@ const META_ELEMENT = /<meta\s[^>]*>/giu;
 const META_NAME_ATTRIBUTE = /\sname="([^"]*)"/iu;
 const META_CONTENT_ATTRIBUTE = /\scontent="([0-9.]+)"/iu;
 const SERVED_PRODUCT_NAME_META = /<meta\s+name="apple-mobile-web-app-title"\s+content="[^"]*"/iu;
-const SIGNED_IN_PRELOADS_ELEMENT = /<script type="application\/json" id="larixy-boot-app-preloads">([^<]*)<\/script>/u;
+const SIGNED_IN_PRELOADS_ELEMENT = /<script type="application\/json" id="(?:larixy|fluxer)-boot-app-preloads">([^<]*)<\/script>/u;
 const HEAD_CLOSE_TAG = '</head>';
 const PRELOAD_HREF = /^\/[A-Za-z0-9._/-]+$/u;
 const PRELOAD_INTEGRITY = /^sha(?:256|384|512)-[A-Za-z0-9+/=]+$/u;
