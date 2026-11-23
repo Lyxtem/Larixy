@@ -299,7 +299,7 @@ function sizeTables(tree: Root): void {
 				type: 'element' as const,
 				tagName: 'col',
 				properties: {
-					style: `--flx-col-width:${percent.toString()}%;--flx-col-width-mid:${percents.mid[index].toString()}%;--flx-col-width-wide:${percents.wide[index].toString()}%`,
+					style: `--larixy-col-width:${percent.toString()}%;--larixy-col-width-mid:${percents.mid[index].toString()}%;--larixy-col-width-wide:${percents.wide[index].toString()}%`,
 				},
 				children: [],
 			})),

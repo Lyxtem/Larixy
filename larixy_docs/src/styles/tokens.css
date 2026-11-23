@@ -42,198 +42,198 @@
 	--sl-content-gap-y: 1rem;
 	--sl-main-pad: 0 0 3vh 0;
 
-	--flx-toc-width: 16rem;
-	--flx-radius: 0.375rem;
-	--flx-radius-lg: 0.5rem;
-	--flx-radius-pill: 999px;
+	--larixy-toc-width: 16rem;
+	--larixy-radius: 0.375rem;
+	--larixy-radius-lg: 0.5rem;
+	--larixy-radius-pill: 999px;
 
-	--flx-brand: hsl(242, calc(70% * var(--saturation-factor)), 55%);
-	--flx-on-brand: hsl(0, 0%, 98%);
+	--larixy-brand: hsl(242, calc(70% * var(--saturation-factor)), 55%);
+	--larixy-on-brand: hsl(0, 0%, 98%);
 
-	--flx-code-block-font-size: 0.875rem;
-	--flx-code-inline-font-size: 0.9375em;
+	--larixy-code-block-font-size: 0.875rem;
+	--larixy-code-inline-font-size: 0.9375em;
 }
 
 :root {
-	--flx-background-primary: hsl(258, calc(10% * var(--saturation-factor)), 5%);
-	--flx-background-secondary: hsl(258, calc(10% * var(--saturation-factor)), 10.59%);
-	--flx-background-secondary-lighter: hsl(258, calc(10% * var(--saturation-factor)), 12.44%);
-	--flx-background-secondary-alt: hsl(258, calc(10% * var(--saturation-factor)), 14.15%);
-	--flx-background-tertiary: hsl(258, calc(10% * var(--saturation-factor)), 17.16%);
+	--larixy-background-primary: hsl(258, calc(10% * var(--saturation-factor)), 5%);
+	--larixy-background-secondary: hsl(258, calc(10% * var(--saturation-factor)), 10.59%);
+	--larixy-background-secondary-lighter: hsl(258, calc(10% * var(--saturation-factor)), 12.44%);
+	--larixy-background-secondary-alt: hsl(258, calc(10% * var(--saturation-factor)), 14.15%);
+	--larixy-background-tertiary: hsl(258, calc(10% * var(--saturation-factor)), 17.16%);
 
-	--flx-text-primary: hsl(258, calc(10% * var(--saturation-factor)), 96%);
-	--flx-text-secondary: hsl(258, calc(10% * var(--saturation-factor)), 90.36%);
-	--flx-text-tertiary: hsl(258, calc(10% * var(--saturation-factor)), 70.4%);
-	--flx-border-color: hsla(258, calc(10% * var(--saturation-factor)), 50%, 0.2);
+	--larixy-text-primary: hsl(258, calc(10% * var(--saturation-factor)), 96%);
+	--larixy-text-secondary: hsl(258, calc(10% * var(--saturation-factor)), 90.36%);
+	--larixy-text-tertiary: hsl(258, calc(10% * var(--saturation-factor)), 70.4%);
+	--larixy-border-color: hsla(258, calc(10% * var(--saturation-factor)), 50%, 0.2);
 
-	--flx-link: hsl(198, calc(92% * var(--saturation-factor)), 70%);
-	--flx-hover-bg: hsla(258, calc(10% * var(--saturation-factor)), 100%, 0.05);
-	--flx-selected-bg: hsla(258, calc(10% * var(--saturation-factor)), 100%, 0.1);
+	--larixy-link: hsl(198, calc(92% * var(--saturation-factor)), 70%);
+	--larixy-hover-bg: hsla(258, calc(10% * var(--saturation-factor)), 100%, 0.05);
+	--larixy-selected-bg: hsla(258, calc(10% * var(--saturation-factor)), 100%, 0.1);
 
-	--flx-code-bg: hsl(258, calc(10% * var(--saturation-factor)), 14.5%);
-	--flx-code-fg: hsl(258, calc(10% * var(--saturation-factor)), 90.36%);
-	--flx-code-chrome-bg: hsl(258, calc(10% * var(--saturation-factor)), 17.16%);
-	--flx-code-border: hsl(258, calc(10% * var(--saturation-factor)), 24%);
-	--flx-code-dots: hsl(258, calc(10% * var(--saturation-factor)), 34%);
-	--flx-code-selection-bg: hsla(198, calc(92% * var(--saturation-factor)), 70%, 0.22);
-	--flx-code-veil: hsla(258, calc(15% * var(--saturation-factor)), 100%, 0.09);
-	--flx-code-text: hsl(340, calc(28% * var(--saturation-factor)), 86%);
-	--flx-code-link: hsl(198, calc(92% * var(--saturation-factor)), 74%);
+	--larixy-code-bg: hsl(258, calc(10% * var(--saturation-factor)), 14.5%);
+	--larixy-code-fg: hsl(258, calc(10% * var(--saturation-factor)), 90.36%);
+	--larixy-code-chrome-bg: hsl(258, calc(10% * var(--saturation-factor)), 17.16%);
+	--larixy-code-border: hsl(258, calc(10% * var(--saturation-factor)), 24%);
+	--larixy-code-dots: hsl(258, calc(10% * var(--saturation-factor)), 34%);
+	--larixy-code-selection-bg: hsla(198, calc(92% * var(--saturation-factor)), 70%, 0.22);
+	--larixy-code-veil: hsla(258, calc(15% * var(--saturation-factor)), 100%, 0.09);
+	--larixy-code-text: hsl(340, calc(28% * var(--saturation-factor)), 86%);
+	--larixy-code-link: hsl(198, calc(92% * var(--saturation-factor)), 74%);
 
-	--flx-scrollbar-thumb: color-mix(
+	--larixy-scrollbar-thumb: color-mix(
 		in srgb,
 		hsl(258, calc(10% * var(--saturation-factor)), 22.05%) 35%,
 		hsl(258, calc(10% * var(--saturation-factor)), 70.4%) 65%
 	);
-	--flx-scrollbar-track: color-mix(in srgb, var(--flx-background-secondary) 80%, transparent);
+	--larixy-scrollbar-track: color-mix(in srgb, var(--larixy-background-secondary) 80%, transparent);
 
-	--flx-accent-info: hsl(198, calc(92% * var(--saturation-factor)), 70%);
-	--flx-accent-success: hsl(152, calc(72% * var(--saturation-factor)), 40%);
-	--flx-accent-warning: hsl(45, calc(93% * var(--saturation-factor)), 50%);
-	--flx-accent-danger: hsl(0, calc(84% * var(--saturation-factor)), 60%);
-	--flx-accent-method-put: hsl(24, calc(90% * var(--saturation-factor)), 58%);
-	--flx-accent-method-head: hsl(281, calc(78% * var(--saturation-factor)), 68%);
-	--flx-tint-strength: 18%;
-	--flx-tint-base: var(--flx-background-primary);
+	--larixy-accent-info: hsl(198, calc(92% * var(--saturation-factor)), 70%);
+	--larixy-accent-success: hsl(152, calc(72% * var(--saturation-factor)), 40%);
+	--larixy-accent-warning: hsl(45, calc(93% * var(--saturation-factor)), 50%);
+	--larixy-accent-danger: hsl(0, calc(84% * var(--saturation-factor)), 60%);
+	--larixy-accent-method-put: hsl(24, calc(90% * var(--saturation-factor)), 58%);
+	--larixy-accent-method-head: hsl(281, calc(78% * var(--saturation-factor)), 68%);
+	--larixy-tint-strength: 18%;
+	--larixy-tint-base: var(--larixy-background-primary);
 }
 
 :root[data-theme='light'] {
-	--flx-background-primary: hsl(220, calc(10% * var(--saturation-factor)), 98.5%);
-	--flx-background-secondary: hsl(220, calc(10% * var(--saturation-factor)), 92.84%);
-	--flx-background-secondary-lighter: hsl(220, calc(10% * var(--saturation-factor)), 94.61%);
-	--flx-background-secondary-alt: hsl(220, calc(10% * var(--saturation-factor)), 90.96%);
-	--flx-background-tertiary: hsl(220, calc(10% * var(--saturation-factor)), 88.2%);
+	--larixy-background-primary: hsl(220, calc(10% * var(--saturation-factor)), 98.5%);
+	--larixy-background-secondary: hsl(220, calc(10% * var(--saturation-factor)), 92.84%);
+	--larixy-background-secondary-lighter: hsl(220, calc(10% * var(--saturation-factor)), 94.61%);
+	--larixy-background-secondary-alt: hsl(220, calc(10% * var(--saturation-factor)), 90.96%);
+	--larixy-background-tertiary: hsl(220, calc(10% * var(--saturation-factor)), 88.2%);
 
-	--flx-text-primary: hsl(220, calc(10% * var(--saturation-factor)), 15%);
-	--flx-text-secondary: hsl(220, calc(10% * var(--saturation-factor)), 33.78%);
-	--flx-text-tertiary: hsl(220, calc(10% * var(--saturation-factor)), 47.76%);
-	--flx-border-color: hsla(220, calc(10% * var(--saturation-factor)), 40%, 0.15);
+	--larixy-text-primary: hsl(220, calc(10% * var(--saturation-factor)), 15%);
+	--larixy-text-secondary: hsl(220, calc(10% * var(--saturation-factor)), 33.78%);
+	--larixy-text-tertiary: hsl(220, calc(10% * var(--saturation-factor)), 47.76%);
+	--larixy-border-color: hsla(220, calc(10% * var(--saturation-factor)), 40%, 0.15);
 
-	--flx-link: hsl(198, calc(92% * var(--saturation-factor)), 45%);
-	--flx-hover-bg: hsla(220, calc(10% * var(--saturation-factor)), 10%, 0.05);
-	--flx-selected-bg: hsla(220, calc(10% * var(--saturation-factor)), 10%, 0.1);
+	--larixy-link: hsl(198, calc(92% * var(--saturation-factor)), 45%);
+	--larixy-hover-bg: hsla(220, calc(10% * var(--saturation-factor)), 10%, 0.05);
+	--larixy-selected-bg: hsla(220, calc(10% * var(--saturation-factor)), 10%, 0.1);
 
-	--flx-code-bg: hsl(220, calc(12% * var(--saturation-factor)), 97%);
-	--flx-code-fg: hsl(220, calc(12% * var(--saturation-factor)), 22%);
-	--flx-code-chrome-bg: hsl(220, calc(10% * var(--saturation-factor)), 92.84%);
-	--flx-code-border: hsl(220, calc(12% * var(--saturation-factor)), 84%);
-	--flx-code-dots: hsl(220, calc(10% * var(--saturation-factor)), 72%);
-	--flx-code-selection-bg: hsla(198, calc(92% * var(--saturation-factor)), 45%, 0.18);
-	--flx-code-veil: hsla(220, calc(20% * var(--saturation-factor)), 18%, 0.07);
-	--flx-code-text: hsl(340, calc(26% * var(--saturation-factor)), 26%);
-	--flx-code-link: hsl(198, calc(92% * var(--saturation-factor)), 27%);
+	--larixy-code-bg: hsl(220, calc(12% * var(--saturation-factor)), 97%);
+	--larixy-code-fg: hsl(220, calc(12% * var(--saturation-factor)), 22%);
+	--larixy-code-chrome-bg: hsl(220, calc(10% * var(--saturation-factor)), 92.84%);
+	--larixy-code-border: hsl(220, calc(12% * var(--saturation-factor)), 84%);
+	--larixy-code-dots: hsl(220, calc(10% * var(--saturation-factor)), 72%);
+	--larixy-code-selection-bg: hsla(198, calc(92% * var(--saturation-factor)), 45%, 0.18);
+	--larixy-code-veil: hsla(220, calc(20% * var(--saturation-factor)), 18%, 0.07);
+	--larixy-code-text: hsl(340, calc(26% * var(--saturation-factor)), 26%);
+	--larixy-code-link: hsl(198, calc(92% * var(--saturation-factor)), 27%);
 
-	--flx-scrollbar-thumb: color-mix(
+	--larixy-scrollbar-thumb: color-mix(
 		in srgb,
 		hsl(220, calc(10% * var(--saturation-factor)), 86.5%) 40%,
 		hsl(220, calc(10% * var(--saturation-factor)), 33.78%) 60%
 	);
-	--flx-scrollbar-track: color-mix(in srgb, var(--flx-background-secondary) 50%, transparent);
+	--larixy-scrollbar-track: color-mix(in srgb, var(--larixy-background-secondary) 50%, transparent);
 
-	--flx-accent-info: hsl(198, calc(92% * var(--saturation-factor)), 45%);
-	--flx-accent-success: hsl(152, calc(70% * var(--saturation-factor)), 40%);
-	--flx-accent-warning: hsl(45, calc(90% * var(--saturation-factor)), 45%);
-	--flx-accent-danger: hsl(359, calc(70% * var(--saturation-factor)), 50%);
+	--larixy-accent-info: hsl(198, calc(92% * var(--saturation-factor)), 45%);
+	--larixy-accent-success: hsl(152, calc(70% * var(--saturation-factor)), 40%);
+	--larixy-accent-warning: hsl(45, calc(90% * var(--saturation-factor)), 45%);
+	--larixy-accent-danger: hsl(359, calc(70% * var(--saturation-factor)), 50%);
 
-	--flx-aside-note-text: hsl(198, calc(92% * var(--saturation-factor)), 27%);
-	--flx-aside-tip-text: hsl(152, calc(70% * var(--saturation-factor)), 23%);
-	--flx-aside-caution-text: hsl(45, calc(90% * var(--saturation-factor)), 23%);
-	--flx-aside-danger-text: hsl(359, calc(70% * var(--saturation-factor)), 38%);
-	--flx-aside-note-border: var(--flx-aside-note-text);
-	--flx-aside-tip-border: var(--flx-aside-tip-text);
-	--flx-aside-caution-border: var(--flx-aside-caution-text);
-	--flx-aside-danger-border: var(--flx-aside-danger-text);
-	--flx-accent-method-put: hsl(24, calc(85% * var(--saturation-factor)), 42%);
-	--flx-accent-method-head: hsl(281, calc(70% * var(--saturation-factor)), 48%);
-	--flx-tint-strength: 12%;
-	--flx-tint-base: var(--flx-background-primary);
+	--larixy-aside-note-text: hsl(198, calc(92% * var(--saturation-factor)), 27%);
+	--larixy-aside-tip-text: hsl(152, calc(70% * var(--saturation-factor)), 23%);
+	--larixy-aside-caution-text: hsl(45, calc(90% * var(--saturation-factor)), 23%);
+	--larixy-aside-danger-text: hsl(359, calc(70% * var(--saturation-factor)), 38%);
+	--larixy-aside-note-border: var(--larixy-aside-note-text);
+	--larixy-aside-tip-border: var(--larixy-aside-tip-text);
+	--larixy-aside-caution-border: var(--larixy-aside-caution-text);
+	--larixy-aside-danger-border: var(--larixy-aside-danger-text);
+	--larixy-accent-method-put: hsl(24, calc(85% * var(--saturation-factor)), 42%);
+	--larixy-accent-method-head: hsl(281, calc(70% * var(--saturation-factor)), 48%);
+	--larixy-tint-strength: 12%;
+	--larixy-tint-base: var(--larixy-background-primary);
 }
 
 :root {
-	--sl-color-white: var(--flx-text-primary);
-	--sl-color-gray-1: var(--flx-text-primary);
-	--sl-color-gray-2: var(--flx-text-secondary);
-	--sl-color-gray-3: var(--flx-text-tertiary);
-	--sl-color-gray-4: var(--flx-text-tertiary);
-	--sl-color-gray-5: var(--flx-border-color);
-	--sl-color-gray-6: var(--flx-background-secondary);
-	--sl-color-gray-7: var(--flx-background-secondary-lighter);
-	--sl-color-black: var(--flx-background-primary);
+	--sl-color-white: var(--larixy-text-primary);
+	--sl-color-gray-1: var(--larixy-text-primary);
+	--sl-color-gray-2: var(--larixy-text-secondary);
+	--sl-color-gray-3: var(--larixy-text-tertiary);
+	--sl-color-gray-4: var(--larixy-text-tertiary);
+	--sl-color-gray-5: var(--larixy-border-color);
+	--sl-color-gray-6: var(--larixy-background-secondary);
+	--sl-color-gray-7: var(--larixy-background-secondary-lighter);
+	--sl-color-black: var(--larixy-background-primary);
 
-	--sl-color-accent-low: var(--flx-selected-bg);
-	--sl-color-accent: var(--flx-brand);
-	--sl-color-accent-high: var(--flx-link);
+	--sl-color-accent-low: var(--larixy-selected-bg);
+	--sl-color-accent: var(--larixy-brand);
+	--sl-color-accent-high: var(--larixy-link);
 
-	--sl-color-text: var(--flx-text-secondary);
-	--sl-color-text-accent: var(--flx-link);
-	--sl-color-text-invert: var(--flx-on-brand);
-	--sl-color-bg: var(--flx-background-primary);
-	--sl-color-bg-nav: var(--flx-background-secondary);
-	--sl-color-bg-sidebar: var(--flx-background-secondary);
-	--sl-color-bg-inline-code: var(--flx-code-bg);
-	--sl-color-bg-accent: var(--flx-brand);
-	--sl-color-hairline-light: var(--flx-border-color);
-	--sl-color-hairline: var(--flx-border-color);
-	--sl-color-hairline-shade: var(--flx-border-color);
-	--sl-color-backdrop-overlay: color-mix(in srgb, var(--flx-background-primary) 66%, transparent);
+	--sl-color-text: var(--larixy-text-secondary);
+	--sl-color-text-accent: var(--larixy-link);
+	--sl-color-text-invert: var(--larixy-on-brand);
+	--sl-color-bg: var(--larixy-background-primary);
+	--sl-color-bg-nav: var(--larixy-background-secondary);
+	--sl-color-bg-sidebar: var(--larixy-background-secondary);
+	--sl-color-bg-inline-code: var(--larixy-code-bg);
+	--sl-color-bg-accent: var(--larixy-brand);
+	--sl-color-hairline-light: var(--larixy-border-color);
+	--sl-color-hairline: var(--larixy-border-color);
+	--sl-color-hairline-shade: var(--larixy-border-color);
+	--sl-color-backdrop-overlay: color-mix(in srgb, var(--larixy-background-primary) 66%, transparent);
 
-	--flx-content-heading: var(--flx-text-primary);
-	--flx-content-text: var(--flx-text-secondary);
+	--larixy-content-heading: var(--larixy-text-primary);
+	--larixy-content-text: var(--larixy-text-secondary);
 
-	--flx-sidebar-text: var(--flx-text-tertiary);
-	--flx-sidebar-heading: var(--flx-text-primary);
-	--flx-sidebar-hover-bg: var(--flx-hover-bg);
-	--flx-sidebar-hover-text: var(--flx-text-primary);
-	--flx-sidebar-field-bg: var(--flx-background-primary);
-	--flx-sidebar-field-border: var(--flx-border-color);
+	--larixy-sidebar-text: var(--larixy-text-tertiary);
+	--larixy-sidebar-heading: var(--larixy-text-primary);
+	--larixy-sidebar-hover-bg: var(--larixy-hover-bg);
+	--larixy-sidebar-hover-text: var(--larixy-text-primary);
+	--larixy-sidebar-field-bg: var(--larixy-background-primary);
+	--larixy-sidebar-field-border: var(--larixy-border-color);
 
-	--flx-inline-code-bg: var(--flx-code-veil);
-	--flx-inline-code-text: var(--flx-code-text);
-	--flx-inline-code-link: var(--flx-code-link);
+	--larixy-inline-code-bg: var(--larixy-code-veil);
+	--larixy-inline-code-text: var(--larixy-code-text);
+	--larixy-inline-code-link: var(--larixy-code-link);
 
-	--flx-table-head-bg: var(--flx-background-tertiary);
-	--flx-table-head-border: var(--flx-border-color);
-	--flx-table-row-bg: var(--flx-background-secondary);
-	--flx-table-row-alt-bg: var(--flx-background-secondary-lighter);
-	--flx-table-text: var(--flx-text-secondary);
+	--larixy-table-head-bg: var(--larixy-background-tertiary);
+	--larixy-table-head-border: var(--larixy-border-color);
+	--larixy-table-row-bg: var(--larixy-background-secondary);
+	--larixy-table-row-alt-bg: var(--larixy-background-secondary-lighter);
+	--larixy-table-text: var(--larixy-text-secondary);
 
-	--flx-badge-bg: var(--flx-background-secondary-alt);
-	--flx-badge-text: var(--flx-text-secondary);
-	--flx-collapsible-bg: var(--flx-background-secondary);
+	--larixy-badge-bg: var(--larixy-background-secondary-alt);
+	--larixy-badge-text: var(--larixy-text-secondary);
+	--larixy-collapsible-bg: var(--larixy-background-secondary);
 
-	--flx-aside-note-border: var(--flx-accent-info);
-	--flx-aside-note-bg: color-mix(in srgb, var(--flx-accent-info) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-aside-note-text: hsl(198, calc(92% * var(--saturation-factor)), 70%);
-	--flx-aside-tip-border: var(--flx-accent-success);
-	--flx-aside-tip-bg: color-mix(in srgb, var(--flx-accent-success) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-aside-tip-text: hsl(152, calc(72% * var(--saturation-factor)), 42%);
-	--flx-aside-caution-border: var(--flx-accent-warning);
-	--flx-aside-caution-bg: color-mix(in srgb, var(--flx-accent-warning) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-aside-caution-text: hsl(45, calc(93% * var(--saturation-factor)), 50%);
-	--flx-aside-danger-border: var(--flx-accent-danger);
-	--flx-aside-danger-bg: color-mix(in srgb, var(--flx-accent-danger) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-aside-danger-text: hsl(0, calc(84% * var(--saturation-factor)), 71%);
+	--larixy-aside-note-border: var(--larixy-accent-info);
+	--larixy-aside-note-bg: color-mix(in srgb, var(--larixy-accent-info) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-aside-note-text: hsl(198, calc(92% * var(--saturation-factor)), 70%);
+	--larixy-aside-tip-border: var(--larixy-accent-success);
+	--larixy-aside-tip-bg: color-mix(in srgb, var(--larixy-accent-success) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-aside-tip-text: hsl(152, calc(72% * var(--saturation-factor)), 42%);
+	--larixy-aside-caution-border: var(--larixy-accent-warning);
+	--larixy-aside-caution-bg: color-mix(in srgb, var(--larixy-accent-warning) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-aside-caution-text: hsl(45, calc(93% * var(--saturation-factor)), 50%);
+	--larixy-aside-danger-border: var(--larixy-accent-danger);
+	--larixy-aside-danger-bg: color-mix(in srgb, var(--larixy-accent-danger) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-aside-danger-text: hsl(0, calc(84% * var(--saturation-factor)), 71%);
 
-	--flx-method-get-border: var(--flx-accent-info);
-	--flx-method-get-bg: color-mix(in srgb, var(--flx-accent-info) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-method-get-fg: var(--flx-text-primary);
-	--flx-method-post-border: var(--flx-accent-success);
-	--flx-method-post-bg: color-mix(in srgb, var(--flx-accent-success) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-method-post-fg: var(--flx-text-primary);
-	--flx-method-patch-border: var(--flx-accent-warning);
-	--flx-method-patch-bg: color-mix(in srgb, var(--flx-accent-warning) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-method-patch-fg: var(--flx-text-primary);
-	--flx-method-put-border: var(--flx-accent-method-put);
-	--flx-method-put-bg: color-mix(in srgb, var(--flx-accent-method-put) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-method-put-fg: var(--flx-text-primary);
-	--flx-method-delete-border: var(--flx-accent-danger);
-	--flx-method-delete-bg: color-mix(in srgb, var(--flx-accent-danger) var(--flx-tint-strength), var(--flx-tint-base));
-	--flx-method-delete-fg: var(--flx-text-primary);
-	--flx-method-head-border: var(--flx-accent-method-head);
-	--flx-method-head-bg: color-mix(
+	--larixy-method-get-border: var(--larixy-accent-info);
+	--larixy-method-get-bg: color-mix(in srgb, var(--larixy-accent-info) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-method-get-fg: var(--larixy-text-primary);
+	--larixy-method-post-border: var(--larixy-accent-success);
+	--larixy-method-post-bg: color-mix(in srgb, var(--larixy-accent-success) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-method-post-fg: var(--larixy-text-primary);
+	--larixy-method-patch-border: var(--larixy-accent-warning);
+	--larixy-method-patch-bg: color-mix(in srgb, var(--larixy-accent-warning) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-method-patch-fg: var(--larixy-text-primary);
+	--larixy-method-put-border: var(--larixy-accent-method-put);
+	--larixy-method-put-bg: color-mix(in srgb, var(--larixy-accent-method-put) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-method-put-fg: var(--larixy-text-primary);
+	--larixy-method-delete-border: var(--larixy-accent-danger);
+	--larixy-method-delete-bg: color-mix(in srgb, var(--larixy-accent-danger) var(--larixy-tint-strength), var(--larixy-tint-base));
+	--larixy-method-delete-fg: var(--larixy-text-primary);
+	--larixy-method-head-border: var(--larixy-accent-method-head);
+	--larixy-method-head-bg: color-mix(
 		in srgb,
-		var(--flx-accent-method-head) var(--flx-tint-strength),
-		var(--flx-tint-base)
+		var(--larixy-accent-method-head) var(--larixy-tint-strength),
+		var(--larixy-tint-base)
 	);
-	--flx-method-head-fg: var(--flx-text-primary);
+	--larixy-method-head-fg: var(--larixy-text-primary);
 }
