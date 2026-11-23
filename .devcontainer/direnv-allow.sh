@@ -3,5 +3,5 @@
 
 set -euo pipefail
 
-cd /workspaces/fluxer || exit 1
+cd /workspaces/larixy || exit 1
 direnv allow

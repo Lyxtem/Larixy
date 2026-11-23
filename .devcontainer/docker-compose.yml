@@ -1,4 +1,4 @@
-name: fluxer-dev
+name: larixy-dev
 
 services:
   workspace:
@@ -29,201 +29,196 @@ services:
       FLUXER_ADMIN_OAUTH_REDIRECT_URI: "http://localhost:${FLUXER_DEV_PROXY_PORT:-8088}/admin/oauth2_callback"
       FLUXER_PASSKEY_ADDITIONAL_ALLOWED_ORIGINS: "http://localhost,http://localhost:${FLUXER_DEV_PROXY_PORT:-8088}"
     volumes:
-      - ..:/workspaces/fluxer:cached
+      - ..:/workspaces/larixy:cached
       - type: volume
         source: root-node-modules
-        target: /workspaces/fluxer/node_modules
+        target: /workspaces/larixy/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-node-modules
-        target: /workspaces/fluxer/fluxer_api/node_modules
+        source: larixy-api-node-modules
+        target: /workspaces/larixy/larixy_api/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-app-node-modules
-        target: /workspaces/fluxer/fluxer_app/node_modules
+        source: larixy-app-node-modules
+        target: /workspaces/larixy/larixy_app/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-desktop-node-modules
-        target: /workspaces/fluxer/fluxer_desktop/node_modules
+        source: larixy-desktop-node-modules
+        target: /workspaces/larixy/larixy_desktop/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-admin-node-modules
-        target: /workspaces/fluxer/fluxer_admin/node_modules
+        source: larixy-admin-node-modules
+        target: /workspaces/larixy/larixy_admin/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-config-node-modules
-        target: /workspaces/fluxer/packages/config/node_modules
+        target: /workspaces/larixy/packages/config/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-constants-node-modules
-        target: /workspaces/fluxer/packages/constants/node_modules
+        target: /workspaces/larixy/packages/constants/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-date-utils-node-modules
-        target: /workspaces/fluxer/packages/date_utils/node_modules
+        target: /workspaces/larixy/packages/date_utils/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-errors-node-modules
-        target: /workspaces/fluxer/packages/errors/node_modules
+        target: /workspaces/larixy/packages/errors/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-geo-utils-node-modules
-        target: /workspaces/fluxer/packages/geo_utils/node_modules
+        target: /workspaces/larixy/packages/geo_utils/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-hono-node-modules
-        target: /workspaces/fluxer/packages/hono/node_modules
+        target: /workspaces/larixy/packages/hono/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-i18n-node-modules
-        target: /workspaces/fluxer/packages/i18n/node_modules
+        target: /workspaces/larixy/packages/i18n/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-instance-bootstrap-node-modules
-        target: /workspaces/fluxer/packages/instance_bootstrap/node_modules
+        target: /workspaces/larixy/packages/instance_bootstrap/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-ip-utils-node-modules
-        target: /workspaces/fluxer/packages/ip_utils/node_modules
+        target: /workspaces/larixy/packages/ip_utils/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-limits-node-modules
-        target: /workspaces/fluxer/packages/limits/node_modules
+        target: /workspaces/larixy/packages/limits/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-logger-node-modules
-        target: /workspaces/fluxer/packages/logger/node_modules
+        target: /workspaces/larixy/packages/logger/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-number-utils-node-modules
-        target: /workspaces/fluxer/packages/number_utils/node_modules
+        target: /workspaces/larixy/packages/number_utils/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-openapi-node-modules
-        target: /workspaces/fluxer/packages/openapi/node_modules
+        target: /workspaces/larixy/packages/openapi/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-schema-node-modules
-        target: /workspaces/fluxer/packages/schema/node_modules
+        target: /workspaces/larixy/packages/schema/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-snowflake-node-modules
-        target: /workspaces/fluxer/packages/snowflake/node_modules
+        target: /workspaces/larixy/packages/snowflake/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-cache-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/cache/node_modules
+        source: larixy-api-cache-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/cache/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-captcha-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/captcha/node_modules
+        source: larixy-api-captcha-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/captcha/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-cassandra-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/cassandra/node_modules
+        source: larixy-api-cassandra-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/cassandra/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-elasticsearch-search-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/elasticsearch_search/node_modules
+        source: larixy-api-elasticsearch-search-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/elasticsearch_search/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-email-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/email/node_modules
+        source: larixy-api-email-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/email/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-geoip-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/geoip/node_modules
+        source: larixy-api-geoip-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/geoip/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-http-client-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/http_client/node_modules
+        source: larixy-api-http-client-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/http_client/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-kv-client-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/kv_client/node_modules
+        source: larixy-api-kv-client-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/kv_client/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-media-proxy-utils-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/media_proxy_utils/node_modules
+        source: larixy-api-media-proxy-utils-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/media_proxy_utils/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-mime-utils-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/mime_utils/node_modules
+        source: larixy-api-mime-utils-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/mime_utils/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-nats-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/nats/node_modules
+        source: larixy-api-nats-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/nats/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-rate-limit-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/rate_limit/node_modules
+        source: larixy-api-rate-limit-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/rate_limit/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-virus-scan-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/virus_scan/node_modules
+        source: larixy-api-virus-scan-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/virus_scan/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-worker-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/worker/node_modules
+        source: larixy-api-worker-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/worker/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-app-list-utils-node-modules
-        target: /workspaces/fluxer/fluxer_app/pkgs/list_utils/node_modules
-        volume:
-          nocopy: true
-      - type: volume
-        source: fluxer-app-livekit-client-node-modules
-        target: /workspaces/fluxer/fluxer_app/pkgs/livekit-client/node_modules
+        source: larixy-app-livekit-client-node-modules
+        target: /workspaces/larixy/larixy_app/pkgs/livekit-client/node_modules
         volume:
           nocopy: true
       - type: volume
         source: package-voice-engine-v2-node-modules
-        target: /workspaces/fluxer/packages/voice_engine_v2/node_modules
+        target: /workspaces/larixy/packages/voice_engine_v2/node_modules
         volume:
           nocopy: true
       - type: volume
-        source: fluxer-api-postgres-node-modules
-        target: /workspaces/fluxer/fluxer_api/pkgs/postgres/node_modules
+        source: larixy-api-postgres-node-modules
+        target: /workspaces/larixy/larixy_api/pkgs/postgres/node_modules
         volume:
           nocopy: true
       - pnpm-store:/home/vscode/.local/share/pnpm/store
       - cargo-registry:/home/vscode/.cargo/registry
       - cargo-git:/home/vscode/.cargo/git
-      - rust-target:/workspaces/fluxer/target
+      - rust-target:/workspaces/larixy/target
       - type: bind
         source: ${FLUXER_DOCKER_SOCKET:-/var/run/docker.sock}
         target: /var/run/docker.sock
@@ -329,10 +324,10 @@ services:
 volumes:
   pnpm-store:
   root-node-modules:
-  fluxer-api-node-modules:
-  fluxer-app-node-modules:
-  fluxer-desktop-node-modules:
-  fluxer-admin-node-modules:
+  larixy-api-node-modules:
+  larixy-app-node-modules:
+  larixy-desktop-node-modules:
+  larixy-admin-node-modules:
   package-config-node-modules:
   package-constants-node-modules:
   package-date-utils-node-modules:
@@ -348,24 +343,23 @@ volumes:
   package-openapi-node-modules:
   package-schema-node-modules:
   package-snowflake-node-modules:
-  fluxer-api-cache-node-modules:
-  fluxer-api-captcha-node-modules:
-  fluxer-api-cassandra-node-modules:
-  fluxer-api-elasticsearch-search-node-modules:
-  fluxer-api-email-node-modules:
-  fluxer-api-geoip-node-modules:
-  fluxer-api-http-client-node-modules:
-  fluxer-api-kv-client-node-modules:
-  fluxer-api-media-proxy-utils-node-modules:
-  fluxer-api-mime-utils-node-modules:
-  fluxer-api-nats-node-modules:
-  fluxer-api-rate-limit-node-modules:
-  fluxer-api-virus-scan-node-modules:
-  fluxer-api-worker-node-modules:
-  fluxer-app-list-utils-node-modules:
-  fluxer-app-livekit-client-node-modules:
+  larixy-api-cache-node-modules:
+  larixy-api-captcha-node-modules:
+  larixy-api-cassandra-node-modules:
+  larixy-api-elasticsearch-search-node-modules:
+  larixy-api-email-node-modules:
+  larixy-api-geoip-node-modules:
+  larixy-api-http-client-node-modules:
+  larixy-api-kv-client-node-modules:
+  larixy-api-media-proxy-utils-node-modules:
+  larixy-api-mime-utils-node-modules:
+  larixy-api-nats-node-modules:
+  larixy-api-rate-limit-node-modules:
+  larixy-api-virus-scan-node-modules:
+  larixy-api-worker-node-modules:
+  larixy-app-livekit-client-node-modules:
   package-voice-engine-v2-node-modules:
-  fluxer-api-postgres-node-modules:
+  larixy-api-postgres-node-modules:
   cargo-registry:
   cargo-git:
   rust-target:
