@@ -1,0 +1,22 @@
+services:
+  edge:
+    volumes:
+      - /home/deploy/apps/wave-instance/extra/landing:/srv/landing:ro
+  admin:
+    image: wave-admin:es
+  api:
+    environment:
+      FLUXER_APP_PRODUCT_NAME: "Larixy"
+    volumes:
+      - /home/deploy/apps/wave-instance/extra/chunk-ZKNE52GF.js:/usr/src/app/fluxer_api/dist/chunk-ZKNE52GF.js:ro
+      - /home/deploy/apps/wave-instance/extra/chunk-T4R7PYWV.js:/usr/src/app/fluxer_api/dist/chunk-T4R7PYWV.js:ro
+      - /home/deploy/apps/wave-instance/extra/chunk-ZXO4TNSM.js:/usr/src/app/fluxer_api/dist/chunk-ZXO4TNSM.js:ro
+      - /home/deploy/apps/wave-instance/extra/AppEntrypoint.js:/usr/src/app/fluxer_api/dist/AppEntrypoint.js:ro
+  static-proxy:
+    volumes:
+      - /home/deploy/apps/wave-instance/extra/web_icons:/srv/fluxer-static/web:ro
+      - /home/deploy/apps/wave-instance/extra/web_icons/wave-logo-circle.svg:/srv/fluxer-static/fluxer-logo-color.svg:ro
+  app-proxy:
+    image: wave-app-proxy:larixy
+    environment:
+      FLUXER_APP_PRODUCT_NAME: "Larixy"
