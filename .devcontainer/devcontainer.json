@@ -2,7 +2,7 @@
 	"name": "Larixy",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "workspace",
-	"workspaceFolder": "/workspaces/fluxer",
+	"workspaceFolder": "/workspaces/larixy",
 	"shutdownAction": "stopCompose",
 	"remoteUser": "vscode",
 	"hostRequirements": {
@@ -33,15 +33,15 @@
 			"label": "Larixy app proxy"
 		}
 	},
-	"postCreateCommand": "bash /workspaces/fluxer/.devcontainer/fix-docker-socket.sh && bash /workspaces/fluxer/.devcontainer/fix-workspace-permissions.sh && bash /workspaces/fluxer/.devcontainer/direnv-allow.sh && cargo run -p fluxer-dev -- bootstrap",
-	"postStartCommand": "bash /workspaces/fluxer/.devcontainer/fix-docker-socket.sh && bash /workspaces/fluxer/.devcontainer/fix-workspace-permissions.sh && bash /workspaces/fluxer/.devcontainer/direnv-allow.sh && cargo run -p fluxer-dev -- post-start",
+	"postCreateCommand": "bash /workspaces/larixy/.devcontainer/fix-docker-socket.sh && bash /workspaces/larixy/.devcontainer/fix-workspace-permissions.sh && bash /workspaces/larixy/.devcontainer/direnv-allow.sh && cargo run -p larixy-dev -- bootstrap",
+	"postStartCommand": "bash /workspaces/larixy/.devcontainer/fix-docker-socket.sh && bash /workspaces/larixy/.devcontainer/fix-workspace-permissions.sh && bash /workspaces/larixy/.devcontainer/direnv-allow.sh && cargo run -p larixy-dev -- post-start",
 	"customizations": {
 		"vscode": {
 			"settings": {
 				"editor.defaultFormatter": "biomejs.biome",
 				"erlang.includePaths": ["."],
 				"search.exclude": {
-					"**/_build/default/lib/fluxer_gateway": true
+					"**/_build/default/lib/larixy_gateway": true
 				},
 				"json.schemaDownload.trustedDomains": {
 					"http://json-schema.org/draft-07/schema#": true,
