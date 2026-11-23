@@ -78,9 +78,28 @@
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #0b0c10; }
     ::-webkit-scrollbar-thumb { background: #252736; border-radius: 3px; }
+  
+    /* ===== Pulido visual compartido (v2) ===== */
+    ::selection { background: rgba(88,101,242,.45); color: #fff; }
+    html { scrollbar-color: #34384b #0b0c10; }
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-thumb { background: #252736; border-radius: 8px; }
+    body::-webkit-scrollbar-thumb:hover { background: #5865F2; }
+    .top-grad { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; background: linear-gradient(90deg, #5865F2, #b06ee8, #5865F2); }
+    .page-glow { position: fixed; top: -190px; left: 50%; transform: translateX(-50%); width: 860px; height: 400px; background: radial-gradient(ellipse, rgba(88,101,242,.13), transparent 70%); pointer-events: none; z-index: 0; }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    footer { position: relative; }
+    footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(88,101,242,.55), rgba(176,110,232,.55), transparent); }
+    .text-grad { background: linear-gradient(92deg, #8b96ff 0%, #5865F2 45%, #b06ee8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } }
+  
+    pre { border: 1px solid rgba(88,101,242,.16); }
   </style>
 </head>
 <body class="font-sans antialiased">
+  <div class="top-grad"></div>
+  <div class="page-glow"></div>
   
   <!-- Header -->
   <header class="sticky top-0 z-50 nav-glass">
@@ -264,7 +283,7 @@ Content-Type: application/json</code></pre>
             
             <!-- Title -->
             <h4 class="text-sm font-bold text-white hover:underline cursor-pointer mb-1.5">
-              🛡️ Acción de Moderación: Advertencia Aplicada
+              <i data-lucide="shield" class="w-4 h-4 inline-block align-[-2px] text-sky-400"></i> Acción de Moderación: Advertencia Aplicada
             </h4>
             
             <!-- Description -->
@@ -426,7 +445,7 @@ Content-Type: application/json</code></pre>
         <div class="space-y-3">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <span class="text-amber-400">🐍</span> Bot de Moderación en Python (asyncio + aiohttp + websockets)
+              <span class="text-amber-400"><i data-lucide="snake" class="w-4 h-4 inline-block align-[-2px]"></i></span> Bot de Moderación en Python (asyncio + aiohttp + websockets)
             </h3>
             <button onclick="copyCode(this)" class="hover:text-white text-xs flex items-center gap-1 text-slate-400">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar código
@@ -521,7 +540,7 @@ if __name__ == "__main__":
         <div class="space-y-3 pt-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <span class="text-emerald-400">⚡</span> Bot de Moderación en JavaScript (Node.js + ws)
+              <span class="text-emerald-400"><i data-lucide="zap" class="w-4 h-4 inline-block align-[-2px]"></i></span> Bot de Moderación en JavaScript (Node.js + ws)
             </h3>
             <button onclick="copyCode(this)" class="hover:text-white text-xs flex items-center gap-1 text-slate-400">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar código
