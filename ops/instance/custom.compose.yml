@@ -3,7 +3,23 @@ services:
     volumes:
       - /home/deploy/apps/wave-instance/extra/landing:/srv/landing:ro
   admin:
-    image: wave-admin:es
+    image: ghcr.io/lyxtem/larixy-admin:2026.1123.212843
+    environment:
+      LARIXY_ADMIN_BASE_PATH: /admin
+      LARIXY_ADMIN_ENDPOINT: https://larixy.xyz/admin
+      LARIXY_ADMIN_PORT: "8080"
+      LARIXY_ADMIN_OAUTH_CLIENT_SECRET: ${FLUXER_ADMIN_OAUTH_CLIENT_SECRET:-}
+      LARIXY_ADMIN_SECRET_KEY_BASE: ${FLUXER_ADMIN_SECRET_KEY_BASE:-}
+      LARIXY_ADMIN_SSO_CLIENT_SECRET: ${FLUXER_ADMIN_SSO_CLIENT_SECRET:-}
+      LARIXY_API_ENDPOINT: http://api:8080
+      LARIXY_APP_ENDPOINT: https://larixy.xyz
+      LARIXY_MEDIA_ENDPOINT: https://larixy.xyz/media
+      LARIXY_STATIC_CDN_ENDPOINT: https://larixy.xyz
+      LARIXY_BASE_DOMAIN: larixy.xyz
+      LARIXY_PUBLIC_ORIGIN: https://larixy.xyz
+      LARIXY_PUBLIC_PORT: "443"
+      LARIXY_SELF_HOSTED: "true"
+      LARIXY_TRUST_CLIENT_IP_HEADER: "true"
   api:
     environment:
       FLUXER_APP_PRODUCT_NAME: "Larixy"
