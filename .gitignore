@@ -62,13 +62,16 @@
 **/.DS_Store
 **/Thumbs.db
 
-# Local deployment & utility scripts
-vps_exec.py
-run_ssh.py
-*.sh
-index_remote.html
-*.patched.js
-*.patched.html
+# Local deployment & utility scripts (root only)
+# Anchored to the repository root: the unanchored versions of these
+# patterns matched at any depth and kept every project .sh file
+# (tools/ci/run.sh and friends) out of version control.
+/vps_exec.py
+/run_ssh.py
+/*.sh
+/index_remote.html
+/*.patched.js
+/*.patched.html
 
 # Root temporary/scratch bundle and script files
 /*.js
