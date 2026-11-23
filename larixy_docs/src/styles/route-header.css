@@ -19,51 +19,51 @@ flx-route-line .route-method {
 	align-items: center;
 	flex: 0 0 auto;
 	margin: 0;
-	border: 2px solid var(--flx-method-border);
+	border: 2px solid var(--larixy-method-border);
 	border-radius: 0.75rem;
 	padding: 0.25rem 0.5rem;
 	font-size: var(--sl-text-sm);
 	font-weight: 500;
 	line-height: 1.25rem;
 	text-transform: uppercase;
-	background-color: var(--flx-method-bg);
-	color: var(--flx-method-fg);
+	background-color: var(--larixy-method-bg);
+	color: var(--larixy-method-fg);
 }
 
 flx-route-line .route-method[data-method='GET'] {
-	--flx-method-bg: var(--flx-method-get-bg);
-	--flx-method-border: var(--flx-method-get-border);
-	--flx-method-fg: var(--flx-method-get-fg);
+	--larixy-method-bg: var(--larixy-method-get-bg);
+	--larixy-method-border: var(--larixy-method-get-border);
+	--larixy-method-fg: var(--larixy-method-get-fg);
 }
 
 flx-route-line .route-method[data-method='POST'] {
-	--flx-method-bg: var(--flx-method-post-bg);
-	--flx-method-border: var(--flx-method-post-border);
-	--flx-method-fg: var(--flx-method-post-fg);
+	--larixy-method-bg: var(--larixy-method-post-bg);
+	--larixy-method-border: var(--larixy-method-post-border);
+	--larixy-method-fg: var(--larixy-method-post-fg);
 }
 
 flx-route-line .route-method[data-method='PATCH'] {
-	--flx-method-bg: var(--flx-method-patch-bg);
-	--flx-method-border: var(--flx-method-patch-border);
-	--flx-method-fg: var(--flx-method-patch-fg);
+	--larixy-method-bg: var(--larixy-method-patch-bg);
+	--larixy-method-border: var(--larixy-method-patch-border);
+	--larixy-method-fg: var(--larixy-method-patch-fg);
 }
 
 flx-route-line .route-method[data-method='PUT'] {
-	--flx-method-bg: var(--flx-method-put-bg);
-	--flx-method-border: var(--flx-method-put-border);
-	--flx-method-fg: var(--flx-method-put-fg);
+	--larixy-method-bg: var(--larixy-method-put-bg);
+	--larixy-method-border: var(--larixy-method-put-border);
+	--larixy-method-fg: var(--larixy-method-put-fg);
 }
 
 flx-route-line .route-method[data-method='DELETE'] {
-	--flx-method-bg: var(--flx-method-delete-bg);
-	--flx-method-border: var(--flx-method-delete-border);
-	--flx-method-fg: var(--flx-method-delete-fg);
+	--larixy-method-bg: var(--larixy-method-delete-bg);
+	--larixy-method-border: var(--larixy-method-delete-border);
+	--larixy-method-fg: var(--larixy-method-delete-fg);
 }
 
 flx-route-line .route-method[data-method='HEAD'] {
-	--flx-method-bg: var(--flx-method-head-bg);
-	--flx-method-border: var(--flx-method-head-border);
-	--flx-method-fg: var(--flx-method-head-fg);
+	--larixy-method-bg: var(--larixy-method-head-bg);
+	--larixy-method-border: var(--larixy-method-head-border);
+	--larixy-method-fg: var(--larixy-method-head-fg);
 }
 
 flx-route-line .route-path {
@@ -75,12 +75,12 @@ flx-route-line .route-path {
 	background: transparent;
 	font-size: var(--sl-text-base);
 	line-height: 1.5rem;
-	color: var(--flx-content-text);
+	color: var(--larixy-content-text);
 	word-break: break-all;
 }
 
 flx-route-line .route-path [data-param] {
-	color: var(--flx-link);
+	color: var(--larixy-link);
 	font-style: normal;
 }
 
@@ -94,19 +94,19 @@ flx-route-capabilities {
 .route-capability {
 	display: inline-flex;
 	align-items: center;
-	border-radius: var(--flx-radius-pill);
+	border-radius: var(--larixy-radius-pill);
 	padding: 0.125rem 0.625rem;
 	font-family: var(--__sl-font-mono);
 	font-size: var(--sl-text-xs);
 	font-weight: 500;
 	line-height: 1.6;
-	background-color: var(--flx-badge-bg);
-	color: var(--flx-badge-text);
+	background-color: var(--larixy-badge-bg);
+	color: var(--larixy-badge-text);
 	text-decoration: none;
 	white-space: nowrap;
 }
 
 a.route-capability:hover {
-	background-color: var(--flx-sidebar-hover-bg);
-	color: var(--flx-sidebar-hover-text);
+	background-color: var(--larixy-sidebar-hover-bg);
+	color: var(--larixy-sidebar-hover-text);
 }
