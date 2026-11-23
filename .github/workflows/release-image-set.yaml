@@ -59,6 +59,8 @@ jobs:
       version: ${{ steps.vars.outputs.build_version }}
       bundle_commit: ${{ steps.resolve.outputs.bundle_commit }}
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
@@ -162,6 +164,8 @@ jobs:
       BUNDLE_COMMIT: ${{ needs.manifest.outputs.bundle_commit }}
       ARCH: ${{ matrix.arch }}
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ needs.manifest.outputs.bundle_commit }}
