@@ -1,5 +1,5 @@
 {
-	"name": "Fluxer",
+	"name": "Larixy",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "workspace",
 	"workspaceFolder": "/workspaces/fluxer",
@@ -17,20 +17,20 @@
 	"forwardPorts": [3000, 8088, 8080, 8771, 8082, 8773, 3020, 8333],
 	"portsAttributes": {
 		"8088": {
-			"label": "Fluxer dev proxy",
+			"label": "Larixy dev proxy",
 			"onAutoForward": "notify"
 		},
 		"3000": {
 			"label": "Rspack dev server"
 		},
 		"3020": {
-			"label": "Fluxer admin"
+			"label": "Larixy admin"
 		},
 		"8333": {
 			"label": "SeaweedFS S3"
 		},
 		"8773": {
-			"label": "Fluxer app proxy"
+			"label": "Larixy app proxy"
 		}
 	},
 	"postCreateCommand": "bash /workspaces/fluxer/.devcontainer/fix-docker-socket.sh && bash /workspaces/fluxer/.devcontainer/fix-workspace-permissions.sh && bash /workspaces/fluxer/.devcontainer/direnv-allow.sh && cargo run -p fluxer-dev -- bootstrap",
