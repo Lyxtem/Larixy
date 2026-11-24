@@ -107,7 +107,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 		kind: 'partner',
 		asset: PROFILE_BADGE_ASSETS.partner,
 		availability: 'hosted',
-		href: marketing('partners'),
+		href: marketing('partner'),
 		qualify: flagBadge(UserFlags.PARTNER, (view) =>
 			getContentMessage('profile_badge.partner', view.locale, {product_name: view.environment.productName}),
 		),
