@@ -235,9 +235,9 @@ export function BadgeAdminController(app: HonoApp) {
 		Validator('param', HideableBuiltInBadgeKindParam),
 		OpenAPI({
 			operationId: 'hide_admin_built_in_badge',
-			summary: 'Hide built-in community badge',
+			summary: 'Hide built-in badge',
 			description:
-				'Stops clients on this instance from showing a built-in community badge. Communities keep the feature behind it, so a discoverable community stays listed in discovery. Creates audit log entry. Requires BADGE_UPDATE permission.',
+				'Stops clients on this instance from showing a built-in badge. For community badges the feature behind the badge keeps working, so a discoverable community stays listed in discovery. Creates audit log entry. Requires BADGE_UPDATE permission.',
 			responseSchema: AdminCustomBadgeListResponse,
 			statusCode: 200,
 			security: 'adminApiKey',
@@ -262,9 +262,9 @@ export function BadgeAdminController(app: HonoApp) {
 		Validator('param', HideableBuiltInBadgeKindParam),
 		OpenAPI({
 			operationId: 'show_admin_built_in_badge',
-			summary: 'Show built-in community badge',
+			summary: 'Show built-in badge',
 			description:
-				'Shows a hidden built-in community badge again. Creates audit log entry. Requires BADGE_UPDATE permission.',
+				'Shows a hidden built-in badge again. Creates audit log entry. Requires BADGE_UPDATE permission.',
 			responseSchema: AdminCustomBadgeListResponse,
 			statusCode: 200,
 			security: 'adminApiKey',

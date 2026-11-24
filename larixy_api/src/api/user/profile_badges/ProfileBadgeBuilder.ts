@@ -116,6 +116,7 @@ function render(source: ViewSource | null): Array<KeyedProfileBadge> {
 	const badges: Array<KeyedProfileBadge> = [];
 	for (const definition of PROFILE_BADGE_REGISTRY) {
 		if (definition.availability === (selfHosted ? 'hosted' : 'self_hosted')) continue;
+		if (source.environment.hiddenBuiltInBadges?.has(definition.kind)) continue;
 		const content = definition.qualify({...source, shown});
 		if (!content) continue;
 		shown.add(definition.kind);
