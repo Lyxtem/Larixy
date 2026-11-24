@@ -299,7 +299,7 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 		const displayName = getProfileMembershipDisplayName(user, displayMembership);
 		const isDisplayNameUsername = displayName === user.username;
 		const bannerColor = useMemo(
-			() => getUserAccentColor(user, effectiveProfile?.accent_color),
+			() => getUserAccentColor(user, effectiveProfile?.banner_color ?? effectiveProfile?.accent_color),
 			[user, effectiveProfile],
 		);
 		useEffect(() => {

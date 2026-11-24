@@ -28,7 +28,7 @@ export const ProfileModalContent: React.FC<ProfileModalContentProps> = observer(
 	}) => {
 		const effectiveProfile = profile?.getEffectiveProfile() ?? null;
 		const isSystemUser = user.id === LARIXYBOT_ID;
-		const bannerColor = getUserAccentColor(user, effectiveProfile?.accent_color);
+		const bannerColor = getUserAccentColor(user, effectiveProfile?.banner_color ?? effectiveProfile?.accent_color);
 		const membership = resolveProfileGuildMembership(profile);
 		const profileContext = useMemo<ProfileDisplayUtils.ProfileDisplayContext>(
 			() =>
