@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-#ifndef FLUXWEBP_MATH_H
-#define FLUXWEBP_MATH_H
-double fluxwebp_shim_pow(double x, double y);
-double fluxwebp_shim_log(double x);
-float fluxwebp_shim_expf(float x);
-double fluxwebp_shim_log10(double x);
-float fluxwebp_shim_logf(float x);
-double fluxwebp_shim_round(double x);
-#define pow(x, y) fluxwebp_shim_pow(x, y)
-#define log(x) fluxwebp_shim_log(x)
-#define expf(x) fluxwebp_shim_expf(x)
-#define log10(x) fluxwebp_shim_log10(x)
-#define logf(x) fluxwebp_shim_logf(x)
-#define round(x) fluxwebp_shim_round(x)
+#ifndef LARIXYWEBP_MATH_H
+#define LARIXYWEBP_MATH_H
+double larixywebp_shim_pow(double x, double y);
+double larixywebp_shim_log(double x);
+float larixywebp_shim_expf(float x);
+double larixywebp_shim_log10(double x);
+float larixywebp_shim_logf(float x);
+double larixywebp_shim_round(double x);
+#define pow(x, y) larixywebp_shim_pow(x, y)
+#define log(x) larixywebp_shim_log(x)
+#define expf(x) larixywebp_shim_expf(x)
+#define log10(x) larixywebp_shim_log10(x)
+#define logf(x) larixywebp_shim_logf(x)
+#define round(x) larixywebp_shim_round(x)
 #define fabs(x) __builtin_fabs(x)
 #define floor(x) __builtin_floor(x)
 #define ceil(x) __builtin_ceil(x)

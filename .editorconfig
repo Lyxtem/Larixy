@@ -28,7 +28,7 @@ max_line_length = 96
 indent_style = space
 indent_size = 4
 
-[larixy_app/rust/libfluxwebp/**.{c,h}]
+[larixy_app/rust/liblarixywebp/**.{c,h}]
 indent_style = space
 indent_size = 2
 

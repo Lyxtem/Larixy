@@ -413,12 +413,12 @@ fn gather_wasm_inputs(project_root: &Path) -> Result<StepInputs> {
     )?;
     inputs.extend(collect_directory_digests(
         project_root,
-        Path::new("rust/libfluxcore"),
+        Path::new("rust/liblarixycore"),
         |path| !path.contains("/target/"),
     )?);
     inputs.extend(collect_directory_digests(
         project_root,
-        Path::new("rust/libfluxwebp"),
+        Path::new("rust/liblarixywebp"),
         |path| !path.contains("/target/"),
     )?);
     inputs.extend(collect_directory_digests(

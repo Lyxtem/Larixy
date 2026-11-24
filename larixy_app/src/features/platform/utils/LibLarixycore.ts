@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {Logger} from '@app/features/platform/utils/AppLogger';
-import type {InitOutput} from '@pkgs/libfluxcore/libfluxcore';
-import initLibfluxcore, * as wasm from '@pkgs/libfluxcore/libfluxcore';
-import libfluxcoreWasmUrl from '@pkgs/libfluxcore/libfluxcore_bg.wasm';
+import type {InitOutput} from '@pkgs/liblarixycore/liblarixycore';
+import initLiblarixycore, * as wasm from '@pkgs/liblarixycore/liblarixycore';
+import liblarixycoreWasmUrl from '@pkgs/liblarixycore/liblarixycore_bg.wasm';
 
-const logger = new Logger('libfluxcore');
-const MAX_RETAINED_LIBFLUXCORE_WASM_MEMORY_BYTES = 64 * 1024 * 1024;
+const logger = new Logger('liblarixycore');
+const MAX_RETAINED_LIBLARIXYCORE_WASM_MEMORY_BYTES = 64 * 1024 * 1024;
 
 let modulePromise: Promise<void> | null = null;
 let moduleReady = false;
@@ -19,8 +19,8 @@ async function loadModule(): Promise<void> {
 	if (!modulePromise) {
 		modulePromise = (async () => {
 			try {
-				if (typeof initLibfluxcore === 'function') {
-					moduleExports = await initLibfluxcore({module_or_path: libfluxcoreWasmUrl});
+				if (typeof initLiblarixycore === 'function') {
+					moduleExports = await initLiblarixycore({module_or_path: liblarixycoreWasmUrl});
 				}
 				moduleReady = true;
 			} catch (err) {
@@ -35,55 +35,55 @@ async function loadModule(): Promise<void> {
 	await modulePromise;
 }
 
-function isLibfluxcoreModulePinned(): boolean {
+function isLiblarixycoreModulePinned(): boolean {
 	return pendingModuleOperations > 0 || liveZstdStreamDecoders.size > 0 || liveZstdStreamEncoders.size > 0;
 }
 
-async function withPinnedLibfluxcoreModule<T>(run: () => T): Promise<T> {
+async function withPinnedLiblarixycoreModule<T>(run: () => T): Promise<T> {
 	pendingModuleOperations++;
 	try {
 		await loadModule();
 		return run();
 	} finally {
 		pendingModuleOperations--;
-		releaseLibfluxcoreMemoryIfIdle();
+		releaseLiblarixycoreMemoryIfIdle();
 	}
 }
 
 function requireLiveZstdStreamHandle(handle: number, live: Set<number>): number {
 	if (!live.has(handle)) {
-		throw new Error('libfluxcore zstd stream handle is no longer live');
+		throw new Error('liblarixycore zstd stream handle is no longer live');
 	}
 	return handle;
 }
 
-export function isLibfluxcoreReady(): boolean {
+export function isLiblarixycoreReady(): boolean {
 	return moduleReady;
 }
 
-export async function ensureLibfluxcoreReady(): Promise<void> {
+export async function ensureLiblarixycoreReady(): Promise<void> {
 	await loadModule();
 }
 
-function releaseLibfluxcoreMemoryIfIdle(): void {
-	if (isLibfluxcoreModulePinned()) return;
-	if ((moduleExports?.memory.buffer.byteLength ?? 0) <= MAX_RETAINED_LIBFLUXCORE_WASM_MEMORY_BYTES) return;
-	wasm.__resetLibfluxcoreWasmForMemoryPressure();
+function releaseLiblarixycoreMemoryIfIdle(): void {
+	if (isLiblarixycoreModulePinned()) return;
+	if ((moduleExports?.memory.buffer.byteLength ?? 0) <= MAX_RETAINED_LIBLARIXYCORE_WASM_MEMORY_BYTES) return;
+	wasm.__resetLiblarixycoreWasmForMemoryPressure();
 	modulePromise = null;
 	moduleReady = false;
 	moduleExports = null;
 }
 
 export async function detectAnimatedImage(data: Uint8Array): Promise<boolean> {
-	return withPinnedLibfluxcoreModule(() => Boolean(wasm.is_animated_image(data)));
+	return withPinnedLiblarixycoreModule(() => Boolean(wasm.is_animated_image(data)));
 }
 
 export async function sniffImageFormat(data: Uint8Array): Promise<number> {
-	return withPinnedLibfluxcoreModule(() => wasm.sniff_image_format(data));
+	return withPinnedLiblarixycoreModule(() => wasm.sniff_image_format(data));
 }
 
 export async function createZstdStreamDecoder(): Promise<number> {
-	return withPinnedLibfluxcoreModule(() => {
+	return withPinnedLiblarixycoreModule(() => {
 		const decoder = wasm.create_zstd_stream_decoder();
 		liveZstdStreamDecoders.add(decoder);
 		return decoder;
@@ -91,7 +91,7 @@ export async function createZstdStreamDecoder(): Promise<number> {
 }
 
 export async function decompressZstdStreamChunk(decoder: number, input: Uint8Array): Promise<Uint8Array> {
-	return withPinnedLibfluxcoreModule(() => {
+	return withPinnedLiblarixycoreModule(() => {
 		const result = wasm.decompress_zstd_stream_chunk(
 			requireLiveZstdStreamHandle(decoder, liveZstdStreamDecoders),
 			input,
@@ -105,7 +105,7 @@ export function freeZstdStreamDecoder(decoder: number): void {
 	try {
 		wasm.free_zstd_stream_decoder(decoder);
 	} finally {
-		releaseLibfluxcoreMemoryIfIdle();
+		releaseLiblarixycoreMemoryIfIdle();
 	}
 }
 
@@ -125,6 +125,6 @@ export function freeZstdStreamEncoder(encoder: number): void {
 	try {
 		wasm.free_zstd_stream_encoder(encoder);
 	} finally {
-		releaseLibfluxcoreMemoryIfIdle();
+		releaseLiblarixycoreMemoryIfIdle();
 	}
 }

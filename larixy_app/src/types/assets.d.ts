@@ -19,17 +19,17 @@ declare module '*.png' {
 	export default url;
 }
 
-declare module '@pkgs/libfluxcore/libfluxcore_bg.wasm' {
+declare module '@pkgs/liblarixycore/liblarixycore_bg.wasm' {
 	const url: string;
 	export default url;
 }
 
-declare module '@pkgs/libfluxwebp/libfluxwebp_bg.wasm' {
+declare module '@pkgs/liblarixywebp/liblarixywebp_bg.wasm' {
 	const url: string;
 	export default url;
 }
 
-declare module '@pkgs/libfluxwebp/libfluxwebp_simd_bg.wasm' {
+declare module '@pkgs/liblarixywebp/liblarixywebp_simd_bg.wasm' {
 	const url: string;
 	export default url;
 }

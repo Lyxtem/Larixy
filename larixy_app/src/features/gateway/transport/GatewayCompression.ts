@@ -5,11 +5,11 @@ import {
 	createZstdStreamDecoder,
 	createZstdStreamEncoderSync,
 	decompressZstdStreamChunk,
-	ensureLibfluxcoreReady,
+	ensureLiblarixycoreReady,
 	freeZstdStreamDecoder,
 	freeZstdStreamEncoder,
-	isLibfluxcoreReady,
-} from '@app/features/platform/utils/LibFluxcore';
+	isLiblarixycoreReady,
+} from '@app/features/platform/utils/LibLarixycore';
 
 export type CompressionType = 'none' | 'zstd-stream';
 
@@ -49,7 +49,7 @@ export class GatewayCompression {
 
 	async warmup(): Promise<void> {
 		if (!this.canCompress()) return;
-		await ensureLibfluxcoreReady();
+		await ensureLiblarixycoreReady();
 		if (this.destroyed) return;
 		if (this.zstdStreamEncoder == null) {
 			this.zstdStreamEncoder = createZstdStreamEncoderSync(ZSTD_STREAM_LEVEL);
@@ -63,7 +63,7 @@ export class GatewayCompression {
 		if (this.destroyed) {
 			throw new GatewayCompressionError(this.type, new Error('Gateway compression codec is destroyed'));
 		}
-		if (!isLibfluxcoreReady()) {
+		if (!isLiblarixycoreReady()) {
 			throw new GatewayCompressionError(this.type, new Error('Gateway compression encoder is not ready'));
 		}
 		try {

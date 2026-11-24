@@ -11,13 +11,13 @@ use tempfile::TempDir;
 
 const WORKSPACE_LOCKFILE: &str = "../Cargo.lock";
 const WASM_PROFILE: &str = "wasm-release";
-const LIBFLUXCORE_WASM_SIZE_BUDGET_BYTES: u64 = 300 * 1024;
-const LIBFLUXCORE_INDEX: &str = "// SPDX-License-Identifier: AGPL-3.0-or-later\n\n\
-export * from './libfluxcore_bindgen.js';\n\
-export {default} from './libfluxcore_bindgen.js';\n";
-const LIBFLUXWEBP_SIMD_WASM_SIZE_BUDGET_BYTES: u64 = 672 * 1024;
-const LIBFLUXWEBP_SCALAR_WASM_SIZE_BUDGET_BYTES: u64 = 288 * 1024;
-const LIBFLUXWEBP_WASM_IMPORT_MODULE: &str = "./libfluxwebp_bg.js";
+const LIBLARIXYCORE_WASM_SIZE_BUDGET_BYTES: u64 = 300 * 1024;
+const LIBLARIXYCORE_INDEX: &str = "// SPDX-License-Identifier: AGPL-3.0-or-later\n\n\
+export * from './liblarixycore_bindgen.js';\n\
+export {default} from './liblarixycore_bindgen.js';\n";
+const LIBLARIXYWEBP_SIMD_WASM_SIZE_BUDGET_BYTES: u64 = 672 * 1024;
+const LIBLARIXYWEBP_SCALAR_WASM_SIZE_BUDGET_BYTES: u64 = 288 * 1024;
+const LIBLARIXYWEBP_WASM_IMPORT_MODULE: &str = "./liblarixywebp_bg.js";
 const WASM_TARGET_RUSTFLAGS_ENV: &str = "CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUSTFLAGS";
 const WASM_CFLAGS_ENV: &str = "CFLAGS_wasm32_unknown_unknown";
 
@@ -31,8 +31,8 @@ pub fn run_build_app_wasm(args: BuildAppWasmArgs) -> Result<()> {
     let app_dir = resolve_app_dir(args.app_dir)?;
     let wasm_bindgen = ensure_wasm_bindgen_cli(&locked_wasm_bindgen_version(&app_dir)?)?;
     build_markdown_parser_wasm(&app_dir)?;
-    build_libfluxcore_wasm(&app_dir, &wasm_bindgen)?;
-    build_libfluxwebp_wasm(&app_dir, &wasm_bindgen)
+    build_liblarixycore_wasm(&app_dir, &wasm_bindgen)?;
+    build_liblarixywebp_wasm(&app_dir, &wasm_bindgen)
 }
 
 const WASM_CC_ENV: &str = "CC_wasm32_unknown_unknown";
@@ -174,7 +174,7 @@ fn build_markdown_parser_wasm(app_dir: &Path) -> Result<()> {
     Ok(())
 }
 
-fn libfluxcore_build_command(rust_package_dir: &Path, target_dir: &Path) -> CommandSpec {
+fn liblarixycore_build_command(rust_package_dir: &Path, target_dir: &Path) -> CommandSpec {
     CommandSpec::new("cargo")
         .args([
             "build",
@@ -190,47 +190,47 @@ fn libfluxcore_build_command(rust_package_dir: &Path, target_dir: &Path) -> Comm
         .current_dir(rust_package_dir)
 }
 
-fn libfluxcore_wasm_path(target_dir: &Path) -> PathBuf {
-    target_dir.join("wasm32-unknown-unknown/wasm-release/libfluxcore.wasm")
+fn liblarixycore_wasm_path(target_dir: &Path) -> PathBuf {
+    target_dir.join("wasm32-unknown-unknown/wasm-release/liblarixycore.wasm")
 }
 
-fn build_libfluxcore_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
-    let rust_package_dir = app_dir.join("rust/libfluxcore");
-    let out_dir = app_dir.join("pkgs/libfluxcore");
-    let wasm_path = out_dir.join("libfluxcore_bg.wasm");
+fn build_liblarixycore_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
+    let rust_package_dir = app_dir.join("rust/liblarixycore");
+    let out_dir = app_dir.join("pkgs/liblarixycore");
+    let wasm_path = out_dir.join("liblarixycore_bg.wasm");
     let previous_wasm_size = file_size(&wasm_path)?;
 
     fs::create_dir_all(&out_dir)
         .with_context(|| format!("Failed to create {}", out_dir.display()))?;
 
     let target_dir = rust_package_dir.join("target");
-    let build = libfluxcore_build_command(&rust_package_dir, &target_dir);
+    let build = liblarixycore_build_command(&rust_package_dir, &target_dir);
 
     run_command(apply_wasm_c_toolchain(build)?)?;
-    let temp = TempDir::new().context("Failed to create libfluxcore wasm-bindgen temp dir")?;
+    let temp = TempDir::new().context("Failed to create liblarixycore wasm-bindgen temp dir")?;
     let bindgen_dir = temp.path().join("bindgen");
     run_wasm_bindgen(
         wasm_bindgen,
-        &libfluxcore_wasm_path(&target_dir),
+        &liblarixycore_wasm_path(&target_dir),
         &bindgen_dir,
-        "libfluxcore",
+        "liblarixycore",
     )?;
 
-    let bindgen_js_path = bindgen_dir.join("libfluxcore.js");
-    let bindgen_dts_path = bindgen_dir.join("libfluxcore.d.ts");
-    let bindgen_wasm_path = bindgen_dir.join("libfluxcore_bg.wasm");
-    let bindgen_wasm_dts_path = bindgen_dir.join("libfluxcore_bg.wasm.d.ts");
+    let bindgen_js_path = bindgen_dir.join("liblarixycore.js");
+    let bindgen_dts_path = bindgen_dir.join("liblarixycore.d.ts");
+    let bindgen_wasm_path = bindgen_dir.join("liblarixycore_bg.wasm");
+    let bindgen_wasm_dts_path = bindgen_dir.join("liblarixycore_bg.wasm.d.ts");
 
     write_with_spdx(
-        &out_dir.join("libfluxcore_bindgen.js"),
-        &patch_libfluxcore_bindgen_js(
+        &out_dir.join("liblarixycore_bindgen.js"),
+        &patch_liblarixycore_bindgen_js(
             &fs::read_to_string(&bindgen_js_path)
                 .with_context(|| format!("Failed to read {}", bindgen_js_path.display()))?,
         )?,
     )?;
     write_with_spdx(
-        &out_dir.join("libfluxcore_bindgen.d.ts"),
-        &patch_libfluxcore_bindgen_dts(
+        &out_dir.join("liblarixycore_bindgen.d.ts"),
+        &patch_liblarixycore_bindgen_dts(
             &fs::read_to_string(&bindgen_dts_path)
                 .with_context(|| format!("Failed to read {}", bindgen_dts_path.display()))?,
         )?,
@@ -244,39 +244,39 @@ fn build_libfluxcore_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
     })?;
     fs::copy(
         &bindgen_wasm_dts_path,
-        out_dir.join("libfluxcore_bg.wasm.d.ts"),
+        out_dir.join("liblarixycore_bg.wasm.d.ts"),
     )
     .with_context(|| format!("Failed to copy {}", bindgen_wasm_dts_path.display()))?;
 
-    fs::write(out_dir.join("libfluxcore.js"), LIBFLUXCORE_INDEX).with_context(|| {
+    fs::write(out_dir.join("liblarixycore.js"), LIBLARIXYCORE_INDEX).with_context(|| {
         format!(
             "Failed to write {}",
-            out_dir.join("libfluxcore.js").display()
+            out_dir.join("liblarixycore.js").display()
         )
     })?;
-    fs::write(out_dir.join("libfluxcore.d.ts"), LIBFLUXCORE_INDEX).with_context(|| {
+    fs::write(out_dir.join("liblarixycore.d.ts"), LIBLARIXYCORE_INDEX).with_context(|| {
         format!(
             "Failed to write {}",
-            out_dir.join("libfluxcore.d.ts").display()
+            out_dir.join("liblarixycore.d.ts").display()
         )
     })?;
     fs::write(
         out_dir.join("package.json"),
-        libfluxcore_package_json_content(),
+        liblarixycore_package_json_content(),
     )
     .with_context(|| format!("Failed to write {}", out_dir.join("package.json").display()))?;
-    fs::write(out_dir.join("README.md"), libfluxcore_readme_content())
+    fs::write(out_dir.join("README.md"), liblarixycore_readme_content())
         .with_context(|| format!("Failed to write {}", out_dir.join("README.md").display()))?;
 
-    let wasm_size = check_wasm_size_budget(&wasm_path, LIBFLUXCORE_WASM_SIZE_BUDGET_BYTES)?;
+    let wasm_size = check_wasm_size_budget(&wasm_path, LIBLARIXYCORE_WASM_SIZE_BUDGET_BYTES)?;
 
     let size_comparison = match previous_wasm_size {
         Some(previous) => format!("{} -> {}", format_bytes(previous), format_bytes(wasm_size)),
         None => "no previous artifact".to_string(),
     };
     println!(
-        "libfluxcore_bg.wasm size: {size_comparison} (budget {})",
-        format_bytes(LIBFLUXCORE_WASM_SIZE_BUDGET_BYTES)
+        "liblarixycore_bg.wasm size: {size_comparison} (budget {})",
+        format_bytes(LIBLARIXYCORE_WASM_SIZE_BUDGET_BYTES)
     );
 
     Ok(())
@@ -325,12 +325,12 @@ fn is_offline_build() -> bool {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum LibfluxwebpVariant {
+enum LiblarixywebpVariant {
     Simd,
     Scalar,
 }
 
-impl LibfluxwebpVariant {
+impl LiblarixywebpVariant {
     fn name(self) -> &'static str {
         match self {
             Self::Simd => "simd",
@@ -340,15 +340,15 @@ impl LibfluxwebpVariant {
 
     fn installed_wasm_name(self) -> &'static str {
         match self {
-            Self::Simd => "libfluxwebp_simd_bg.wasm",
-            Self::Scalar => "libfluxwebp_bg.wasm",
+            Self::Simd => "liblarixywebp_simd_bg.wasm",
+            Self::Scalar => "liblarixywebp_bg.wasm",
         }
     }
 
     fn size_budget(self) -> u64 {
         match self {
-            Self::Simd => LIBFLUXWEBP_SIMD_WASM_SIZE_BUDGET_BYTES,
-            Self::Scalar => LIBFLUXWEBP_SCALAR_WASM_SIZE_BUDGET_BYTES,
+            Self::Simd => LIBLARIXYWEBP_SIMD_WASM_SIZE_BUDGET_BYTES,
+            Self::Scalar => LIBLARIXYWEBP_SCALAR_WASM_SIZE_BUDGET_BYTES,
         }
     }
 
@@ -366,15 +366,15 @@ impl LibfluxwebpVariant {
     }
 }
 
-fn build_libfluxwebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
-    let crate_dir = app_dir.join("rust/libfluxwebp");
+fn build_liblarixywebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
+    let crate_dir = app_dir.join("rust/liblarixywebp");
     let crate_dir = fs::canonicalize(&crate_dir)
         .with_context(|| format!("Failed to resolve {}", crate_dir.display()))?;
-    let out_dir = app_dir.join("pkgs/libfluxwebp");
-    let temp = TempDir::new().context("Failed to create libfluxwebp wasm-bindgen temp dir")?;
+    let out_dir = app_dir.join("pkgs/liblarixywebp");
+    let temp = TempDir::new().context("Failed to create liblarixywebp wasm-bindgen temp dir")?;
 
     let mut bindgen_dirs = Vec::new();
-    for variant in [LibfluxwebpVariant::Simd, LibfluxwebpVariant::Scalar] {
+    for variant in [LiblarixywebpVariant::Simd, LiblarixywebpVariant::Scalar] {
         let target_dir = crate_dir.join("target").join(variant.name());
         let mut build = CommandSpec::new("cargo")
             .args([
@@ -389,33 +389,33 @@ fn build_libfluxwebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
             .env(WASM_CFLAGS_ENV, variant.cflags(&crate_dir))
             .current_dir(&crate_dir);
         build = match variant {
-            LibfluxwebpVariant::Simd => {
+            LiblarixywebpVariant::Simd => {
                 build.env(WASM_TARGET_RUSTFLAGS_ENV, "-C target-feature=+simd128")
             }
-            LibfluxwebpVariant::Scalar => build.env_remove(WASM_TARGET_RUSTFLAGS_ENV),
+            LiblarixywebpVariant::Scalar => build.env_remove(WASM_TARGET_RUSTFLAGS_ENV),
         };
         run_command(apply_wasm_c_toolchain(build)?)?;
 
         let bindgen_dir = temp.path().join(variant.name());
         run_wasm_bindgen(
             wasm_bindgen,
-            &target_dir.join("wasm32-unknown-unknown/wasm-release/libfluxwebp.wasm"),
+            &target_dir.join("wasm32-unknown-unknown/wasm-release/liblarixywebp.wasm"),
             &bindgen_dir,
-            "libfluxwebp",
+            "liblarixywebp",
         )?;
-        let wasm_path = bindgen_dir.join("libfluxwebp_bg.wasm");
+        let wasm_path = bindgen_dir.join("liblarixywebp_bg.wasm");
         let wasm = fs::read(&wasm_path)
             .with_context(|| format!("Failed to read {}", wasm_path.display()))?;
-        ensure_wasm_imports_only_from(&wasm, LIBFLUXWEBP_WASM_IMPORT_MODULE)
-            .with_context(|| format!("libfluxwebp {} wasm import gate", variant.name()))?;
+        ensure_wasm_imports_only_from(&wasm, LIBLARIXYWEBP_WASM_IMPORT_MODULE)
+            .with_context(|| format!("liblarixywebp {} wasm import gate", variant.name()))?;
         bindgen_dirs.push((variant, bindgen_dir));
     }
 
     let (_, reference_dir) = &bindgen_dirs[0];
     for file in [
-        "libfluxwebp.js",
-        "libfluxwebp.d.ts",
-        "libfluxwebp_bg.wasm.d.ts",
+        "liblarixywebp.js",
+        "liblarixywebp.d.ts",
+        "liblarixywebp_bg.wasm.d.ts",
     ] {
         let reference =
             fs::read(reference_dir.join(file)).with_context(|| format!("Failed to read {file}"))?;
@@ -424,7 +424,7 @@ fn build_libfluxwebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
                 fs::read(dir.join(file)).with_context(|| format!("Failed to read {file}"))?;
             ensure!(
                 other == reference,
-                "libfluxwebp {} glue {file} differs from the simd build",
+                "liblarixywebp {} glue {file} differs from the simd build",
                 variant.name()
             );
         }
@@ -433,18 +433,18 @@ fn build_libfluxwebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
     fs::create_dir_all(&out_dir)
         .with_context(|| format!("Failed to create {}", out_dir.display()))?;
     write_with_spdx(
-        &out_dir.join("libfluxwebp.js"),
-        &fs::read_to_string(reference_dir.join("libfluxwebp.js"))
-            .context("Failed to read libfluxwebp.js")?,
+        &out_dir.join("liblarixywebp.js"),
+        &fs::read_to_string(reference_dir.join("liblarixywebp.js"))
+            .context("Failed to read liblarixywebp.js")?,
     )?;
     write_with_spdx(
-        &out_dir.join("libfluxwebp.d.ts"),
-        &fs::read_to_string(reference_dir.join("libfluxwebp.d.ts"))
-            .context("Failed to read libfluxwebp.d.ts")?,
+        &out_dir.join("liblarixywebp.d.ts"),
+        &fs::read_to_string(reference_dir.join("liblarixywebp.d.ts"))
+            .context("Failed to read liblarixywebp.d.ts")?,
     )?;
-    for installed in ["libfluxwebp_bg.wasm.d.ts", "libfluxwebp_simd_bg.wasm.d.ts"] {
+    for installed in ["liblarixywebp_bg.wasm.d.ts", "liblarixywebp_simd_bg.wasm.d.ts"] {
         fs::copy(
-            reference_dir.join("libfluxwebp_bg.wasm.d.ts"),
+            reference_dir.join("liblarixywebp_bg.wasm.d.ts"),
             out_dir.join(installed),
         )
         .with_context(|| format!("Failed to install {installed}"))?;
@@ -453,7 +453,7 @@ fn build_libfluxwebp_wasm(app_dir: &Path, wasm_bindgen: &OsStr) -> Result<()> {
     for (variant, dir) in &bindgen_dirs {
         let installed = out_dir.join(variant.installed_wasm_name());
         let previous = file_size(&installed)?;
-        fs::copy(dir.join("libfluxwebp_bg.wasm"), &installed)
+        fs::copy(dir.join("liblarixywebp_bg.wasm"), &installed)
             .with_context(|| format!("Failed to install {}", installed.display()))?;
         let size = check_wasm_size_budget(&installed, variant.size_budget())?;
         let size_comparison = match previous {
@@ -590,10 +590,10 @@ impl WasmReader<'_> {
     }
 }
 
-fn patch_libfluxcore_bindgen_js(content: &str) -> Result<String> {
+fn patch_liblarixycore_bindgen_js(content: &str) -> Result<String> {
     const MARKER: &str = "\nasync function __wbg_load(module, imports) {";
     const RESET_EXPORT: &str = r#"
-export function __resetLibfluxcoreWasmForMemoryPressure() {
+export function __resetLiblarixycoreWasmForMemoryPressure() {
     wasmModule = undefined;
     wasmInstance = undefined;
     wasm = undefined;
@@ -607,18 +607,18 @@ export function __resetLibfluxcoreWasmForMemoryPressure() {
 "#;
     ensure!(
         content.contains(MARKER),
-        "libfluxcore wasm-bindgen JS output did not contain reset insertion marker"
+        "liblarixycore wasm-bindgen JS output did not contain reset insertion marker"
     );
     Ok(content.replacen(MARKER, &format!("{RESET_EXPORT}{MARKER}"), 1))
 }
 
-fn patch_libfluxcore_bindgen_dts(content: &str) -> Result<String> {
+fn patch_liblarixycore_bindgen_dts(content: &str) -> Result<String> {
     const MARKER: &str = "\nexport type InitInput";
     const RESET_EXPORT: &str =
-        "\nexport function __resetLibfluxcoreWasmForMemoryPressure(): void;\n";
+        "\nexport function __resetLiblarixycoreWasmForMemoryPressure(): void;\n";
     ensure!(
         content.contains(MARKER),
-        "libfluxcore wasm-bindgen DTS output did not contain reset insertion marker"
+        "liblarixycore wasm-bindgen DTS output did not contain reset insertion marker"
     );
     Ok(content.replacen(MARKER, &format!("{RESET_EXPORT}{MARKER}"), 1))
 }
@@ -714,40 +714,40 @@ fn write_with_spdx(path: &Path, content: &str) -> Result<()> {
     .with_context(|| format!("Failed to write {}", path.display()))
 }
 
-fn libfluxcore_package_json_content() -> String {
+fn liblarixycore_package_json_content() -> String {
     let manifest = serde_json::json!({
-        "name": "libfluxcore",
+        "name": "liblarixycore",
         "private": true,
         "type": "module",
         "version": "0.0.0",
         "license": "AGPL-3.0-or-later",
         "sideEffects": false,
         "files": [
-            "libfluxcore.js",
-            "libfluxcore.d.ts",
-            "libfluxcore_bindgen.js",
-            "libfluxcore_bindgen.d.ts",
-            "libfluxcore_bg.wasm",
-            "libfluxcore_bg.wasm.d.ts",
+            "liblarixycore.js",
+            "liblarixycore.d.ts",
+            "liblarixycore_bindgen.js",
+            "liblarixycore_bindgen.d.ts",
+            "liblarixycore_bg.wasm",
+            "liblarixycore_bg.wasm.d.ts",
             "README.md"
         ],
-        "main": "libfluxcore.js",
-        "module": "libfluxcore.js",
-        "types": "libfluxcore.d.ts",
+        "main": "liblarixycore.js",
+        "module": "liblarixycore.js",
+        "types": "liblarixycore.d.ts",
         "exports": {
             ".": {
-                "types": "./libfluxcore.d.ts",
-                "default": "./libfluxcore.js"
+                "types": "./liblarixycore.d.ts",
+                "default": "./liblarixycore.js"
             },
-            "./libfluxcore_bg.wasm": "./libfluxcore_bg.wasm"
+            "./liblarixycore_bg.wasm": "./liblarixycore_bg.wasm"
         }
     });
     format!("{manifest:#}\n")
 }
 
-fn libfluxcore_readme_content() -> &'static str {
+fn liblarixycore_readme_content() -> &'static str {
     "<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->\n\
-# libfluxcore\n\n\
+# liblarixycore\n\n\
 Rust WebAssembly helpers for Larixy media processing.\n"
 }
 
@@ -786,39 +786,39 @@ mod tests {
     }
 
     #[test]
-    fn libfluxcore_build_keeps_its_output_in_the_crate_target_dir() {
-        let package_dir = Path::new("/repo/larixy_app/rust/libfluxcore");
+    fn liblarixycore_build_keeps_its_output_in_the_crate_target_dir() {
+        let package_dir = Path::new("/repo/larixy_app/rust/liblarixycore");
         let target_dir = package_dir.join("target");
-        let command = libfluxcore_build_command(package_dir, &target_dir);
+        let command = liblarixycore_build_command(package_dir, &target_dir);
 
         assert_eq!(
             command.env,
             vec![(
                 OsString::from("CARGO_TARGET_DIR"),
-                OsString::from("/repo/larixy_app/rust/libfluxcore/target"),
+                OsString::from("/repo/larixy_app/rust/liblarixycore/target"),
             )]
         );
         assert_eq!(command.cwd.as_deref(), Some(package_dir));
         assert_eq!(
             command.args.last(),
             Some(&OsString::from(
-                "/repo/larixy_app/rust/libfluxcore/Cargo.toml"
+                "/repo/larixy_app/rust/liblarixycore/Cargo.toml"
             ))
         );
         assert_eq!(
-            libfluxcore_wasm_path(&target_dir),
+            liblarixycore_wasm_path(&target_dir),
             Path::new(
-                "/repo/larixy_app/rust/libfluxcore/target/wasm32-unknown-unknown/wasm-release/libfluxcore.wasm"
+                "/repo/larixy_app/rust/liblarixycore/target/wasm32-unknown-unknown/wasm-release/liblarixycore.wasm"
             )
         );
     }
 
     #[test]
-    fn libfluxcore_bindgen_js_reset_hook_is_inserted() {
+    fn liblarixycore_bindgen_js_reset_hook_is_inserted() {
         let content =
             "function __wbg_finalize_init() {}\nasync function __wbg_load(module, imports) {}";
-        let patched = patch_libfluxcore_bindgen_js(content).expect("patch should succeed");
-        assert!(patched.contains("export function __resetLibfluxcoreWasmForMemoryPressure()"));
+        let patched = patch_liblarixycore_bindgen_js(content).expect("patch should succeed");
+        assert!(patched.contains("export function __resetLiblarixycoreWasmForMemoryPressure()"));
         assert!(patched.contains("wasm = undefined;"));
         assert!(patched.contains("async function __wbg_load(module, imports) {}"));
     }
@@ -887,24 +887,24 @@ mod tests {
     #[test]
     fn wasm_import_gate_accepts_a_bindgen_only_module() {
         let wasm = wasm_with_imports(&[
-            ("./libfluxwebp_bg.js", "__wbg_new_1"),
-            ("./libfluxwebp_bg.js", "__wbindgen_throw"),
+            ("./liblarixywebp_bg.js", "__wbg_new_1"),
+            ("./liblarixywebp_bg.js", "__wbindgen_throw"),
         ]);
         assert_eq!(
             wasm_import_modules(&wasm).expect("parse"),
-            vec!["./libfluxwebp_bg.js".to_string()]
+            vec!["./liblarixywebp_bg.js".to_string()]
         );
-        ensure_wasm_imports_only_from(&wasm, LIBFLUXWEBP_WASM_IMPORT_MODULE)
+        ensure_wasm_imports_only_from(&wasm, LIBLARIXYWEBP_WASM_IMPORT_MODULE)
             .expect("bindgen imports pass");
     }
 
     #[test]
     fn wasm_import_gate_rejects_a_libc_import() {
         let wasm = wasm_with_imports(&[
-            ("./libfluxwebp_bg.js", "__wbindgen_throw"),
+            ("./liblarixywebp_bg.js", "__wbindgen_throw"),
             ("env", "fopen"),
         ]);
-        let message = ensure_wasm_imports_only_from(&wasm, LIBFLUXWEBP_WASM_IMPORT_MODULE)
+        let message = ensure_wasm_imports_only_from(&wasm, LIBLARIXYWEBP_WASM_IMPORT_MODULE)
             .expect_err("env import must fail")
             .to_string();
         assert!(message.contains("env"), "{message}");
@@ -919,26 +919,26 @@ mod tests {
     }
 
     #[test]
-    fn libfluxwebp_cflags_select_sse2_for_simd_and_oz_for_scalar() {
-        let crate_dir = Path::new("/repo/larixy_app/rust/libfluxwebp");
+    fn liblarixywebp_cflags_select_sse2_for_simd_and_oz_for_scalar() {
+        let crate_dir = Path::new("/repo/larixy_app/rust/liblarixywebp");
         assert_eq!(
-            LibfluxwebpVariant::Simd.cflags(crate_dir),
-            "-isystem /repo/larixy_app/rust/libfluxwebp/shim -isystem \
-             /repo/larixy_app/rust/libfluxwebp/simd -msimd128 -DEMSCRIPTEN -D__SSE__ -D__SSE2__ \
+            LiblarixywebpVariant::Simd.cflags(crate_dir),
+            "-isystem /repo/larixy_app/rust/liblarixywebp/shim -isystem \
+             /repo/larixy_app/rust/liblarixywebp/simd -msimd128 -DEMSCRIPTEN -D__SSE__ -D__SSE2__ \
              -DWEBP_HAVE_SSE2 -DNDEBUG -O3"
         );
         assert_eq!(
-            LibfluxwebpVariant::Scalar.cflags(crate_dir),
-            "-isystem /repo/larixy_app/rust/libfluxwebp/shim -DNDEBUG -Oz"
+            LiblarixywebpVariant::Scalar.cflags(crate_dir),
+            "-isystem /repo/larixy_app/rust/liblarixywebp/shim -DNDEBUG -Oz"
         );
     }
 
     #[test]
-    fn libfluxcore_bindgen_dts_reset_hook_is_inserted() {
+    fn liblarixycore_bindgen_dts_reset_hook_is_inserted() {
         let content = "export function is_animated_image(input: Uint8Array): boolean;\nexport type InitInput = RequestInfo;";
-        let patched = patch_libfluxcore_bindgen_dts(content).expect("patch should succeed");
+        let patched = patch_liblarixycore_bindgen_dts(content).expect("patch should succeed");
         assert!(
-            patched.contains("export function __resetLibfluxcoreWasmForMemoryPressure(): void;")
+            patched.contains("export function __resetLiblarixycoreWasmForMemoryPressure(): void;")
         );
         assert!(patched.contains("export type InitInput = RequestInfo;"));
     }

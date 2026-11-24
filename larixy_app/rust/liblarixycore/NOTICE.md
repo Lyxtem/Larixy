@@ -1,6 +1,6 @@
-# libfluxcore licenses
+# liblarixycore licenses
 
-`libfluxcore_bg.wasm` is built from this crate and bundled into the app. It
+`liblarixycore_bg.wasm` is built from this crate and bundled into the app. It
 contains third-party code that keeps its upstream license.
 
 | Component | Source | License |

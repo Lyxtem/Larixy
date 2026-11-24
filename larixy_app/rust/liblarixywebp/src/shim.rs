@@ -27,12 +27,12 @@ unsafe fn shim_alloc(size: usize, zeroed: bool) -> *mut c_void {
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn fluxwebp_shim_malloc(size: usize) -> *mut c_void {
+pub unsafe extern "C" fn larixywebp_shim_malloc(size: usize) -> *mut c_void {
     unsafe { shim_alloc(size, false) }
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn fluxwebp_shim_calloc(nmemb: usize, size: usize) -> *mut c_void {
+pub unsafe extern "C" fn larixywebp_shim_calloc(nmemb: usize, size: usize) -> *mut c_void {
     match nmemb.checked_mul(size) {
         Some(total) => unsafe { shim_alloc(total, true) },
         None => std::ptr::null_mut(),
@@ -40,7 +40,7 @@ pub unsafe extern "C" fn fluxwebp_shim_calloc(nmemb: usize, size: usize) -> *mut
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn fluxwebp_shim_free(ptr: *mut c_void) {
+pub unsafe extern "C" fn larixywebp_shim_free(ptr: *mut c_void) {
     if ptr.is_null() {
         return;
     }
@@ -52,7 +52,7 @@ pub unsafe extern "C" fn fluxwebp_shim_free(ptr: *mut c_void) {
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn fluxwebp_shim_qsort(
+pub unsafe extern "C" fn larixywebp_shim_qsort(
     base: *mut c_void,
     n: usize,
     size: usize,
@@ -80,31 +80,31 @@ pub unsafe extern "C" fn fluxwebp_shim_qsort(
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_pow(x: f64, y: f64) -> f64 {
+pub extern "C" fn larixywebp_shim_pow(x: f64, y: f64) -> f64 {
     x.powf(y)
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_log(x: f64) -> f64 {
+pub extern "C" fn larixywebp_shim_log(x: f64) -> f64 {
     x.ln()
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_log10(x: f64) -> f64 {
+pub extern "C" fn larixywebp_shim_log10(x: f64) -> f64 {
     x.log10()
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_expf(x: f32) -> f32 {
+pub extern "C" fn larixywebp_shim_expf(x: f32) -> f32 {
     x.exp()
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_logf(x: f32) -> f32 {
+pub extern "C" fn larixywebp_shim_logf(x: f32) -> f32 {
     x.ln()
 }
 
 #[unsafe(no_mangle)]
-pub extern "C" fn fluxwebp_shim_round(x: f64) -> f64 {
+pub extern "C" fn larixywebp_shim_round(x: f64) -> f64 {
     x.round()
 }

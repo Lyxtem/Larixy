@@ -475,24 +475,24 @@ function fontPreloadPlugin() {
 	};
 }
 
-const LIBFLUXCORE_WASM_URL_PLACEHOLDER = '{{LIBFLUXCORE_WASM_URL}}';
-const LIBFLUXCORE_WASM_SOURCE = 'pkgs/libfluxcore/libfluxcore_bg.wasm';
+const LIBLARIXYCORE_WASM_URL_PLACEHOLDER = '{{LIBLARIXYCORE_WASM_URL}}';
+const LIBLARIXYCORE_WASM_SOURCE = 'pkgs/liblarixycore/liblarixycore_bg.wasm';
 
-function libfluxcoreWasmUrlPlugin({publicPath}) {
+function liblarixycoreWasmUrlPlugin({publicPath}) {
 	return {
 		apply(compiler) {
-			compiler.hooks.thisCompilation.tap('LibfluxcoreWasmUrlPlugin', (compilation) => {
-				HtmlRspackPlugin.getCompilationHooks(compilation).beforeEmit.tap('LibfluxcoreWasmUrlPlugin', (data) => {
-					if (!data.html.includes(LIBFLUXCORE_WASM_URL_PLACEHOLDER)) {
+			compiler.hooks.thisCompilation.tap('LiblarixycoreWasmUrlPlugin', (compilation) => {
+				HtmlRspackPlugin.getCompilationHooks(compilation).beforeEmit.tap('LiblarixycoreWasmUrlPlugin', (data) => {
+					if (!data.html.includes(LIBLARIXYCORE_WASM_URL_PLACEHOLDER)) {
 						return data;
 					}
 					const asset = compilation
 						.getAssets()
-						.find((candidate) => String(candidate.info.sourceFilename ?? '').endsWith(LIBFLUXCORE_WASM_SOURCE));
+						.find((candidate) => String(candidate.info.sourceFilename ?? '').endsWith(LIBLARIXYCORE_WASM_SOURCE));
 					if (asset == null) {
-						throw new Error(`Cannot preload ${LIBFLUXCORE_WASM_SOURCE}: no emitted asset came from it`);
+						throw new Error(`Cannot preload ${LIBLARIXYCORE_WASM_SOURCE}: no emitted asset came from it`);
 					}
-					data.html = data.html.replaceAll(LIBFLUXCORE_WASM_URL_PLACEHOLDER, `${publicPath}${asset.name}`);
+					data.html = data.html.replaceAll(LIBLARIXYCORE_WASM_URL_PLACEHOLDER, `${publicPath}${asset.name}`);
 					return data;
 				});
 			});
@@ -926,7 +926,7 @@ export default () => {
 			nodeAssertStrictSchemePlugin(),
 			inlineScriptsPlugin(buildInfo.version),
 			fontPreloadPlugin(),
-			libfluxcoreWasmUrlPlugin({publicPath: workerWasmPublicPath ?? publicPath}),
+			liblarixycoreWasmUrlPlugin({publicPath: workerWasmPublicPath ?? publicPath}),
 			rocketLoaderOptOutPlugin(),
 			...(isProduction ? [bootPreloadPlugin({withIntegrity: !isDesktopRenderer})] : []),
 			...(isProduction && !isDesktopRenderer ? [entryRecoveryMarkerPlugin()] : []),

@@ -27,7 +27,7 @@ import {
 	type CropWorkerRequest,
 	type CropWorkerResponse,
 } from '@app/features/expressions/workers/AnimatedImageCropMessages';
-import {cropRotateRgbaInto, ensureLibfluxcoreReady} from '@app/features/platform/workers/LibFluxcoreWorker';
+import {cropRotateRgbaInto, ensureLiblarixycoreReady} from '@app/features/platform/workers/LibLarixycoreWorker';
 import {
 	ensureLibWebpReady,
 	openWebpFrameSink,
@@ -78,7 +78,7 @@ class CropJob {
 
 	async run(): Promise<CropResult> {
 		this.postProgress('init', 0, 1, true);
-		await this.loadLibfluxcore();
+		await this.loadLiblarixycore();
 		const {request} = this;
 		const {crop} = request;
 		const opened = await this.openSource();
@@ -133,12 +133,12 @@ class CropJob {
 		}
 	}
 
-	private async loadLibfluxcore(): Promise<void> {
+	private async loadLiblarixycore(): Promise<void> {
 		if (typeof WebAssembly === 'undefined') {
 			throw new CropPipelineError('wasm_unavailable', 'WebAssembly is not available');
 		}
 		try {
-			await ensureLibfluxcoreReady();
+			await ensureLiblarixycoreReady();
 		} catch (error) {
 			throw new CropPipelineError('wasm_unavailable', errorMessage(error));
 		}

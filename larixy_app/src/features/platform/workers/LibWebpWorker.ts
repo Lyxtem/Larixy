@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {resolveWorkerAssetUrl} from '@app/features/platform/utils/WorkerAssetUrl';
-import initLibWebp, {AnimDecoder, AnimEncoder, webp_probe} from '@pkgs/libfluxwebp/libfluxwebp';
-import libWebpScalarWasmUrl from '@pkgs/libfluxwebp/libfluxwebp_bg.wasm';
-import libWebpSimdWasmUrl from '@pkgs/libfluxwebp/libfluxwebp_simd_bg.wasm';
+import initLibWebp, {AnimDecoder, AnimEncoder, webp_probe} from '@pkgs/liblarixywebp/liblarixywebp';
+import libWebpScalarWasmUrl from '@pkgs/liblarixywebp/liblarixywebp_bg.wasm';
+import libWebpSimdWasmUrl from '@pkgs/liblarixywebp/liblarixywebp_simd_bg.wasm';
 
 export type LibWebpVariant = 'simd' | 'scalar';
 

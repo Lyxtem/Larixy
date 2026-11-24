@@ -77,8 +77,8 @@ COPY Cargo.lock ./
 RUN printf '%s\n' \
 	'[workspace]' \
 	'members = [' \
-	'    "larixy_app/rust/libfluxcore",' \
-	'    "larixy_app/rust/libfluxwebp",' \
+	'    "larixy_app/rust/liblarixycore",' \
+	'    "larixy_app/rust/liblarixywebp",' \
 	'    "packages/markdown_parser/rust",' \
 	']' \
 	'exclude = [' \

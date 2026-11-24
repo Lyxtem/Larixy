@@ -1,6 +1,6 @@
-# libfluxwebp licenses
+# liblarixywebp licenses
 
-`libfluxwebp_bg.wasm` and `libfluxwebp_simd_bg.wasm` are built from this crate
+`liblarixywebp_bg.wasm` and `liblarixywebp_simd_bg.wasm` are built from this crate
 and bundled into the app. They contain third-party code that keeps its upstream
 license.
 

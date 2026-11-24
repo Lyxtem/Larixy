@@ -97,19 +97,19 @@ fn run_app_test_artifact_generators(root: &Path, wasm: AppWasm) -> Result<()> {
 fn app_wasm_artifacts(root: &Path) -> Vec<PathBuf> {
     let app_dir = root.join("larixy_app");
     vec![
-        app_dir.join("pkgs/libfluxcore/libfluxcore.js"),
-        app_dir.join("pkgs/libfluxcore/libfluxcore.d.ts"),
-        app_dir.join("pkgs/libfluxcore/libfluxcore_bindgen.js"),
-        app_dir.join("pkgs/libfluxcore/libfluxcore_bindgen.d.ts"),
-        app_dir.join("pkgs/libfluxcore/libfluxcore_bg.wasm"),
-        app_dir.join("pkgs/libfluxcore/libfluxcore_bg.wasm.d.ts"),
-        app_dir.join("pkgs/libfluxcore/package.json"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp.js"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp.d.ts"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp_bg.wasm"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp_bg.wasm.d.ts"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp_simd_bg.wasm"),
-        app_dir.join("pkgs/libfluxwebp/libfluxwebp_simd_bg.wasm.d.ts"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore.js"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore.d.ts"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore_bindgen.js"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore_bindgen.d.ts"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore_bg.wasm"),
+        app_dir.join("pkgs/liblarixycore/liblarixycore_bg.wasm.d.ts"),
+        app_dir.join("pkgs/liblarixycore/package.json"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp.js"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp.d.ts"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp_bg.wasm"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp_bg.wasm.d.ts"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp_simd_bg.wasm"),
+        app_dir.join("pkgs/liblarixywebp/liblarixywebp_simd_bg.wasm.d.ts"),
         app_dir.join("pkgs/markdown_parser/markdown_parser.wasm"),
     ]
 }

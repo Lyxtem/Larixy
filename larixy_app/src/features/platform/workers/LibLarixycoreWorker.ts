@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {resolveWorkerAssetUrl} from '@app/features/platform/utils/WorkerAssetUrl';
-import initLibfluxcore, * as wasm from '@pkgs/libfluxcore/libfluxcore';
-import libfluxcoreWasmUrl from '@pkgs/libfluxcore/libfluxcore_bg.wasm';
+import initLiblarixycore, * as wasm from '@pkgs/liblarixycore/liblarixycore';
+import liblarixycoreWasmUrl from '@pkgs/liblarixycore/liblarixycore_bg.wasm';
 
 let modulePromise: Promise<void> | null = null;
 let moduleReady = false;
 
-export async function ensureLibfluxcoreReady(): Promise<void> {
+export async function ensureLiblarixycoreReady(): Promise<void> {
 	if (!modulePromise) {
-		modulePromise = initLibfluxcore({module_or_path: resolveWorkerAssetUrl(libfluxcoreWasmUrl)})
+		modulePromise = initLiblarixycore({module_or_path: resolveWorkerAssetUrl(liblarixycoreWasmUrl)})
 			.then(() => {
 				moduleReady = true;
 			})
@@ -40,7 +40,7 @@ export function cropRotateRgbaInto(
 	outputHeight: number,
 ): void {
 	if (!moduleReady) {
-		throw new Error('WASM module not loaded. Call ensureLibfluxcoreReady() first.');
+		throw new Error('WASM module not loaded. Call ensureLiblarixycoreReady() first.');
 	}
 	wasm.crop_rotate_rgba_into_buffer(
 		rgba,

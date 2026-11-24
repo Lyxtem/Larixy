@@ -45,7 +45,7 @@ pub fn crop_rotate_rgba_into_buffer(
 pub fn create_zstd_stream_decoder() -> Result<u32, JsValue> {
     let decoder = zstd_stream::ZstdStreamDecoder::new().map_err(zstd_error_to_js)?;
     leak_zstd_stream_decoder(decoder)
-        .ok_or_else(|| JsValue::from_str("libfluxcore zstd stream decoder allocation failed"))
+        .ok_or_else(|| JsValue::from_str("liblarixycore zstd stream decoder allocation failed"))
 }
 
 #[wasm_bindgen]
@@ -73,7 +73,7 @@ pub fn decompress_zstd_stream_chunk(decoder_ptr: u32, input: &[u8]) -> Result<Ve
 pub fn create_zstd_stream_encoder(level: i32) -> Result<u32, JsValue> {
     let encoder = zstd_stream::ZstdStreamEncoder::new(level).map_err(zstd_error_to_js)?;
     leak_zstd_stream_encoder(encoder)
-        .ok_or_else(|| JsValue::from_str("libfluxcore zstd stream encoder allocation failed"))
+        .ok_or_else(|| JsValue::from_str("liblarixycore zstd stream encoder allocation failed"))
 }
 
 #[wasm_bindgen]
