@@ -90,6 +90,8 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
@@ -154,6 +156,8 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
@@ -201,6 +205,8 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
@@ -243,6 +249,8 @@ jobs:
       contents: write
       packages: write
     steps:
+      - name: Normalize GHCR owner to lowercase
+        run: echo "GHCR_OWNER=${GHCR_OWNER,,}" >> "$GITHUB_ENV"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         env:
           GIT_CONFIG_GLOBAL: ${{ runner.temp }}/gitconfig
