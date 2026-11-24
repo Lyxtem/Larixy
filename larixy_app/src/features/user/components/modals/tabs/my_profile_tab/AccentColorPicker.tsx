@@ -9,7 +9,7 @@ import myProfileTabStyles from '@app/features/user/components/modals/tabs/MyProf
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.module.css';
 import {ACCENT_COLOR_DESCRIPTOR} from '@app/features/user/utils/UserMessageDescriptors';
 import {msg} from '@lingui/core/macro';
-import {Trans, useLingui} from '@lingui/react/macro';
+import {useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
 
 const DEFAULT_PROFILE_ACCENT_COLOR = 0x4641d9;
@@ -61,10 +61,8 @@ export const AccentColorPicker = observer(
 						</div>
 						{isGradientLocked && (
 							<PlutoniumUpsell data-flx="user.my-profile-tab.accent-color-picker.plutonium-upsell">
-								<Trans>
-									Profile gradient colors require {PREMIUM_PRODUCT_NAME}. A single accent color is free
-									for everyone.
-								</Trans>
+								Los colores en degradado del perfil requieren {PREMIUM_PRODUCT_NAME}. Un solo color de
+								acento es gratis para todos.
 							</PlutoniumUpsell>
 						)}
 						<div
