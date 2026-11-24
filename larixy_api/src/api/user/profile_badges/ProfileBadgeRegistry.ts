@@ -25,6 +25,7 @@ export interface ProfileBadgeEnvironment {
 	mediaUrl: string;
 	customBadges: ReadonlyArray<Pick<CustomBadge, 'id' | 'name' | 'description' | 'asset' | 'href'>>;
 	builtInImages: BuiltInBadgeImages;
+	hiddenBuiltInBadges?: ReadonlySet<ProfileBadgeKind>;
 }
 
 export interface VisibleOperatorPass {

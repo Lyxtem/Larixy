@@ -55,18 +55,27 @@ export const BUILT_IN_BADGE_KINDS = [
 ] as const satisfies ReadonlyArray<BuiltInBadgeKind>;
 
 export const HIDEABLE_BUILT_IN_BADGE_KINDS = [
+	...PROFILE_BADGE_KINDS,
 	'guild_verified',
 	'guild_partnered',
 	'guild_discoverable',
-] as const satisfies ReadonlyArray<BuiltInBadgeKind>;
+] as const;
 
 export type HideableBuiltInBadgeKind = (typeof HIDEABLE_BUILT_IN_BADGE_KINDS)[number];
 
-export function isHideableBuiltInBadgeKind(kind: BuiltInBadgeKind): kind is HideableBuiltInBadgeKind {
+export function isHideableBuiltInBadgeKind(
+	kind: BuiltInBadgeKind | ProfileBadgeKind,
+): kind is HideableBuiltInBadgeKind {
 	return (HIDEABLE_BUILT_IN_BADGE_KINDS as ReadonlyArray<string>).includes(kind);
 }
 
-export function isReplaceableProfileBadgeKind(kind: ProfileBadgeKind): kind is ReplaceableProfileBadgeKind {
+export function isProfileBadgeKind(kind: string): kind is ProfileBadgeKind {
+	return (PROFILE_BADGE_KINDS as ReadonlyArray<string>).includes(kind);
+}
+
+export function isReplaceableProfileBadgeKind(
+	kind: BuiltInBadgeKind | ProfileBadgeKind,
+): kind is ReplaceableProfileBadgeKind {
 	return (REPLACEABLE_PROFILE_BADGE_KINDS as ReadonlyArray<string>).includes(kind);
 }
 

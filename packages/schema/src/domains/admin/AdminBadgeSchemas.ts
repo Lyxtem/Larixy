@@ -81,7 +81,7 @@ export const HideableBuiltInBadgeKindSchema = withOpenApiType(
 	z
 		.enum(HIDEABLE_BUILT_IN_BADGE_KINDS)
 		.describe(
-			'A built-in community badge that this instance can stop showing: guild_verified, guild_partnered or guild_discoverable',
+			'A built-in badge that this instance can stop showing: any profile badge kind (for example plutonium) or a community badge (guild_verified, guild_partnered or guild_discoverable)',
 		),
 	'HideableBuiltInBadgeKind',
 );
