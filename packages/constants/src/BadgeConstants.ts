@@ -73,7 +73,9 @@ export function isProfileBadgeKind(kind: string): kind is ProfileBadgeKind {
 	return (PROFILE_BADGE_KINDS as ReadonlyArray<string>).includes(kind);
 }
 
-export function isReplaceableProfileBadgeKind(kind: ProfileBadgeKind): kind is ReplaceableProfileBadgeKind {
+export function isReplaceableProfileBadgeKind(
+	kind: BuiltInBadgeKind | ProfileBadgeKind,
+): kind is ReplaceableProfileBadgeKind {
 	return (REPLACEABLE_PROFILE_BADGE_KINDS as ReadonlyArray<string>).includes(kind);
 }
 
