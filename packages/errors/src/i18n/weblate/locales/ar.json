@@ -528,6 +528,7 @@
 	"premium_and_plans.custom_stickers_outside_source_require_premium": "لا يمكنك استخدام الملصقات المخصصة خارج مجتمعاتها المصدرية بدون Premium.",
 	"premium_and_plans.discriminator_change_requires_premium": "تغيير المميّز يتطلب Premium.",
 	"premium_and_plans.no_active_subscription": "لا يوجد اشتراك نشط.",
+	"premium_and_plans.profile_colors_require_premium": "",
 	"premium_and_plans.visionary_required_for_discriminator": "يجب أن تكون مشتركًا في خطة Visionary مدى الحياة لاستخدام هذا المميّز.",
 	"rate_limits.accent_color_changed_too_often": "لقد غيّرت لون التمييز الخاص بك مرات كثيرة مؤخرًا. حاول مجددًا بعد {minutes, plural, zero {# دقيقة} one {دقيقة واحدة} two {دقيقتين} few {# دقائق} many {# دقيقة} other {# دقيقة}}.",
 	"rate_limits.avatar_changed_too_often": "لقد غيّرت صورتك الرمزية مرات كثيرة مؤخرًا. حاول مجددًا بعد {minutes, plural, zero {# دقيقة} one {دقيقة واحدة} two {دقيقتين} few {# دقائق} many {# دقيقة} other {# دقيقة}}.",

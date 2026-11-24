@@ -528,6 +528,7 @@
 	"premium_and_plans.custom_stickers_outside_source_require_premium": "Et voi käyttää mukautettuja tarroja muissa kuin niiden omissa yhteisöissä ilman Premiumia.",
 	"premium_and_plans.discriminator_change_requires_premium": "Nelinumeroisen tunnisteen vaihtaminen vaatii Premiumin.",
 	"premium_and_plans.no_active_subscription": "Ei aktiivista tilausta.",
+	"premium_and_plans.profile_colors_require_premium": "",
 	"premium_and_plans.visionary_required_for_discriminator": "Tämän nelinumeroisen tunnisteen käyttö vaatii elinikäisen Visionary-jäsenyyden.",
 	"rate_limits.accent_color_changed_too_often": "Olet vaihtanut korostusväriäsi liian usein viime aikoina. Yritä uudelleen {minutes, plural, one {# minuutin} other {# minuutin}} kuluttua.",
 	"rate_limits.avatar_changed_too_often": "Olet vaihtanut profiilikuvaasi liian usein viime aikoina. Yritä uudelleen {minutes, plural, one {# minuutin} other {# minuutin}} kuluttua.",
