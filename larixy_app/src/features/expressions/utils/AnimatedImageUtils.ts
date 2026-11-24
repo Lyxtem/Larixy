@@ -11,7 +11,7 @@ const SNIFFED_FORMATS: ReadonlyArray<InspectedImageFormat> = ['unknown', 'png', 
 
 export async function inspectImageBytes(bytes: Uint8Array): Promise<InspectedImage> {
 	try {
-		const {detectAnimatedImage, sniffImageFormat} = await import('@app/features/platform/utils/LibFluxcore');
+		const {detectAnimatedImage, sniffImageFormat} = await import('@app/features/platform/utils/LibLarixycore');
 		const format = SNIFFED_FORMATS[await sniffImageFormat(bytes)] ?? 'unknown';
 		if (format === 'unknown' || format === 'jpeg') {
 			return {format, animated: false};

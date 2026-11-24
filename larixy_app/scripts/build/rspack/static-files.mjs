@@ -14,15 +14,15 @@ const FONT_LICENSE_FILES = [
 ];
 
 const WASM_LICENSE_FILES = [
-	{source: 'libfluxcore/NOTICE.md', asset: 'assets/libfluxcore-NOTICE.txt'},
-	{source: 'libfluxcore/LICENSE-ZSTD.txt', asset: 'assets/libfluxcore-LICENSE-ZSTD.txt'},
-	{source: 'libfluxcore/LICENSE-ZSTD-SYS.txt', asset: 'assets/libfluxcore-LICENSE-ZSTD-SYS.txt'},
-	{source: 'libfluxcore/LICENSE-ZSTD-RS.txt', asset: 'assets/libfluxcore-LICENSE-ZSTD-RS.txt'},
-	{source: 'libfluxwebp/NOTICE.md', asset: 'assets/libfluxwebp-NOTICE.txt'},
-	{source: 'libfluxwebp/LICENSE-LIBWEBP.txt', asset: 'assets/libfluxwebp-LICENSE-LIBWEBP.txt'},
-	{source: 'libfluxwebp/PATENTS-LIBWEBP.txt', asset: 'assets/libfluxwebp-PATENTS-LIBWEBP.txt'},
-	{source: 'libfluxwebp/LICENSE-LIBWEBP-SYS.txt', asset: 'assets/libfluxwebp-LICENSE-LIBWEBP-SYS.txt'},
-	{source: 'libfluxwebp/simd/LICENSE', asset: 'assets/libfluxwebp-LICENSE-EMSCRIPTEN.txt'},
+	{source: 'liblarixycore/NOTICE.md', asset: 'assets/liblarixycore-NOTICE.txt'},
+	{source: 'liblarixycore/LICENSE-ZSTD.txt', asset: 'assets/liblarixycore-LICENSE-ZSTD.txt'},
+	{source: 'liblarixycore/LICENSE-ZSTD-SYS.txt', asset: 'assets/liblarixycore-LICENSE-ZSTD-SYS.txt'},
+	{source: 'liblarixycore/LICENSE-ZSTD-RS.txt', asset: 'assets/liblarixycore-LICENSE-ZSTD-RS.txt'},
+	{source: 'liblarixywebp/NOTICE.md', asset: 'assets/liblarixywebp-NOTICE.txt'},
+	{source: 'liblarixywebp/LICENSE-LIBWEBP.txt', asset: 'assets/liblarixywebp-LICENSE-LIBWEBP.txt'},
+	{source: 'liblarixywebp/PATENTS-LIBWEBP.txt', asset: 'assets/liblarixywebp-PATENTS-LIBWEBP.txt'},
+	{source: 'liblarixywebp/LICENSE-LIBWEBP-SYS.txt', asset: 'assets/liblarixywebp-LICENSE-LIBWEBP-SYS.txt'},
+	{source: 'liblarixywebp/simd/LICENSE', asset: 'assets/liblarixywebp-LICENSE-EMSCRIPTEN.txt'},
 ];
 
 function resolveStaticCdnEndpoint(staticCdnEndpoint) {

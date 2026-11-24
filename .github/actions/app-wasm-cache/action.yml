@@ -16,15 +16,15 @@ runs:
       id: key
       if: always()
       shell: bash
-      run: echo "key=app-wasm-${{ runner.os }}-1.98.1-${{ hashFiles('Cargo.lock', 'tools/ci/src/app_wasm.rs', 'larixy_app/rust/libfluxcore/Cargo.toml', 'larixy_app/rust/libfluxcore/Cargo.lock', 'larixy_app/rust/libfluxcore/.cargo/config.toml', 'larixy_app/rust/libfluxcore/src/**', 'larixy_app/rust/libfluxwebp/Cargo.toml', 'larixy_app/rust/libfluxwebp/Cargo.lock', 'larixy_app/rust/libfluxwebp/src/**', 'larixy_app/rust/libfluxwebp/shim/**', 'larixy_app/rust/libfluxwebp/simd/**', 'packages/markdown_parser/rust/Cargo.toml', 'packages/markdown_parser/rust/.cargo/config.toml', 'packages/markdown_parser/rust/src/**') }}" >> "$GITHUB_OUTPUT"
+      run: echo "key=app-wasm-${{ runner.os }}-1.98.1-${{ hashFiles('Cargo.lock', 'tools/ci/src/app_wasm.rs', 'larixy_app/rust/liblarixycore/Cargo.toml', 'larixy_app/rust/liblarixycore/Cargo.lock', 'larixy_app/rust/liblarixycore/.cargo/config.toml', 'larixy_app/rust/liblarixycore/src/**', 'larixy_app/rust/liblarixywebp/Cargo.toml', 'larixy_app/rust/liblarixywebp/Cargo.lock', 'larixy_app/rust/liblarixywebp/src/**', 'larixy_app/rust/liblarixywebp/shim/**', 'larixy_app/rust/liblarixywebp/simd/**', 'packages/markdown_parser/rust/Cargo.toml', 'packages/markdown_parser/rust/.cargo/config.toml', 'packages/markdown_parser/rust/src/**') }}" >> "$GITHUB_OUTPUT"
     - name: Restore artifacts
       id: cache
       if: inputs.mode == 'restore'
       uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
       with:
         path: |
-          larixy_app/pkgs/libfluxcore
-          larixy_app/pkgs/libfluxwebp
+          larixy_app/pkgs/liblarixycore
+          larixy_app/pkgs/liblarixywebp
           larixy_app/pkgs/markdown_parser
         key: ${{ steps.key.outputs.key }}
     - name: Save artifacts
@@ -32,7 +32,7 @@ runs:
       uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
       with:
         path: |
-          larixy_app/pkgs/libfluxcore
-          larixy_app/pkgs/libfluxwebp
+          larixy_app/pkgs/liblarixycore
+          larixy_app/pkgs/liblarixywebp
           larixy_app/pkgs/markdown_parser
         key: ${{ steps.key.outputs.key }}

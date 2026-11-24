@@ -26,8 +26,8 @@
 **/test-results.json
 
 /larixy_app/.devserver-cache.json
-/larixy_app/pkgs/libfluxcore/
-/larixy_app/pkgs/libfluxwebp/
+/larixy_app/pkgs/liblarixycore/
+/larixy_app/pkgs/liblarixywebp/
 /larixy_app/src/features/i18n/locales/*/messages.mjs
 /larixy_app/pkgs/markdown_parser/
 /larixy_app/src/features/theme/styles/generated/

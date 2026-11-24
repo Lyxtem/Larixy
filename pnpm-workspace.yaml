@@ -6,8 +6,8 @@ packages:
   - larixy_app
   - larixy_api/pkgs/*
   - larixy_app/pkgs/*
-  - '!larixy_app/pkgs/libfluxcore'
-  - '!larixy_app/pkgs/libfluxwebp'
+  - '!larixy_app/pkgs/liblarixycore'
+  - '!larixy_app/pkgs/liblarixywebp'
   - larixy_desktop
   - larixy_admin
   - larixy_docs

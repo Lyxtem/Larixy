@@ -41,7 +41,7 @@
 			return;
 		}
 
-		const WASM_URL = '{{LIBFLUXCORE_WASM_URL}}';
+		const WASM_URL = '{{LIBLARIXYCORE_WASM_URL}}';
 		const preloadWasm = () => {
 			const link = document.createElement('link');
 			link.rel = 'preload';
