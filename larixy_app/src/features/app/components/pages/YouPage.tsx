@@ -82,12 +82,16 @@ export const YouPage = observer(({onAvatarClick}: YouPageProps) => {
 	});
 	if (!user || !profile) return null;
 	const bannerColor = getUserAccentColor(user, user.bannerColor ?? user.accentColor);
+	const borderColor = getUserAccentColor(user, user.accentColor);
 	return (
 		<>
 			<div className={styles.container} data-flx="app.you-page.container">
 				<Scroller key="you-page-scroller" data-flx="app.you-page.scroller">
 					<div
-						style={{paddingBottom: 'calc(60px + env(safe-area-inset-bottom, 0px) + 1rem)'}}
+						style={{
+							paddingBottom: 'calc(60px + env(safe-area-inset-bottom, 0px) + 1rem)',
+							background: `linear-gradient(135deg, ${bannerColor} 0%, ${borderColor} 100%)`,
+						}}
 						data-flx="app.you-page.div"
 					>
 						<div

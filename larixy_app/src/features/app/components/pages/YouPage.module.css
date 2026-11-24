@@ -34,7 +34,7 @@
 
 .profile {
 	position: relative;
-	background-color: var(--background-primary);
+	background-color: transparent;
 }
 
 .avatarButton {
