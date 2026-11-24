@@ -943,6 +943,9 @@ const MyProfileTabComponent = observer(function MyProfileTabComponent({
 												form.setValue('accent_color', value, {shouldDirty: true, shouldValidate: true})
 											}
 											bannerColor={!isPerGuildProfile ? (form.watch('banner_color') ?? null) : undefined}
+											hasStoredGradient={
+												typeof user.accentColor === 'number' && typeof user.bannerColor === 'number'
+											}
 											onBannerColorChange={
 												!isPerGuildProfile
 													? (value: number | null) =>

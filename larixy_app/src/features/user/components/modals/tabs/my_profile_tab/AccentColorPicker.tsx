@@ -1,11 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import {LimitResolver} from '@app/features/app/utils/LimitResolverAdapter';
+import {isLimitToggleEnabled} from '@app/features/app/utils/LimitUtils';
+import {getPremiumProductName} from '@app/features/premium/utils/PremiumUtils';
 import {ColorPickerField} from '@app/features/ui/components/form/ColorPickerField';
+import {PlutoniumUpsell} from '@app/features/ui/plutonium_upsell/PlutoniumUpsell';
 import myProfileTabStyles from '@app/features/user/components/modals/tabs/MyProfileTab.module.css';
 import styles from '@app/features/user/components/modals/tabs/my_profile_tab/AccentColorPicker.module.css';
 import {ACCENT_COLOR_DESCRIPTOR} from '@app/features/user/utils/UserMessageDescriptors';
 import {msg} from '@lingui/core/macro';
-import {useLingui} from '@lingui/react/macro';
+import {Trans, useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
 
 const DEFAULT_PROFILE_ACCENT_COLOR = 0x4641d9;
@@ -21,14 +25,23 @@ interface AccentColorPickerProps {
 	onChange: (value: number | null) => void;
 	bannerColor?: number | null;
 	onBannerColorChange?: (value: number | null) => void;
+	hasStoredGradient?: boolean;
 	disabled?: boolean;
 	errorMessage?: string;
 }
 
 export const AccentColorPicker = observer(
-	({value, onChange, bannerColor, onBannerColorChange, disabled, errorMessage}: AccentColorPickerProps) => {
+	({value, onChange, bannerColor, onBannerColorChange, hasStoredGradient, disabled, errorMessage}: AccentColorPickerProps) => {
 		const {i18n} = useLingui();
 		const isDualTheme = onBannerColorChange !== undefined;
+		const PREMIUM_PRODUCT_NAME = getPremiumProductName();
+		const hasProfileColorsEntitlement = isLimitToggleEnabled(
+			{feature_profile_colors: LimitResolver.resolve({key: 'feature_profile_colors', fallback: 0})},
+			'feature_profile_colors',
+		);
+		// Grandfathering: a profile that already stores a gradient keeps full
+		// editing access even without the entitlement.
+		const isGradientLocked = isDualTheme && !hasProfileColorsEntitlement && hasStoredGradient !== true;
 
 		const currentPrimary = bannerColor ?? DEFAULT_PROFILE_BANNER_COLOR;
 		const currentAccent = value ?? DEFAULT_PROFILE_ACCENT_COLOR;
@@ -46,6 +59,14 @@ export const AccentColorPicker = observer(
 						<div style={{fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '0.5rem'}}>
 							{i18n._(CUSTOMIZES_THE_BORDER_AND_BANNER_COLOR_ON_YOUR_DESCRIPTOR)}
 						</div>
+						{isGradientLocked && (
+							<PlutoniumUpsell data-flx="user.my-profile-tab.accent-color-picker.plutonium-upsell">
+								<Trans>
+									Profile gradient colors require {PREMIUM_PRODUCT_NAME}. A single accent color is free
+									for everyone.
+								</Trans>
+							</PlutoniumUpsell>
+						)}
 						<div
 							style={{
 								height: '2.5rem',
@@ -74,7 +95,7 @@ export const AccentColorPicker = observer(
 								defaultValue={DEFAULT_PROFILE_BANNER_COLOR}
 								isDefaultValue={bannerColor === null}
 								onReset={() => onBannerColorChange(null)}
-								disabled={disabled}
+								disabled={disabled || isGradientLocked}
 								data-flx="user.my-profile-tab.banner-color-picker.color-picker-field.change"
 							/>
 							<ColorPickerField

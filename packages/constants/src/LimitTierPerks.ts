@@ -176,6 +176,15 @@ export const LIMIT_TIER_PERKS: ReadonlyArray<LimitTierPerk> = [
 		limitKey: 'feature_animated_avatar',
 	},
 	{
+		id: 'profile_colors',
+		type: 'boolean',
+		status: 'available',
+		i18nKey: 'profile_gradient_colors',
+		restrictedValue: false,
+		stockValue: true,
+		limitKey: 'feature_profile_colors',
+	},
+	{
 		id: 'early_access',
 		type: 'boolean',
 		status: 'available',

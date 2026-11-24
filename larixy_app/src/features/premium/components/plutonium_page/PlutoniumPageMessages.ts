@@ -232,6 +232,10 @@ export const PERK_ANIMATED_PROFILE_DESCRIPTOR = msg({
 	message: 'Animated avatar and profile banner',
 	comment: 'Plutonium page comparison row label for animated avatars and banners.',
 });
+export const PERK_PROFILE_COLORS_DESCRIPTOR = msg({
+	message: 'Profile gradient colors',
+	comment: 'Plutonium page comparison row label for two-color profile gradients.',
+});
 export const PERK_EARLY_ACCESS_DESCRIPTOR = msg({
 	message: 'Early access to new features',
 	comment: 'Plutonium page comparison row label for early access.',

@@ -26,6 +26,7 @@ import {
 	PERK_MESSAGE_CHARACTERS_DESCRIPTOR,
 	PERK_PER_COMMUNITY_PROFILES_DESCRIPTOR,
 	PERK_PROFILE_BADGE_DESCRIPTOR,
+	PERK_PROFILE_COLORS_DESCRIPTOR,
 	PERK_SAVED_MEDIA_DESCRIPTOR,
 	PERK_UPLOAD_SIZE_DESCRIPTOR,
 	PERK_VIDEO_BACKGROUNDS_DESCRIPTOR,
@@ -80,6 +81,7 @@ const PERK_DEFINITIONS: ReadonlyArray<PerkDefinition> = [
 	{perkId: 'global_expressions', icon: 'globe', label: PERK_GLOBAL_EXPRESSIONS_DESCRIPTOR},
 	{perkId: 'video_quality', icon: 'videoCamera', label: PERK_VIDEO_QUALITY_DESCRIPTOR},
 	{perkId: 'animated_profile', icon: 'gif', label: PERK_ANIMATED_PROFILE_DESCRIPTOR},
+	{perkId: 'profile_colors', icon: 'palette', label: PERK_PROFILE_COLORS_DESCRIPTOR},
 	{perkId: 'early_access', icon: 'rocket', label: PERK_EARLY_ACCESS_DESCRIPTOR},
 	{perkId: 'custom_themes', icon: 'palette', label: PERK_CUSTOM_THEMES_DESCRIPTOR},
 ];

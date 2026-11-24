@@ -79,6 +79,9 @@ export class UserAccountProfileService {
 			});
 			await this.processPronounsUpdate({user, pronouns: data.pronouns, updates});
 		}
+		if (data.accent_color !== undefined || data.banner_color !== undefined) {
+			this.processProfileColorsUpdate({user, data});
+		}
 		if (data.accent_color !== undefined) {
 			await this.processAccentColorUpdate({user, accentColor: data.accent_color, updates});
 		}
@@ -233,6 +236,35 @@ export class UserAccountProfileService {
 				});
 			}
 			updates.accent_color = accentColor;
+		}
+	}
+
+	private processProfileColorsUpdate(params: {user: User; data: UserUpdateRequest}): void {
+		const {user, data} = params;
+		if (user.isBot) {
+			return;
+		}
+		const nextAccentColor = data.accent_color !== undefined ? data.accent_color : user.accentColor;
+		const nextBannerColor = data.banner_color !== undefined ? data.banner_color : user.bannerColor;
+		const hasGradientAfterUpdate = nextAccentColor != null && nextBannerColor != null;
+		if (!hasGradientAfterUpdate) {
+			return;
+		}
+		// Grandfathering: a profile that already stores both colors keeps its
+		// gradient and may keep editing it without the entitlement.
+		const hasStoredGradient = user.accentColor != null && user.bannerColor != null;
+		if (hasStoredGradient) {
+			return;
+		}
+		const ctx = createLimitMatchContext({user});
+		const hasProfileColors = resolveLimitSafe(
+			this.deps.limitConfigService.getConfigSnapshot(),
+			ctx,
+			'feature_profile_colors',
+			0,
+		);
+		if (hasProfileColors === 0) {
+			throw InputValidationError.fromCode('banner_color', ValidationErrorCodes.PROFILE_COLORS_REQUIRE_PREMIUM);
 		}
 	}
 
