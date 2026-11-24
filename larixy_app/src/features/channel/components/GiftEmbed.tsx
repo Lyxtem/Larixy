@@ -15,7 +15,7 @@ import * as NicknameUtils from '@app/features/user/utils/NicknameUtils';
 import {TierGatedActions} from '@larixy/constants/src/AccountTierConstants';
 import {msg} from '@lingui/core/macro';
 import {useLingui} from '@lingui/react/macro';
-import {AtomIcon, QuestionIcon} from '@phosphor-icons/react';
+import {QuestionIcon, SparkleIcon} from '@phosphor-icons/react';
 import {clsx} from 'clsx';
 import {observer} from 'mobx-react-lite';
 import type React from 'react';
@@ -103,7 +103,7 @@ export const GiftEmbed = observer(function GiftEmbed({code}: GiftEmbedProps) {
 	return (
 		<GiftCard
 			muted={gift.redeemed}
-			icon={<AtomIcon weight="fill" className={styles.icon} data-flx="channel.gift-embed.plutonium-icon" />}
+			icon={<SparkleIcon weight="fill" className={styles.icon} data-flx="channel.gift-embed.plutonium-icon" />}
 			title={getGiftDurationText(i18n, gift)}
 			meta={meta}
 			action={
