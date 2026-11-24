@@ -643,6 +643,7 @@ export const ERROR_I18N_MESSAGES = {
 		"You can't use custom stickers outside their source communities without Premium.",
 	'premium_and_plans.discriminator_change_requires_premium': 'Changing your discriminator requires Premium.',
 	'premium_and_plans.no_active_subscription': 'No active subscription.',
+	'premium_and_plans.profile_colors_require_premium': 'Profile gradient colors require Premium.',
 	'premium_and_plans.visionary_required_for_discriminator':
 		'You must be on the Visionary lifetime plan to use that discriminator.',
 	'rate_limits.accent_color_changed_too_often':
