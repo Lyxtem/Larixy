@@ -109,6 +109,7 @@ const MAX_PREFIX_RANGES = 256;
 const FULL_SCAN_LOG_INTERVAL_MS = 60_000;
 const FULL_SCAN_LOG_KEY_LIMIT = 1024;
 const ENCODED_TYPE_KEY = '__larixy_type';
+const LEGACY_ENCODED_TYPE_KEY = '__fluxer_type';
 const POSTGRES_KV_SCHEMA_LOCK_NAMESPACE = 0x46584b56;
 const POSTGRES_KV_SCHEMA_LOCK_TIMEOUT = '120s';
 const POSTGRES_KV_SCHEMA_MIGRATION_TIMEOUT = '30min';
@@ -231,7 +232,7 @@ function encodeValue(value: unknown): unknown {
 function decodeValue(value: unknown): unknown {
 	if (Array.isArray(value)) return value.map(decodeValue);
 	if (!isPlainObject(value)) return value;
-	const encodedType = value[ENCODED_TYPE_KEY];
+	const encodedType = value[ENCODED_TYPE_KEY] ?? value[LEGACY_ENCODED_TYPE_KEY];
 	if (encodedType === 'bigint') return BigInt(String(value.value));
 	if (encodedType === 'date') return new Date(String(value.value));
 	if (encodedType === 'buffer') return Buffer.from(String(value.value), 'base64');
