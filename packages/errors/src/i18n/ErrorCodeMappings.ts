@@ -92,6 +92,7 @@ export const ErrorCodeToI18nKey = {
 	[APIErrorCodes.CANNOT_REDEEM_PLUTONIUM_WITH_VISIONARY]: 'premium_and_plans.cannot_redeem_plutonium_with_visionary',
 	[ValidationErrorCodes.ANIMATED_AVATARS_REQUIRE_PREMIUM]: 'premium_and_plans.animated_avatars_require_premium',
 	[ValidationErrorCodes.BANNERS_REQUIRE_PREMIUM]: 'premium_and_plans.banners_require_premium',
+	[ValidationErrorCodes.PROFILE_COLORS_REQUIRE_PREMIUM]: 'premium_and_plans.profile_colors_require_premium',
 	[ValidationErrorCodes.CANNOT_EDIT_ATTACHMENT_METADATA]: 'attachments_and_uploads.cannot_edit_attachment_metadata',
 	[ValidationErrorCodes.CANNOT_LEAVE_GUILD_AS_OWNER]: 'channels_and_guilds.cannot_leave_guild_as_owner',
 	[ValidationErrorCodes.CANNOT_REORDER_EVERYONE_ROLE]: 'roles.cannot_reorder_everyone_role',
