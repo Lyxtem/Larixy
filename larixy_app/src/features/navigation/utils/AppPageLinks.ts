@@ -11,7 +11,7 @@ import {APP_PROTOCOL_SCHEME, isAppProtocolUrl} from '@app/features/ui/utils/AppP
 import {OFFICIAL_WEB_APP_HOSTS} from '@larixy/instance_bootstrap/src/OfficialWebAppHosts';
 import type {I18n} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
-import {AtomIcon, ChatsCircleIcon, CompassIcon, type Icon, StarIcon} from '@phosphor-icons/react';
+import {ChatsCircleIcon, CompassIcon, type Icon, SparkleIcon, StarIcon} from '@phosphor-icons/react';
 
 export type AppPageId = 'discovery' | 'plutonium' | 'favorites' | 'direct_messages';
 
@@ -29,7 +29,7 @@ const DISCOVERY_PAGE_DESCRIPTOR = msg({
 
 const APP_PAGES: ReadonlyArray<AppPageDefinition> = [
 	{id: 'discovery', paths: [Routes.DISCOVER, Routes.LEGACY_DISCOVER], icon: CompassIcon, appHostOnly: false},
-	{id: 'plutonium', paths: [Routes.PLUTONIUM], icon: AtomIcon, appHostOnly: true},
+	{id: 'plutonium', paths: [Routes.PLUTONIUM], icon: SparkleIcon, appHostOnly: true},
 	{id: 'favorites', paths: [Routes.FAVORITES], icon: StarIcon, appHostOnly: false},
 	{id: 'direct_messages', paths: [Routes.ME], icon: ChatsCircleIcon, appHostOnly: false},
 ];
