@@ -34,6 +34,7 @@ import {
 	type CustomBadgeType,
 	type HideableBuiltInBadgeKind,
 	isHideableBuiltInBadgeKind,
+	isReplaceableProfileBadgeKind,
 } from '@larixy/constants/src/BadgeConstants';
 import {MaxBadgesError} from '@larixy/errors/src/domains/badge/MaxBadgesError';
 import {UnknownBadgeError} from '@larixy/errors/src/domains/badge/UnknownBadgeError';
@@ -78,7 +79,7 @@ function mapCustomBadgeToAdminResponse(badge: CustomBadge): AdminCustomBadgeResp
 }
 
 function builtInBadgeAsset(kind: BuiltInBadgeKind): string | null {
-	return kind === 'staff' || kind === 'premium' ? PROFILE_BADGE_ASSETS[kind] : null;
+	return isReplaceableProfileBadgeKind(kind) ? PROFILE_BADGE_ASSETS[kind] : null;
 }
 
 function mapBuiltInBadgeImages(
