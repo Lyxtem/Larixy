@@ -10,6 +10,7 @@ import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
 import {NotificationDot} from '@app/features/ui/components/NotificationDot';
 import {Scroller} from '@app/features/ui/components/Scroller';
+import {getUserAccentColor} from '@app/features/theme/utils/AccentColorUtils';
 import {StatusAwareAvatar} from '@app/features/ui/components/StatusAwareAvatar';
 import {openProfileBadgeSettings, openUserSettingsModal} from '@app/features/user/commands/UserSettingsModalCommands';
 import {NoteEditSheet} from '@app/features/user/components/modals/NoteEditSheet';
@@ -80,6 +81,7 @@ export const YouPage = observer(({onAvatarClick}: YouPageProps) => {
 		kind: 'gif',
 	});
 	if (!user || !profile) return null;
+	const bannerColor = getUserAccentColor(user, user.bannerColor ?? user.accentColor);
 	return (
 		<>
 			<div className={styles.container} data-flx="app.you-page.container">
@@ -88,7 +90,12 @@ export const YouPage = observer(({onAvatarClick}: YouPageProps) => {
 						style={{paddingBottom: 'calc(60px + env(safe-area-inset-bottom, 0px) + 1rem)'}}
 						data-flx="app.you-page.div"
 					>
-						<div ref={bannerHoverRef} className={styles.banner} data-flx="app.you-page.banner">
+						<div
+						ref={bannerHoverRef}
+						className={styles.banner}
+						style={{backgroundColor: bannerColor}}
+						data-flx="app.you-page.banner"
+					>
 							{bannerUrl ? (
 								<div
 									className={styles.bannerImage}
@@ -96,7 +103,11 @@ export const YouPage = observer(({onAvatarClick}: YouPageProps) => {
 									data-flx="app.you-page.banner-image"
 								/>
 							) : (
-								<div className={styles.bannerDefault} data-flx="app.you-page.banner-default" />
+								<div
+									className={styles.bannerDefault}
+									style={{backgroundColor: bannerColor}}
+									data-flx="app.you-page.banner-default"
+								/>
 							)}
 						</div>
 						<div className={styles.profile} data-flx="app.you-page.profile">
