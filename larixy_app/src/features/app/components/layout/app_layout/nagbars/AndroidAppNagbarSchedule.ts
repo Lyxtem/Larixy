@@ -2,7 +2,10 @@
 
 import {useEffect, useState} from 'react';
 
-const ANDROID_APP_NAGBAR_STARTS_AT_MS = Date.parse('2026-11-09T12:00:00.000Z');
+// Larixy is not published on Google Play yet (the listing does not exist),
+// so this nagbar stays off. Set the date back to the past to re-enable it
+// once the app is actually available on Google Play.
+const ANDROID_APP_NAGBAR_STARTS_AT_MS = Date.parse('2099-01-01T00:00:00.000Z');
 const LONGEST_TIMER_MS = 24 * 60 * 60 * 1000;
 
 export function useAndroidAppNagbarStarted(): boolean {
