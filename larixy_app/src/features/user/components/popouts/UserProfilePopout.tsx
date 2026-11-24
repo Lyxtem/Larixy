@@ -14,6 +14,7 @@ import {Logger} from '@app/features/platform/utils/AppLogger';
 import {usePresenceCustomStatus} from '@app/features/presence/hooks/usePresenceCustomStatus';
 import MemberPresenceSubscription from '@app/features/presence/state/MemberPresenceSubscription';
 import Relationships from '@app/features/relationship/state/Relationships';
+import {getUserAccentColor} from '@app/features/theme/utils/AccentColorUtils';
 import {
 	getUserMenuAvatarUrl,
 	getUserMenuBannerUrl,
@@ -255,7 +256,8 @@ export const UserProfilePopout: React.FC<UserProfilePopoutProps> = observer(
 			);
 		}
 		const borderColor = accentColor;
-		const bannerColor = accentColor;
+		const bannerColor =
+			profileData?.banner_color != null ? getUserAccentColor(user, profileData.banner_color) : accentColor;
 		const cardClassName = styles.profilePopoutCard;
 		const profileBanner = (
 			<ProfileCardBanner

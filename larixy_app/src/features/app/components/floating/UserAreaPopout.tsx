@@ -414,7 +414,7 @@ export const UserAreaPopout = observer(() => {
 	}, [profileContext]);
 	const accentColor = getUserAccentColor(currentUser, profileData?.accent_color);
 	const borderColor = accentColor;
-	const bannerColor = accentColor;
+	const bannerColor = getUserAccentColor(currentUser, profileData?.banner_color ?? profileData?.accent_color);
 	const displayName = currentUser ? NicknameUtils.getNickname(currentUser, null) : '';
 	const customStatus = currentUserId ? Presence.getCustomStatus(currentUserId) : null;
 	const hasCustomStatus = Boolean(normalizeCustomStatus(customStatus));
