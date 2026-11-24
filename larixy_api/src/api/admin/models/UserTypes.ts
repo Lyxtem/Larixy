@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import type {UserID} from '@app/api/BrandedTypes';
-import {Config} from '@app/api/Config';
 import {hasAdminACL} from '@app/api/middleware/AdminMiddleware';
 import {getOperatorPassRepository} from '@app/api/middleware/ServiceSingletons';
 import type {User} from '@app/api/models/User';
@@ -36,7 +35,7 @@ async function buildAdminProfileBadges(
 	locale: string | undefined,
 ): Promise<Array<AdminProfileBadgeResponse>> {
 	const [operatorPassState, environment] = await Promise.all([
-		Config.instance.selfHosted || user.isBot
+		user.isBot
 			? null
 			: loadOperatorPassEntitlementState(getOperatorPassRepository(), user.id),
 		loadProfileBadgeEnvironment(user.badgeIds),
