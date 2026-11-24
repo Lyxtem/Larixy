@@ -106,8 +106,8 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'partner',
 		asset: PROFILE_BADGE_ASSETS.partner,
-		availability: 'hosted',
-		href: marketing('partner'),
+		availability: 'everywhere',
+		href: marketing('partners'),
 		qualify: flagBadge(UserFlags.PARTNER, (view) =>
 			getContentMessage('profile_badge.partner', view.locale, {product_name: view.environment.productName}),
 		),
@@ -115,7 +115,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'bug_hunter',
 		asset: PROFILE_BADGE_ASSETS.bug_hunter,
-		availability: 'hosted',
+		availability: 'everywhere',
 		href: () => 'https://www.youtube.com/watch?v=ez8m4PXksQs',
 		qualify: flagBadge(UserFlags.BUG_HUNTER, (view) =>
 			getContentMessage('profile_badge.bug_hunter', view.locale, {product_name: view.environment.productName}),
@@ -124,7 +124,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'operator_pass',
 		asset: PROFILE_BADGE_ASSETS.operator_pass,
-		availability: 'hosted',
+		availability: 'everywhere',
 		href: marketing('pass'),
 		qualify: (view) => {
 			if (!view.operatorPass) return null;
@@ -172,7 +172,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'visionary',
 		asset: PROFILE_BADGE_ASSETS.visionary,
-		availability: 'hosted',
+		availability: 'everywhere',
 		href: marketing('help/visionary'),
 		qualify: (view) => {
 			if (view.premium.premiumType !== UserPremiumTypes.LIFETIME) return null;
@@ -191,7 +191,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'visionary_number',
 		asset: null,
-		availability: 'hosted',
+		availability: 'everywhere',
 		href: marketing('help/visionary'),
 		qualify: (view) => {
 			const sequence = view.premium.premiumLifetimeSequence;
@@ -209,7 +209,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'plutonium',
 		asset: PROFILE_BADGE_ASSETS.plutonium,
-		availability: 'hosted',
+		availability: 'everywhere',
 		href: marketing('plutonium'),
 		qualify: (view) =>
 			view.premium.premiumType === UserPremiumTypes.SUBSCRIPTION ? {label: premiumLabel(view)} : null,
@@ -217,7 +217,7 @@ export const PROFILE_BADGE_REGISTRY: ReadonlyArray<ProfileBadgeDefinition> = [
 	{
 		kind: 'premium',
 		asset: PROFILE_BADGE_ASSETS.premium,
-		availability: 'self_hosted',
+		availability: 'everywhere',
 		href: (environment) => environment.premiumInfoUrl,
 		qualify: (view) => {
 			const premiumType = view.premium.premiumType;

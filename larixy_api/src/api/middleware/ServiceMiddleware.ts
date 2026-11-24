@@ -898,7 +898,7 @@ class RequestServices implements RequestScopedServices {
 			getContactChangeLogService(),
 			getConnectionRepository(),
 			getLimitConfigService(),
-			Config.instance.selfHosted ? null : this.operatorPassServices,
+			this.operatorPassServices,
 		);
 		return this.cachedUserService;
 	}
@@ -912,8 +912,8 @@ class RequestServices implements RequestScopedServices {
 				getUserRepository(),
 				getUserCacheService(),
 				getGatewayService(),
-				Config.instance.selfHosted ? null : getOperatorPassEntitlementService(),
-				Config.instance.selfHosted ? null : this.operatorPassServices.roleService,
+				getOperatorPassEntitlementService(),
+				this.operatorPassServices.roleService,
 			);
 		}
 		return this.cachedUserAccountRequestService;

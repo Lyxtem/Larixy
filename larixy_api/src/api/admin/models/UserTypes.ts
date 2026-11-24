@@ -36,7 +36,7 @@ async function buildAdminProfileBadges(
 	locale: string | undefined,
 ): Promise<Array<AdminProfileBadgeResponse>> {
 	const [operatorPassState, environment] = await Promise.all([
-		Config.instance.selfHosted || user.isBot
+		user.isBot
 			? null
 			: loadOperatorPassEntitlementState(getOperatorPassRepository(), user.id),
 		loadProfileBadgeEnvironment(user.badgeIds),
