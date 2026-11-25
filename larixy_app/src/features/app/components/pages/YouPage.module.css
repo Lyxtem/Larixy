@@ -16,6 +16,11 @@
 	height: 11.5rem;
 	width: 100%;
 	overflow: hidden;
+	/* The banner runs edge to edge, so only its bottom corners are rounded:
+	   the profile surface below shows through the notches and the image
+	   reads as a card resting on it. Same radius as this page's cards. */
+	border-end-start-radius: var(--radius-xl);
+	border-end-end-radius: var(--radius-xl);
 }
 
 .bannerImage {
