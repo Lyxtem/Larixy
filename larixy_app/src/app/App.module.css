@@ -17,7 +17,7 @@
 }
 
 :global(html.is-standalone:not(.auth-page)) :local(.appContainer) {
-	padding-top: env(safe-area-inset-top);
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
 }
 
 :global(html) :local(.overlayScope) {

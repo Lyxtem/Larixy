@@ -15,7 +15,7 @@ html.allow-transparency #larixy-boot-shell {
 	background: transparent;
 }
 html.is-standalone #larixy-boot-shell {
-	padding-top: env(safe-area-inset-top);
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
 }
 .larixy-boot-app {
 	--layout-user-area-overlay-height: 0px;

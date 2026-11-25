@@ -53,7 +53,6 @@ import {msg} from '@lingui/core/macro';
 import {Trans} from '@lingui/react/macro';
 import {
 	ArrowsClockwiseIcon,
-	AtomIcon,
 	BellIcon,
 	ChatCircleIcon,
 	CodeIcon,
@@ -73,6 +72,7 @@ import {
 	ReceiptIcon,
 	RobotIcon,
 	ShieldIcon,
+	SparkleIcon,
 	SwatchesIcon,
 	TicketIcon,
 	TranslateIcon,
@@ -220,7 +220,7 @@ const ALL_TABS_DESCRIPTORS: Array<SettingsTabDescriptor> = [
 		type: 'plutonium',
 		category: 'billing',
 		label: getPremiumProductFullName,
-		icon: AtomIcon,
+		icon: SparkleIcon,
 		isVisible: shouldShowPremiumFeatures,
 	},
 	{

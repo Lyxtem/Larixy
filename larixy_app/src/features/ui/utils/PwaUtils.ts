@@ -10,11 +10,19 @@ interface NavigatorWithStandalone extends Navigator {
 	standalone?: boolean;
 }
 
+interface WindowWithCapacitor extends Window {
+	Capacitor?: {isNativePlatform?: () => boolean};
+}
+
+export function isCapacitorNative(): boolean {
+	return (window as WindowWithCapacitor).Capacitor?.isNativePlatform?.() === true;
+}
+
 export function isStandalonePwa(): boolean {
 	const matchDisplayMode = window.matchMedia?.('(display-mode: standalone)').matches ?? false;
 	const navigatorStandalone = (window.navigator as NavigatorWithStandalone).standalone === true;
 	const androidReferrer = document.referrer.includes('android-app://');
-	return matchDisplayMode || navigatorStandalone || androidReferrer;
+	return matchDisplayMode || navigatorStandalone || androidReferrer || isCapacitorNative();
 }
 
 export function isMobileOrTablet(): boolean {
