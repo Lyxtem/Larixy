@@ -407,6 +407,7 @@ export const UserProfilePopout: React.FC<UserProfilePopoutProps> = observer(
 				<div ref={popoutContainerRef} data-flx="user.user-profile-popout.div">
 					<ProfileCardLayout
 						borderColor={borderColor}
+						bannerColor={bannerColor}
 						hoverRef={hoverRef}
 						className={cardClassName}
 						style={PROFILE_POPOUT_GEOMETRY_STYLE}

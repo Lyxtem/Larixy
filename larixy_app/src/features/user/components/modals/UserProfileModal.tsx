@@ -29,6 +29,7 @@ import {
 	REMOVE_FRIEND_DESCRIPTOR,
 	UNBLOCK_USER_ACTION_DESCRIPTOR,
 } from '@app/features/relationship/utils/RelationshipMessageDescriptors';
+import {getUserAccentColor} from '@app/features/theme/utils/AccentColorUtils';
 import type {ContextMenuActionEvent} from '@app/features/ui/action_menu/ContextMenu';
 import {
 	getUserMenuAvatarUrl,
@@ -204,6 +205,13 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 		}, [displayUser, i18n.locale]);
 		const effectiveProfile: Profile | null = displayProfile ?? profile ?? profileFallback;
 		const resolvedProfile: Profile = effectiveProfile ?? fallbackProfile;
+		const modalEffectiveProfile = resolvedProfile.getEffectiveProfile();
+		const modalBannerColor = getUserAccentColor(
+			displayUser,
+			modalEffectiveProfile?.banner_color ?? modalEffectiveProfile?.accent_color,
+		);
+		const modalAccentColor = getUserAccentColor(displayUser, modalEffectiveProfile?.accent_color);
+		const modalProfileGradient = `linear-gradient(135deg, ${modalBannerColor} 0%, ${modalAccentColor} 100%)`;
 		const displayMembership = resolveProfileGuildMembership(displayProfile, {
 			fallbackGuildId: displayGuildId,
 			userId,
@@ -769,6 +777,7 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				/>
 				<div
 					className={userProfileModalStyles.modalContainer}
+					style={showProfileSkeleton ? undefined : {background: modalProfileGradient}}
 					data-flx="user.user-profile-modal.div"
 				>
 					{showProfileSkeleton ? (
