@@ -18,6 +18,28 @@
 	background-color: var(--background-secondary);
 }
 
+/* In the standalone app (APK/PWA) the main layout surface must paint
+   through the status-bar area, like native apps do: pull the layout
+   container up by the top inset and compensate with the same padding,
+   so the guild rail and the content column keep their exact positions
+   but the area behind the system bar takes this container's own
+   background (--background-secondary; #000 in voice fullscreen via
+   .guildsLayoutFullscreen) instead of the app container's flat
+   --background-primary. This only works together with the matching
+   extension on .appLayout, which moves the shell's clipping boundary
+   up by the same inset; on its own the negative margin would be
+   clipped away by .appLayout's overflow. Height and max-height grow
+   by the same inset so the container still reaches the bottom edge
+   of the screen. The desktop native shell is excluded: it already
+   compensates its title bar on this very container. */
+:global(html.is-standalone:not(.platform-native)) :local(.guildsLayoutContainer) {
+	box-sizing: border-box;
+	margin-top: calc(-1 * max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+	height: calc(100% + max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+	max-height: calc(100% + max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+}
+
 .guildsLayoutReserveSpace {
 	--layout-user-area-overlay-height: calc(
 		var(--layout-user-area-height) +
