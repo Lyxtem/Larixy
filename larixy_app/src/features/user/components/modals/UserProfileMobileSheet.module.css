@@ -22,8 +22,6 @@
 .bannerContainer {
 	position: relative;
 	height: 11.5rem;
-	border-top-width: 0.125rem;
-	border-top-style: solid;
 	width: 100%;
 	overflow: hidden;
 	border-start-start-radius: 1.5rem;
@@ -66,7 +64,7 @@
 
 .profileContent {
 	position: relative;
-	background-color: var(--background-primary);
+	background-color: transparent;
 }
 
 .avatarContainer {

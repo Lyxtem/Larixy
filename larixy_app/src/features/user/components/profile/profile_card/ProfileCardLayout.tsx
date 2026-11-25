@@ -26,7 +26,6 @@ export const ProfileCardLayout: React.FC<ProfileCardLayoutProps> = observer(
 				: undefined);
 			return {
 				...style,
-				borderColor: borderColor || bannerColor || style?.borderColor,
 				background,
 			};
 		}, [bannerColor, borderColor, style]);

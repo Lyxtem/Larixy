@@ -306,6 +306,10 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 			() => getUserAccentColor(user, effectiveProfile?.accent_color),
 			[user, effectiveProfile],
 		);
+		const profileGradient = useMemo(
+			() => `linear-gradient(135deg, ${bannerColor} 0%, ${borderColor} 100%)`,
+			[bannerColor, borderColor],
+		);
 		useEffect(() => {
 			if (autoFocusNote && !hidePrivateDetails) {
 				setNoteSheetOpen(true);
@@ -492,13 +496,16 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 								data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.scroller"
 							>
 								<div
-									style={{paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)'}}
+									style={{
+										paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)',
+										background: profileGradient,
+									}}
 									data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.div"
 								>
 									<div
 										ref={bannerHoverRef}
 										className={styles.bannerContainer}
-										style={{backgroundColor: bannerColor, borderColor}}
+										style={{backgroundColor: bannerColor}}
 										data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.banner-container"
 									>
 										{bannerUrl ? (
