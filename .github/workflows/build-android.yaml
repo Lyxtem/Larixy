@@ -40,14 +40,17 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - uses: android-actions/setup-android@v3
+        with:
+          # The action's default package list is 'tools platform-tools'
+          # (checked in its action.yml): the legacy 'tools' package no
+          # longer exists in current cmdline-tools and killed the first
+          # build. The action is still needed: it puts sdkmanager on
+          # PATH, which a bare run step does not have (second build).
+          packages: platform-tools
+
       - name: Install the Android SDK platform Capacitor targets
-        # The ubuntu-24.04 runners already ship an Android SDK; the
-        # android-actions/setup-android step is avoided on purpose: it
-        # tries to install the legacy 'tools' package, which current
-        # cmdline-tools no longer provide (first build failed there).
-        run: |
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
       - name: Install Capacitor and generate the Android project
         working-directory: larixy_android
