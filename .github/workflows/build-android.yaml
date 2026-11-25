@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+name: build android apk
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: build-larixy-android-apk
+  cancel-in-progress: false
+
+jobs:
+  approve:
+    name: approve build release
+    permissions: {}
+    runs-on: ubuntu-24.04
+    environment: builds
+    timeout-minutes: 5
+    steps:
+      - name: approved
+        run: echo "Build release approved."
+
+  build:
+    name: build debug apk
+    needs: approve
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install the Android SDK platform Capacitor targets
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Install Capacitor and generate the Android project
+        working-directory: larixy_android
+        run: |
+          npm install
+          npx cap add android
+          python3 scripts/patch-android-manifest.py
+          npx cap sync android
+
+      - name: Build the debug APK
+        working-directory: larixy_android/android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: larixy-android-debug-apk
+          path: larixy_android/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
