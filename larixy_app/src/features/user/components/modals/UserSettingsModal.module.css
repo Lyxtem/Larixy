@@ -135,3 +135,14 @@
 	padding: 1rem;
 	padding-bottom: calc(1rem + env(safe-area-inset-bottom, 1.25rem));
 }
+
+/* In the standalone app (APK/PWA) the settings surface must paint through
+   the status-bar area, like native apps do: pull the wrapper up by the
+   top inset and compensate with the same padding, so the content keeps
+   its exact position but the area behind the system bar takes the
+   settings background instead of black. */
+:global(html.is-standalone) :local(.mobileWrapper) {
+	box-sizing: border-box;
+	margin-top: calc(-1 * max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+}

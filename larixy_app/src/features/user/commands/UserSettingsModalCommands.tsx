@@ -4,6 +4,7 @@ import {UserSettingsModal} from '@app/features/app/components/dialogs/LoadableSe
 import {isDesktopLocalAppDocument} from '@app/features/platform/DesktopLocalAppRuntime';
 import * as ModalCommands from '@app/features/ui/commands/ModalCommands';
 import {modal} from '@app/features/ui/commands/ModalCommands';
+import {isMobileExperienceEnabled} from '@app/features/ui/utils/MobileExperience';
 import UserSettings from '@app/features/user/state/UserSettings';
 
 const DESKTOP_SETTINGS_LOAD_WAIT_MS = 800;
@@ -20,7 +21,12 @@ export function openUserSettingsModal(): void {
 }
 
 function pushUserSettingsModal(): void {
-	const privacyReviewPending = UserSettings.isPrivacySetupPending();
+	// On mobile the settings open at the root list: deep-linking into the
+	// privacy section on every open (because a privacy review is pending)
+	// makes the settings feel broken. The pending review stays visible as
+	// a badge on the Privacy row instead. Desktop keeps the deep link
+	// because the section list remains visible next to the content.
+	const privacyReviewPending = UserSettings.isPrivacySetupPending() && !isMobileExperienceEnabled();
 	ModalCommands.push(
 		modal(
 			() =>

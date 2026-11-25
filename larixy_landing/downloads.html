@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descargar Larixy — Larixy</title>
+  <meta name="description" content="Descarga Larixy para Windows o úsalo en tu navegador. La app de Android está en camino.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0b0c10;
+      color: #f1f2f6;
+    }
+
+    .nav-glass {
+      background: rgba(11, 12, 16, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ===== Pulido visual compartido (v2) ===== */
+    ::selection { background: rgba(88,101,242,.45); color: #fff; }
+    html { scrollbar-color: #34384b #0b0c10; }
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-thumb { background: #252736; border-radius: 8px; }
+    body::-webkit-scrollbar-thumb:hover { background: #5865F2; }
+    .top-grad { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; background: linear-gradient(90deg, #5865F2, #b06ee8, #5865F2); }
+    .page-glow { position: fixed; top: -190px; left: 50%; transform: translateX(-50%); width: 860px; height: 400px; background: radial-gradient(ellipse, rgba(88,101,242,.13), transparent 70%); pointer-events: none; z-index: 0; }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    footer { position: relative; }
+    footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(88,101,242,.55), rgba(176,110,232,.55), transparent); }
+    .text-grad { background: linear-gradient(92deg, #8b96ff 0%, #5865F2 45%, #b06ee8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } }
+
+    .download-card {
+      background: linear-gradient(160deg, rgba(88,101,242,.07), rgba(255,255,255,.02) 45%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased flex flex-col min-h-screen">
+  <div class="top-grad"></div>
+  <div class="page-glow"></div>
+  <header class="sticky top-0 z-50 nav-glass">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-brand flex items-center justify-center p-2 shadow-lg shadow-brand/20">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+        </div>
+        <span class="font-display font-extrabold text-2xl tracking-tight text-white">Larixy</span>
+      </a>
+      <div class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
+        <a href="/docs" class="text-slate-300 hover:text-white transition-colors">Docs</a>
+        <a href="/privacy" class="text-slate-300 hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="text-slate-300 hover:text-white transition-colors">Reembolsos</a>
+        <a href="/app"
+          class="px-5 py-2.5 rounded-full bg-white text-dark-950 font-bold hover:bg-slate-100 transition-all">Abrir Larixy</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-5 py-16 sm:py-24 flex-grow w-full">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold uppercase tracking-wider text-brand font-display">Descargas</span>
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white mt-3">Lleva Larixy <span class="text-grad">contigo</span></h1>
+      <p class="text-slate-400 mt-4 leading-relaxed">Descarga la app oficial para tu ordenador o entra directamente desde el navegador. Sin anuncios, sin rastreadores: solo tú y tu comunidad.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-14">
+      <!-- Windows -->
+      <section class="download-card">
+        <div class="w-12 h-12 rounded-2xl bg-brand/15 text-brand flex items-center justify-center">
+          <i data-lucide="monitor" class="w-6 h-6"></i>
+        </div>
+        <h2 class="font-display font-bold text-xl text-white mt-5">Windows</h2>
+        <p class="text-sm text-slate-400 leading-relaxed mt-2 flex-grow">La app de escritorio para Windows 10 y 11 (64 bits), con voz y vídeo de alta calidad y notificaciones nativas.</p>
+        <a id="win-installer" href="https://github.com/Lyxtem/Larixy/releases/download/v2026.1118.81749-installer/Larixy-Setup.exe"
+          class="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm transition-all">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          Descargar instalador
+        </a>
+        <p class="text-xs text-slate-500 mt-3 text-center">
+          <span id="win-version">Versión v2026.1118.81749</span> · <span id="win-installer-meta">292 MB</span>
+        </p>
+        <p class="text-xs text-slate-500 mt-2 text-center">
+          ¿Sin permisos de administrador?
+          <a id="win-portable" href="https://github.com/Lyxtem/Larixy/releases/download/v2026.1118.81749-portable/Larixy-Portable.zip" class="text-slate-300 underline underline-offset-2 hover:text-white">Versión portable (.zip, <span id="win-portable-meta">363 MB</span>)</a>
+        </p>
+      </section>
+
+      <!-- Android -->
+      <section class="download-card">
+        <div class="w-12 h-12 rounded-2xl bg-brand/15 text-brand flex items-center justify-center">
+          <i data-lucide="smartphone" class="w-6 h-6"></i>
+        </div>
+        <div class="flex items-center gap-3 mt-5">
+          <h2 class="font-display font-bold text-xl text-white">Android</h2>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300 border border-amber-300/30 bg-amber-300/10 rounded-full px-2.5 py-1">Próximamente</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mt-2 flex-grow">Estamos preparando la app de Android. Mientras tanto, Larixy funciona de maravilla en el navegador de tu móvil, y puedes instalarla como app web desde el menú del navegador.</p>
+        <a href="/app"
+          class="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-dark-border text-white font-bold text-sm hover:bg-white/5 transition-all">
+          Abrir en el navegador
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <p class="text-xs text-slate-500 mt-3 text-center">Sin descargas: entra y listo.</p>
+      </section>
+
+      <!-- Web -->
+      <section class="download-card">
+        <div class="w-12 h-12 rounded-2xl bg-brand/15 text-brand flex items-center justify-center">
+          <i data-lucide="globe" class="w-6 h-6"></i>
+        </div>
+        <h2 class="font-display font-bold text-xl text-white mt-5">En el navegador</h2>
+        <p class="text-sm text-slate-400 leading-relaxed mt-2 flex-grow">La experiencia completa sin instalar nada: mensajes, comunidades, voz y vídeo desde cualquier navegador moderno, en cualquier sistema.</p>
+        <a href="/app"
+          class="mt-6 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-dark-950 font-bold text-sm hover:bg-slate-100 transition-all">
+          Abrir Larixy
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <p class="text-xs text-slate-500 mt-3 text-center">También puedes instalarla como app (PWA).</p>
+      </section>
+    </div>
+
+    <p class="text-center text-sm text-slate-500 mt-14">
+      ¿Usas macOS o Linux? Sus apps de escritorio están en camino.<br>
+      ¿Te va más lo técnico? Larixy es código abierto (AGPL-3.0) y puedes autoalojarlo:
+      <a href="https://github.com/Lyxtem/Larixy" class="text-slate-300 underline underline-offset-2 hover:text-white">github.com/Lyxtem/Larixy</a>
+    </p>
+  </main>
+
+  <footer class="bg-dark-950 border-t border-dark-border py-12 text-sm text-slate-400 mt-20">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-xs">
+        <a href="/terms" class="hover:text-white transition-colors">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/docs" class="hover:text-white transition-colors">Documentación</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Resuelve la última versión publicada de escritorio para no tener que
+    // tocar esta página con cada release. Si la API de GitHub no responde,
+    // se quedan los enlaces fijados del HTML.
+    (async () => {
+      try {
+        const res = await fetch('https://api.github.com/repos/Lyxtem/Larixy/releases?per_page=50');
+        if (!res.ok) return;
+        const releases = await res.json();
+        const findAsset = (name) => {
+          for (const rel of releases) {
+            const asset = (rel.assets || []).find((a) => a.name === name);
+            if (asset) return { asset, tag: rel.tag_name };
+          }
+          return null;
+        };
+        const fmt = (bytes) => Math.round(bytes / 1048576) + ' MB';
+        const installer = findAsset('Larixy-Setup.exe');
+        if (installer) {
+          document.getElementById('win-installer').href = installer.asset.browser_download_url;
+          document.getElementById('win-installer-meta').textContent = fmt(installer.asset.size);
+          document.getElementById('win-version').textContent = 'Versión ' + installer.tag.replace(/-(installer|portable)$/, '');
+        }
+        const portable = findAsset('Larixy-Portable.zip');
+        if (portable) {
+          document.getElementById('win-portable').href = portable.asset.browser_download_url;
+          document.getElementById('win-portable-meta').textContent = fmt(portable.asset.size);
+        }
+      } catch (e) { /* sin conexión con GitHub: valen los enlaces fijados */ }
+    })();
+  </script>
+</body>
+
+</html>
