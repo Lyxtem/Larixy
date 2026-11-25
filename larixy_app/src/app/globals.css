@@ -654,6 +654,20 @@ img::before {
 	pointer-events: none;
 }
 
+/* Carried by the mobile settings headers (MobileHeader and
+   MobileHeaderWithBanner in MobileSettingsComponents). Those modals render
+   in a fixed portal layer outside .appContainer, so the container's
+   standalone top padding never reaches them, and the settings wrapper's
+   pull-up (see UserSettingsModal.module.css) leaves the header content at
+   the very top of the screen, under the system status bar. In the
+   standalone app this padding is the headers' only compensation: it pushes
+   their content below the status bar while their background keeps painting
+   through the bar area. Outside the standalone app the rule does not apply
+   and nothing changes. */
+html.is-standalone .safe-area-top {
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+}
+
 .text-smol {
 	font-size: 0.875rem;
 	font-weight: 400;
