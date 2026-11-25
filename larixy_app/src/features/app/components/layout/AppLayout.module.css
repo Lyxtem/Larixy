@@ -15,3 +15,20 @@
 	height: 100%;
 	min-height: 0;
 }
+
+/* In the standalone app (APK/PWA), screens whose own layout opts in (see
+   GuildsLayout) paint through the status-bar area. Pull this shell up by
+   the top inset and compensate with the same padding, so every screen
+   keeps its exact position and only the clipping boundary moves: the
+   shell itself stays transparent, so screens that do not opt in (e.g.
+   the You tab) keep the app container's flat background behind the
+   system bar, unchanged. Height grows by the same inset so the shell
+   still reaches the bottom edge of the screen. The desktop native
+   shell is excluded: it has no status bar and handles its own title
+   bar elsewhere. */
+:global(html.is-standalone:not(.platform-native)) :local(.appLayout) {
+	box-sizing: border-box;
+	margin-top: calc(-1 * max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+	padding-top: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+	height: calc(100% + max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px)));
+}
