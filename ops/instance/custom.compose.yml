@@ -23,6 +23,7 @@ services:
   api:
     environment:
       FLUXER_APP_PRODUCT_NAME: "Larixy"
+      LARIXY_KLIPY_API_KEY: ${FLUXER_KLIPY_API_KEY:-}
     volumes:
       - /home/deploy/apps/wave-instance/extra/chunk-ZKNE52GF.js:/usr/src/app/fluxer_api/dist/chunk-ZKNE52GF.js:ro
       - /home/deploy/apps/wave-instance/extra/chunk-T4R7PYWV.js:/usr/src/app/fluxer_api/dist/chunk-T4R7PYWV.js:ro

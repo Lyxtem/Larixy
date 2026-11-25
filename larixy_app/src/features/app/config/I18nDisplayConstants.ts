@@ -41,8 +41,8 @@ export const LINK_PREVIEW_EXAMPLE_URL = 'https://larixy.xyz';
 export const EXAMPLE_GIF_URLS = `${EXAMPLE_URL}/gif1.gif\n${EXAMPLE_URL}/gif2.gif`;
 export const THE_OTHER_PLATFORM_TEMPLATE_EXAMPLE_URL = `https://${THE_OTHER_PLATFORM.toLowerCase()}.new/abcd1234`;
 const DESKTOP_DOWNLOAD_URLS: Record<string, string> = {
-	stable: 'https://larixy.xyz/download',
-	canary: 'https://canary.larixy.xyz/download',
+	stable: 'https://github.com/Lyxtem/Larixy/releases',
+	canary: 'https://github.com/Lyxtem/Larixy/releases',
 	development: 'http://localhost:8088/download',
 };
 
