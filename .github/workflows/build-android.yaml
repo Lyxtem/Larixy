@@ -59,6 +59,7 @@ jobs:
           npx cap add android
           python3 scripts/patch-android-manifest.py
           npx cap sync android
+          npx @capacitor/assets generate --android --iconBackgroundColor '#000000' --iconBackgroundColorDark '#000000' --splashBackgroundColor '#000000' --splashBackgroundColorDark '#000000'
 
       - name: Build the debug APK
         working-directory: larixy_android/android
