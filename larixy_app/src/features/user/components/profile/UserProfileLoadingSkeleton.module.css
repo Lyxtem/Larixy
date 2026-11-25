@@ -19,7 +19,6 @@
 	max-height: var(--profile-skeleton-height);
 	flex-direction: column;
 	overflow: hidden;
-	border: var(--profile-skeleton-border-width) solid var(--profile-skeleton-border-color);
 	border-radius: var(--profile-skeleton-radius);
 	background: var(--profile-skeleton-bg);
 }

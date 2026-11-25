@@ -505,7 +505,7 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 									<div
 										ref={bannerHoverRef}
 										className={styles.bannerContainer}
-										style={{backgroundColor: bannerColor, borderColor}}
+										style={{backgroundColor: bannerColor}}
 										data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.banner-container"
 									>
 										{bannerUrl ? (

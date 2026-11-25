@@ -29,7 +29,6 @@ import {
 	REMOVE_FRIEND_DESCRIPTOR,
 	UNBLOCK_USER_ACTION_DESCRIPTOR,
 } from '@app/features/relationship/utils/RelationshipMessageDescriptors';
-import {getUserAccentColor} from '@app/features/theme/utils/AccentColorUtils';
 import type {ContextMenuActionEvent} from '@app/features/ui/action_menu/ContextMenu';
 import {
 	getUserMenuAvatarUrl,
@@ -756,12 +755,6 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				</div>
 			);
 		};
-		const borderProfile = resolvedProfile.getEffectiveProfile() ?? null;
-		const borderAccentColor =
-			previewOverrides?.previewAccentColor !== undefined
-				? previewOverrides.previewAccentColor
-				: borderProfile?.accent_color;
-		const borderColor = getUserAccentColor(displayUser, borderAccentColor);
 		return (
 			<Modal.Root
 				size="medium"
@@ -776,7 +769,6 @@ export const UserProfileModal: UserProfileModalComponent = observer(
 				/>
 				<div
 					className={userProfileModalStyles.modalContainer}
-					style={{borderColor}}
 					data-flx="user.user-profile-modal.div"
 				>
 					{showProfileSkeleton ? (

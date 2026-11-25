@@ -291,8 +291,6 @@
 	width: 100%;
 	flex-direction: column;
 	border-radius: var(--profile-modal-radius);
-	border-width: var(--profile-modal-border-width);
-	border-style: solid;
 	box-sizing: border-box;
 	background-color: var(--background-primary);
 	position: relative;
