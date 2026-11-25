@@ -478,6 +478,7 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 				>
 					<div
 						className={styles.container}
+						style={{background: profileGradient}}
 						data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.container"
 					>
 						{isLoading ? (
@@ -498,7 +499,6 @@ const UserProfileMobileSheetContent: React.FC<UserProfileMobileSheetContentProps
 								<div
 									style={{
 										paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 1rem)',
-										background: profileGradient,
 									}}
 									data-flx="user.user-profile-mobile-sheet.user-profile-mobile-sheet-content.div"
 								>
