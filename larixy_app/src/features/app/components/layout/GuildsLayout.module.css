@@ -49,7 +49,12 @@
 }
 
 .guildsLayoutReserveMobileBottomNav {
-	--layout-mobile-bottom-nav-reserved-height: var(--mobile-bottom-nav-height);
+	/* Must match the tab bar's real height, which now grows by the
+	   bottom system inset (see MobileBottomNav). */
+	--layout-mobile-bottom-nav-reserved-height: calc(
+		var(--mobile-bottom-nav-height) +
+			max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px))
+	);
 }
 
 .guildsLayoutContainerMobile {

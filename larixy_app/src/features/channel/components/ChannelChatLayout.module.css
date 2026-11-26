@@ -32,6 +32,11 @@
 	position: relative;
 	z-index: 1;
 	padding: 0;
+	/* Keep the composer above the system navigation bar: on Android the
+	   WebView's env() bottom inset does not include the 3-button nav bar,
+	   so take the max with the inset the native shell injects as a var
+	   (same formula as the top-inset fixes). Both are 0 on desktop. */
+	padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
 	overflow: visible;
 	width: 100%;
 	max-width: 100%;

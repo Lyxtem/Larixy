@@ -7,7 +7,15 @@
 	bottom: 0;
 	z-index: 100;
 	display: flex;
-	height: var(--mobile-bottom-nav-height);
+	/* Grow by the bottom system inset so the tab bar is not drawn under
+	   the Android navigation bar; border-box keeps the content height at
+	   var(--mobile-bottom-nav-height) and the inset becomes bottom padding. */
+	height: calc(
+		var(--mobile-bottom-nav-height) +
+			max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px))
+	);
+	padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
+	box-sizing: border-box;
 	align-items: center;
 	justify-content: space-around;
 	border-top: 0.0625rem solid var(--background-header-secondary);
