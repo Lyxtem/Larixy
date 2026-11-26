@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larixy — Tu lugar para hablar, jugar y compartir</title>
+  <meta name="description" content="Larixy es un espacio pensado para tus comunidades y amigos. Canales de texto temáticos, salas de voz en tiempo real y herramientas directas sin suscripciones forzadas.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Space Grotesk (Titulares con fuerza tipo Discord) + Plus Jakarta Sans (Cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#2f7bff',
+              hover: '#1f66e5',
+              light: '#9dc0ff',
+              dark: '#1743a6'
+            },
+            dark: {
+              950: '#090c22',
+              900: '#0d1233',
+              850: '#11173c',
+              800: '#161f4a',
+              700: '#1e2a5e',
+              600: '#2a3a7d',
+              border: 'rgba(140, 165, 255, 0.18)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    html, body { overflow-x: clip; }
+    body {
+      background-color: #090c22;
+      background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%);
+      background-attachment: fixed;
+      color: #eef1ff;
+    }
+
+    /* Estilo de scroll discreto */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #090c22; }
+    ::-webkit-scrollbar-thumb { background: #1e2a5e; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2f7bff; }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+
+    /* Barra superior con blur nativo */
+    .nav-glass {
+      background: rgba(8, 11, 32, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(140, 165, 255, 0.15);
+    }
+
+    /* ===== Sistema de diseño v3 («azul Fluxer») ===== */
+    .top-grad { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; background: linear-gradient(90deg, #2f7bff, #5ea0ff, #2f7bff); }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+    .logo-3d {
+      background: linear-gradient(180deg, #5ea0ff, #1f66e5);
+      box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5);
+    }
+
+    .btn-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(180deg, #5ea0ff, #2f7bff 55%, #1f66e5);
+      color: #fff; font-weight: 800; border-radius: 14px; padding: 14px 22px;
+      box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5);
+      text-shadow: 0 1px 2px rgba(10,30,90,.35); text-decoration: none; cursor: pointer;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+
+    .btn-ghost-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; border-radius: 14px; padding: 14px 22px;
+      box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15);
+      text-decoration: none; cursor: pointer;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+
+    .btn-white-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(180deg, #ffffff, #dbe6ff); color: #0b1030; font-weight: 800;
+      border-radius: 999px; padding: 8px 14px; font-size: 13px;
+      box-shadow: 0 3px 0 #8fa8e8; text-decoration: none; cursor: pointer;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-white-3d:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+    .btn-white-3d.big { padding: 14px 28px; font-size: 16px; box-shadow: 0 5px 0 #8fa8e8; }
+    .btn-white-3d.big:active { transform: translateY(4px); box-shadow: 0 1px 0 #8fa8e8; }
+
+    .card-3d {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid rgba(140,165,255,.18); border-radius: 18px;
+      box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .chip-3d {
+      width: 40px; height: 40px; border-radius: 12px; flex: none;
+      display: flex; align-items: center; justify-content: center; color: #fff;
+      background: linear-gradient(180deg, #3d8bff, #2563eb);
+      box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+
+    .badge-3d {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px;
+      background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4);
+      color: #9dc0ff; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    }
+
+    .u-bar {
+      width: 64px; height: 5px; border-radius: 99px;
+      background: linear-gradient(90deg, #5ea0ff, #2f7bff);
+      box-shadow: 0 3px 0 #1743a6;
+    }
+
+    /* Mockups con estética sobria y profesional */
+    .app-window {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid rgba(140, 165, 255, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,.08), 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    /* Acordeón simple */
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+    /* ===== Capa visual v2: movimiento y profundidad ===== */
+    .aurora { position: absolute; border-radius: 9999px; filter: blur(90px); pointer-events: none; }
+    .aurora-a { width: 560px; height: 380px; top: -120px; left: 8%; background: rgba(47,123,255,0.25); animation: drift-a 16s ease-in-out infinite alternate; }
+    .aurora-b { width: 480px; height: 340px; top: 40px; right: 4%; background: rgba(99,102,241,0.18); animation: drift-b 20s ease-in-out infinite alternate; }
+    .aurora-c { width: 420px; height: 300px; bottom: -160px; left: 38%; background: rgba(47,123,255,0.10); animation: drift-a 24s ease-in-out infinite alternate-reverse; }
+    @keyframes drift-a { from { transform: translate(0,0) scale(1); } to { transform: translate(60px, 30px) scale(1.12); } }
+    @keyframes drift-b { from { transform: translate(0,0) scale(1.05); } to { transform: translate(-70px, 40px) scale(0.95); } }
+    .hero-grid { position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 38%, black 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 75% 60% at 50% 38%, black 30%, transparent 75%); }
+    .hero-wave { position: absolute; pointer-events: none; color: #2f7bff; }
+    .float-slow { animation: floaty 7s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    .app-window { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+    .app-window:hover { transform: translateY(-4px); border-color: rgba(125,177,255,0.35); box-shadow: 0 30px 70px -18px rgba(47,123,255,0.35), 0 25px 60px -15px rgba(0,0,0,0.7); }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1); }
+    .reveal.in { opacity: 1; transform: none; }
+    .section-glow { background-image: radial-gradient(ellipse 60% 45% at 50% 0%, rgba(47,123,255,0.07), transparent 70%); }
+    .eq { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 12px; }
+    .eq span { width: 3px; border-radius: 2px; background: #34d399; animation: eq-bounce 1s ease-in-out infinite; }
+    .eq span:nth-child(1) { height: 45%; animation-delay: 0s; }
+    .eq span:nth-child(2) { height: 90%; animation-delay: .15s; }
+    .eq span:nth-child(3) { height: 60%; animation-delay: .3s; }
+    .eq span:nth-child(4) { height: 100%; animation-delay: .45s; }
+    .eq span:nth-child(5) { height: 50%; animation-delay: .6s; }
+    @keyframes eq-bounce { 0%,100% { transform: scaleY(0.5); } 50% { transform: scaleY(1.15); } }
+    .typing { display: inline-flex; gap: 3px; align-items: center; }
+    .typing span { width: 5px; height: 5px; border-radius: 9999px; background: #8fa1dd; animation: typing-bounce 1.2s ease-in-out infinite; }
+    .typing span:nth-child(2) { animation-delay: .15s; }
+    .typing span:nth-child(3) { animation-delay: .3s; }
+    @keyframes typing-bounce { 0%,60%,100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-3px); opacity: 1; } }
+    .ring-pulse { animation: ring-pulse 2.2s ease-out infinite; }
+    @keyframes ring-pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.35); } 70% { box-shadow: 0 0 0 9px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+    .cta-grad { background: linear-gradient(135deg, #101736 0%, #1743a6 48%, #2f7bff 100%); }
+    @media (prefers-reduced-motion: reduce) {
+      .aurora-a, .aurora-b, .aurora-c, .float-slow, .eq span, .typing span, .ring-pulse { animation: none !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      main { animation: none; }
+    }
+
+    .faq-chevron { transition: transform 0.2s ease; }
+  </style>
+</head>
+<body class="font-sans selection:bg-brand selection:text-white">
+  <div class="top-grad"></div>
+
+  <!-- ========================================================
+       1. NAVEGACIÓN
+  ======================================================== -->
+  <header class="sticky top-0 z-50 nav-glass">
+    <div class="max-w-7xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+
+      <!-- Logotipo -->
+      <a href="#" class="flex items-center gap-2.5 group shrink-0">
+        <div class="logo-3d w-[34px] h-[34px] rounded-[11px] flex items-center justify-center p-[7px] group-hover:scale-105 transition-transform">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+        </div>
+        <span class="font-display font-extrabold text-[19px] tracking-tight text-white">Larixy</span>
+      </a>
+
+      <!-- Enlaces centrales -->
+      <nav class="hidden lg:flex items-center gap-5 text-[13px] font-semibold text-[#b9c6f5] min-w-0">
+        <a href="#canales" class="hover:text-white transition-colors">Canales</a>
+        <a href="#voz" class="hover:text-white transition-colors">Voz en directo</a>
+        <a href="#comunidad" class="hover:text-white transition-colors">Comunidades</a>
+        <a href="#desarrolladores" class="hover:text-white transition-colors">Desarrolladores</a>
+        <a href="#faq" class="hover:text-white transition-colors">Preguntas</a>
+        <a href="/partner" class="hover:text-white transition-colors">Partner</a>
+        <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+      </nav>
+
+      <!-- Botón de entrada -->
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="/login" class="hidden xl:inline-flex text-[13px] font-semibold text-[#b9c6f5] hover:text-white px-2 py-2 transition-colors">
+          Iniciar sesión
+        </a>
+        <a href="/app" class="btn-white-3d">
+          Abrir app
+        </a>
+        <!-- Menú Móvil Botón -->
+        <button id="mobile-btn" class="lg:hidden p-2 text-[#b9c6f5] hover:text-white" aria-label="Abrir menú">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Móvil -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0a0e2a] border-b border-[rgba(140,165,255,0.15)] px-6 py-5 space-y-4">
+      <a href="#canales" class="block font-medium text-[#b9c6f5] hover:text-white">Canales</a>
+      <a href="#voz" class="block font-medium text-[#b9c6f5] hover:text-white">Voz en directo</a>
+      <a href="#comunidad" class="block font-medium text-[#b9c6f5] hover:text-white">Comunidades</a>
+      <a href="#desarrolladores" class="block font-medium text-[#b9c6f5] hover:text-white">Desarrolladores</a>
+      <a href="#faq" class="block font-medium text-[#b9c6f5] hover:text-white">Preguntas frecuentes</a>
+      <a href="/partner" class="block font-medium text-[#b9c6f5] hover:text-white">Partner</a>
+      <a href="/docs" class="block font-medium text-[#b9c6f5] hover:text-white">Docs</a>
+      <div class="pt-4 border-t border-[rgba(140,165,255,0.15)] flex flex-col gap-3">
+        <a href="/login" class="btn-ghost-3d w-full text-sm">Iniciar sesión</a>
+        <a href="/app" class="btn-3d w-full text-sm">Abrir Larixy en navegador</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ========================================================
+       2. HERO PRINCIPAL (ESTILO DISCORD: IMPACTO, DIRECTO)
+  ======================================================== -->
+  <section class="relative pt-20 pb-28 md:pt-28 md:pb-36 overflow-hidden">
+
+    <!-- Sutil acento de color de fondo -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] bg-brand/15 blur-[160px] pointer-events-none -z-10 rounded-full"></div>
+    <div class="aurora aurora-a"></div>
+    <div class="aurora aurora-b"></div>
+    <div class="aurora aurora-c"></div>
+    <div class="hero-grid"></div>
+    <svg class="hero-wave" style="right:-70px; top:110px; width:340px; opacity:0.055; transform: rotate(14deg);" viewBox="0 0 512 512" fill="#2f7bff" aria-hidden="true"><path d="M 199.04 169.6 L 213.76 170.24 L 223.36 174.08 L 232.32 180.48 L 245.12 194.56 L 260.48 222.72 L 277.12 270.72 L 287.36 292.48 L 296.32 305.92 L 305.28 313.6 L 311.68 314.24 L 316.8 311.68 L 330.24 297.6 L 344.32 272.64 L 353.28 248.96 L 355.84 245.76 L 362.88 241.92 L 369.92 241.92 L 376.96 245.76 L 380.8 252.8 L 380.8 260.48 L 378.24 267.52 L 362.88 300.8 L 346.24 324.48 L 330.88 337.28 L 318.72 342.4 L 311.04 343.68 L 295.68 341.12 L 288.0 337.28 L 280.32 331.52 L 270.08 320.0 L 256.0 295.68 L 245.76 270.08 L 239.36 248.96 L 226.56 220.16 L 218.88 208.64 L 211.2 200.96 L 204.16 197.76 L 197.12 200.32 L 192.0 204.16 L 181.12 216.32 L 168.32 237.44 L 158.08 263.04 L 153.6 268.16 L 148.48 270.72 L 141.44 270.72 L 133.12 265.6 L 129.92 256.64 L 131.84 248.32 L 143.36 222.08 L 158.72 197.12 L 165.12 189.44 L 177.92 177.92 L 186.88 172.8 L 194.56 170.24 L 198.4 170.24 Z"/></svg>
+    <svg class="hero-wave" style="left:-50px; bottom:60px; width:220px; opacity:0.04; transform: rotate(-18deg) scaleX(-1);" viewBox="0 0 512 512" fill="#2f7bff" aria-hidden="true"><path d="M 199.04 169.6 L 213.76 170.24 L 223.36 174.08 L 232.32 180.48 L 245.12 194.56 L 260.48 222.72 L 277.12 270.72 L 287.36 292.48 L 296.32 305.92 L 305.28 313.6 L 311.68 314.24 L 316.8 311.68 L 330.24 297.6 L 344.32 272.64 L 353.28 248.96 L 355.84 245.76 L 362.88 241.92 L 369.92 241.92 L 376.96 245.76 L 380.8 252.8 L 380.8 260.48 L 378.24 267.52 L 362.88 300.8 L 346.24 324.48 L 330.88 337.28 L 318.72 342.4 L 311.04 343.68 L 295.68 341.12 L 288.0 337.28 L 280.32 331.52 L 270.08 320.0 L 256.0 295.68 L 245.76 270.08 L 239.36 248.96 L 226.56 220.16 L 218.88 208.64 L 211.2 200.96 L 204.16 197.76 L 197.12 200.32 L 192.0 204.16 L 181.12 216.32 L 168.32 237.44 L 158.08 263.04 L 153.6 268.16 L 148.48 270.72 L 141.44 270.72 L 133.12 265.6 L 129.92 256.64 L 131.84 248.32 L 143.36 222.08 L 158.72 197.12 L 165.12 189.44 L 177.92 177.92 L 186.88 172.8 L 194.56 170.24 L 198.4 170.24 Z"/></svg>
+
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 text-center reveal">
+
+      <div class="badge-3d mb-7">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        Código abierto · Sin algoritmos · Hecho para comunidades
+      </div>
+      <!-- Titular -->
+      <h1 class="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[76px] tracking-tight text-white leading-[1.08] max-w-5xl mx-auto">
+        Tu lugar para hablar, jugar y compartir
+      </h1>
+      <div class="u-bar mx-auto mt-7"></div>
+
+      <!-- Párrafo descriptivo sincero -->
+      <p class="mt-7 text-base sm:text-xl text-[#b9c6f5] max-w-2xl mx-auto leading-relaxed font-normal">
+        Un lugar para tu grupo de amigos, tu comunidad de juego o tu equipo de trabajo. Canales temáticos para hablar de lo que quieras, salas de voz instantáneas y cero algoritmos decidiendo qué ves.
+      </p>
+
+      <!-- Llamados a la Acción principales -->
+      <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <a href="/app" class="btn-3d w-full sm:w-auto px-8 py-4 text-base">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span>Abrir Larixy en tu navegador</span>
+        </a>
+        <a href="/app" class="btn-ghost-3d w-full sm:w-auto px-8 py-4 text-base">
+          <i data-lucide="download" class="w-5 h-5 text-[#9dc0ff]"></i>
+          <span>Instalar aplicación</span>
+        </a>
+      </div>
+
+      <!-- Preview auténtica de la interfaz -->
+      <div class="mt-16 sm:mt-24 max-w-5xl mx-auto reveal">
+        <div class="app-window text-left float-slow">
+
+          <!-- Barra superior de la ventana -->
+          <div class="h-10 bg-dark-950 border-b border-dark-border px-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ec6a5e]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#f4bf4f]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#62c554]"></span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#8fa1dd] min-w-0">
+              <i data-lucide="hash" class="w-3.5 h-3.5 text-slate-500 shrink-0"></i>
+              <span class="truncate">charla-general — Comunidad Larixy</span>
+            </div>
+            <div class="w-12 shrink-0"></div>
+          </div>
+
+          <!-- Estructura interior de la aplicación -->
+          <div class="flex h-[420px] sm:h-[460px]">
+
+            <!-- Barra de servidores -->
+            <div class="w-16 bg-[#070a1f] border-r border-dark-border py-3 flex flex-col items-center gap-2.5 shrink-0">
+              <div class="w-11 h-11 rounded-2xl bg-brand flex items-center justify-center p-2 text-white cursor-pointer hover:rounded-xl transition-all">
+                <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+              </div>
+              <div class="w-8 h-[2px] bg-dark-700 rounded-full my-1"></div>
+
+              <div class="w-11 h-11 rounded-2xl bg-dark-800 border-2 border-brand flex items-center justify-center text-sm font-bold text-white cursor-pointer">
+                LX
+              </div>
+              <div class="w-11 h-11 rounded-3xl bg-dark-800 hover:bg-dark-700 hover:rounded-2xl transition-all flex items-center justify-center text-sm font-medium text-slate-300 cursor-pointer">
+                <i data-lucide="gamepad-2" class="w-5 h-5 text-slate-300"></i>
+              </div>
+              <div class="w-11 h-11 rounded-3xl bg-dark-800 hover:bg-dark-700 hover:rounded-2xl transition-all flex items-center justify-center text-sm font-medium text-slate-300 cursor-pointer">
+                <i data-lucide="code" class="w-5 h-5 text-slate-300"></i>
+              </div>
+
+              <div class="mt-auto w-11 h-11 rounded-full bg-dark-800 hover:bg-emerald-600/20 text-emerald-400 border border-emerald-500/20 flex items-center justify-center cursor-pointer transition-colors">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </div>
+            </div>
+
+            <!-- Lista de canales -->
+            <div class="w-60 bg-dark-900 border-r border-dark-border flex-col justify-between hidden sm:flex shrink-0">
+              <div>
+                <div class="h-12 border-b border-dark-border px-4 flex items-center justify-between font-bold text-sm text-white">
+                  <span class="truncate">Comunidad Oficial</span>
+                  <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+                </div>
+
+                <div class="p-2 space-y-4 text-xs font-semibold">
+                  <div>
+                    <div class="px-2 py-1 text-[11px] font-bold text-slate-500 tracking-wider uppercase">Canales de Texto</div>
+                    <div class="mt-1 space-y-0.5">
+                      <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-dark-700/60 text-white cursor-pointer">
+                        <i data-lucide="hash" class="w-4 h-4 text-slate-400"></i>
+                        <span>charla-general</span>
+                      </div>
+                      <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-400 hover:bg-dark-800 hover:text-slate-200 cursor-pointer">
+                        <i data-lucide="hash" class="w-4 h-4 text-slate-500"></i>
+                        <span>anuncios</span>
+                      </div>
+                      <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-400 hover:bg-dark-800 hover:text-slate-200 cursor-pointer">
+                        <i data-lucide="hash" class="w-4 h-4 text-slate-500"></i>
+                        <span>proyectos</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="px-2 py-1 text-[11px] font-bold text-slate-500 tracking-wider uppercase">Canales de Voz</div>
+                    <div class="mt-1 space-y-0.5">
+                      <div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 cursor-pointer font-medium">
+                        <div class="flex items-center gap-2">
+                          <i data-lucide="volume-2" class="w-4 h-4"></i>
+                          <span>Sala Principal</span>
+                        </div>
+                        <span class="text-[10px] bg-emerald-500/20 px-1.5 py-0.5 rounded font-mono">3</span>
+                      </div>
+                      <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-400 hover:bg-dark-800 hover:text-slate-200 cursor-pointer">
+                        <i data-lucide="volume-2" class="w-4 h-4 text-slate-500"></i>
+                        <span>Gaming & Chill</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Barra de usuario activo -->
+              <div class="h-14 bg-dark-950 border-t border-dark-border px-3 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="relative">
+                    <div class="w-8 h-8 rounded-full bg-brand flex items-center justify-center font-bold text-xs text-white">
+                      LX
+                    </div>
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-dark-950"></span>
+                  </div>
+                  <div class="text-left">
+                    <div class="text-xs font-bold text-white">Lyxtem</div>
+                    <div class="text-[10px] text-slate-400">En línea</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1 text-slate-400">
+                  <i data-lucide="mic" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                  <i data-lucide="headphones" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                  <i data-lucide="settings" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel de conversación -->
+            <div class="flex-1 min-w-0 bg-dark-850 flex flex-col justify-between">
+
+              <!-- Cabecera del canal -->
+              <div class="h-12 border-b border-dark-border px-4 flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2 min-w-0">
+                  <i data-lucide="hash" class="w-5 h-5 text-slate-400 shrink-0"></i>
+                  <span class="font-bold text-sm text-white truncate">charla-general</span>
+                  <span class="hidden md:inline text-xs text-slate-500 border-l border-dark-border pl-3 truncate">
+                    Espacio para conversar y compartir ideas
+                  </span>
+                </div>
+                <div class="flex items-center gap-3 text-slate-400 shrink-0">
+                  <i data-lucide="bell" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                  <i data-lucide="pin" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                  <i data-lucide="users" class="w-4 h-4 hover:text-white cursor-pointer"></i>
+                </div>
+              </div>
+
+              <!-- Mensajes -->
+              <div class="p-4 space-y-4 overflow-y-auto text-sm">
+
+                <div class="flex items-start gap-3">
+                  <div class="w-9 h-9 rounded-full bg-purple-600 flex items-center justify-center font-bold text-xs text-white shrink-0">
+                    AD
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-white">Alex</span>
+                      <span class="text-[11px] text-slate-500">Hoy a las 14:10</span>
+                    </div>
+                    <p class="text-slate-300 mt-0.5">
+                      ¡Bienvenidos! El servidor ya tiene los canales configurados por temas.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-9 h-9 rounded-full bg-brand flex items-center justify-center font-bold text-xs text-white shrink-0">
+                    LX
+                  </div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <span class="font-bold text-white">Lyxtem</span>
+                      <span class="text-[10px] font-semibold bg-brand/20 text-brand-light px-1.5 py-0.5 rounded">OWNER</span>
+                      <span class="text-[11px] text-slate-500">Hoy a las 14:12</span>
+                    </div>
+                    <p class="text-slate-300 mt-0.5">
+                      Prueben entrar a la sala de voz en directo para ver cómo va la calidad. Sin cortes ni lag.
+                    </p>
+                    <div class="mt-2 flex items-center gap-1.5 flex-wrap">
+                      <span class="px-2 py-0.5 rounded-md bg-dark-700/80 border border-dark-border text-xs text-slate-300">
+                        <i data-lucide="flame" class="w-3.5 h-3.5 text-orange-400"></i> 4
+                      </span>
+                      <span class="px-2 py-0.5 rounded-md bg-brand/20 border border-brand/30 text-xs text-brand-light">
+                        <i data-lucide="rocket" class="w-3.5 h-3.5 text-sky-400"></i> 2
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notificación de voz conectada -->
+                <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-between gap-2 text-xs">
+                  <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                    <span class="text-slate-200 truncate">
+                      Voz activa en <strong class="text-white">Sala Principal</strong> (WebRTC)
+                    </span>
+                  </div>
+                  <span class="font-mono text-emerald-400 font-semibold shrink-0">Conectado</span>
+                </div>
+
+              </div>
+
+              <div class="px-4 pb-2 -mt-1 flex items-center gap-2 text-xs text-slate-500 shrink-0 min-w-0">
+                  <span class="typing shrink-0"><span></span><span></span><span></span></span>
+                  <span class="truncate"><strong class="text-slate-300 font-semibold">Marcos</strong> está escribiendo…</span>
+                </div>
+
+                <!-- Input de mensaje -->
+              <div class="p-4 border-t border-dark-border shrink-0">
+                <div class="bg-dark-950 border border-dark-border rounded-xl px-4 py-2.5 flex items-center gap-3 text-slate-400">
+                  <i data-lucide="plus-circle" class="w-5 h-5 hover:text-white cursor-pointer shrink-0"></i>
+                  <input type="text" placeholder="Enviar mensaje a #charla-general..." class="bg-transparent flex-1 min-w-0 text-sm text-slate-200 focus:outline-none placeholder:text-slate-500" readonly>
+                  <i data-lucide="smile" class="w-5 h-5 hover:text-white cursor-pointer shrink-0"></i>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       3. SECCIÓN 1: CANALES ORGANIZADOS (STORYTELLING TIPO DISCORD)
+  ======================================================== -->
+  <section id="canales" class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)] section-glow">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
+
+        <!-- Contenido explicativo -->
+        <div class="min-w-0">
+          <span class="badge-3d">Organización limpia</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-5 leading-tight">
+            Crea un espacio donde encaje cada tema
+          </h2>
+          <p class="mt-6 text-base sm:text-lg text-[#b9c6f5] leading-relaxed">
+            Los servidores de Larixy se estructuran en canales temáticos independientes. Puedes tener canales para compartir música, debatir sobre proyectos, publicar avisos o simplemente charlar del día a día sin mezclar conversaciones.
+          </p>
+          <div class="mt-8 space-y-3 text-sm text-[#b9c6f5]">
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Canales de texto ordenados por categorías con permisos propios</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Formato de texto completo con Markdown y bloques de código</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Hilos de conversación para profundizar sin saturar el canal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta visual de canales -->
+        <div class="app-window p-6 sm:p-8">
+          <div class="space-y-4">
+
+            <div class="p-4 rounded-xl bg-dark-900 border border-dark-border">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2"># diseño-y-estilo</div>
+              <p class="text-sm text-slate-200">
+                Subiendo las nuevas propuestas de interfaz para la comunidad. ¿Qué opinan del contraste?
+              </p>
+              <div class="mt-3 flex gap-2 flex-wrap">
+                <span class="px-2 py-1 rounded bg-brand/20 text-brand-light text-xs font-medium"><i data-lucide="sparkles" class="w-3.5 h-3.5 inline-block align-[-2px]"></i> Quedó genial</span>
+                <span class="px-2 py-1 rounded bg-dark-800 text-slate-400 text-xs"><i data-lucide="thumbs-up" class="w-3.5 h-3.5 inline-block align-[-2px]"></i> 5</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-dark-900 border border-dark-border">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2"># clips-y-jugadas</div>
+              <p class="text-sm text-slate-200">
+                Grabación de la partida de anoche. La victoria en el último segundo fue una locura.
+              </p>
+              <div class="mt-2 text-xs text-brand-light font-medium">
+                video_final_partida.mp4 · 1080p
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       4. SECCIÓN 2: VOZ Y VIDEO EN TIEMPO REAL
+  ======================================================== -->
+  <section id="voz" class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)]">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
+
+        <!-- Tarjeta visual interactiva de voz -->
+        <div class="order-2 lg:order-1 app-window p-6 sm:p-8">
+          <div class="flex items-center justify-between gap-2 pb-4 border-b border-dark-border mb-6">
+            <div class="flex items-center gap-2 min-w-0">
+              <i data-lucide="volume-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              <span class="font-bold text-white text-sm truncate">Sala de Audio en Vivo</span>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-1 rounded-full shrink-0">
+              WebRTC Activo
+            </span>
+          </div>
+
+          <!-- Participantes en llamada -->
+          <div class="grid grid-cols-2 gap-4">
+
+            <div class="p-4 rounded-xl bg-dark-900 border-2 border-emerald-500/60 flex flex-col items-center text-center relative ring-pulse">
+              <div class="w-14 h-14 rounded-full bg-brand flex items-center justify-center font-bold text-white text-base mb-2">
+                LX
+              </div>
+              <span class="font-bold text-xs text-white">Lyxtem</span>
+              <span class="text-[10px] text-emerald-400 font-medium">Hablando...</span>
+              <span class="eq mt-1.5"><span></span><span></span><span></span><span></span><span></span></span>
+              <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-dark-900 border border-dark-border flex flex-col items-center text-center">
+              <div class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white text-base mb-2">
+                MK
+              </div>
+              <span class="font-bold text-xs text-white">Marcos</span>
+              <span class="text-[10px] text-slate-500">Silenciado</span>
+            </div>
+
+          </div>
+
+          <!-- Barra de controles de llamada -->
+          <div class="mt-6 pt-4 border-t border-dark-border flex items-center justify-center gap-3 flex-wrap">
+            <button class="p-3 rounded-full bg-dark-800 text-white hover:bg-dark-700" aria-label="Micrófono">
+              <i data-lucide="mic" class="w-5 h-5"></i>
+            </button>
+            <button class="p-3 rounded-full bg-dark-800 text-white hover:bg-dark-700" aria-label="Cámara">
+              <i data-lucide="video" class="w-5 h-5"></i>
+            </button>
+            <button class="p-3 rounded-full bg-dark-800 text-white hover:bg-dark-700" aria-label="Compartir pantalla">
+              <i data-lucide="monitor" class="w-5 h-5"></i>
+            </button>
+            <button class="p-3 rounded-full bg-red-600 text-white hover:bg-red-700" aria-label="Desconectar">
+              <i data-lucide="phone-off" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Texto de voz -->
+        <div class="order-1 lg:order-2 min-w-0">
+          <span class="badge-3d">Sin necesidad de llamar</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-5 leading-tight">
+            Entra al canal y ya estás hablando
+          </h2>
+          <p class="mt-6 text-base sm:text-lg text-[#b9c6f5] leading-relaxed">
+            Olvídate de marcar timbres o coordinar enlaces de reuniones. En Larixy, los canales de voz siempre están ahí: cuando quieras hablar, solo haces un clic para entrar y tus amigos verán que estás dentro.
+          </p>
+          <div class="mt-8 space-y-3 text-sm text-[#b9c6f5]">
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Transmisión WebRTC directa sin esperas</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Compartir pantalla de aplicaciones o monitor completo</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Ajuste de volumen independiente por participante</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       5. SECCIÓN 3: COMUNIDADES Y ROLES
+  ======================================================== -->
+  <section id="comunidad" class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)] section-glow">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
+
+        <!-- Texto explicativo -->
+        <div class="min-w-0">
+          <span class="badge-3d">Control total</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-5 leading-tight">
+            Para un grupo íntimo o una comunidad entera
+          </h2>
+          <p class="mt-6 text-base sm:text-lg text-[#b9c6f5] leading-relaxed">
+            Asigna roles personalizados con colores y jerarquías claras. Otorga permisos especiales a tus moderadores, crea canales exclusivos para miembros destacados y gestiona quién puede hablar o gestionar cada sección.
+          </p>
+          <div class="mt-8 space-y-3 text-sm text-[#b9c6f5]">
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Roles con colores en el chat y lista de miembros</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Herramientas de moderación: silenciar, expulsar o banear</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Emojis personalizados subidos directamente por tu servidor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de roles -->
+        <div class="app-window p-6 sm:p-8">
+          <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
+            Gestión de Miembros y Roles
+          </div>
+
+          <div class="space-y-3">
+
+            <div class="p-3.5 rounded-xl bg-dark-900 border border-dark-border flex items-center justify-between gap-2">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-9 h-9 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0">
+                  <i data-lucide="crown" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-white">Owner</div>
+                  <div class="text-xs text-slate-400">Permisos de administración total</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono text-amber-400 font-semibold shrink-0">Nivel 1</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-dark-900 border border-dark-border flex items-center justify-between gap-2">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-9 h-9 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs shrink-0">
+                  <i data-lucide="shield" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-white">Moderador</div>
+                  <div class="text-xs text-slate-400">Gestionar mensajes y canales</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono text-blue-400 font-semibold shrink-0">Nivel 2</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-dark-900 border border-dark-border flex items-center justify-between gap-2">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-9 h-9 rounded-full bg-brand/20 text-brand-light flex items-center justify-center font-bold text-xs shrink-0">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </div>
+                <div class="min-w-0">
+                  <div class="text-sm font-bold text-white">Comunidad</div>
+                  <div class="text-xs text-slate-400">Acceso a canales públicos de texto y voz</div>
+                </div>
+              </div>
+              <span class="text-xs font-mono text-slate-400 font-semibold shrink-0">Miembro</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       6. SECCIÓN 4: DESARROLLADORES Y BOTS
+  ======================================================== -->
+  <section id="desarrolladores" class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)]">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
+
+        <!-- Bloque de código real -->
+        <div class="order-2 lg:order-1 app-window bg-[#070a1f] p-5 font-mono text-xs text-slate-300 min-w-0">
+          <div class="flex items-center justify-between gap-2 pb-3 border-b border-dark-border mb-4 text-slate-500 text-[11px]">
+            <span class="truncate">bot.js — Larixy Gateway Event</span>
+            <span class="shrink-0">WebSocket v1</span>
+          </div>
+          <pre class="overflow-x-auto leading-relaxed"><code class="text-slate-300"><span class="text-purple-400">import</span> { Client } <span class="text-purple-400">from</span> <span class="text-emerald-300">"larixy"</span>;
+
+<span class="text-purple-400">const</span> client = <span class="text-purple-400">new</span> <span class="text-amber-300">Client</span>();
+
+client.<span class="text-blue-400">on</span>(<span class="text-emerald-300">"messageCreate"</span>, <span class="text-purple-400">async</span> (msg) => {
+  <span class="text-purple-400">if</span> (msg.content === <span class="text-emerald-300">"!ping"</span>) {
+    <span class="text-purple-400">await</span> msg.reply(<span class="text-emerald-300">"¡Pong! Respuesta en tiempo real 🏓"</span>);
+  }
+});
+
+client.<span class="text-blue-400">login</span>(process.env.<span class="text-blue-300">BOT_TOKEN</span>);</code></pre>
+        </div>
+
+        <!-- Texto explicativo -->
+        <div class="order-1 lg:order-2 min-w-0">
+          <span class="badge-3d">Plataforma abierta</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-5 leading-tight">
+            Diseñado para ser extendido con Bots y APIs
+          </h2>
+          <p class="mt-6 text-base sm:text-lg text-[#b9c6f5] leading-relaxed">
+            Larixy cuenta con una arquitectura de Gateway en tiempo real y una API HTTP abierta. Puedes conectar bots, integrar webhooks desde GitHub o GitLab y automatizar lo que tu comunidad necesite.
+          </p>
+          <div class="mt-8 space-y-3 text-sm text-[#b9c6f5]">
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Autenticación mediante tokens de bot dedicados</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Webhooks para recibir notificaciones y alertas automáticas</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-[#7db1ff] shrink-0"></i>
+              <span>Identificadores únicos tipo snowflake para cada recurso</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       7. PREGUNTAS FRECUENTES (FAQ)
+  ======================================================== -->
+  <section id="faq" class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)]">
+    <div class="max-w-4xl mx-auto px-5 sm:px-8">
+
+      <div class="text-center mb-14">
+        <span class="badge-3d">Claridad ante todo</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-5">
+          Preguntas Frecuentes
+        </h2>
+        <div class="u-bar mx-auto mt-6"></div>
+      </div>
+
+      <div class="space-y-4 reveal">
+
+        <details class="card-3d p-6 cursor-pointer group" open>
+          <summary class="flex items-center justify-between gap-3 font-bold text-base sm:text-lg text-white list-none">
+            <span class="min-w-0">¿Qué es exactamente Larixy?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-[#8fa1dd] shrink-0"></i>
+          </summary>
+          <p class="mt-4 text-sm sm:text-base text-[#b9c6f5] leading-relaxed">
+            Larixy es una plataforma de comunicación comunitaria que combina canales de texto organizados y salas de voz en tiempo real. Está diseñada para ofrecer una experiencia rápida y libre de algoritmos invasivos.
+          </p>
+        </details>
+
+        <details class="card-3d p-6 cursor-pointer group">
+          <summary class="flex items-center justify-between gap-3 font-bold text-base sm:text-lg text-white list-none">
+            <span class="min-w-0">¿Es necesario descargar algo para usarlo?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-[#8fa1dd] shrink-0"></i>
+          </summary>
+          <p class="mt-4 text-sm sm:text-base text-[#b9c6f5] leading-relaxed">
+            No. Puedes acceder a Larixy directamente desde cualquier navegador web (Chrome, Firefox, Edge, Safari, Brave). Si lo prefieres, también puedes instalarlo en tu PC o móvil como aplicación web (PWA).
+          </p>
+        </details>
+
+        <details class="card-3d p-6 cursor-pointer group">
+          <summary class="flex items-center justify-between gap-3 font-bold text-base sm:text-lg text-white list-none">
+            <span class="min-w-0">¿Cómo se manejan mis datos y mi privacidad?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-[#8fa1dd] shrink-0"></i>
+          </summary>
+          <p class="mt-4 text-sm sm:text-base text-[#b9c6f5] leading-relaxed">
+            No rastreamos tus hábitos para vender perfiles publicitarios ni mostramos anuncios en tus canales. Las transmisiones de voz viajan directamente mediante WebRTC y tus credenciales se almacenan con algoritmos seguros.
+          </p>
+        </details>
+
+        <details class="card-3d p-6 cursor-pointer group">
+          <summary class="flex items-center justify-between gap-3 font-bold text-base sm:text-lg text-white list-none">
+            <span class="min-w-0">¿Puedo crear mi propio servidor gratis?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-[#8fa1dd] shrink-0"></i>
+          </summary>
+          <p class="mt-4 text-sm sm:text-base text-[#b9c6f5] leading-relaxed">
+            Sí. Crear servidores, canales de texto, canales de voz, roles y subir emojis personalizados es totalmente accesible para cualquier usuario registrado sin cargos ocultos.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       8. BANNER FINAL CTA
+  ======================================================== -->
+  <section class="py-24 md:py-32 border-t border-[rgba(140,165,255,0.15)] text-center relative overflow-hidden cta-grad">
+    <svg class="hero-wave" style="left:-40px; top:24px; width:250px; opacity:0.10; transform: rotate(-12deg);" viewBox="0 0 512 512" fill="#ffffff" aria-hidden="true"><path d="M 199.04 169.6 L 213.76 170.24 L 223.36 174.08 L 232.32 180.48 L 245.12 194.56 L 260.48 222.72 L 277.12 270.72 L 287.36 292.48 L 296.32 305.92 L 305.28 313.6 L 311.68 314.24 L 316.8 311.68 L 330.24 297.6 L 344.32 272.64 L 353.28 248.96 L 355.84 245.76 L 362.88 241.92 L 369.92 241.92 L 376.96 245.76 L 380.8 252.8 L 380.8 260.48 L 378.24 267.52 L 362.88 300.8 L 346.24 324.48 L 330.88 337.28 L 318.72 342.4 L 311.04 343.68 L 295.68 341.12 L 288.0 337.28 L 280.32 331.52 L 270.08 320.0 L 256.0 295.68 L 245.76 270.08 L 239.36 248.96 L 226.56 220.16 L 218.88 208.64 L 211.2 200.96 L 204.16 197.76 L 197.12 200.32 L 192.0 204.16 L 181.12 216.32 L 168.32 237.44 L 158.08 263.04 L 153.6 268.16 L 148.48 270.72 L 141.44 270.72 L 133.12 265.6 L 129.92 256.64 L 131.84 248.32 L 143.36 222.08 L 158.72 197.12 L 165.12 189.44 L 177.92 177.92 L 186.88 172.8 L 194.56 170.24 L 198.4 170.24 Z"/></svg>
+    <svg class="hero-wave" style="right:-30px; bottom:16px; width:190px; opacity:0.08; transform: rotate(16deg) scaleX(-1);" viewBox="0 0 512 512" fill="#ffffff" aria-hidden="true"><path d="M 199.04 169.6 L 213.76 170.24 L 223.36 174.08 L 232.32 180.48 L 245.12 194.56 L 260.48 222.72 L 277.12 270.72 L 287.36 292.48 L 296.32 305.92 L 305.28 313.6 L 311.68 314.24 L 316.8 311.68 L 330.24 297.6 L 344.32 272.64 L 353.28 248.96 L 355.84 245.76 L 362.88 241.92 L 369.92 241.92 L 376.96 245.76 L 380.8 252.8 L 380.8 260.48 L 378.24 267.52 L 362.88 300.8 L 346.24 324.48 L 330.88 337.28 L 318.72 342.4 L 311.04 343.68 L 295.68 341.12 L 288.0 337.28 L 280.32 331.52 L 270.08 320.0 L 256.0 295.68 L 245.76 270.08 L 239.36 248.96 L 226.56 220.16 L 218.88 208.64 L 211.2 200.96 L 204.16 197.76 L 197.12 200.32 L 192.0 204.16 L 181.12 216.32 L 168.32 237.44 L 158.08 263.04 L 153.6 268.16 L 148.48 270.72 L 141.44 270.72 L 133.12 265.6 L 129.92 256.64 L 131.84 248.32 L 143.36 222.08 L 158.72 197.12 L 165.12 189.44 L 177.92 177.92 L 186.88 172.8 L 194.56 170.24 L 198.4 170.24 Z"/></svg>
+    <div class="max-w-4xl mx-auto px-5 sm:px-8 reveal">
+
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight uppercase">
+        ¿Listo para empezar tu comunidad?
+      </h2>
+      <p class="mt-6 text-base sm:text-lg text-[#dbe6ff] max-w-xl mx-auto">
+        Crea tu cuenta en unos segundos y reúnete con tus amigos en un espacio hecho para conversar.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <a href="/app" class="btn-white-3d big w-full sm:w-auto">
+          <span>Abrir Larixy ahora</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <a href="/login" class="btn-ghost-3d w-full sm:w-auto px-8 py-4 text-base">
+          <span>Iniciar sesión</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========================================================
+       9. FOOTER
+  ======================================================== -->
+  <footer class="border-t border-[rgba(140,165,255,0.15)] py-14 text-sm text-[#8fa1dd]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+      <div class="flex flex-col items-center text-center gap-4 mb-10">
+        <div class="flex items-center gap-2.5">
+          <div class="logo-3d w-[34px] h-[34px] rounded-[11px] flex items-center justify-center p-[7px]">
+            <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full">
+          </div>
+          <span class="font-display font-extrabold text-[19px] text-white tracking-tight">Larixy</span>
+        </div>
+        <p class="text-xs text-[#8fa1dd] max-w-xs leading-relaxed">
+          Plataforma de comunicación en tiempo real para comunidades, amigos y creadores.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs font-semibold">
+        <a href="/terms" class="hover:text-white transition-colors">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/partner" class="hover:text-white transition-colors">Partner</a>
+        <a href="/verified" class="hover:text-white transition-colors">Verificación</a>
+        <a href="/security" class="hover:text-white transition-colors">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white transition-colors">Normas</a>
+        <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="hover:text-white transition-colors">Cliente Web</a>
+        <a href="#faq" class="hover:text-white transition-colors">Preguntas frecuentes</a>
+        <a href="/login" class="hover:text-white transition-colors">Acceso de cuenta</a>
+      </div>
+
+      <div class="pt-8 mt-10 border-t border-[rgba(140,165,255,0.15)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#8fa1dd] text-center">
+        <p>© 2026 Larixy. Todos los derechos reservados.</p>
+        <p>Construido para comunidades independientes.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Inicializar iconos de Lucide
+    lucide.createIcons();
+
+    // Toggle menú móvil
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+
+  <script>
+    // Aparición suave al hacer scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>

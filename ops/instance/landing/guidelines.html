@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normas de la comunidad — Larixy</title>
+  <meta name="description" content="Las normas de la comunidad de Larixy: pocas, claras y para todos. Qué se permite, qué no, y cómo actuamos cuando se incumplen.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #090c22; background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%); background-attachment: fixed; color: #eef1ff; }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+    html { scrollbar-color: #2b3a75 #090c22; }
+    .nav-v3 { background: rgba(8,11,32,.55); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(140,165,255,.15); }
+    .logo-box { width: 34px; height: 34px; border-radius: 11px; flex: none; display: flex; align-items: center; justify-content: center; padding: 6px; background: linear-gradient(180deg,#5ea0ff,#1f66e5); box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5); }
+    .logo-box img { width: 100%; height: 100%; }
+    .btn-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#5ea0ff,#2f7bff 55%,#1f66e5); color: #fff; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+    .btn-ghost-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+    .btn-white-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#ffffff,#dbe6ff); color: #0b1030; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 5px 0 #8fa8e8; transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-white-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 #8fa8e8; }
+    .btn-white-sm { min-height: 0; padding: 8px 14px; border-radius: 999px; font-size: 13px; box-shadow: 0 3px 0 #8fa8e8; }
+    .btn-white-sm:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+    .card-3d { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)); border: 1px solid rgba(140,165,255,.18); border-radius: 18px; box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08); }
+    .card-in { background: rgba(255,255,255,.04); border: 1px solid rgba(140,165,255,.15); border-radius: 14px; }
+    .chip-3d { width: 40px; height: 40px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg,#3d8bff,#2563eb); box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5); color: #fff; }
+    .badge-3d { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4); color: #9dc0ff; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .u-bar { width: 64px; height: 5px; border-radius: 99px; background: linear-gradient(90deg,#5ea0ff,#2f7bff); box-shadow: 0 3px 0 #1743a6; }
+    .lnk { color: #7db1ff; font-weight: 600; }
+    .lnk:hover { color: #9dc0ff; }
+    .card-3d ul li::marker { color: #2f7bff; }
+    .btn-row { display: flex; flex-direction: column; gap: 12px; }
+    .btn-row > * { width: 100%; }
+    @media (min-width: 640px) { .btn-row { flex-direction: row; justify-content: center; } .btn-row > * { width: auto; } }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-v3">
+    <div class="max-w-6xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <div class="logo-box">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy">
+        </div>
+        <span class="font-display font-extrabold text-[19px] tracking-tight text-white">Larixy</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/partner" class="hidden sm:block text-[#b9c6f5] hover:text-white transition-colors">Partner</a>
+        <a href="/docs" class="hidden sm:block text-[#b9c6f5] hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="btn-white-3d btn-white-sm">Abrir app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5 py-14 sm:py-20">
+    <div class="text-center mb-12 sm:mb-16">
+      <div class="badge-3d">
+        <i data-lucide="scroll-text" class="w-3.5 h-3.5"></i>
+        <span>Comunidad</span>
+      </div>
+      <h1 class="font-display font-extrabold text-[34px] sm:text-5xl text-white tracking-tight leading-tight mt-6">
+        Normas de la comunidad
+      </h1>
+      <div class="u-bar mx-auto mt-5"></div>
+      <p class="mt-5 text-base sm:text-lg max-w-xl mx-auto" style="color:#b9c6f5">
+        Son pocas y están escritas para entenderse sin un abogado al lado. Aplican a todas las cuentas, comunidades y bots de Larixy, y complementan los <a href="/terms" class="lnk">Términos de Servicio</a>.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+
+      <!-- Respeta a las personas -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="heart-handshake" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>1. Respeta a las personas</span>
+        </h2>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li>Nada de acoso: perseguir, humillar o silenciar a alguien no es debatir.</li>
+          <li>Nada de discursos de odio por raza, etnia, género, orientación, religión o discapacidad.</li>
+          <li>Nada de amenazas ni de incitar a la violencia contra personas o grupos.</li>
+          <li>Discutir con fuerza está permitido; convertir a una persona en objetivo, no.</li>
+        </ul>
+      </div>
+
+      <!-- Protege a los demás -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="shield-alert" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>2. Protege a los demás</span>
+        </h2>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li><strong class="text-white">Tolerancia cero con cualquier contenido sexual que involucre a menores</strong>: expulsión inmediata y denuncia a las autoridades. Sin excepciones ni matices.</li>
+          <li>Nada de publicar datos personales de otra persona (dirección, teléfono, documentos) sin su permiso: eso es doxxing, aunque la información circule por otros sitios.</li>
+          <li>Nada de suplantar a otra persona, comunidad o marca para engañar.</li>
+          <li>Nada de contenido que fomente la autolesión. Si alguien cercano está en riesgo, lo primero es ayudarle a buscar apoyo profesional.</li>
+          <li>La edad mínima para usar Larixy es la que indican los <a href="/terms" class="lnk">Términos de Servicio</a>. Si crees que una cuenta no la cumple, repórtala.</li>
+        </ul>
+      </div>
+
+      <!-- Contenido -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="image" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>3. Cuida lo que publicas</span>
+        </h2>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li>Lo ilegal no tiene sitio aquí, lo publique quien lo publique.</li>
+          <li>El contenido para adultos (NSFW) solo en los espacios marcados para ello y entre adultos. Fuera de ahí, no.</li>
+          <li>Nada de violencia gráfica gratuita en espacios públicos.</li>
+          <li>Respeta el trabajo ajeno: no compartas contenido pirateado como si fuera tuyo.</li>
+        </ul>
+      </div>
+
+      <!-- Spam, estafas y bots -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="bot" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>4. Nada de spam, estafas ni trampas</span>
+        </h2>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li>Nada de spam, phishing, malware ni estafas de ningún tipo.</li>
+          <li>Nada de vender cuentas, insignias o datos de usuarios.</li>
+          <li>Los bots funcionan por la vía oficial: una aplicación creada desde tu perfil. Automatizar una cuenta de usuario (self-bots) no está permitido.</li>
+          <li>Investigar la seguridad de la plataforma tiene su propio cauce: las reglas y el puerto seguro están en la página de <a href="/security" class="lnk">Seguridad</a>. Fuera de ese cauce, probar sistemas ajenos cuenta como abuso.</li>
+        </ul>
+      </div>
+
+      <!-- Tu comunidad -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="users" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>5. Tu comunidad, tu responsabilidad</span>
+        </h2>
+        <p class="text-sm leading-relaxed" style="color:#b9c6f5">
+          Quien crea un servidor responde de moderarlo. Puedes poner normas más estrictas que estas dentro de tu casa, pero nunca más laxas: estas son el suelo también dentro de los servidores. Si una comunidad incumple de forma sistemática y su equipo no actúa, Larixy puede actuar sobre la comunidad entera.
+        </p>
+      </div>
+
+      <!-- Cómo actuamos -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="gavel" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>6. Cómo actuamos</span>
+        </h2>
+        <p class="text-sm leading-relaxed mb-3" style="color:#b9c6f5">
+          Según la gravedad y el historial, en este orden: aviso, retirada del contenido, suspensión temporal y expulsión. Lo grave de verdad — abuso infantil, amenazas reales, doxxing — salta directamente a la expulsión.
+        </p>
+        <p class="text-sm leading-relaxed" style="color:#b9c6f5">
+          ¿Una medida te parece injusta? Apela en el <a href="/app" class="lnk">servidor oficial</a>, categoría de Soporte, explicando tu caso con calma. Las apelaciones las lee una persona, no un formulario automático.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="mt-12 py-12 text-sm" style="border-top: 1px solid rgba(140,165,255,.15); color:#8fa1dd">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs">
+        <a href="/terms" class="hover:text-white">Términos</a>
+        <a href="/privacy" class="hover:text-white">Privacidad</a>
+        <a href="/refunds" class="hover:text-white">Reembolsos</a>
+        <a href="/partner" class="hover:text-white">Partner</a>
+        <a href="/verified" class="hover:text-white">Verificación</a>
+        <a href="/security" class="hover:text-white">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white">Normas</a>
+        <a href="/docs" class="hover:text-white">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

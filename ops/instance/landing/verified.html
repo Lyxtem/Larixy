@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Servidores y Cuentas — Larixy</title>
+  <meta name="description" content="La insignia de verificación de Larixy confirma la identidad oficial de servidores y perfiles. Quién puede obtenerla y cómo verificar tu dominio por DNS o archivo HTTP.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #090c22; background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%); background-attachment: fixed; color: #eef1ff; }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+    html { scrollbar-color: #2b3a75 #090c22; }
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-thumb { background: #22315f; border-radius: 8px; }
+    body::-webkit-scrollbar-thumb:hover { background: #2f7bff; }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } }
+
+    .nav-bar { background: rgba(8,11,32,.55); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(140,165,255,.15); }
+    .logo-box { width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(180deg,#5ea0ff,#1f66e5); box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5); display: flex; align-items: center; justify-content: center; padding: 6px; flex: none; }
+
+    .btn-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#5ea0ff,#2f7bff 55%,#1f66e5); color: #fff; font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5); text-shadow: 0 1px 2px rgba(10,30,90,.35); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+    .btn-ghost-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+    .btn-white-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#ffffff,#dbe6ff); color: #0b1030; font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: 0 5px 0 #8fa8e8; transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-white-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 #8fa8e8; }
+    .btn-white-3d.small { padding: 8px 14px; font-size: 13px; border-radius: 999px; box-shadow: 0 3px 0 #8fa8e8; min-height: 0; }
+    .btn-white-3d.small:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+
+    .card-3d { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)); border: 1px solid rgba(140,165,255,.18); border-radius: 18px; box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08); }
+    .chip-3d { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(180deg,#3d8bff,#2563eb); box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5); display: flex; align-items: center; justify-content: center; flex: none; color: #fff; }
+    .badge-3d { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4); color: #9dc0ff; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .u-bar { width: 64px; height: 5px; border-radius: 99px; background: linear-gradient(90deg,#5ea0ff,#2f7bff); box-shadow: 0 3px 0 #1743a6; }
+    .card-3d ul li::marker { color: #2f7bff; }
+    .inset-box { background: rgba(6,9,26,.55); border: 1px solid rgba(140,165,255,.15); border-radius: 14px; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-bar">
+    <div class="max-w-6xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <span class="logo-box"><img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full"></span>
+        <span class="font-display font-extrabold text-[19px] tracking-tight text-white">Larixy</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/partner" class="hidden sm:block text-[#aebfff] hover:text-white transition-colors">Partner</a>
+        <a href="/docs" class="hidden sm:block text-[#aebfff] hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="btn-white-3d small">Abrir app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-14 sm:py-20">
+    <div class="text-center mb-12">
+      <span class="badge-3d">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+        <span>Autenticidad y Confianza</span>
+      </span>
+      <h1 class="font-display font-extrabold text-[34px] sm:text-5xl text-white tracking-tight uppercase leading-tight mt-6">
+        Servidores y Perfiles Verificados
+      </h1>
+      <div class="u-bar mx-auto mt-6"></div>
+      <p class="mt-5 text-base sm:text-lg text-[#b9c6f5] max-w-xl mx-auto leading-relaxed">
+        La insignia de verificación confirma que un servidor o usuario representa a la entidad oficial, creador o proyecto original que dice ser.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+
+      <!-- Tipos de verificación -->
+      <div class="card-3d p-6 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2">
+          <i data-lucide="badge-check" class="w-6 h-6 text-[#7db1ff] shrink-0"></i>
+          <span class="min-w-0">¿Quién puede obtener la insignia de Verificado?</span>
+        </h2>
+        <p class="text-sm text-[#b9c6f5] leading-relaxed mb-4">
+          La verificación está destinada a:
+        </p>
+        <ul class="space-y-2 text-sm text-[#b9c6f5] list-disc pl-5">
+          <li>Empresas, marcas y organizaciones constituidas.</li>
+          <li>Proyectos de código abierto y desarrolladores con trayectoria pública comprobable.</li>
+          <li>Figuras públicas, streamers, artistas y creadores con audiencia consolidada.</li>
+        </ul>
+      </div>
+
+      <!-- Verificación técnica de dominio -->
+      <div class="card-3d p-6 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2">
+          <i data-lucide="globe" class="w-6 h-6 text-[#7db1ff] shrink-0"></i>
+          <span class="min-w-0">Verificación criptográfica de dominio</span>
+        </h2>
+        <p class="text-sm text-[#b9c6f5] leading-relaxed mb-4">
+          Larixy permite vincular y verificar la propiedad de un dominio directamente en tu perfil mediante dos métodos transparentes:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div class="inset-box p-4">
+            <h4 class="font-bold text-sm text-white mb-1">1. Registro DNS TXT</h4>
+            <p class="text-xs text-[#b9c6f5] leading-relaxed">
+              Añade un registro TXT en el subdominio <code class="text-[#7db1ff] font-mono">_larixy.tudominio.com</code> con el valor de token asignado.
+            </p>
+          </div>
+          <div class="inset-box p-4">
+            <h4 class="font-bold text-sm text-white mb-1">2. Archivo HTTP Token</h4>
+            <p class="text-xs text-[#b9c6f5] leading-relaxed">
+              Sube el archivo de verificación en la ruta pública <code class="text-[#7db1ff] font-mono">/.well-known/larixy-verification</code> en tu servidor web.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cómo solicitar -->
+      <div class="card-3d p-6 sm:p-8 text-center">
+        <h3 class="font-display font-bold text-2xl text-white mb-3">¿Deseas verificar tu comunidad?</h3>
+        <p class="text-sm text-[#b9c6f5] max-w-lg mx-auto mb-6 leading-relaxed">
+          Ingresa a la aplicación, accede al menú de ajustes de tu servidor o perfil y completa el formulario de solicitud de verificación.
+        </p>
+        <div class="flex flex-col sm:flex-row sm:justify-center">
+          <a href="/app" class="btn-3d w-full sm:w-auto">
+            <span>Abrir Larixy y Gestionar</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="mt-12" style="border-top: 1px solid rgba(140,165,255,.15)">
+    <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#8fa1dd]">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs font-semibold">
+        <a href="/terms" class="hover:text-white transition-colors">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/partner" class="hover:text-white transition-colors">Partner</a>
+        <a href="/verified" class="hover:text-white transition-colors">Verificación</a>
+        <a href="/security" class="hover:text-white transition-colors">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white transition-colors">Normas</a>
+        <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

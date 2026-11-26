@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Términos de Servicio — Larixy</title>
+  <meta name="description" content="Términos de Servicio de Larixy: las condiciones que aceptas al usar la plataforma, tu cuenta, los pagos y la moderación.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#2f7bff', light: '#5ea0ff', deep: '#1f66e5', edge: '#1743a6' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: #090c22;
+      background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%);
+      background-attachment: fixed;
+      color: #eef1ff;
+    }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+    html { scrollbar-color: #2a3260 #090c22; }
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-thumb { background: #232a52; border-radius: 8px; }
+    body::-webkit-scrollbar-thumb:hover { background: #2f7bff; }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } }
+
+    /* ===== Sistema de diseño v3 ===== */
+    .btn-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(180deg, #5ea0ff, #2f7bff 55%, #1f66e5);
+      color: #fff; font-weight: 800; font-size: 15px; text-decoration: none;
+      border: 0; border-radius: 14px; padding: 14px 22px; min-height: 48px; cursor: pointer;
+      box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5);
+      text-shadow: 0 1px 2px rgba(10,30,90,.35);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+    .btn-ghost-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; font-size: 15px; text-decoration: none;
+      border: 0; border-radius: 14px; padding: 14px 22px; min-height: 48px; cursor: pointer;
+      box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+    .btn-white-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      background: linear-gradient(180deg, #ffffff, #dbe6ff); color: #0b1030;
+      font-weight: 800; text-decoration: none; border: 0; cursor: pointer;
+      border-radius: 999px; padding: 8px 14px; font-size: 13px;
+      box-shadow: 0 3px 0 #8fa8e8;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-white-3d:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+    .card-3d {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid rgba(140,165,255,.18); border-radius: 18px;
+      box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .chip-3d {
+      width: 40px; height: 40px; border-radius: 12px; flex: none;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, #5ea0ff, #2f7bff 55%, #1f66e5); color: #fff;
+      box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+    .badge-3d {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4); color: #9dc0ff;
+      font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .u-bar {
+      width: 64px; height: 5px; border-radius: 99px;
+      background: linear-gradient(90deg, #5ea0ff, #2f7bff 55%, #1f66e5);
+      box-shadow: 0 3px 0 #1743a6;
+    }
+
+    /* ===== Prosa legal v3 ===== */
+    .prose-custom h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: #fff;
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .prose-custom h2:first-of-type {
+      margin-top: 1rem;
+    }
+    .prose-custom h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-custom p {
+      color: #b9c6f5;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      overflow-wrap: break-word;
+    }
+    .prose-custom ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      color: #b9c6f5;
+      font-size: 15px;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .prose-custom li {
+      margin-bottom: 0.5rem;
+    }
+    .prose-custom li::marker { color: #2f7bff; }
+    .prose-custom a {
+      color: #7db1ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+    .prose-custom a:hover { color: #9dc0ff; }
+    .prose-custom strong { color: #eef1ff; }
+    .highlight-box {
+      background: rgba(47,123,255,.08);
+      border: 1px solid rgba(110,160,255,.25);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .highlight-box p { margin-bottom: 0; }
+  </style>
+</head>
+
+<body class="font-sans antialiased flex flex-col min-h-screen">
+  <header class="sticky top-0 z-50" style="background: rgba(8,11,32,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(140,165,255,.15);">
+    <div class="max-w-6xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <span class="flex items-center justify-center flex-none" style="width:34px; height:34px; border-radius:11px; background: linear-gradient(180deg,#5ea0ff,#2f7bff 55%,#1f66e5); box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5); padding:6px;">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full max-w-full">
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-white" style="font-size:19px;">Larixy</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold flex-none">
+        <a href="/partner" class="hidden sm:block hover:text-white transition-colors" style="color:#b9c6f5;">Partner</a>
+        <a href="/docs" class="hidden sm:block hover:text-white transition-colors" style="color:#b9c6f5;">Docs</a>
+        <a href="/app" class="btn-white-3d">Abrir app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="w-full max-w-4xl mx-auto px-4 sm:px-5 py-14 sm:py-20 flex-grow">
+    <div class="text-center mb-10">
+      <span class="badge-3d">Acuerdo Legal</span>
+      <h1 class="font-display font-extrabold text-white tracking-tight leading-tight" style="font-size:34px; margin-top:16px;">Términos de Servicio</h1>
+      <div class="u-bar mx-auto" style="margin-top:16px;"></div>
+      <p class="text-sm mt-4" style="color:#8fa1dd;">Última actualización: 23 de noviembre de 2026 • Entrada en vigor: 23 de noviembre de 2026</p>
+    </div>
+
+    <div class="prose-custom card-3d p-6 sm:p-10">
+      <div class="highlight-box">
+        <p class="text-sm mb-0 font-medium" style="color:#eef1ff;">
+          Al registrarte o utilizar <strong>Larixy</strong> (en web, cliente de escritorio o mediante nuestras APIs), aceptas cumplir estos Términos de Servicio, nuestra <a href="/privacy">Política de Privacidad</a> y nuestra <a href="/refunds">Política de Reembolsos</a>.
+        </p>
+      </div>
+
+      <h2>1. Acuerdo y Elegibilidad</h2>
+      <p>
+        Estos términos constituyen un contrato vinculante entre tú y <strong>Larixy</strong> ("nosotros", "nuestro"). Si no estás de acuerdo con alguna de las cláusulas aquí recogidas, no debes utilizar la plataforma.
+      </p>
+      <p>
+        <strong>Requisito de edad mínima:</strong> Debes tener al menos 13 años (o la edad mínima legal exigida en tu país de residencia para consentir el procesamiento de servicios digitales sin supervisión parental). Si tienes la edad mínima pero no cuentas con la capacidad legal completa para contratar por ti mismo, tu padre, madre o tutor legal debe revisar y aceptar estos términos en tu nombre antes de que utilices Larixy.
+      </p>
+
+      <h2>2. Tu Cuenta y Uso Aceptable</h2>
+      <p>
+        Eres responsable de mantener en estricta confidencialidad tus credenciales de inicio de sesión y de toda actividad efectuada desde tu cuenta. Notifícanos de inmediato si sospechas de un acceso o uso no autorizado.
+      </p>
+      <p>
+        <strong>Conducta comunitaria y tolerancia cero al abuso:</strong> Larixy aplica una política estricta de tolerancia cero ante conductas o contenidos abusivos. Queda expresamente prohibido:
+      </p>
+      <ul>
+        <li>Alojar, distribuir o enlazar material que constituya explotación o abuso infantil de cualquier naturaleza (motivo de suspensión inmediata, reporte legal y bloqueo irrevocable).</li>
+        <li>Acosar, amenazar, intimidar, doxxear o vulnerar la privacidad de otros usuarios.</li>
+        <li>Distribuir virus informáticos, malware, troyanos, scripts dañinos o realizar ataques de denegación de servicio (DDoS).</li>
+        <li>Spam deliberado, automatización no autorizada fuera de los límites de rate limiting de la API o envío masivo de mensajes no solicitados.</li>
+      </ul>
+
+      <h2>3. Disponibilidad y Cambios en el Servicio</h2>
+      <p>
+        Larixy no cuenta con un acuerdo formal de nivel de servicio (SLA). Aunque dedicamos nuestros mejores esfuerzos técnicos para garantizar un servicio ininterrumpido y seguro, pueden producirse cortes temporales, labores de mantenimiento o incidencias derivadas de proveedores de red. Nos reservamos el derecho de agregar, modificar o descontinuar características o funciones de la plataforma previa notificación razonable.
+      </p>
+
+      <h2>4. Tu Contenido y Propiedad Intelectual</h2>
+      <p>
+        <strong>Conservas la propiedad de tu contenido:</strong> Todo el texto, imágenes, archivos de audio o multimedia que envías, compartes o transmites en Larixy te pertenecen íntegramente a ti (o a sus legítimos titulares).
+      </p>
+      <p>
+        Para que podamos operar la plataforma, nos concedes una licencia no exclusiva, libre de regalías y mundial para alojar, almacenar, retransmitir y mostrar tu contenido únicamente en la medida requerida para prestar el servicio a ti y a los usuarios con los que interactúas.
+      </p>
+
+      <h2>5. Servicios de Pago, Suscripciones y Facturación (Paddle)</h2>
+      <p>
+        <strong>Larixy Plutonium:</strong> Es un servicio de suscripción premium que añade funciones cosméticas y capacidades ampliadas a tu cuenta (personalización estética, carga ampliada de archivos, uso global de emojis e insignias distintivas). Requiere una cuenta en buen estado y acceso a internet.
+      </p>
+      <p>
+        <strong>Comerciante de Registro (Merchant of Record):</strong> Las transacciones y cobros de suscripciones digitales en Larixy son gestionados de forma segura a través de <strong>Paddle</strong> (<em>Paddle Payments Limited</em> o <em>Paddle.com Inc</em>) u otros procesadores autorizados. Paddle actúa como el Comerciante de Registro a efectos legales y fiscales, procesando pagos, recaudando los impuestos aplicables (como IVA/GST) y gestionando la emisión de facturas.
+      </p>
+      <p>
+        <strong>Renovación periódica automática:</strong> Al suscribirte a un plan mensual o anual de Plutonium, autorizas a nuestro procesador a cobrar periódicamente la tarifa acordada hasta que decidas cancelar. Puedes cancelar la renovación en cualquier momento desde los Ajustes de Usuario de la aplicación. La cancelación surtirá efecto al finalizar el ciclo pagado en curso.
+      </p>
+
+      <h2>6. Política de Reembolsos y Derecho de Desistimiento</h2>
+      <p>
+        Nuestra política de reembolsos completa, transparente y detallada está disponible en nuestra página dedicada: <a href="/refunds">Política de Reembolsos de Larixy (/refunds)</a>.
+      </p>
+      <p>
+        <strong>Derecho de desistimiento estatutario (UE, EEE y Reino Unido):</strong> Los consumidores de la Unión Europea, el EEE y el Reino Unido tienen derecho a desistir de una suscripción nueva de Plutonium en un plazo de <strong>14 días naturales</strong>. Para compras con inicio de servicio inmediato, se reembolsará el importe proporcional no consumido.
+      </p>
+      <p>
+        <strong>Brasil:</strong> Conforme al Artículo 49 del Código de Defensa del Consumidor (Ley Nº 8.078/1990), los usuarios residentes en Brasil cuentan con 7 días para ejercer el derecho de desistimiento de su primer pago con reembolso íntegro.
+      </p>
+
+      <h2>7. Pagos Fallidos y Gestión de Disputas</h2>
+      <p>
+        Si un pago de renovación no puede completarse por fondos insuficientes o tarjeta expirada, el procesador reintentará el cobro durante un período razonable y las ventajas de Plutonium podrán pausarse hasta que se regularice la situación. Si consideras que se te ha cobrado erróneamente, te invitamos a contactar directamente a nuestro equipo de soporte (<a href="mailto:support@larixy.xyz">support@larixy.xyz</a>) para resolver la situación de buena fe antes de iniciar una disputa bancaria.
+      </p>
+
+      <h2>8. Moderación, Suspensión y Cierre de Cuenta</h2>
+      <p>
+        <strong>Desactivación y eliminación por parte del usuario:</strong> Puedes desactivar o solicitar el borrado de tu cuenta en cualquier momento desde los ajustes. La solicitud de eliminación activa un <strong>período de gracia de 14 días</strong> durante el cual puedes revertir la decisión iniciando sesión nuevamente.
+      </p>
+      <p>
+        <strong>Medidas de moderación:</strong> Si determinamos razonablemente que se han vulnerado estos términos, las normas de la comunidad o la legalidad vigente, podemos restringir canales, retirar contenido o suspender cuentas. Salvo en situaciones de riesgo inminente, fraude financiero o infracción legal flagrante, proporcionaremos aviso previo y los motivos de la decisión.
+      </p>
+
+      <h2>9. Exención de Garantías y Limitación de Responsabilidad</h2>
+      <p>
+        Larixy se suministra "tal cual" y "según disponibilidad". En la máxima medida permitida por la ley aplicable, Larixy no otorga garantías expresas o implícitas sobre la adecuación del servicio para un propósito particular, la ausencia total de errores o la persistencia indefinida de datos almacenados.
+      </p>
+      <p>
+        En ningún caso Larixy será responsable de daños indirectos, incidentales, lucro cesante o pérdidas de beneficios derivados del uso o de la imposibilidad de uso de la plataforma. La responsabilidad máxima agregada no superará el importe total efectivamente abonado por el usuario a Larixy en los doce (12) meses previos al suceso.
+      </p>
+
+      <h2>10. Ley Aplicable y Resolución de Controversias</h2>
+      <p>
+        Para la resolución de cualquier desacuerdo, te animamos a ponerte en contacto primero con nosotros en <a href="mailto:support@larixy.xyz">support@larixy.xyz</a> para intentar llegar a una solución amistosa e informal en un plazo de 30 días.
+      </p>
+      <p>
+        Estos términos se rigen por la legislación civil y mercantil aplicable, sin perjuicio de las disposiciones imperativas y de orden público de protección al consumidor del país en el que residas legalmente.
+      </p>
+    </div>
+  </main>
+
+  <footer class="py-10 text-sm mt-4" style="border-top: 1px solid rgba(140,165,255,.15); color:#8fa1dd;">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs font-semibold">
+        <a href="/terms" class="hover:text-white transition-colors" style="color:#fff;">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/partner" class="hover:text-white transition-colors">Partner</a>
+        <a href="/verified" class="hover:text-white transition-colors">Verificación</a>
+        <a href="/security" class="hover:text-white transition-colors">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white transition-colors">Normas</a>
+        <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

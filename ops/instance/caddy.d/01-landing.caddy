@@ -1,0 +1,45 @@
+redir /partners /partner permanent
+redir /partners/* /partner permanent
+redir /refund /refunds permanent
+redir /refund/* /refunds permanent
+redir /download /downloads permanent
+redir /download/* /downloads permanent
+
+@landingPages {
+	path /
+	path /terms
+	path /terms/*
+	path /privacy
+	path /privacy/*
+	path /refunds
+	path /refunds/*
+	path /partner
+	path /partner/*
+	path /partners
+	path /partners/*
+	path /verified
+	path /verified/*
+	path /docs
+	path /docs/*
+	path /downloads
+	path /downloads/*
+	path /security
+	path /security/*
+	path /guidelines
+	path /guidelines/*
+}
+handle @landingPages {
+	root * /srv/landing
+	try_files {path} {path}.html {path}/index.html /index.html
+	file_server
+}
+
+@landingAssets {
+	path /landing-assets/*
+}
+handle @landingAssets {
+	uri strip_prefix /landing-assets
+	root * /srv/landing/assets
+	file_server
+}
+
