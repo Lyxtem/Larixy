@@ -41,7 +41,7 @@ export const BUILT_IN_GUILD_BADGE_KINDS = ['verified', 'partnered', 'discoverabl
 
 export type BuiltInGuildBadgeKind = (typeof BUILT_IN_GUILD_BADGE_KINDS)[number];
 
-const REPLACEABLE_PROFILE_BADGE_KINDS = ['staff', 'partner', 'bug_hunter', 'operator_pass', 'premium'] as const satisfies ReadonlyArray<ProfileBadgeKind>;
+const REPLACEABLE_PROFILE_BADGE_KINDS = ['staff', 'partner', 'bug_hunter', 'operator_pass', 'visionary', 'premium'] as const satisfies ReadonlyArray<ProfileBadgeKind>;
 
 export type ReplaceableProfileBadgeKind = (typeof REPLACEABLE_PROFILE_BADGE_KINDS)[number];
 
