@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad — Larixy</title>
+  <meta name="description" content="Cómo reportar una vulnerabilidad en Larixy: alcance del programa, reglas de prueba, puerto seguro y proceso de divulgación responsable.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#5865F2', hover: '#4752c4' },
+            dark: { 950: '#0b0c10', 900: '#111218', 850: '#161720', 800: '#1c1e29', border: 'rgba(255, 255, 255, 0.08)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #090c22; background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%); background-attachment: fixed; color: #eef1ff; }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+    html { scrollbar-color: #2b3a75 #090c22; }
+    .nav-v3 { background: rgba(8,11,32,.55); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(140,165,255,.15); }
+    .logo-box { width: 34px; height: 34px; border-radius: 11px; flex: none; display: flex; align-items: center; justify-content: center; padding: 6px; background: linear-gradient(180deg,#5ea0ff,#1f66e5); box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5); }
+    .logo-box img { width: 100%; height: 100%; }
+    .btn-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#5ea0ff,#2f7bff 55%,#1f66e5); color: #fff; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+    .btn-ghost-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+    .btn-white-3d { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 14px; background: linear-gradient(180deg,#ffffff,#dbe6ff); color: #0b1030; font-weight: 800; text-decoration: none; cursor: pointer; box-shadow: 0 5px 0 #8fa8e8; transition: transform .08s ease, box-shadow .08s ease; }
+    .btn-white-3d:active { transform: translateY(3px); box-shadow: 0 2px 0 #8fa8e8; }
+    .btn-white-sm { min-height: 0; padding: 8px 14px; border-radius: 999px; font-size: 13px; box-shadow: 0 3px 0 #8fa8e8; }
+    .btn-white-sm:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+    .card-3d { background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)); border: 1px solid rgba(140,165,255,.18); border-radius: 18px; box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08); }
+    .card-in { background: rgba(255,255,255,.04); border: 1px solid rgba(140,165,255,.15); border-radius: 14px; }
+    .chip-3d { width: 40px; height: 40px; border-radius: 12px; flex: none; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg,#3d8bff,#2563eb); box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5); color: #fff; }
+    .badge-3d { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4); color: #9dc0ff; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .u-bar { width: 64px; height: 5px; border-radius: 99px; background: linear-gradient(90deg,#5ea0ff,#2f7bff); box-shadow: 0 3px 0 #1743a6; }
+    .lnk { color: #7db1ff; font-weight: 600; }
+    .lnk:hover { color: #9dc0ff; }
+    .card-3d ul li::marker { color: #2f7bff; }
+    .btn-row { display: flex; flex-direction: column; gap: 12px; }
+    .btn-row > * { width: 100%; }
+    @media (min-width: 640px) { .btn-row { flex-direction: row; justify-content: center; } .btn-row > * { width: auto; } }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <header class="sticky top-0 z-50 nav-v3">
+    <div class="max-w-6xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <div class="logo-box">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy">
+        </div>
+        <span class="font-display font-extrabold text-[19px] tracking-tight text-white">Larixy</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="/partner" class="hidden sm:block text-[#b9c6f5] hover:text-white transition-colors">Partner</a>
+        <a href="/docs" class="hidden sm:block text-[#b9c6f5] hover:text-white transition-colors">Docs</a>
+        <a href="/app" class="btn-white-3d btn-white-sm">Abrir app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-5 py-14 sm:py-20">
+    <div class="text-center mb-12 sm:mb-16">
+      <div class="badge-3d">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+        <span>Seguridad</span>
+      </div>
+      <h1 class="font-display font-extrabold text-[34px] sm:text-5xl text-white tracking-tight leading-tight mt-6">
+        Divulgación responsable
+      </h1>
+      <div class="u-bar mx-auto mt-5"></div>
+      <p class="mt-5 text-base sm:text-lg max-w-xl mx-auto" style="color:#b9c6f5">
+        Larixy es de código abierto y su seguridad mejora con ojos externos. Si encuentras una vulnerabilidad, esta página es el acuerdo entre tú y el proyecto: cómo reportarla, qué puedes probar y qué puedes esperar a cambio.
+      </p>
+    </div>
+
+    <div class="space-y-5">
+
+      <!-- Cómo reportar -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="mail-warning" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>Cómo reportar</span>
+        </h2>
+        <p class="text-sm leading-relaxed mb-4" style="color:#b9c6f5">
+          Hay dos vías, ambas privadas. <strong class="text-white">No</strong> reportes una vulnerabilidad en un pull request, en un canal público ni en ningún sitio donde otros puedan leerla antes de que esté corregida.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div class="card-in p-4">
+            <h4 class="font-bold text-sm text-white mb-1">1. Aviso privado en GitHub</h4>
+            <p class="text-xs leading-relaxed" style="color:#8fa1dd">
+              La vía preferida: un <a href="https://github.com/Lyxtem/Larixy/security/advisories/new" class="lnk">aviso de seguridad privado</a> en el repositorio. Solo lo ve el mantenedor del proyecto.
+            </p>
+          </div>
+          <div class="card-in p-4">
+            <h4 class="font-bold text-sm text-white mb-1">2. Servidor oficial</h4>
+            <p class="text-xs leading-relaxed" style="color:#8fa1dd">
+              Sin cuenta de GitHub: entra al <a href="/app" class="lnk">servidor oficial de Larixy</a>, abre un ticket en la categoría de Soporte y pide un canal privado para un reporte de seguridad, sin dar detalles en el ticket.
+            </p>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed mt-4" style="color:#b9c6f5">
+          Incluye en tu reporte: el componente afectado, el impacto, los pasos para reproducirlo y la evidencia que lo demuestra. Retira los datos personales de terceros y cualquier secreto que no sea tuyo.
+        </p>
+        <p class="text-sm leading-relaxed mt-2" style="color:#b9c6f5">
+          Auditar el código no necesita permiso de nadie: es público y está bajo AGPL-3.0. Estas reglas son para probar contra la instancia en producción.
+        </p>
+      </div>
+
+      <!-- Alcance -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="crosshair" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>Alcance</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="card-in p-4">
+            <h4 class="font-bold text-sm text-white mb-2">Dentro</h4>
+            <ul class="space-y-1.5 text-xs list-disc pl-4" style="color:#8fa1dd">
+              <li>larixy.xyz: la app web, la API y el gateway</li>
+              <li>Las apps oficiales de escritorio y Android</li>
+              <li>El código del repositorio Lyxtem/Larixy</li>
+            </ul>
+          </div>
+          <div class="card-in p-4">
+            <h4 class="font-bold text-sm text-white mb-2">Fuera</h4>
+            <ul class="space-y-1.5 text-xs list-disc pl-4" style="color:#8fa1dd">
+              <li>Servicios de terceros (Cloudflare, GitHub, Ko-fi…): repórtalo a ellos</li>
+              <li>Otras instancias autoalojadas: avisa a su operador; si el fallo está en el código, sí es asunto nuestro</li>
+              <li>Ingeniería social y ataques físicos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reglas de prueba -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="list-checks" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>Reglas de prueba</span>
+        </h2>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li>Prueba solo con <strong class="text-white">tus cuentas y tus datos</strong>. Si necesitas un segundo usuario, créate otra cuenta.</li>
+          <li>Nada de denegación de servicio ni pruebas de carga contra producción.</li>
+          <li>Si por accidente llegas a datos de otra persona: <strong class="text-white">para, no sigas mirando, no los guardes</strong> y repórtalo.</li>
+          <li>Nada de ingeniería social ni phishing contra usuarios o contra el equipo.</li>
+          <li>No modifiques ni borres datos que no sean tuyos.</li>
+          <li>Automatiza con cabeza: respeta unos límites de velocidad razonables.</li>
+        </ul>
+      </div>
+
+      <!-- Puerto seguro -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="handshake" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>Puerto seguro</span>
+        </h2>
+        <p class="text-sm leading-relaxed" style="color:#b9c6f5">
+          Si investigas de buena fe y sigues las reglas de esta página, tu actividad se considera <strong class="text-white">autorizada</strong>: no emprenderemos acciones legales por ella ni la trataremos como un abuso de la plataforma. Si dudas de si algo concreto entra en el acuerdo, pregunta antes por las vías de reporte y espera la respuesta.
+        </p>
+      </div>
+
+      <!-- Proceso -->
+      <div class="card-3d p-5 sm:p-8">
+        <h2 class="font-display font-bold text-xl text-white mb-4 flex items-center gap-2.5">
+          <i data-lucide="timer" class="w-6 h-6 flex-none" style="color:#7db1ff"></i>
+          <span>Proceso y tiempos</span>
+        </h2>
+        <p class="text-sm leading-relaxed mb-3" style="color:#b9c6f5">
+          Larixy lo mantiene una persona, y prefiero prometer poco y cumplirlo:
+        </p>
+        <ul class="space-y-2 text-sm list-disc pl-5" style="color:#b9c6f5">
+          <li><strong class="text-white">Acuse de recibo:</strong> objetivo de 72 horas laborables.</li>
+          <li><strong class="text-white">Corrección:</strong> según gravedad; lo crítico va primero y puede implicar un despliegue inmediato.</li>
+          <li><strong class="text-white">Divulgación:</strong> coordinada. Publicamos cuando el arreglo esté en producción, con tu crédito si lo quieres. Si un reporte quedara sin respuesta durante 90 días, puedes divulgar por tu cuenta avisando antes.</li>
+        </ul>
+      </div>
+
+      <!-- Recompensas -->
+      <div class="card-3d p-5 sm:p-8 text-center">
+        <h3 class="font-display font-bold text-2xl text-white mb-3">Sin dinero, con reconocimiento</h3>
+        <p class="text-sm max-w-lg mx-auto mb-6 leading-relaxed" style="color:#b9c6f5">
+          No hay presupuesto de bug bounty y no voy a fingir que lo hay. Lo que sí recibe cada hallazgo válido es la insignia <strong class="text-white">Bug Hunter</strong> en tu perfil de Larixy y tu nombre en la nota pública de la corrección. Y si montas tu comunidad aquí, a la gente que cuida la casa se la trata como de la casa.
+        </p>
+        <div class="btn-row">
+          <a href="https://github.com/Lyxtem/Larixy/security/advisories/new" class="btn-3d">
+            <span>Reportar una vulnerabilidad</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="mt-12 py-12 text-sm" style="border-top: 1px solid rgba(140,165,255,.15); color:#8fa1dd">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs">
+        <a href="/terms" class="hover:text-white">Términos</a>
+        <a href="/privacy" class="hover:text-white">Privacidad</a>
+        <a href="/refunds" class="hover:text-white">Reembolsos</a>
+        <a href="/partner" class="hover:text-white">Partner</a>
+        <a href="/verified" class="hover:text-white">Verificación</a>
+        <a href="/security" class="hover:text-white">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white">Normas</a>
+        <a href="/docs" class="hover:text-white">Docs</a>
+      </div>
+    </div>
+  </footer>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

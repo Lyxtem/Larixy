@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Larixy</title>
+  <meta name="description" content="Política de Privacidad de Larixy: qué datos tratamos, con qué fines, con quién los compartimos y qué derechos tienes sobre ellos.">
+  <link rel="icon" type="image/png" href="/landing-assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: { DEFAULT: '#2f7bff', light: '#5ea0ff', deep: '#1f66e5', edge: '#1743a6' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: #090c22;
+      background-image: radial-gradient(120% 90% at 50% 0%, #16225e 0%, #0d1233 45%, #090c22 100%);
+      background-attachment: fixed;
+      color: #eef1ff;
+    }
+    ::selection { background: rgba(47,123,255,.45); color: #fff; }
+    html { scrollbar-color: #2a3260 #090c22; }
+    body::-webkit-scrollbar { width: 10px; }
+    body::-webkit-scrollbar-thumb { background: #232a52; border-radius: 8px; }
+    body::-webkit-scrollbar-thumb:hover { background: #2f7bff; }
+    main { animation: page-in .7s cubic-bezier(.22,.61,.36,1) both; }
+    @keyframes page-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } }
+
+    /* ===== Sistema de diseño v3 ===== */
+    .btn-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(180deg, #5ea0ff, #2f7bff 55%, #1f66e5);
+      color: #fff; font-weight: 800; font-size: 15px; text-decoration: none;
+      border: 0; border-radius: 14px; padding: 14px 22px; min-height: 48px; cursor: pointer;
+      box-shadow: 0 6px 0 #1743a6, 0 18px 28px -8px rgba(47,123,255,.55), inset 0 1px 0 rgba(255,255,255,.5);
+      text-shadow: 0 1px 2px rgba(10,30,90,.35);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 #1743a6, 0 8px 16px -6px rgba(47,123,255,.5), inset 0 1px 0 rgba(255,255,255,.5); }
+    .btn-ghost-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: rgba(255,255,255,.06); color: #dbe6ff; font-weight: 800; font-size: 15px; text-decoration: none;
+      border: 0; border-radius: 14px; padding: 14px 22px; min-height: 48px; cursor: pointer;
+      box-shadow: 0 6px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15);
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-ghost-3d:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(10,16,50,.85), inset 0 0 0 1px rgba(160,185,255,.35), inset 0 1px 0 rgba(255,255,255,.15); }
+    .btn-white-3d {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      background: linear-gradient(180deg, #ffffff, #dbe6ff); color: #0b1030;
+      font-weight: 800; text-decoration: none; border: 0; cursor: pointer;
+      border-radius: 999px; padding: 8px 14px; font-size: 13px;
+      box-shadow: 0 3px 0 #8fa8e8;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+    .btn-white-3d:active { transform: translateY(2px); box-shadow: 0 1px 0 #8fa8e8; }
+    .card-3d {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      border: 1px solid rgba(140,165,255,.18); border-radius: 18px;
+      box-shadow: 0 14px 30px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .chip-3d {
+      width: 40px; height: 40px; border-radius: 12px; flex: none;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, #5ea0ff, #2f7bff 55%, #1f66e5); color: #fff;
+      box-shadow: 0 4px 0 #1743a6, 0 10px 18px -6px rgba(47,123,255,.6), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+    .badge-3d {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(47,123,255,.14); border: 1px solid rgba(110,160,255,.4); color: #9dc0ff;
+      font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .u-bar {
+      width: 64px; height: 5px; border-radius: 99px;
+      background: linear-gradient(90deg, #5ea0ff, #2f7bff 55%, #1f66e5);
+      box-shadow: 0 3px 0 #1743a6;
+    }
+
+    /* ===== Prosa legal v3 ===== */
+    .prose-custom h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: #fff;
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .prose-custom h2:first-of-type {
+      margin-top: 1rem;
+    }
+    .prose-custom h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-custom p {
+      color: #b9c6f5;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      overflow-wrap: break-word;
+    }
+    .prose-custom ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      color: #b9c6f5;
+      font-size: 15px;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .prose-custom li {
+      margin-bottom: 0.5rem;
+    }
+    .prose-custom li::marker { color: #2f7bff; }
+    .prose-custom a {
+      color: #7db1ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+    .prose-custom a:hover { color: #9dc0ff; }
+    .prose-custom strong { color: #eef1ff; }
+    .highlight-box {
+      background: rgba(47,123,255,.08);
+      border: 1px solid rgba(110,160,255,.25);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .highlight-box p { margin-bottom: 0; }
+  </style>
+</head>
+
+<body class="font-sans antialiased flex flex-col min-h-screen">
+  <header class="sticky top-0 z-50" style="background: rgba(8,11,32,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(140,165,255,.15);">
+    <div class="max-w-6xl mx-auto px-4 h-[62px] flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5 min-w-0">
+        <span class="flex items-center justify-center flex-none" style="width:34px; height:34px; border-radius:11px; background: linear-gradient(180deg,#5ea0ff,#2f7bff 55%,#1f66e5); box-shadow: 0 4px 0 #1743a6, inset 0 1px 0 rgba(255,255,255,.5); padding:6px;">
+          <img src="/landing-assets/logo-transparent.svg" alt="Larixy" class="w-full h-full max-w-full">
+        </span>
+        <span class="font-display font-extrabold tracking-tight text-white" style="font-size:19px;">Larixy</span>
+      </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold flex-none">
+        <a href="/partner" class="hidden sm:block hover:text-white transition-colors" style="color:#b9c6f5;">Partner</a>
+        <a href="/docs" class="hidden sm:block hover:text-white transition-colors" style="color:#b9c6f5;">Docs</a>
+        <a href="/app" class="btn-white-3d">Abrir app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="w-full max-w-4xl mx-auto px-4 sm:px-5 py-14 sm:py-20 flex-grow">
+    <div class="text-center mb-10">
+      <span class="badge-3d">
+        <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+        <span>Privacidad y Protección de Datos</span>
+      </span>
+      <h1 class="font-display font-extrabold text-white tracking-tight leading-tight" style="font-size:34px; margin-top:16px;">Política de Privacidad</h1>
+      <div class="u-bar mx-auto" style="margin-top:16px;"></div>
+      <p class="text-sm mt-4" style="color:#8fa1dd;">Última actualización: 23 de noviembre de 2026 • Entrada en vigor: 23 de noviembre de 2026</p>
+    </div>
+
+    <div class="prose-custom card-3d p-6 sm:p-10">
+      <div class="highlight-box">
+        <p class="text-sm mb-0 font-medium" style="color:#eef1ff;">
+          <strong>Tu privacidad es prioritaria:</strong> En <strong>Larixy</strong> no comerciamos con tus datos personales, no vendemos perfiles de usuario a intermediarios publicitarios ni empleamos rastreadores de publicidad de terceros. Tratamos únicamente la información necesaria para que tus conversaciones, llamadas de voz y comunidades funcionen de forma óptima y segura.
+        </p>
+      </div>
+
+      <h2>1. Responsable del Tratamiento de Datos</h2>
+      <p>
+        Esta política se aplica a los servicios oficiales de <strong>Larixy</strong> ofrecidos a través de la web (<a href="https://larixy.xyz">larixy.xyz</a>), aplicaciones de escritorio y APIs oficiales. <strong>Larixy</strong> actúa como Responsable del Tratamiento de tus datos personales conforme al Reglamento General de Protección de Datos (RGPD) de la Unión Europea y demás normativas aplicables.
+      </p>
+      <p>
+        Canal de contacto directo para el ejercicio de derechos y consultas de privacidad: <a href="mailto:privacy@larixy.xyz">privacy@larixy.xyz</a> o <a href="mailto:support@larixy.xyz">support@larixy.xyz</a>.
+      </p>
+
+      <h2>2. Datos que Recopilamos y Procesamos</h2>
+      <p>
+        Para garantizar la operatividad técnica de la plataforma, recopilamos las siguientes categorías de datos:
+      </p>
+      <ul>
+        <li><strong>Datos de cuenta y registro:</strong> Nombre de usuario, nombre para mostrar, correo electrónico, identificador único (Snowflake ID), fecha de nacimiento (para verificación de edad mínima) y contraseña almacenada mediante funciones hash unidireccionales de alta seguridad (Argon2id).</li>
+        <li><strong>Contenido generado por el usuario:</strong> Mensajes de texto, enlaces, canales, roles, emojis personalizados y archivos multimedia compartidos voluntariamente por ti en servidores o mensajes directos.</li>
+        <li><strong>Comunicaciones de voz y vídeo en tiempo real:</strong> Las transmisiones de voz, pantalla y vídeo se gestionan en tiempo real a través de servidores SFU (Selective Forwarding Unit / WebRTC). El audio y vídeo no se graban ni se conservan en disco de forma predeterminada.</li>
+        <li><strong>Datos técnicos y de seguridad:</strong> Direcciones IP de conexión (conservadas de forma temporal y rotativa con fines de mitigación de ataques DDoS, prevención de abusos y diagnóstico), identificadores de sesión/tokens y versiones del cliente.</li>
+        <li><strong>Información de compras y pagos (Paddle):</strong> Cuando adquieres suscripciones (Plutonium), los datos financieros y de tarjetas son procesados directamente por nuestro Merchant of Record (<strong>Paddle</strong>) de manera certificada PCI-DSS. Larixy no almacena números completos de tarjeta de crédito ni códigos CVV/CVC. Recibimos únicamente confirmaciones de estado, ID de transacción e historial de suscripción.</li>
+      </ul>
+
+      <h2>3. Finalidades y Bases Legales del Tratamiento</h2>
+      <p>
+        Conforme al Artículo 6 del RGPD, procesamos tus datos con base en:
+      </p>
+      <ul>
+        <li><strong>Ejecución del contrato:</strong> Proporcionar las funciones de chat, voz, sincronización entre dispositivos y acceso a los beneficios de suscripciones adquiridas.</li>
+        <li><strong>Interés legítimo:</strong> Mantener la seguridad de la infraestructura, prevenir fraudes, evitar ataques de denegación de servicio (DDoS) y salvaguardar a los miembros de la comunidad ante conductas dañinas.</li>
+        <li><strong>Cumplimiento de obligaciones legales:</strong> Responder a requerimientos judiciales válidos y mantener registros fiscales obligatorios de transacciones comerciales.</li>
+        <li><strong>Consentimiento:</strong> Cuando decides activar características opcionales específicas o proporcionar información adicional voluntaria en tu perfil público.</li>
+      </ul>
+
+      <h2>4. Destinatarios de los Datos y Transferencias a Terceros</h2>
+      <p>
+        No vendemos tus datos. Compartimos información estrictamente con proveedores de infraestructura esenciales:
+      </p>
+      <ul>
+        <li><strong>Infraestructura de red y CDN:</strong> Cloudflare (para mitigación DDoS, enrutamiento seguro TLS y almacenamiento de archivos multimedia cifrados en Cloudflare R2).</li>
+        <li><strong>Procesamiento de pagos:</strong> Paddle (Merchant of Record para facturación, cobro y recaudación tributaria conforme a normativas internacionales).</li>
+        <li><strong>Servicios de correo transaccional:</strong> Proveedores certificados de envío de correo para códigos de verificación y notificaciones críticas de seguridad.</li>
+      </ul>
+
+      <h2>5. Plazos de Conservación y Eliminación de Datos</h2>
+      <p>
+        Conservamos tus datos mientras mantengas tu cuenta activa:
+      </p>
+      <ul>
+        <li><strong>Eliminación de cuenta:</strong> Puedes solicitar la eliminación de tu cuenta en cualquier momento desde los Ajustes de Usuario. La solicitud inicia un <strong>período de gracia de 14 días</strong> durante el cual puedes cancelarla volviendo a iniciar sesión.</li>
+        <li><strong>Purga definitiva:</strong> Concluido el período de gracia, tus datos identificativos, tokens y configuraciones personales son eliminados de nuestras bases de datos de producción de forma irreversible.</li>
+        <li><strong>Logs técnicos:</strong> Los registros de red y direcciones IP son rotados y depurados de forma periódica en un plazo habitual no superior a 30 días, salvo requerimiento de investigación por seguridad.</li>
+      </ul>
+
+      <h2>6. Derechos del Usuario (RGPD, LGPD y CCPA/CPRA)</h2>
+      <p>
+        Dependiendo de tu país de residencia, ostentas los siguientes derechos sobre tus datos personales:
+      </p>
+      <ul>
+        <li><strong>Derecho de acceso:</strong> Conocer qué datos personales tratamos sobre ti y solicitar una copia.</li>
+        <li><strong>Derecho de rectificación:</strong> Corregir o actualizar información inexacta desde la interfaz de la aplicación o mediante soporte.</li>
+        <li><strong>Derecho de supresión ("derecho al olvido"):</strong> Solicitar el borrado íntegro de tu cuenta y datos personales asociados.</li>
+        <li><strong>Derecho a la limitación y oposición:</strong> Oponerte a tratamientos fundamentados en interés legítimo.</li>
+        <li><strong>Derecho a la portabilidad:</strong> Solicitar la exportación de tus datos en un formato legible por máquina.</li>
+      </ul>
+      <p>
+        Para ejercer cualquiera de estos derechos, basta con enviar un correo a <a href="mailto:privacy@larixy.xyz">privacy@larixy.xyz</a> con el asunto "Ejercicio de Derechos de Privacidad" desde la dirección asociada a tu cuenta.
+      </p>
+
+      <h2>7. Menores de Edad</h2>
+      <p>
+        Larixy no está dirigido a niños menores de 13 años (o la edad mínima legal de consentimiento digital en tu jurisdicción). Si detectamos que una cuenta pertenece a un menor sin la debida autorización parental exigible, suspenderemos la cuenta y eliminaremos sus datos.
+      </p>
+
+      <h2>8. Cookies y Tecnologías de Almacenamiento Local</h2>
+      <p>
+        Larixy utiliza únicamente almacenamiento local (LocalStorage / SessionStorage) y cookies técnicas estrictamente necesarias para mantener tu sesión activa, recordar tus preferencias de tema y verificar la integridad de la aplicación. No empleamos cookies de rastreo comercial entre sitios de terceros.
+      </p>
+
+      <h2>9. Seguridad de la Información</h2>
+      <p>
+        Adoptamos medidas técnicas y organizativas rigurosas para proteger tus datos contra accesos no autorizados, pérdidas o manipulaciones: conexiones cifradas de extremo a servidor mediante TLS 1.3 / HTTPS, aislamiento de servicios en contenedores y almacenamiento distribuido protegido.
+      </p>
+    </div>
+  </main>
+
+  <footer class="py-10 text-sm mt-4" style="border-top: 1px solid rgba(140,165,255,.15); color:#8fa1dd;">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center gap-4">
+      <p>© 2026 Larixy. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs font-semibold">
+        <a href="/terms" class="hover:text-white transition-colors">Términos</a>
+        <a href="/privacy" class="hover:text-white transition-colors" style="color:#fff;">Privacidad</a>
+        <a href="/refunds" class="hover:text-white transition-colors">Reembolsos</a>
+        <a href="/partner" class="hover:text-white transition-colors">Partner</a>
+        <a href="/verified" class="hover:text-white transition-colors">Verificación</a>
+        <a href="/security" class="hover:text-white transition-colors">Seguridad</a>
+        <a href="/guidelines" class="hover:text-white transition-colors">Normas</a>
+        <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
