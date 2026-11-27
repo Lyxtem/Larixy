@@ -102,6 +102,7 @@ function registerCronJobs(cron: CronScheduler, jobsStreamMaxAgeMs: number, kvCli
 		enabled: () => getStripeClient() !== null,
 	});
 	cron.upsert('processExpiredPremiumSweep', 'processExpiredPremiumSweep', {}, '0 0 * * * *', {ledger: false});
+	cron.upsert('processStreamerLivePollSweep', 'processStreamerLivePollSweep', {}, '0 */2 * * * *', {ledger: false});
 	cron.upsert('closePaymentDisputeAccounts', 'closePaymentDisputeAccounts', {}, '0 40 * * * *', {ledger: false});
 	if (!Config.instance.selfHosted) {
 		cron.upsert('processStorePurchaseRefreshQueue', 'processStorePurchaseRefreshQueue', {}, '0 */5 * * * *', {
