@@ -15,8 +15,6 @@ export const StreamerConfigStatusSchema = z
 	.enum(['active', 'needs_review'])
 	.describe('Streamer config health: active, or needs_review when something the alerts rely on is gone');
 
-export type StreamerConfigStatus = z.infer<typeof StreamerConfigStatusSchema>;
-
 export const StreamerLinkSchema = z.object({
 	platform: StreamerPlatformSchema,
 	url: URLType.describe('The channel URL the owner pasted'),
