@@ -8,6 +8,7 @@ import GuildInvitesTab from '@app/features/guild/components/modals/guild_tabs/Gu
 import GuildModerationTab from '@app/features/guild/components/modals/guild_tabs/GuildModerationTab';
 import GuildRolesTab from '@app/features/guild/components/modals/guild_tabs/GuildRolesTab';
 import GuildStickersTab from '@app/features/guild/components/modals/guild_tabs/GuildStickersTab';
+import GuildStreamerTab from '@app/features/guild/components/modals/guild_tabs/GuildStreamerTab';
 import GuildVanityURLTab from '@app/features/guild/components/modals/guild_tabs/GuildVanityURLTab';
 import GuildWebhooksTab from '@app/features/guild/components/modals/guild_tabs/GuildWebhooksTab';
 import GuildOverviewTab from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab';
@@ -28,6 +29,7 @@ const GUILD_SETTINGS_TAB_COMPONENTS: Record<GuildSettingsTabType, GuildSettingsT
 	discovery: GuildDiscoveryTab,
 	vanity_url: GuildVanityURLTab,
 	webhooks: GuildWebhooksTab,
+	streamer: GuildStreamerTab,
 	members: EmptyGuildSettingsTab,
 	invites: GuildInvitesTab,
 	bans: GuildBansTab,
