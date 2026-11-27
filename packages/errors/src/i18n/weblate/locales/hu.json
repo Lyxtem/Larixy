@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Érvénytelen Unicode-emoji.",
 	"stickers_and_emojis.unknown_emoji": "Ismeretlen emoji.",
 	"stickers_and_emojis.unknown_sticker": "Ismeretlen matrica.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Az értesítés aláírása érvénytelen.",
 	"store_billing.purchase_invalid": "Ezt a vásárlást nem sikerült ellenőrizni.",
 	"store_billing.purchase_owned_by_other_account": "Ez a vásárlás egy másik fiókhoz van kapcsolva.",

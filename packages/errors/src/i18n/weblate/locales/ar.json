@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "إيموجي يونيكود غير صالح.",
 	"stickers_and_emojis.unknown_emoji": "إيموجي غير معروف.",
 	"stickers_and_emojis.unknown_sticker": "ملصق غير معروف.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "توقيع الإشعار غير صالح.",
 	"store_billing.purchase_invalid": "تعذّر التحقق من عملية الشراء هذه.",
 	"store_billing.purchase_owned_by_other_account": "عملية الشراء هذه مرتبطة بحساب آخر.",

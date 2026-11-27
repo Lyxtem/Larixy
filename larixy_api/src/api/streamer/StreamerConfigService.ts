@@ -2,7 +2,7 @@
 
 import {createChannelID, type ChannelID, type GuildID, type UserID} from '@app/api/BrandedTypes';
 import type {ChannelDataRepository} from '@app/api/channel/repositories/ChannelDataRepository';
-import type {GuildStreamerConfigRow} from '@app/api/database/types/StreamerTypes';
+import type {GuildStreamerConfigRow, StreamerLinkUdt} from '@app/api/database/types/StreamerTypes';
 import type {GuildDataHelpers} from '@app/api/guild/services/data/GuildDataHelpers';
 import type {InstanceConfigRepository} from '@app/api/instance/InstanceConfigRepository';
 import {StreamerConfigRepository} from '@app/api/streamer/StreamerConfigRepository';
@@ -85,9 +85,16 @@ export class StreamerConfigService {
 		if (row.links.some((existing) => existing.platform === params.link.platform)) {
 			throw InputValidationError.fromCode('platform', ValidationErrorCodes.STREAMER_PLATFORM_ALREADY_LINKED);
 		}
+		const storedLink: StreamerLinkUdt = {
+			platform: params.link.platform,
+			url: params.link.url,
+			platform_channel_id: params.link.platform_channel_id,
+			platform_login: params.link.platform_login,
+			display_name: params.link.display_name,
+		};
 		const next: GuildStreamerConfigRow = {
 			...row,
-			links: [...row.links, {...params.link}],
+			links: [...row.links, storedLink],
 			updated_at: new Date(),
 		};
 		await this.repository.upsertConfig(next);

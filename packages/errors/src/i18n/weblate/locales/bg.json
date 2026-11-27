@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Не е валидно Unicode емоджи.",
 	"stickers_and_emojis.unknown_emoji": "Неизвестно емоджи.",
 	"stickers_and_emojis.unknown_sticker": "Неизвестен стикер.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Подписът на известието е невалиден.",
 	"store_billing.purchase_invalid": "Тази покупка не можа да бъде потвърдена.",
 	"store_billing.purchase_owned_by_other_account": "Тази покупка е свързана с друг акаунт.",

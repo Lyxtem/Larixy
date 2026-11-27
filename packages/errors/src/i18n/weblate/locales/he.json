@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "אימוג'י יוניקוד לא תקין.",
 	"stickers_and_emojis.unknown_emoji": "אימוג'י לא ידוע.",
 	"stickers_and_emojis.unknown_sticker": "סטיקר לא ידוע.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "החתימה של ההתראה אינה תקינה.",
 	"store_billing.purchase_invalid": "לא ניתן היה לאמת את הרכישה הזו.",
 	"store_billing.purchase_owned_by_other_account": "הרכישה הזו מקושרת לחשבון אחר.",

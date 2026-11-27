@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Ei kelvollinen Unicode-emoji.",
 	"stickers_and_emojis.unknown_emoji": "Tuntematon emoji.",
 	"stickers_and_emojis.unknown_sticker": "Tuntematon tarra.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Ilmoituksen allekirjoitus on virheellinen.",
 	"store_billing.purchase_invalid": "Tätä ostosta ei voitu vahvistaa.",
 	"store_billing.purchase_owned_by_other_account": "Tämä ostos on liitetty toiseen tiliin.",

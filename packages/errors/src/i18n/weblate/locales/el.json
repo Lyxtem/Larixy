@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Δεν είναι έγκυρο Unicode emoji.",
 	"stickers_and_emojis.unknown_emoji": "Άγνωστο emoji.",
 	"stickers_and_emojis.unknown_sticker": "Άγνωστο sticker.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Η υπογραφή της ειδοποίησης δεν είναι έγκυρη.",
 	"store_billing.purchase_invalid": "Δεν ήταν δυνατή η επαλήθευση αυτής της αγοράς.",
 	"store_billing.purchase_owned_by_other_account": "Αυτή η αγορά είναι συνδεδεμένη με άλλον λογαριασμό.",

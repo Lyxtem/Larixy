@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Bukan emoji Unicode yang valid.",
 	"stickers_and_emojis.unknown_emoji": "Emoji tidak dikenal.",
 	"stickers_and_emojis.unknown_sticker": "Stiker tidak dikenal.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Tanda tangan notifikasi tidak valid.",
 	"store_billing.purchase_invalid": "Pembelian ini tidak dapat diverifikasi.",
 	"store_billing.purchase_owned_by_other_account": "Pembelian ini terhubung ke akun lain.",

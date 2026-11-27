@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Ikke en gyldig Unicode-emoji.",
 	"stickers_and_emojis.unknown_emoji": "Ukendt emoji.",
 	"stickers_and_emojis.unknown_sticker": "Ukendt klistermærke.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Notifikationens signatur er ugyldig.",
 	"store_billing.purchase_invalid": "Dette køb kunne ikke bekræftes.",
 	"store_billing.purchase_owned_by_other_account": "Dette køb er knyttet til en anden konto.",
