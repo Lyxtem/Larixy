@@ -134,6 +134,7 @@ import {SearchService} from '@app/api/search/SearchService';
 import type {StoreEntitlementService} from '@app/api/store_billing/StoreEntitlementService';
 import {createStoreEntitlementService} from '@app/api/store_billing/StoreEntitlementServiceFactory';
 import {StreamerConfigService} from '@app/api/streamer/StreamerConfigService';
+import {StreamerGuildCreationService} from '@app/api/streamer/StreamerGuildCreationService';
 import {StreamerLinkService} from '@app/api/streamer/StreamerLinkService';
 import {StripeService} from '@app/api/stripe/StripeService';
 import type {HonoEnv} from '@app/api/types/HonoEnv';
@@ -216,6 +217,7 @@ class RequestServices implements RequestScopedServices {
 	private cachedGuildVisitService: GuildVisitService | undefined;
 	private cachedStreamerConfigService: StreamerConfigService | undefined;
 	private cachedStreamerLinkService: StreamerLinkService | undefined;
+	private cachedStreamerGuildCreationService: StreamerGuildCreationService | undefined;
 	private cachedGateway: IGatewayService | undefined;
 	private cachedMedia: IMediaService | undefined;
 	private cachedLiveKit: ILiveKitService | undefined;
@@ -384,6 +386,15 @@ class RequestServices implements RequestScopedServices {
 	get streamerLinkService(): StreamerLinkService {
 		this.cachedStreamerLinkService ??= new StreamerLinkService(getInstanceConfigRepository());
 		return this.cachedStreamerLinkService;
+	}
+
+	get streamerGuildCreationService(): StreamerGuildCreationService {
+		this.cachedStreamerGuildCreationService ??= new StreamerGuildCreationService(
+			getInstanceConfigRepository(),
+			this.channelRepository.channelData,
+			this.requestGuildRepository,
+		);
+		return this.cachedStreamerGuildCreationService;
 	}
 
 	get blueskyOAuthService(): IBlueskyOAuthService | null {
