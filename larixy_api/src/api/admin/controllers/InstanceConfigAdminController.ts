@@ -604,6 +604,14 @@ function toIntegrationsPatch(
 					api_key: readOptionalField(integrations.youtube, 'api_key'),
 				})
 			: undefined,
+		streamer: integrations.streamer
+			? omitUndefinedFields({
+					twitch_client_id: readOptionalField(integrations.streamer, 'twitch_client_id'),
+					twitch_client_secret: readOptionalField(integrations.streamer, 'twitch_client_secret'),
+					kick_client_id: readOptionalField(integrations.streamer, 'kick_client_id'),
+					kick_client_secret: readOptionalField(integrations.streamer, 'kick_client_secret'),
+				})
+			: undefined,
 		email: undefined,
 	};
 	if (integrations.email) {

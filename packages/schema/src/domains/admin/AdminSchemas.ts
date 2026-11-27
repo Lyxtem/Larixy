@@ -854,6 +854,12 @@ const InstanceIntegrationsResponse = z.object({
 		api_key_set: z.boolean(),
 		effective_available: z.boolean(),
 	}),
+	streamer: z.object({
+		twitch_client_id: z.string().nullable(),
+		twitch_client_secret_set: z.boolean(),
+		kick_client_id: z.string().nullable(),
+		kick_client_secret_set: z.boolean(),
+	}),
 	email: z.object({
 		delivery: EmailDeliveryModeSchema.nullable().describe('Saved delivery mode, or null to use the environment'),
 		effective_delivery: EmailDeliveryModeSchema,
@@ -1033,6 +1039,14 @@ export const InstanceConfigUpdateRequest = z.object({
 			youtube: z
 				.object({
 					api_key: z.string().trim().max(4096).nullish(),
+				})
+				.nullish(),
+			streamer: z
+				.object({
+					twitch_client_id: z.string().trim().max(256).nullish(),
+					twitch_client_secret: z.string().trim().max(4096).nullish(),
+					kick_client_id: z.string().trim().max(256).nullish(),
+					kick_client_secret: z.string().trim().max(4096).nullish(),
 				})
 				.nullish(),
 			email: z

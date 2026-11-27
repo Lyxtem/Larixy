@@ -134,6 +134,7 @@ import {SearchService} from '@app/api/search/SearchService';
 import type {StoreEntitlementService} from '@app/api/store_billing/StoreEntitlementService';
 import {createStoreEntitlementService} from '@app/api/store_billing/StoreEntitlementServiceFactory';
 import {StreamerConfigService} from '@app/api/streamer/StreamerConfigService';
+import {StreamerLinkService} from '@app/api/streamer/StreamerLinkService';
 import {StripeService} from '@app/api/stripe/StripeService';
 import type {HonoEnv} from '@app/api/types/HonoEnv';
 import {EmailChangeService} from '@app/api/user/services/EmailChangeService';
@@ -214,6 +215,7 @@ class RequestServices implements RequestScopedServices {
 	private cachedOperatorPassServices: OperatorPassServices | undefined;
 	private cachedGuildVisitService: GuildVisitService | undefined;
 	private cachedStreamerConfigService: StreamerConfigService | undefined;
+	private cachedStreamerLinkService: StreamerLinkService | undefined;
 	private cachedGateway: IGatewayService | undefined;
 	private cachedMedia: IMediaService | undefined;
 	private cachedLiveKit: ILiveKitService | undefined;
@@ -377,6 +379,11 @@ class RequestServices implements RequestScopedServices {
 			this.channelRepository.channelData,
 		);
 		return this.cachedStreamerConfigService;
+	}
+
+	get streamerLinkService(): StreamerLinkService {
+		this.cachedStreamerLinkService ??= new StreamerLinkService(getInstanceConfigRepository());
+		return this.cachedStreamerLinkService;
 	}
 
 	get blueskyOAuthService(): IBlueskyOAuthService | null {

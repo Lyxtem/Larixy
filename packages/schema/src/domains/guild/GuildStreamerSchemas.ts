@@ -61,3 +61,21 @@ export const StreamerLinkParam = GuildIdParam.extend({
 });
 
 export type StreamerLinkParam = z.infer<typeof StreamerLinkParam>;
+
+export const StreamerLinkValidateRequest = z.object({
+	url: URLType.describe('Channel link to resolve: a YouTube, Twitch or Kick channel URL'),
+});
+
+export type StreamerLinkValidateRequest = z.infer<typeof StreamerLinkValidateRequest>;
+
+export const StreamerLinkValidateResponse = z.object({
+	platform: StreamerPlatformSchema,
+	url: z.string().describe('Canonical channel URL'),
+	platform_channel_id: z.string().describe('Platform channel identifier resolved from the link'),
+	platform_login: z.string().describe('Platform login, slug or handle of the channel'),
+	display_name: z.string().describe('Channel display name, used in the live alert text'),
+	avatar_url: z.string().nullable().describe('Channel avatar URL, when the platform exposes one'),
+	live_now: z.boolean().describe('Whether the channel is live right now'),
+});
+
+export type StreamerLinkValidateResponse = z.infer<typeof StreamerLinkValidateResponse>;

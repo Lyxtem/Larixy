@@ -364,9 +364,17 @@ interface InstanceBlueskyIntegrationConfig {
 	keys: Array<InstanceBlueskyKeyIntegrationConfig>;
 }
 
+interface InstanceStreamerIntegrationConfig {
+	twitch_client_id: string | null;
+	twitch_client_secret: string | null;
+	kick_client_id: string | null;
+	kick_client_secret: string | null;
+}
+
 interface InstanceIntegrationsConfig {
 	gif: InstanceGifIntegrationConfig;
 	youtube: InstanceYoutubeIntegrationConfig;
+	streamer: InstanceStreamerIntegrationConfig;
 	email: InstanceEmailIntegrationConfig;
 	bluesky: InstanceBlueskyIntegrationConfig;
 }
@@ -385,6 +393,12 @@ interface InstanceIntegrationsAdminConfig {
 	youtube: {
 		api_key_set: boolean;
 		effective_available: boolean;
+	};
+	streamer: {
+		twitch_client_id: string | null;
+		twitch_client_secret_set: boolean;
+		kick_client_id: string | null;
+		kick_client_secret_set: boolean;
 	};
 	email: {
 		delivery: EmailDeliveryMode | null;
@@ -458,6 +472,7 @@ interface InstanceMediaAdminConfig {
 export interface InstanceIntegrationsConfigPatch {
 	gif?: Partial<InstanceGifIntegrationConfig>;
 	youtube?: Partial<InstanceYoutubeIntegrationConfig>;
+	streamer?: Partial<InstanceStreamerIntegrationConfig>;
 	email?: Partial<Omit<InstanceEmailIntegrationConfig, 'smtp'>> & {
 		enabled?: boolean | null;
 		provider?: APIConfig['email']['provider'] | null;
@@ -1212,6 +1227,14 @@ const StoredBlueskyKeysSchema = z
 const StoredInstanceIntegrationsSchema = z.object({
 	gif: z.object({klipy_api_key: StoredIntegrationStringSchema}).prefault({}),
 	youtube: z.object({api_key: StoredIntegrationStringSchema}).prefault({}),
+	streamer: z
+		.object({
+			twitch_client_id: StoredIntegrationStringSchema,
+			twitch_client_secret: StoredIntegrationStringSchema,
+			kick_client_id: StoredIntegrationStringSchema,
+			kick_client_secret: StoredIntegrationStringSchema,
+		})
+		.prefault({}),
 	email: z
 		.object({
 			delivery: z.enum([EmailDeliveryModes.OFF, EmailDeliveryModes.SMTP]).nullable().default(null),
@@ -2847,6 +2870,10 @@ export class InstanceConfigRepository {
 				...current.youtube,
 				...(config.youtube ?? {}),
 			},
+			streamer: {
+				...current.streamer,
+				...(config.streamer ?? {}),
+			},
 			email: {
 				...current.email,
 				...email,
@@ -3080,6 +3107,12 @@ export class InstanceConfigRepository {
 			youtube: {
 				api_key_set: secretIsSet(integrations.youtube.api_key) || secretIsSet(Config.youtube.apiKey),
 				effective_available: Boolean(youtubeApiKey),
+			},
+			streamer: {
+				twitch_client_id: integrations.streamer.twitch_client_id,
+				twitch_client_secret_set: secretIsSet(integrations.streamer.twitch_client_secret),
+				kick_client_id: integrations.streamer.kick_client_id,
+				kick_client_secret_set: secretIsSet(integrations.streamer.kick_client_secret),
 			},
 			email: {
 				delivery: storedDelivery,

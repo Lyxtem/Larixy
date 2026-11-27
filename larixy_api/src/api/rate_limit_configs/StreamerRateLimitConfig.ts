@@ -12,4 +12,8 @@ export const StreamerRateLimitConfigs = {
 		bucket: 'guild:streamer:config_update',
 		config: {limit: 10, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
+	STREAMER_LINK_VALIDATE: {
+		bucket: 'streamer:link_validate',
+		config: {limit: 10, windowMs: ms('10 seconds')},
+	} as RouteRateLimitConfig,
 } as const;
