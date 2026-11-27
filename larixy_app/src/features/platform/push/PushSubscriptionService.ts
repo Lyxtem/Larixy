@@ -4,6 +4,11 @@ import {Endpoints} from '@app/features/app/constants/Endpoints';
 import {detectDomainMigrationInstallKind} from '@app/features/app/domain_migration/DomainMigrationBrowser';
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import {isDesktopLocalAppDocument} from '@app/features/platform/DesktopLocalAppRuntime';
+import {
+	isNativePushSupported,
+	registerNativePushSubscription,
+	unregisterNativePushSubscription,
+} from '@app/features/platform/push/NativePushService';
 import AppStorage from '@app/features/platform/state/PersistentStorage';
 import {http} from '@app/features/platform/transport/RestTransport';
 import {Logger} from '@app/features/platform/utils/AppLogger';
@@ -186,6 +191,9 @@ async function createWebPushSubscriptionId(endpoint: string): Promise<string> {
 }
 
 export async function registerPushSubscription(): Promise<string | null> {
+	if (isNativePushSupported()) {
+		return registerNativePushSubscription();
+	}
 	if (isWebPushBlockedForNativeDesktop()) {
 		logger.error('Blocked Web Push registration in native desktop client; native notifications must be used', {
 			installedPwa: isInstalledPwa(),
@@ -294,6 +302,10 @@ export async function registerPushSubscription(): Promise<string | null> {
 }
 
 export async function unregisterAllPushSubscriptions(): Promise<void> {
+	if (isNativePushSupported()) {
+		await unregisterNativePushSubscription();
+		return;
+	}
 	if (isWebPushBlockedForNativeDesktop()) {
 		await cleanupNativeDesktopWebPushSubscriptions('unregister-all-blocked-native-desktop');
 		return;
