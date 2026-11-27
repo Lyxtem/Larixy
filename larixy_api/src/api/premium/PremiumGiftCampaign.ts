@@ -24,7 +24,7 @@ const PREMIUM_GIFT_CAMPAIGN_DURATION_MONTHS = 3;
  *  and renders the native gift card with its redeem button.
  * ==========================================================================
  */
-export const PREMIUM_GIFT_CAMPAIGN_DM_COPY = `🎁 **¡Tienes un regalo!**
+const PREMIUM_GIFT_CAMPAIGN_DM_COPY = `🎁 **¡Tienes un regalo!**
 
 Queremos darte las gracias por formar parte de Larixy con **3 meses de Premium gratis**.
 
