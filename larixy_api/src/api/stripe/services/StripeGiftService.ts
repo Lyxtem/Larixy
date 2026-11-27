@@ -123,6 +123,33 @@ export class StripeGiftService {
 				},
 				'Loaded redeemer state for gift redemption',
 			);
+			// Premium gift campaign codes are bound to one account and claimable
+			// once, whatever that account's Premium status is. Non-campaign codes
+			// never have a ledger entry and skip this entirely.
+			const campaignEntry = await this.userRepository.findPremiumGiftCampaignEntryByCode(code);
+			if (campaignEntry) {
+				if (campaignEntry.user_id !== userId) {
+					Logger.debug({userId, giftCode: code}, 'Campaign gift code presented by a different account');
+					throw new UnknownGiftCodeError();
+				}
+				if (campaignEntry.claimed_at) {
+					Logger.debug({userId, giftCode: code}, 'Campaign gift already claimed by this account');
+					throw new GiftCodeAlreadyRedeemedError();
+				}
+				if (user.premiumType === UserPremiumTypes.LIFETIME) {
+					// A lifetime account has nothing to extend; the claim still
+					// succeeds and consumes the code so it cannot be reused.
+					await this.userRepository.redeemGiftCode(code, userId);
+					await this.userRepository.markPremiumGiftCampaignClaimed(userId);
+					await this.cacheService.set(`redeemed_gift_codes:${code}`, true, seconds('5 minutes'));
+					await this.cacheService.set(appliedKey, true, seconds('365 days'));
+					Logger.debug(
+						{userId, giftCode: code},
+						'Campaign gift claimed by lifetime account; code consumed with no entitlement change',
+					);
+					return;
+				}
+			}
 			if (user.premiumType === UserPremiumTypes.LIFETIME) {
 				Logger.debug({userId, giftCode: code}, 'Rejecting redemption for lifetime user');
 				throw new CannotRedeemPlutoniumWithVisionaryError((await getBillingBranding()).premiumName);
@@ -220,6 +247,9 @@ export class StripeGiftService {
 				if (stackedOntoStripe || (await this.didGiftGrantPersist(user))) {
 					await this.cacheService.set(`redeemed_gift_codes:${code}`, true, seconds('5 minutes'));
 					await this.cacheService.set(appliedKey, true, seconds('365 days'));
+					if (campaignEntry) {
+						await this.userRepository.markPremiumGiftCampaignClaimed(userId);
+					}
 					Logger.warn(
 						{userId, giftCode: code, error: entitlementError},
 						'Gift entitlement grant threw after premium state was saved; keeping redemption',
@@ -247,6 +277,9 @@ export class StripeGiftService {
 			}
 			await this.cacheService.set(`redeemed_gift_codes:${code}`, true, seconds('5 minutes'));
 			await this.cacheService.set(appliedKey, true, seconds('365 days'));
+			if (campaignEntry) {
+				await this.userRepository.markPremiumGiftCampaignClaimed(userId);
+			}
 			Logger.debug(
 				{
 					userId,

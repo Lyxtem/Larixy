@@ -43,6 +43,7 @@ import type {RequestCache} from '@app/api/middleware/RequestCacheMiddleware';
 import {getInstanceConfigRepository} from '@app/api/middleware/ServiceSingletons';
 import type {User} from '@app/api/models/User';
 import {UserSettings} from '@app/api/models/UserSettings';
+import {enqueuePremiumGiftCampaign} from '@app/api/premium/EnqueuePremiumGiftCampaign';
 import {NO_TIER_CONTEXT, type TierContext} from '@app/api/user/AccountTier';
 import {buildPendingEntries, executeEntries, type GuildEntryDeps, storePendingEntries} from '@app/api/user/GuildEntry';
 import {
@@ -536,6 +537,7 @@ async function createAccountUnlocked(
 		user,
 		origin: AuthSession.resolveSessionOrigin(ctx, request),
 	});
+	void enqueuePremiumGiftCampaign(user.id);
 	return {pendingApproval: false, user, token, entry, deviceProof: issueDeviceProof(user.id)};
 }
 
