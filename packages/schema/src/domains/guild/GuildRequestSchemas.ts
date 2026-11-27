@@ -17,6 +17,7 @@ import {
 import {ValidationErrorCodes} from '@larixy/constants/src/ValidationErrorCodes';
 import {SudoVerificationSchema} from '@larixy/schema/src/domains/auth/AuthSchemas';
 import {GuildFeatureSchema} from '@larixy/schema/src/domains/guild/GuildResponseSchemas';
+import {StreamerLinkSchema} from '@larixy/schema/src/domains/guild/GuildStreamerSchemas';
 import {TemplateSerializedGuild} from '@larixy/schema/src/domains/guild/GuildTemplateSchemas';
 import {VanityURLCodeType} from '@larixy/schema/src/primitives/ChannelValidators';
 import {UnicodeRoleEmojiType} from '@larixy/schema/src/primitives/EmojiValidators';
@@ -55,6 +56,22 @@ export const GuildCreateRequest = z.object({
 	icon: createBase64ImageType().nullish().describe('Base64-encoded image data for the guild icon'),
 	empty_features: z.boolean().optional().describe('Whether to create the guild without default features'),
 	template: TemplateSerializedGuild.optional().describe('Serialised template data to use for guild structure'),
+	streamer: z
+		.object({
+			links: z
+				.array(StreamerLinkSchema)
+				.min(1)
+				.max(3)
+				.refine(
+					(links) => new Set(links.map((link) => link.platform)).size === links.length,
+					'At most one link per platform',
+				)
+				.describe('Resolved streaming channel links for the guild'),
+		})
+		.optional()
+		.describe(
+			'Create the guild as a streamer guild (closed streamer mode experiment): the streamer template is applied and live alerts are configured',
+		),
 });
 
 export type GuildCreateRequest = z.infer<typeof GuildCreateRequest>;

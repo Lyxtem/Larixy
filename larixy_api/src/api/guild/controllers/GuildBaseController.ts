@@ -82,7 +82,18 @@ export function GuildBaseController(app: HonoApp) {
 			}
 			const auditLogReason = ctx.get('auditLogReason') ?? null;
 			const locale = ctx.get('requestLocale') ?? null;
-			return ctx.json(await ctx.get('guildService').data.operations.createGuild({user, data, locale}, auditLogReason));
+			const createData = await ctx.get('streamerGuildCreationService').prepareCreate({userId: user.id, data});
+			const guild = await ctx
+				.get('guildService')
+				.data.operations.createGuild({user, data: createData, locale}, auditLogReason);
+			if (data.streamer) {
+				await ctx.get('streamerGuildCreationService').completeCreate({
+					guildId: createGuildID(BigInt(guild.id)),
+					ownerUserId: user.id,
+					links: data.streamer.links,
+				});
+			}
+			return ctx.json(guild);
 		},
 	);
 	app.get(

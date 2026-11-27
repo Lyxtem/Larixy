@@ -2,7 +2,7 @@
 
 import type {GuildID} from '@app/api/BrandedTypes';
 import {deleteOneOrMany, fetchOne, upsertOne} from '@app/api/database/CassandraQueryExecution';
-import type {GuildStreamerConfigRow} from '@app/api/database/types/StreamerTypes';
+import type {GuildStreamerConfigRow, GuildStreamerLiveStateRow} from '@app/api/database/types/StreamerTypes';
 import {GuildStreamerConfigs, GuildStreamerLiveStates} from '@app/api/Tables';
 
 const GET_CONFIG_CQL = GuildStreamerConfigs.selectCql({
@@ -17,6 +17,10 @@ export class StreamerConfigRepository {
 
 	async upsertConfig(row: GuildStreamerConfigRow): Promise<void> {
 		await upsertOne(GuildStreamerConfigs.insert(row));
+	}
+
+	async upsertLiveState(row: GuildStreamerLiveStateRow): Promise<void> {
+		await upsertOne(GuildStreamerLiveStates.insert(row));
 	}
 
 	async deleteLiveState(guildId: GuildID, platform: string, platformChannelId: string): Promise<void> {
