@@ -13,9 +13,34 @@ import {
 	GuildStreamerConfigUpdateRequest,
 	StreamerLinkCreateRequest,
 	StreamerLinkParam,
+	StreamerLinkValidateRequest,
+	StreamerLinkValidateResponse,
 } from '@larixy/schema/src/domains/guild/GuildStreamerSchemas';
 
 export function StreamerController(app: HonoApp) {
+	app.post(
+		'/streamer/validate-link',
+		RateLimitMiddleware(RateLimitConfigs.STREAMER_LINK_VALIDATE),
+		LoginRequired,
+		Validator('json', StreamerLinkValidateRequest),
+		OpenAPI({
+			operationId: 'validate_streamer_link',
+			summary: 'Validate a streamer channel link',
+			description:
+				'Resolves a YouTube, Twitch or Kick channel link to the platform channel: its identifier, login, display name and whether it is live right now. Part of the closed streamer mode experiment: accounts outside the experiment get a feature disabled answer.',
+			responseSchema: StreamerLinkValidateResponse,
+			statusCode: 200,
+			security: ['botToken', 'bearerToken', 'sessionToken'],
+			tags: ['Guilds'],
+		}),
+		async (ctx) =>
+			ctx.json(
+				await ctx.get('streamerLinkService').validateLink({
+					userId: ctx.get('user').id,
+					data: ctx.req.valid('json'),
+				}),
+			),
+	);
 	app.get(
 		'/guilds/:guild_id/streamer',
 		RateLimitMiddleware(RateLimitConfigs.GUILD_STREAMER_CONFIG),
