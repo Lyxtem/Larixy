@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "不是有效的 Unicode 表情。",
 	"stickers_and_emojis.unknown_emoji": "未知表情。",
 	"stickers_and_emojis.unknown_sticker": "未知贴纸。",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "通知签名无效。",
 	"store_billing.purchase_invalid": "无法验证此购买。",
 	"store_billing.purchase_owned_by_other_account": "此购买已关联到其他账号。",

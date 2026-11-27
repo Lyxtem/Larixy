@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Ogiltig Unicode-emoji.",
 	"stickers_and_emojis.unknown_emoji": "Emojin är okänd.",
 	"stickers_and_emojis.unknown_sticker": "Okänt klistermärke.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Aviseringens signatur är ogiltig.",
 	"store_billing.purchase_invalid": "Det gick inte att verifiera köpet.",
 	"store_billing.purchase_owned_by_other_account": "Köpet är kopplat till ett annat konto.",

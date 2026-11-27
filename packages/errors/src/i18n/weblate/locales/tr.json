@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Geçerli bir Unicode emoji değil.",
 	"stickers_and_emojis.unknown_emoji": "Bilinmeyen emoji.",
 	"stickers_and_emojis.unknown_sticker": "Bilinmeyen çıkartma.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Bildirim imzası geçersiz.",
 	"store_billing.purchase_invalid": "Bu satın alma doğrulanamadı.",
 	"store_billing.purchase_owned_by_other_account": "Bu satın alma başka bir hesaba bağlı.",

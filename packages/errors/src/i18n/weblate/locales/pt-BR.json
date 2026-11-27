@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Não é um emoji Unicode válido.",
 	"stickers_and_emojis.unknown_emoji": "Emoji desconhecido.",
 	"stickers_and_emojis.unknown_sticker": "Figurinha desconhecida.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "A assinatura da notificação é inválida.",
 	"store_billing.purchase_invalid": "Não foi possível verificar esta compra.",
 	"store_billing.purchase_owned_by_other_account": "Esta compra está vinculada a outra conta.",

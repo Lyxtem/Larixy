@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Không phải emoji Unicode hợp lệ.",
 	"stickers_and_emojis.unknown_emoji": "Emoji không xác định.",
 	"stickers_and_emojis.unknown_sticker": "Sticker không xác định.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Chữ ký của thông báo không hợp lệ.",
 	"store_billing.purchase_invalid": "Không thể xác minh giao dịch mua này.",
 	"store_billing.purchase_owned_by_other_account": "Giao dịch mua này được liên kết với một tài khoản khác.",

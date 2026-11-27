@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "有効なUnicode絵文字ではありません。",
 	"stickers_and_emojis.unknown_emoji": "不明な絵文字です。",
 	"stickers_and_emojis.unknown_sticker": "不明なスタンプです。",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "通知の署名が無効です。",
 	"store_billing.purchase_invalid": "この購入を確認できませんでした。",
 	"store_billing.purchase_owned_by_other_account": "この購入は別のアカウントに紐付けられています。",

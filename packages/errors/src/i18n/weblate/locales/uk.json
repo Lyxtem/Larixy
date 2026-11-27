@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Неправильне емоджі Unicode.",
 	"stickers_and_emojis.unknown_emoji": "Невідоме емоджі.",
 	"stickers_and_emojis.unknown_sticker": "Невідомий стікер.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Підпис сповіщення недійсний.",
 	"store_billing.purchase_invalid": "Не вдалося підтвердити цю покупку.",
 	"store_billing.purchase_owned_by_other_account": "Ця покупка пов’язана з іншим обліковим записом.",

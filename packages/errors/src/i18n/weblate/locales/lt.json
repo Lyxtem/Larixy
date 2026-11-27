@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Netinkamas Unicode emoji.",
 	"stickers_and_emojis.unknown_emoji": "Nežinomas emoji.",
 	"stickers_and_emojis.unknown_sticker": "Nežinomas lipdukas.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Pranešimo parašas netinkamas.",
 	"store_billing.purchase_invalid": "Šio pirkinio nepavyko patvirtinti.",
 	"store_billing.purchase_owned_by_other_account": "Šis pirkinys susietas su kita paskyra.",

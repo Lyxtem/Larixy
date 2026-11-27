@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Nu este un emoji Unicode valid.",
 	"stickers_and_emojis.unknown_emoji": "Emoji necunoscut.",
 	"stickers_and_emojis.unknown_sticker": "Sticker necunoscut.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Semnătura notificării nu este validă.",
 	"store_billing.purchase_invalid": "Această achiziție nu a putut fi verificată.",
 	"store_billing.purchase_owned_by_other_account": "Această achiziție este asociată cu alt cont.",

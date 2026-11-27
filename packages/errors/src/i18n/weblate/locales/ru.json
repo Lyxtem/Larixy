@@ -557,6 +557,7 @@
 	"stickers_and_emojis.not_valid_unicode_emoji": "Некорректное Юникод-эмодзи.",
 	"stickers_and_emojis.unknown_emoji": "Неизвестное эмодзи.",
 	"stickers_and_emojis.unknown_sticker": "Неизвестный стикер.",
+	"streamer.platform_already_linked": "",
 	"store_billing.notification_unauthorized": "Подпись уведомления недействительна.",
 	"store_billing.purchase_invalid": "Не удалось подтвердить эту покупку.",
 	"store_billing.purchase_owned_by_other_account": "Эта покупка привязана к другому аккаунту.",
