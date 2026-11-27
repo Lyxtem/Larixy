@@ -10,21 +10,21 @@ interface CapacitorPluginListenerHandle {
 }
 
 interface PushNotificationsPlugin {
-	checkPermissions: () => Promise<{receive: string}>;
-	requestPermissions: () => Promise<{receive: string}>;
-	register: () => Promise<void>;
-	addListener: (
+	checkPermissions(): Promise<{receive: string}>;
+	requestPermissions(): Promise<{receive: string}>;
+	register(): Promise<void>;
+	addListener(
 		eventName: 'registration',
 		listener: (event: {value: string}) => void,
-	) => Promise<CapacitorPluginListenerHandle>;
-	addListener: (
+	): Promise<CapacitorPluginListenerHandle>;
+	addListener(
 		eventName: 'registrationError',
 		listener: (event: {error: string}) => void,
-	) => Promise<CapacitorPluginListenerHandle>;
-	addListener: (
+	): Promise<CapacitorPluginListenerHandle>;
+	addListener(
 		eventName: 'pushNotificationReceived',
 		listener: (event: {id?: string}) => void,
-	) => Promise<CapacitorPluginListenerHandle>;
+	): Promise<CapacitorPluginListenerHandle>;
 }
 
 interface CapacitorBridge {
