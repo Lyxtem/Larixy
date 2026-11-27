@@ -275,6 +275,12 @@ import {
 	type StorePurchaseRow,
 } from '@app/api/database/types/StoreBillingTypes';
 import {
+	GUILD_STREAMER_CONFIG_COLUMNS,
+	GUILD_STREAMER_LIVE_STATE_COLUMNS,
+	type GuildStreamerConfigRow,
+	type GuildStreamerLiveStateRow,
+} from '@app/api/database/types/StreamerTypes';
+import {
 	ACTIVE_THREADS_BY_GUILD_COLUMNS,
 	type ActiveThreadsByGuildRow,
 	ARCHIVED_THREADS_BY_PARENT_COLUMNS,
@@ -527,6 +533,21 @@ export const GuildVisitsByGuild = defineTable<GuildVisitRow, 'guild_id' | 'user_
 	primaryKey: ['guild_id', 'user_id'],
 	partitionKey: ['guild_id'],
 	defaultTtlSeconds: GUILD_VISIT_TTL_SECONDS,
+});
+export const GuildStreamerConfigs = defineTable<GuildStreamerConfigRow, 'guild_id'>({
+	name: 'guild_streamer_configs',
+	columns: GUILD_STREAMER_CONFIG_COLUMNS,
+	primaryKey: ['guild_id'],
+});
+export const GuildStreamerLiveStates = defineTable<
+	GuildStreamerLiveStateRow,
+	'guild_id' | 'platform' | 'platform_channel_id',
+	'guild_id'
+>({
+	name: 'guild_streamer_live_states',
+	columns: GUILD_STREAMER_LIVE_STATE_COLUMNS,
+	primaryKey: ['guild_id', 'platform', 'platform_channel_id'],
+	partitionKey: ['guild_id'],
 });
 export const GuildAuditLogs = defineTable<GuildAuditLogRow, 'guild_id' | 'log_id'>({
 	name: 'guild_audit_logs_v2',

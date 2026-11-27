@@ -15,6 +15,7 @@ import {OperatorPassRateLimitConfigs} from '@app/api/rate_limit_configs/Operator
 import type {RateLimitSection} from '@app/api/rate_limit_configs/RateLimitHelpers';
 import {mergeRateLimitSections} from '@app/api/rate_limit_configs/RateLimitHelpers';
 import {StoreBillingRateLimitConfigs} from '@app/api/rate_limit_configs/StoreBillingRateLimitConfig';
+import {StreamerRateLimitConfigs} from '@app/api/rate_limit_configs/StreamerRateLimitConfig';
 import {UserRateLimitConfigs} from '@app/api/rate_limit_configs/UserRateLimitConfig';
 import {WebhookRateLimitConfigs} from '@app/api/rate_limit_configs/WebhookRateLimitConfig';
 
@@ -28,6 +29,7 @@ const rateLimitSections = [
 	OperatorPassRateLimitConfigs,
 	GuildRateLimitConfigs,
 	GuildVisitRateLimitConfigs,
+	StreamerRateLimitConfigs,
 	InviteRateLimitConfigs,
 	WebhookRateLimitConfigs,
 	IntegrationRateLimitConfigs,

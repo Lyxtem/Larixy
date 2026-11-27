@@ -26,6 +26,7 @@ import {DonationMagicLinkService} from '@app/api/donation/services/DonationMagic
 import {FavoriteMemeRequestService} from '@app/api/favorite_meme/FavoriteMemeRequestService';
 import {FavoriteMemeService} from '@app/api/favorite_meme/FavoriteMemeService';
 import {GuildRepository} from '@app/api/guild/repositories/GuildRepository';
+import {GuildDataHelpers} from '@app/api/guild/services/data/GuildDataHelpers';
 import {GuildVisitService} from '@app/api/guild/visits/GuildVisitService';
 import {DisabledLiveKitService} from '@app/api/infrastructure/DisabledLiveKitService';
 import type {IGatewayService} from '@app/api/infrastructure/IGatewayService';
@@ -132,6 +133,7 @@ import {getReportSearchService} from '@app/api/SearchFactory';
 import {SearchService} from '@app/api/search/SearchService';
 import type {StoreEntitlementService} from '@app/api/store_billing/StoreEntitlementService';
 import {createStoreEntitlementService} from '@app/api/store_billing/StoreEntitlementServiceFactory';
+import {StreamerConfigService} from '@app/api/streamer/StreamerConfigService';
 import {StripeService} from '@app/api/stripe/StripeService';
 import type {HonoEnv} from '@app/api/types/HonoEnv';
 import {EmailChangeService} from '@app/api/user/services/EmailChangeService';
@@ -211,6 +213,7 @@ function getLiveKitWebhookService(): LiveKitWebhookService | null {
 class RequestServices implements RequestScopedServices {
 	private cachedOperatorPassServices: OperatorPassServices | undefined;
 	private cachedGuildVisitService: GuildVisitService | undefined;
+	private cachedStreamerConfigService: StreamerConfigService | undefined;
 	private cachedGateway: IGatewayService | undefined;
 	private cachedMedia: IMediaService | undefined;
 	private cachedLiveKit: ILiveKitService | undefined;
@@ -365,6 +368,15 @@ class RequestServices implements RequestScopedServices {
 			getUserCacheService(),
 		);
 		return this.cachedGuildVisitService;
+	}
+
+	get streamerConfigService(): StreamerConfigService {
+		this.cachedStreamerConfigService ??= new StreamerConfigService(
+			getInstanceConfigRepository(),
+			new GuildDataHelpers(this.gatewayService, getGuildAuditLogService(), getUserRepository()),
+			this.channelRepository.channelData,
+		);
+		return this.cachedStreamerConfigService;
 	}
 
 	get blueskyOAuthService(): IBlueskyOAuthService | null {

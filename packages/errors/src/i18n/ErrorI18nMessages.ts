@@ -685,6 +685,7 @@ export const ERROR_I18N_MESSAGES = {
 	'stickers_and_emojis.not_valid_unicode_emoji': 'Not a valid Unicode emoji.',
 	'stickers_and_emojis.unknown_emoji': 'Unknown emoji.',
 	'stickers_and_emojis.unknown_sticker': 'Unknown sticker.',
+	'streamer.platform_already_linked': 'This guild already has a link for that platform.',
 	'store_billing.notification_unauthorized': 'The notification signature is invalid.',
 	'store_billing.purchase_invalid': 'This purchase could not be verified.',
 	'store_billing.purchase_owned_by_other_account': 'This purchase is linked to a different account.',

@@ -59,6 +59,7 @@ import type {ReportRequestService} from '@app/api/report/ReportRequestService';
 import type {RpcService} from '@app/api/rpc/RpcService';
 import type {SearchService} from '@app/api/search/SearchService';
 import type {StoreEntitlementService} from '@app/api/store_billing/StoreEntitlementService';
+import type {StreamerConfigService} from '@app/api/streamer/StreamerConfigService';
 import type {StripeService} from '@app/api/stripe/StripeService';
 import type {ThemeService} from '@app/api/theme/ThemeService';
 import type {EntranceSoundPlayService} from '@app/api/user/entrance_sound/EntranceSoundPlayService';
@@ -142,6 +143,7 @@ export interface HonoEnv {
 		discoveryService: GuildDiscoveryService;
 		guildService: GuildService;
 		guildVisitService: GuildVisitService;
+		streamerConfigService: StreamerConfigService;
 		inviteService: InviteService;
 		inviteRequestService: InviteRequestService;
 		liveKitWebhookService?: LiveKitWebhookService;
