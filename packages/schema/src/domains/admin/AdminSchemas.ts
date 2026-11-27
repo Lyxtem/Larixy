@@ -45,6 +45,10 @@ import {
 	GuildVisitsConfigUpdateRequest,
 } from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
 import {
+	StreamerModeConfigResponse,
+	StreamerModeConfigUpdateRequest,
+} from '@larixy/schema/src/domains/admin/StreamerModeSchemas';
+import {
 	InstanceBillingResponse,
 	InstanceBillingUpdateRequest,
 } from '@larixy/schema/src/domains/admin/InstanceBillingSchemas';
@@ -909,6 +913,7 @@ export const InstanceConfigResponse = z.object({
 	}),
 	accounts: AccountsConfigSchema,
 	guild_visits: GuildVisitsConfigResponse,
+	streamer_mode: StreamerModeConfigResponse,
 	experiment_delivery: ExperimentDeliveryConfigResponse,
 	registration: InstanceRegistrationResponse,
 	self_hosted: z.boolean(),
@@ -969,6 +974,7 @@ export const InstanceConfigUpdateRequest = z.object({
 	auth: AuthConfigUpdateRequest.nullish(),
 	accounts: AccountsConfigUpdateRequest.nullish(),
 	guild_visits: GuildVisitsConfigUpdateRequest.nullish(),
+	streamer_mode: StreamerModeConfigUpdateRequest.nullish(),
 	experiment_delivery: ExperimentDeliveryConfigUpdateRequest.nullish(),
 	registration: z
 		.object({

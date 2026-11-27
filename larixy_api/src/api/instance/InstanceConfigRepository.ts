@@ -157,6 +157,11 @@ import {
 	type GuildVisitsConfigUpdateRequest,
 } from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
 import {
+	type StreamerModeConfig,
+	StreamerModeConfigSchema,
+	type StreamerModeConfigUpdateRequest,
+} from '@larixy/schema/src/domains/admin/StreamerModeSchemas';
+import {
 	type BillingCatalogMode,
 	type StoredBillingConfig,
 	StoredBillingConfigSchema,
@@ -201,6 +206,7 @@ const CAPTCHA_CONFIG_KEY = 'captcha_config';
 const AUTH_CONFIG_KEY = 'auth_config';
 const ACCOUNTS_CONFIG_KEY = 'accounts_config';
 const GUILD_VISITS_CONFIG_KEY = 'guild_visits_config';
+const STREAMER_MODE_CONFIG_KEY = 'streamer_mode_config';
 const CHANNEL_THREADS_CONFIG_KEY = 'channel_threads_config';
 const EXPERIMENT_DELIVERY_CONFIG_KEY = 'experiment_delivery_config';
 const REGISTRATION_CONFIG_KEY = 'registration_config';
@@ -957,6 +963,10 @@ function parseStoredAccountsConfig(raw: string | null, appPublicRaw: string | nu
 
 function parseStoredGuildVisitsConfig(raw: string | null): GuildVisitsConfig {
 	return parseStoredConfigOrDefault(GuildVisitsConfigSchema, raw, 'guild visits');
+}
+
+function parseStoredStreamerModeConfig(raw: string | null): StreamerModeConfig {
+	return parseStoredConfigOrDefault(StreamerModeConfigSchema, raw, 'streamer mode');
 }
 
 const StoredChannelThreadsVersionSchema = z.object({config_version: z.number().int().min(0)});
@@ -1881,6 +1891,7 @@ export class InstanceConfigRepository {
 			parseStoredAccountsConfig(snapshot.get(ACCOUNTS_CONFIG_KEY) ?? null, snapshot.get(APP_PUBLIC_CONFIG_KEY) ?? null),
 		);
 		setCachedGuildVisitsConfig(parseStoredGuildVisitsConfig(snapshot.get(GUILD_VISITS_CONFIG_KEY) ?? null));
+		parseStoredStreamerModeConfig(snapshot.get(STREAMER_MODE_CONFIG_KEY) ?? null);
 		syncChannelThreadsConfig(snapshot.get(CHANNEL_THREADS_CONFIG_KEY) ?? null, parseStoredChannelThreadsConfig);
 		parseStoredExperimentDeliveryConfig(snapshot.get(EXPERIMENT_DELIVERY_CONFIG_KEY) ?? null);
 		parseStoredInstancePolicyConfig(snapshot.get(INSTANCE_POLICY_CONFIG_KEY) ?? null);
@@ -2498,6 +2509,20 @@ export class InstanceConfigRepository {
 		);
 		setCachedGuildVisitsConfig(config);
 		return config;
+	}
+
+	async getStreamerModeConfig(): Promise<StreamerModeConfig> {
+		return parseStoredStreamerModeConfig(await this.getConfig(STREAMER_MODE_CONFIG_KEY));
+	}
+
+	async updateStreamerModeConfig(patch: StreamerModeConfigUpdateRequest): Promise<StreamerModeConfig> {
+		return await this.updateStoredConfig(STREAMER_MODE_CONFIG_KEY, (raw) =>
+			validateStoredConfig(
+				StreamerModeConfigSchema,
+				{...parseStoredStreamerModeConfig(raw), ...omitUndefined(patch)},
+				'streamer mode',
+			),
+		);
 	}
 
 	async ensureAccountsDefaults(): Promise<void> {
