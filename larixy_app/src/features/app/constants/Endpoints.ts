@@ -283,6 +283,8 @@ export const Endpoints = {
 	USER_PUSH_ROTATE: '/users/@me/push/rotate',
 	USER_PUSH_SUBSCRIPTIONS: '/users/@me/push/subscriptions',
 	USER_PUSH_SUBSCRIPTION: (subscriptionId: string) => `/users/@me/push/subscriptions/${subscriptionId}`,
+	USER_MOBILE_DEVICES: '/users/@me/mobile-devices',
+	USER_MOBILE_DEVICES_UNREGISTER: '/users/@me/mobile-devices/unregister',
 	WEBHOOK: (webhookId: string) => `/webhooks/${webhookId}`,
 	REPORT_FLOW: (targetType: string) => `/reports/flows/${targetType}`,
 	REPORT_FLOW_SUBMISSIONS: (targetType: string) => `/reports/flows/${targetType}/submissions`,
