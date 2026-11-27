@@ -36,7 +36,7 @@ export class StreamerConfigRepository {
 		pageSize: number,
 		pageState?: string | null,
 	): Promise<PagedQueryResult<GuildStreamerConfigRow>> {
-		return fetchPage<GuildStreamerConfigRow>(LIST_CONFIGS_CQL, undefined, {pageSize, pageState});
+		return fetchPage<GuildStreamerConfigRow>(LIST_CONFIGS_CQL, {}, {pageSize, pageState});
 	}
 
 	async upsertConfig(row: GuildStreamerConfigRow): Promise<void> {
