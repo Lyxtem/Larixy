@@ -36,3 +36,8 @@ export function streamerModeUserActive(config: StreamerModeConfig, userId: strin
 	if (!config.enabled) return false;
 	return config.included_user_ids.includes(userId);
 }
+
+export function streamerModeGuildActive(config: StreamerModeConfig, guildId: string): boolean {
+	if (!config.enabled) return false;
+	return config.included_guild_ids.includes(guildId);
+}

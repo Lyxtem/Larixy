@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Тестовые покупки нельзя применить к этому аккаунту.",
 	"store_billing.unavailable": "Встроенные покупки сейчас недоступны. Повтори попытку позже.",
 	"store_billing.unknown_purchase": "Неизвестная покупка в магазине.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Подписки, оплачиваемые через Pix или UPI, нельзя переключать между ежемесячной и ежегодной оплатой. Отмени подписку, а когда она закончится, оформи её снова на нужный тариф.",
 	"stripe.dispute_exempt": "Наши условия исключают любые меры по этому спору по платежу.",
 	"stripe.dispute_review_closed": "Этот спор по платежу уже закрыт.",

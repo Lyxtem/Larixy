@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "لا يمكن تطبيق عمليات الشراء التجريبية على هذا الحساب.",
 	"store_billing.unavailable": "عمليات الشراء داخل التطبيق غير متاحة حاليًا. حاول مجددًا لاحقًا.",
 	"store_billing.unknown_purchase": "عملية شراء غير معروفة من المتجر.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "لا يمكن للاشتراكات المدفوعة عبر Pix أو UPI التبديل بين الدفع الشهري والسنوي. ألغِ اشتراكك، وعندما ينتهي اشترك من جديد في الخطة التي تريدها.",
 	"stripe.dispute_exempt": "تستبعد شروطنا اتخاذ أي إجراء بشأن نزاع الدفع هذا.",
 	"stripe.dispute_review_closed": "تم إغلاق نزاع الدفع هذا بالفعل.",

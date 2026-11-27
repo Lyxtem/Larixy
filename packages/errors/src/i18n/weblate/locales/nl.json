@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Testaankopen kunnen niet op dit account worden toegepast.",
 	"store_billing.unavailable": "In-app-aankopen zijn op dit moment niet beschikbaar. Probeer het later opnieuw.",
 	"store_billing.unknown_purchase": "Onbekende winkelaankoop.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Abonnementen die met Pix of UPI worden betaald, kunnen niet wisselen tussen maandelijks en jaarlijks. Zeg je abonnement op en neem, als het afloopt, opnieuw een abonnement op het plan dat je wilt.",
 	"stripe.dispute_exempt": "Onze voorwaarden sluiten elke maatregel bij dit betalingsgeschil uit.",
 	"stripe.dispute_review_closed": "Dit betalingsgeschil is al afgesloten.",

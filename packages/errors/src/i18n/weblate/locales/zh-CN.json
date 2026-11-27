@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "测试购买无法应用到此账号。",
 	"store_billing.unavailable": "应用内购买暂时不可用。请稍后重试。",
 	"store_billing.unknown_purchase": "未知的商店购买。",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "通过 Pix 或 UPI 支付的订阅无法在月付和年付之间切换。请取消订阅，待其结束后再订阅你想要的方案。",
 	"stripe.dispute_exempt": "根据我们的条款，不得针对此付款争议采取任何措施。",
 	"stripe.dispute_review_closed": "此付款争议已结束。",

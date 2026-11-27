@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Zakupów testowych nie można zastosować do tego konta.",
 	"store_billing.unavailable": "Zakupy w aplikacji są teraz niedostępne. Spróbuj ponownie później.",
 	"store_billing.unknown_purchase": "Nieznany zakup ze sklepu.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Subskrypcji opłacanych przez Pix lub UPI nie można przełączać między miesięczną a roczną. Anuluj subskrypcję, a gdy się skończy, wykup ponownie wybrany plan.",
 	"stripe.dispute_exempt": "Nasze warunki wykluczają jakiekolwiek działania w związku z tym sporem dotyczącym płatności.",
 	"stripe.dispute_review_closed": "Ten spór dotyczący płatności został już zamknięty.",

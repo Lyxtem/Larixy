@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Testkjøp kan ikke brukes på denne kontoen.",
 	"store_billing.unavailable": "Kjøp i appen er ikke tilgjengelig akkurat nå. Prøv igjen senere.",
 	"store_billing.unknown_purchase": "Ukjent kjøp fra butikken.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Abonnementer som betales med Pix eller UPI, kan ikke bytte mellom månedlig og årlig. Si opp abonnementet ditt, og når det utløper, kan du abonnere på nytt på planen du vil ha.",
 	"stripe.dispute_exempt": "Vilkårene våre utelukker ethvert tiltak i denne betalingstvisten.",
 	"stripe.dispute_review_closed": "Denne betalingstvisten er allerede avsluttet.",

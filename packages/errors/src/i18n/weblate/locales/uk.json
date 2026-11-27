@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Тестові покупки не можна застосувати до цього облікового запису.",
 	"store_billing.unavailable": "Покупки в застосунку зараз недоступні. Спробуй пізніше.",
 	"store_billing.unknown_purchase": "Невідома покупка в магазині.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Підписки, оплачені через Pix або UPI, не можна перемикати між щомісячною та щорічною оплатою. Скасуй підписку, а коли вона закінчиться, оформи її знову на потрібний план.",
 	"stripe.dispute_exempt": "Наші умови виключають будь-які дії щодо цього оскарження платежу.",
 	"stripe.dispute_review_closed": "Це оскарження платежу вже закрито.",

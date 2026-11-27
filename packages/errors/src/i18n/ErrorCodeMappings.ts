@@ -651,6 +651,7 @@ export const ErrorCodeToI18nKey = {
 	[ValidationErrorCodes.VANITY_URL_REQUIRES_FEATURE]: 'channels_and_guilds.vanity_url_requires_feature',
 	[ValidationErrorCodes.THIS_VANITY_URL_IS_ALREADY_TAKEN]: 'vanity_urls.vanity_url_already_taken',
 	[ValidationErrorCodes.VANITY_URL_CODE_ALREADY_TAKEN]: 'vanity_urls.vanity_url_code_already_taken',
+	[ValidationErrorCodes.STREAMER_PLATFORM_ALREADY_LINKED]: 'streamer.platform_already_linked',
 	[ValidationErrorCodes.VANITY_URL_CODE_CANNOT_CONTAIN_LARIXY]: 'vanity_urls.vanity_url_code_cannot_contain_larixy',
 	[ValidationErrorCodes.VANITY_URL_CODE_LENGTH_INVALID]: 'vanity_urls.vanity_url_code_length_invalid',
 	[ValidationErrorCodes.VANITY_URL_INVALID_CHARACTERS]: 'vanity_urls.vanity_url_invalid_characters',

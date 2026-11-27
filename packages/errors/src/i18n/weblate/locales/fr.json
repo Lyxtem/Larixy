@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Les achats de test ne peuvent pas être appliqués à ce compte.",
 	"store_billing.unavailable": "Les achats intégrés sont indisponibles pour le moment. Réessayez plus tard.",
 	"store_billing.unknown_purchase": "Achat en boutique inconnu.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Les abonnements payés avec Pix ou UPI ne peuvent pas passer de mensuel à annuel ni l’inverse. Annule ton abonnement et, quand il prend fin, abonne-toi à nouveau à l’offre que tu veux.",
 	"stripe.dispute_exempt": "Nos conditions excluent toute mesure liée à ce litige de paiement.",
 	"stripe.dispute_review_closed": "Ce litige de paiement est déjà clos.",

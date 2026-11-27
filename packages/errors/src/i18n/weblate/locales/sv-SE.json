@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Testköp kan inte tillämpas på det här kontot.",
 	"store_billing.unavailable": "Köp i appen är inte tillgängliga just nu. Försök igen senare.",
 	"store_billing.unknown_purchase": "Okänt butiksköp.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "En prenumeration som betalas med Pix eller UPI kan inte byta mellan månad och år. Avsluta prenumerationen, och när den har gått ut kan du prenumerera igen på den plan du vill ha.",
 	"stripe.dispute_exempt": "Våra villkor utesluter alla åtgärder med anledning av det här betalningsbestridandet.",
 	"stripe.dispute_review_closed": "Det här betalningsbestridandet är redan avslutat.",

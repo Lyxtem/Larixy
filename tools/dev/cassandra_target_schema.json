@@ -654,6 +654,31 @@
 					"type": "bigint"
 				}
 			]
+		},
+		{
+			"name": "streamer_link",
+			"fields": [
+				{
+					"name": "platform",
+					"type": "text"
+				},
+				{
+					"name": "url",
+					"type": "text"
+				},
+				{
+					"name": "platform_channel_id",
+					"type": "text"
+				},
+				{
+					"name": "platform_login",
+					"type": "text"
+				},
+				{
+					"name": "display_name",
+					"type": "text"
+				}
+			]
 		}
 	],
 	"tables": [
@@ -6161,6 +6186,96 @@
 				}
 			],
 			"primary_key": "((sticker_id))",
+			"options": ""
+		},
+		{
+			"name": "guild_streamer_configs",
+			"columns": [
+				{
+					"name": "guild_id",
+					"type": "bigint"
+				},
+				{
+					"name": "owner_user_id",
+					"type": "bigint"
+				},
+				{
+					"name": "enabled",
+					"type": "boolean"
+				},
+				{
+					"name": "status",
+					"type": "text"
+				},
+				{
+					"name": "alerts_channel_id",
+					"type": "bigint"
+				},
+				{
+					"name": "alerts_role_id",
+					"type": "bigint"
+				},
+				{
+					"name": "mention_role",
+					"type": "boolean"
+				},
+				{
+					"name": "links",
+					"type": "frozen<list<streamer_link>>"
+				},
+				{
+					"name": "created_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "updated_at",
+					"type": "timestamp"
+				}
+			],
+			"primary_key": "((guild_id))",
+			"options": ""
+		},
+		{
+			"name": "guild_streamer_live_states",
+			"columns": [
+				{
+					"name": "guild_id",
+					"type": "bigint"
+				},
+				{
+					"name": "platform",
+					"type": "text"
+				},
+				{
+					"name": "platform_channel_id",
+					"type": "text"
+				},
+				{
+					"name": "state",
+					"type": "text"
+				},
+				{
+					"name": "session_started_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "last_seen_live_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "last_seen_offline_at",
+					"type": "timestamp"
+				},
+				{
+					"name": "alert_message_id",
+					"type": "bigint"
+				},
+				{
+					"name": "alerted",
+					"type": "boolean"
+				}
+			],
+			"primary_key": "((guild_id), platform, platform_channel_id)",
 			"options": ""
 		},
 		{

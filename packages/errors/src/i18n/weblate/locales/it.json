@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Gli acquisti di prova non possono essere applicati a questo account.",
 	"store_billing.unavailable": "Gli acquisti in-app non sono disponibili al momento. Riprova più tardi.",
 	"store_billing.unknown_purchase": "Acquisto dallo store sconosciuto.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Gli abbonamenti pagati con Pix o UPI non possono passare da mensile ad annuale o viceversa. Annulla il tuo abbonamento e, quando termina, abbonati di nuovo al piano che preferisci.",
 	"stripe.dispute_exempt": "I nostri termini escludono qualsiasi provvedimento per questa contestazione di pagamento.",
 	"stripe.dispute_review_closed": "Questa contestazione di pagamento è già chiusa.",

@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Test satın almaları bu hesaba uygulanamaz.",
 	"store_billing.unavailable": "Uygulama içi satın almalar şu anda kullanılamıyor. Lütfen daha sonra tekrar dene.",
 	"store_billing.unknown_purchase": "Bilinmeyen mağaza satın alması.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Pix veya UPI ile ödenen abonelikler aylık ve yıllık arasında geçiş yapamaz. Aboneliğini iptal et, sona erdiğinde istediğin plana yeniden abone ol.",
 	"stripe.dispute_exempt": "Şartlarımız bu ödeme itirazı nedeniyle herhangi bir işlem yapılmasını hariç tutar.",
 	"stripe.dispute_review_closed": "Bu ödeme itirazı zaten kapandı.",

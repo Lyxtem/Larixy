@@ -563,6 +563,7 @@
 	"store_billing.purchase_sandbox_not_entitled": "Testne kupnje ne mogu se primijeniti na ovaj račun.",
 	"store_billing.unavailable": "Kupnje unutar aplikacije trenutačno nisu dostupne. Pokušaj ponovno kasnije.",
 	"store_billing.unknown_purchase": "Nepoznata kupnja iz trgovine.",
+	"streamer.platform_already_linked": "",
 	"stripe.billing_cycle_change_needs_resubscribe": "Pretplate plaćene putem Pixa ili UPI-ja ne mogu prelaziti s mjesečne na godišnju i obratno. Otkaži pretplatu, a kad istekne, ponovno se pretplati na plan koji želiš.",
 	"stripe.dispute_exempt": "Naši uvjeti isključuju bilo kakvu mjeru zbog ovog prigovora na plaćanje.",
 	"stripe.dispute_review_closed": "Ovaj je prigovor na plaćanje već zatvoren.",
