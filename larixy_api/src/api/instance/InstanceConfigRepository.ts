@@ -624,6 +624,7 @@ type StoredConfigSection =
 	| 'accounts'
 	| 'guild visits'
 	| 'streamer mode'
+	| 'premium gift campaign'
 	| 'channel threads'
 	| 'experiment delivery'
 	| 'instance policy'
