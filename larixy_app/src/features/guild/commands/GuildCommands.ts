@@ -22,7 +22,12 @@ import type {
 import type {GuildVanityURLUpdateResponse} from '@larixy/schema/src/domains/guild/GuildRequestSchemas';
 import type {Guild, GuildVanityURLResponse} from '@larixy/schema/src/domains/guild/GuildResponseSchemas';
 import type {GuildRole} from '@larixy/schema/src/domains/guild/GuildRoleSchemas';
-import type {StreamerLink} from '@larixy/schema/src/domains/guild/GuildStreamerSchemas';
+import type {
+	GuildStreamerConfigResponse,
+	StreamerLink,
+	StreamerLinkValidateResponse,
+	StreamerPlatform,
+} from '@larixy/schema/src/domains/guild/GuildStreamerSchemas';
 import type {TemplateSerializedGuild} from '@larixy/schema/src/domains/guild/GuildTemplateSchemas';
 import type {Invite} from '@larixy/schema/src/domains/invite/InviteSchemas';
 import type {UserPartial} from '@larixy/schema/src/domains/user/UserResponseSchemas';
@@ -170,6 +175,59 @@ export async function createFromTemplate(params: GuildTemplateCreateParams): Pro
 		logger.error('Failed to create guild from template:', error);
 		throw error;
 	}
+}
+
+const STREAMER_VALIDATE_LINK_PATH = '/streamer/validate-link';
+
+export interface GuildStreamerConfigUpdatePayload {
+	alerts_channel_id?: string | null;
+	enabled?: boolean;
+	mention_role?: boolean;
+}
+
+export async function validateStreamerLink(url: string): Promise<StreamerLinkValidateResponse> {
+	const response = await http.post<StreamerLinkValidateResponse>(STREAMER_VALIDATE_LINK_PATH, {
+		body: {url},
+		mode: 'silent',
+	});
+	if (!response.ok) {
+		throw new Error(`Streamer link validation failed with status ${response.status}`);
+	}
+	return response.body;
+}
+
+export async function getStreamerConfig(guildId: string): Promise<GuildStreamerConfigResponse> {
+	const response = await http.get<GuildStreamerConfigResponse>(`${Endpoints.GUILD(guildId)}/streamer`, {
+		mode: 'silent',
+	});
+	if (!response.ok) {
+		throw new Error(`Failed to load streamer config with status ${response.status}`);
+	}
+	return response.body;
+}
+
+export async function updateStreamerConfig(
+	guildId: string,
+	params: GuildStreamerConfigUpdatePayload,
+): Promise<GuildStreamerConfigResponse> {
+	const response = await http.patch<GuildStreamerConfigResponse>(`${Endpoints.GUILD(guildId)}/streamer`, {
+		body: params,
+	});
+	return response.body;
+}
+
+export async function addStreamerLink(
+	guildId: string,
+	link: StreamerLink,
+): Promise<GuildStreamerConfigResponse> {
+	const response = await http.post<GuildStreamerConfigResponse>(`${Endpoints.GUILD(guildId)}/streamer/links`, {
+		body: link,
+	});
+	return response.body;
+}
+
+export async function removeStreamerLink(guildId: string, platform: StreamerPlatform): Promise<void> {
+	await http.delete(`${Endpoints.GUILD(guildId)}/streamer/links/${platform}`);
 }
 
 export interface GuildUpdatePayload {

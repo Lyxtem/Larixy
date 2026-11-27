@@ -13,6 +13,7 @@ import {GuildVisitsSection} from '@app/features/guild/components/modals/guild_ta
 import {IdleSettingsSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/IdleSettingsSection';
 import {OwnerCrownSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/OwnerCrownSection';
 import {OwnerTransferSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/OwnerTransferSection';
+import {StreamerSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/StreamerSection';
 import {SystemWelcomeSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/SystemWelcomeSection';
 import {TextChannelNamesSection} from '@app/features/guild/components/modals/guild_tabs/guild_overview_tab/sections/TextChannelNamesSection';
 import type {FormInputs} from '@app/features/guild/utils/guild_tabs/GuildOverviewTabUtils';
@@ -154,6 +155,12 @@ const GuildOverviewTab: React.FC<{guildId: string}> = observer(({guildId}) => {
 					guildId={guildId}
 					canManageGuild={canManageGuild}
 					data-flx="guild.guild-tabs.guild-overview-tab.guild-visits-section"
+				/>
+				<StreamerSection
+					guildId={guildId}
+					canManageGuild={canManageGuild}
+					textChannels={textChannels as Array<ChannelLike>}
+					data-flx="guild.guild-tabs.guild-overview-tab.streamer-section"
 				/>
 				<DefaultNotificationsSection
 					form={form}
