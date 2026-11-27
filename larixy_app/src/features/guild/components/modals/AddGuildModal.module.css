@@ -212,3 +212,60 @@
 	align-items: center;
 	gap: 0.5rem;
 }
+
+.streamerSection {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.streamerLabel {
+	font-weight: 500;
+	color: var(--text-primary);
+	font-size: 0.875rem;
+}
+
+.streamerTypeOptions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.streamerTypeOption {
+	flex: 1;
+	padding: 0.625rem 0.5rem;
+	border: 0.0625rem solid var(--background-modifier-accent);
+	border-radius: 0.5rem;
+	background: var(--background-secondary);
+	color: var(--text-primary);
+	font-weight: 600;
+	font-size: 0.875rem;
+	cursor: pointer;
+}
+
+.streamerTypeOptionSelected {
+	border-color: var(--brand-primary);
+	background: var(--brand-tint);
+}
+
+.streamerDescription {
+	margin: 0;
+	color: var(--text-primary-muted);
+	font-size: 0.8125rem;
+}
+
+.streamerLinkRow {
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+}
+
+.streamerLinkActions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.streamerLinkStatus {
+	color: var(--accent-success);
+	font-size: 0.8125rem;
+}
