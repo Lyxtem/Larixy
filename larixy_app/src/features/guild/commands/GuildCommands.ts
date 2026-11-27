@@ -22,6 +22,7 @@ import type {
 import type {GuildVanityURLUpdateResponse} from '@larixy/schema/src/domains/guild/GuildRequestSchemas';
 import type {Guild, GuildVanityURLResponse} from '@larixy/schema/src/domains/guild/GuildResponseSchemas';
 import type {GuildRole} from '@larixy/schema/src/domains/guild/GuildRoleSchemas';
+import type {StreamerLink} from '@larixy/schema/src/domains/guild/GuildStreamerSchemas';
 import type {TemplateSerializedGuild} from '@larixy/schema/src/domains/guild/GuildTemplateSchemas';
 import type {Invite} from '@larixy/schema/src/domains/invite/InviteSchemas';
 import type {UserPartial} from '@larixy/schema/src/domains/user/UserResponseSchemas';
@@ -44,6 +45,7 @@ interface GuildAuditLogFetchResponse {
 
 type GuildCreateParams = Pick<Guild, 'name'> & {
 	icon?: string | null;
+	streamer?: {links: Array<StreamerLink>};
 };
 
 interface GuildTemplateCreateParams {
