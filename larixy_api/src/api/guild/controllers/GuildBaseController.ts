@@ -88,7 +88,7 @@ export function GuildBaseController(app: HonoApp) {
 				.data.operations.createGuild({user, data: createData, locale}, auditLogReason);
 			if (data.streamer) {
 				await ctx.get('streamerGuildCreationService').completeCreate({
-					guildId: createGuildID(guild.id),
+					guildId: createGuildID(BigInt(guild.id)),
 					ownerUserId: user.id,
 					links: data.streamer.links,
 				});
