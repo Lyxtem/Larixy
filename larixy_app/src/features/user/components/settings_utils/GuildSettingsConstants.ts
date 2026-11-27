@@ -61,6 +61,12 @@ const WEBHOOKS_DESCRIPTOR = msg({
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for configuring webhooks.',
 });
+const STREAMER_DESCRIPTOR = msg({
+	message: 'Streamer',
+	context: 'community-settings-tab',
+	comment:
+		'Community settings tab for streamer mode live alerts. Only shown for communities that have a streamer configuration.',
+});
 const VANITY_URL_DESCRIPTOR = msg({
 	message: 'Vanity URL',
 	context: 'community-settings-tab',
@@ -86,11 +92,6 @@ const BANS_DESCRIPTOR = msg({
 	message: 'Bans',
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for banned users.',
-});
-const STREAMER_DESCRIPTOR = msg({
-	message: 'Streamer',
-	comment:
-		'Community settings tab for streamer mode: live alerts and linked streaming channels. Same message as the streamer section heading so both share one translation.',
 });
 
 export type GuildSettingsTabType =
