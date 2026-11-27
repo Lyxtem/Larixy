@@ -45,6 +45,10 @@ import {
 	GuildVisitsConfigUpdateRequest,
 } from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
 import {
+	PremiumGiftCampaignConfigResponse,
+	PremiumGiftCampaignConfigUpdateRequest,
+} from '@larixy/schema/src/domains/admin/PremiumGiftCampaignSchemas';
+import {
 	StreamerModeConfigResponse,
 	StreamerModeConfigUpdateRequest,
 } from '@larixy/schema/src/domains/admin/StreamerModeSchemas';
@@ -920,6 +924,7 @@ export const InstanceConfigResponse = z.object({
 	accounts: AccountsConfigSchema,
 	guild_visits: GuildVisitsConfigResponse,
 	streamer_mode: StreamerModeConfigResponse,
+	premium_gift_campaign: PremiumGiftCampaignConfigResponse,
 	experiment_delivery: ExperimentDeliveryConfigResponse,
 	registration: InstanceRegistrationResponse,
 	self_hosted: z.boolean(),
@@ -981,6 +986,7 @@ export const InstanceConfigUpdateRequest = z.object({
 	accounts: AccountsConfigUpdateRequest.nullish(),
 	guild_visits: GuildVisitsConfigUpdateRequest.nullish(),
 	streamer_mode: StreamerModeConfigUpdateRequest.nullish(),
+	premium_gift_campaign: PremiumGiftCampaignConfigUpdateRequest.nullish(),
 	experiment_delivery: ExperimentDeliveryConfigUpdateRequest.nullish(),
 	registration: z
 		.object({

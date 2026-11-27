@@ -242,6 +242,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		accountsConfig,
 		guildVisitsConfig,
 		streamerModeConfig,
+		premiumGiftCampaignConfig,
 	] = await Promise.all([
 		instanceConfigRepository.getSsoConfig(),
 		instanceConfigRepository.getGatewayRolloutConfig(),
@@ -256,6 +257,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		instanceConfigRepository.getAccountsConfig(),
 		instanceConfigRepository.getGuildVisitsConfig(),
 		instanceConfigRepository.getStreamerModeConfig(),
+		instanceConfigRepository.getPremiumGiftCampaignConfig(),
 	]);
 	const [
 		appPublic,
@@ -314,6 +316,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		accounts: accountsConfig,
 		guild_visits: guildVisitsConfig,
 		streamer_mode: streamerModeConfig,
+		premium_gift_campaign: premiumGiftCampaignConfig,
 		experiment_delivery: experimentDelivery,
 		registration: {
 			...registrationConfig,
@@ -759,6 +762,12 @@ const INSTANCE_CONFIG_SECTION_APPLIERS = {
 		({data}) => data.streamer_mode,
 		async (streamerMode, {instanceConfigRepository}) => {
 			await instanceConfigRepository.updateStreamerModeConfig(streamerMode);
+		},
+	),
+	premium_gift_campaign: createInstanceConfigSectionApplier(
+		({data}) => data.premium_gift_campaign,
+		async (premiumGiftCampaign, {instanceConfigRepository}) => {
+			await instanceConfigRepository.updatePremiumGiftCampaignConfig(premiumGiftCampaign);
 		},
 	),
 	experiment_delivery: createInstanceConfigSectionApplier(

@@ -249,6 +249,12 @@ import {
 	type VisionarySlotRow,
 } from '@app/api/database/types/PaymentTypes';
 import {
+	PREMIUM_GIFT_CAMPAIGN_ENTRY_BY_CODE_COLUMNS,
+	PREMIUM_GIFT_CAMPAIGN_ENTRY_COLUMNS,
+	type PremiumGiftCampaignEntryByCodeRow,
+	type PremiumGiftCampaignEntryRow,
+} from '@app/api/database/types/PremiumGiftCampaignTypes';
+import {
 	DSA_REPORT_EMAIL_VERIFICATION_COLUMNS,
 	DSA_REPORT_TICKET_COLUMNS,
 	type DSAReportEmailVerificationRow,
@@ -871,6 +877,16 @@ export const GiftCodesByRedeemer = defineTable<GiftCodeByRedeemerRow, 'redeemed_
 	name: 'gift_codes_by_redeemer',
 	columns: GIFT_CODE_BY_REDEEMER_COLUMNS,
 	primaryKey: ['redeemed_by_user_id', 'code'],
+});
+export const PremiumGiftCampaignEntries = defineTable<PremiumGiftCampaignEntryRow, 'user_id'>({
+	name: 'premium_gift_campaign_entries',
+	columns: PREMIUM_GIFT_CAMPAIGN_ENTRY_COLUMNS,
+	primaryKey: ['user_id'],
+});
+export const PremiumGiftCampaignEntriesByCode = defineTable<PremiumGiftCampaignEntryByCodeRow, 'code'>({
+	name: 'premium_gift_campaign_entries_by_code',
+	columns: PREMIUM_GIFT_CAMPAIGN_ENTRY_BY_CODE_COLUMNS,
+	primaryKey: ['code'],
 });
 export const StorePurchases = defineTable<StorePurchaseRow, 'store_key'>({
 	name: 'store_purchases',

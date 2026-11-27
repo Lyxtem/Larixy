@@ -157,6 +157,11 @@ import {
 	type GuildVisitsConfigUpdateRequest,
 } from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
 import {
+	type PremiumGiftCampaignConfig,
+	PremiumGiftCampaignConfigSchema,
+	type PremiumGiftCampaignConfigUpdateRequest,
+} from '@larixy/schema/src/domains/admin/PremiumGiftCampaignSchemas';
+import {
 	type StreamerModeConfig,
 	StreamerModeConfigSchema,
 	type StreamerModeConfigUpdateRequest,
@@ -207,6 +212,7 @@ const AUTH_CONFIG_KEY = 'auth_config';
 const ACCOUNTS_CONFIG_KEY = 'accounts_config';
 const GUILD_VISITS_CONFIG_KEY = 'guild_visits_config';
 const STREAMER_MODE_CONFIG_KEY = 'streamer_mode_config';
+const PREMIUM_GIFT_CAMPAIGN_CONFIG_KEY = 'premium_gift_campaign_config';
 const CHANNEL_THREADS_CONFIG_KEY = 'channel_threads_config';
 const EXPERIMENT_DELIVERY_CONFIG_KEY = 'experiment_delivery_config';
 const REGISTRATION_CONFIG_KEY = 'registration_config';
@@ -983,6 +989,10 @@ function parseStoredGuildVisitsConfig(raw: string | null): GuildVisitsConfig {
 
 function parseStoredStreamerModeConfig(raw: string | null): StreamerModeConfig {
 	return parseStoredConfigOrDefault(StreamerModeConfigSchema, raw, 'streamer mode');
+}
+
+function parseStoredPremiumGiftCampaignConfig(raw: string | null): PremiumGiftCampaignConfig {
+	return parseStoredConfigOrDefault(PremiumGiftCampaignConfigSchema, raw, 'premium gift campaign');
 }
 
 const StoredChannelThreadsVersionSchema = z.object({config_version: z.number().int().min(0)});
@@ -1916,6 +1926,7 @@ export class InstanceConfigRepository {
 		);
 		setCachedGuildVisitsConfig(parseStoredGuildVisitsConfig(snapshot.get(GUILD_VISITS_CONFIG_KEY) ?? null));
 		parseStoredStreamerModeConfig(snapshot.get(STREAMER_MODE_CONFIG_KEY) ?? null);
+		parseStoredPremiumGiftCampaignConfig(snapshot.get(PREMIUM_GIFT_CAMPAIGN_CONFIG_KEY) ?? null);
 		syncChannelThreadsConfig(snapshot.get(CHANNEL_THREADS_CONFIG_KEY) ?? null, parseStoredChannelThreadsConfig);
 		parseStoredExperimentDeliveryConfig(snapshot.get(EXPERIMENT_DELIVERY_CONFIG_KEY) ?? null);
 		parseStoredInstancePolicyConfig(snapshot.get(INSTANCE_POLICY_CONFIG_KEY) ?? null);
@@ -2545,6 +2556,22 @@ export class InstanceConfigRepository {
 				StreamerModeConfigSchema,
 				{...parseStoredStreamerModeConfig(raw), ...omitUndefined(patch)},
 				'streamer mode',
+			),
+		);
+	}
+
+	async getPremiumGiftCampaignConfig(): Promise<PremiumGiftCampaignConfig> {
+		return parseStoredPremiumGiftCampaignConfig(await this.getConfig(PREMIUM_GIFT_CAMPAIGN_CONFIG_KEY));
+	}
+
+	async updatePremiumGiftCampaignConfig(
+		patch: PremiumGiftCampaignConfigUpdateRequest,
+	): Promise<PremiumGiftCampaignConfig> {
+		return await this.updateStoredConfig(PREMIUM_GIFT_CAMPAIGN_CONFIG_KEY, (raw) =>
+			validateStoredConfig(
+				PremiumGiftCampaignConfigSchema,
+				{...parseStoredPremiumGiftCampaignConfig(raw), ...omitUndefined(patch)},
+				'premium gift campaign',
 			),
 		);
 	}

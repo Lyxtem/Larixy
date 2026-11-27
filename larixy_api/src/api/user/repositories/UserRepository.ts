@@ -8,6 +8,7 @@ import type {
 	PasswordResetTokenRow,
 } from '@app/api/database/types/AuthTypes';
 import type {GiftCodeRow, PaymentBySubscriptionRow, PaymentRow} from '@app/api/database/types/PaymentTypes';
+import type {PremiumGiftCampaignEntryRow} from '@app/api/database/types/PremiumGiftCampaignTypes';
 import type {
 	PushSubscriptionRow,
 	RecentMentionRow,
@@ -50,6 +51,7 @@ import {TokenRepository} from '@app/api/user/repositories/auth/TokenRepository';
 import {WebAuthnRepository} from '@app/api/user/repositories/auth/WebAuthnRepository';
 import {GiftCodeRepository} from '@app/api/user/repositories/GiftCodeRepository';
 import {PaymentRepository} from '@app/api/user/repositories/PaymentRepository';
+import {PremiumGiftCampaignRepository} from '@app/api/user/repositories/PremiumGiftCampaignRepository';
 import {PushSubscriptionRepository} from '@app/api/user/repositories/PushSubscriptionRepository';
 import {RecentMentionRepository} from '@app/api/user/repositories/RecentMentionRepository';
 import {SavedMessageRepository} from '@app/api/user/repositories/SavedMessageRepository';
@@ -78,6 +80,7 @@ export class UserRepository {
 	private relationshipRepo = new UserRelationshipRepository();
 	private channelRepo = new UserChannelRepository();
 	private giftCodeRepository = new GiftCodeRepository();
+	private premiumGiftCampaignRepository = new PremiumGiftCampaignRepository();
 	private paymentRepository = new PaymentRepository();
 	private pushSubscriptionRepository = new PushSubscriptionRepository();
 	private recentMentionRepository = new RecentMentionRepository();
@@ -669,6 +672,26 @@ export class UserRepository {
 
 	async revokeGiftCode(code: string): Promise<void> {
 		return this.giftCodeRepository.revokeGiftCode(code);
+	}
+
+	async findPremiumGiftCampaignEntryByUser(userId: UserID): Promise<PremiumGiftCampaignEntryRow | null> {
+		return this.premiumGiftCampaignRepository.findEntryByUser(userId);
+	}
+
+	async findPremiumGiftCampaignEntryByCode(code: string): Promise<PremiumGiftCampaignEntryRow | null> {
+		return this.premiumGiftCampaignRepository.findEntryByCode(code);
+	}
+
+	async createPremiumGiftCampaignEntry(row: PremiumGiftCampaignEntryRow): Promise<void> {
+		return this.premiumGiftCampaignRepository.createEntry(row);
+	}
+
+	async markPremiumGiftCampaignSent(userId: UserID): Promise<void> {
+		return this.premiumGiftCampaignRepository.markSent(userId);
+	}
+
+	async markPremiumGiftCampaignClaimed(userId: UserID): Promise<void> {
+		return this.premiumGiftCampaignRepository.markClaimed(userId);
 	}
 
 	async unrevokeGiftCode(code: string): Promise<void> {

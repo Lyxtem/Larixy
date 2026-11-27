@@ -63,6 +63,8 @@ import processExpiredPremiumSweep from '@app/api/worker/tasks/ProcessExpiredPrem
 import processGooglePlayNotification from '@app/api/worker/tasks/ProcessGooglePlayNotification';
 import processInactivityDeletions from '@app/api/worker/tasks/ProcessInactivityDeletions';
 import processPendingBulkMessageDeletions from '@app/api/worker/tasks/ProcessPendingBulkMessageDeletions';
+import processPremiumGiftCampaignSweep from '@app/api/worker/tasks/ProcessPremiumGiftCampaignSweep';
+import processPremiumGiftCampaignUser from '@app/api/worker/tasks/ProcessPremiumGiftCampaignUser';
 import processPremiumStateReconciliationQueue from '@app/api/worker/tasks/ProcessPremiumStateReconciliationQueue';
 import processStorePurchaseRefreshQueue from '@app/api/worker/tasks/ProcessStorePurchaseRefreshQueue';
 import processStreamerLivePollSweep from '@app/api/worker/tasks/ProcessStreamerLivePollSweep';
@@ -163,6 +165,8 @@ export const workerTasks: Record<WorkerTaskName, WorkerTaskHandler> = {
 	processExpiredPremiumSweep,
 	processInactivityDeletions,
 	processPendingBulkMessageDeletions,
+	processPremiumGiftCampaignSweep,
+	processPremiumGiftCampaignUser,
 	processPremiumStateReconciliationQueue,
 	processStreamerLivePollSweep,
 	reconcileAttachmentDecay,
