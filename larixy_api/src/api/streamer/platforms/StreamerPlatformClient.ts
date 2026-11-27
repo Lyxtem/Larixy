@@ -41,12 +41,7 @@ export interface StreamerPlatformClient {
 	getLiveStatus(platformChannelId: string, platformLogin: string): Promise<StreamerLiveStatus>;
 }
 
-export interface StreamerPlatformCredentials {
-	clientId: string | null;
-	clientSecret: string | null;
-}
-
-export type StreamerCredentialsProvider = () => Promise<StreamerPlatformCredentials>;
+export type StreamerCredentialsProvider = () => Promise<{clientId: string | null; clientSecret: string | null}>;
 
 const FETCH_TIMEOUT_MS = ms('10 seconds');
 
