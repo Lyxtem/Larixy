@@ -12,6 +12,7 @@ import {lookupGeoip} from '@app/api/utils/IpUtils';
 import {Headers as HttpHeaders} from '@larixy/constants/src/Headers';
 import {resolveDomainMigrationAssignment} from '@larixy/schema/src/domains/admin/DomainMigrationSchemas';
 import {guildVisitsUserActive} from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
+import {streamerModeUserActive} from '@larixy/schema/src/domains/admin/StreamerModeSchemas';
 import {resolveVoiceP2pAssignment} from '@larixy/schema/src/domains/admin/VoiceP2pSchemas';
 import {ExperimentAssignmentsResponse} from '@larixy/schema/src/domains/experiment/ExperimentSchemas';
 
@@ -32,20 +33,29 @@ export function ExperimentController(app: HonoApp) {
 		}),
 		async (ctx) => {
 			const instanceConfigRepository = ctx.get('instanceConfigRepository');
-			const [delivery, domainMigrationConfig, channelThreadsConfig, voiceP2pConfig, geoip, guildVisitsConfig] =
-				await Promise.all([
-					instanceConfigRepository.getExperimentDeliveryConfig(),
-					instanceConfigRepository.getDomainMigrationConfig(),
-					instanceConfigRepository.getChannelThreadsConfig(),
-					instanceConfigRepository.getVoiceP2pConfig(),
-					lookupGeoip(ctx.req.raw),
-					instanceConfigRepository.getGuildVisitsConfig(),
-				]);
+			const [
+				delivery,
+				domainMigrationConfig,
+				channelThreadsConfig,
+				voiceP2pConfig,
+				geoip,
+				guildVisitsConfig,
+				streamerModeConfig,
+			] = await Promise.all([
+				instanceConfigRepository.getExperimentDeliveryConfig(),
+				instanceConfigRepository.getDomainMigrationConfig(),
+				instanceConfigRepository.getChannelThreadsConfig(),
+				instanceConfigRepository.getVoiceP2pConfig(),
+				lookupGeoip(ctx.req.raw),
+				instanceConfigRepository.getGuildVisitsConfig(),
+				instanceConfigRepository.getStreamerModeConfig(),
+			]);
 			const user = ctx.get('user');
 			const userId = user.id.toString();
 			const targeting = await resolveExperimentTargeting(user, geoip.countryCode, [
 				domainMigrationConfig,
 				voiceP2pConfig,
+				streamerModeConfig,
 			]);
 			const body: ExperimentAssignmentsResponse = {
 				poll_interval_seconds: delivery.poll_interval_seconds,
@@ -55,6 +65,7 @@ export function ExperimentController(app: HonoApp) {
 					plutonium_page: {enabled: true},
 					voice_p2p: resolveVoiceP2pAssignment(voiceP2pConfig, userId, targeting),
 					guild_visits: {enabled: guildVisitsUserActive(guildVisitsConfig, userId)},
+					streamer_mode: {enabled: streamerModeUserActive(streamerModeConfig, userId)},
 				},
 			};
 			body.assignments.channel_threads = {active: true, config_version: channelThreadsConfig.config_version};

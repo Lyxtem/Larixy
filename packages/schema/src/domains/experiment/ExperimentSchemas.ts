@@ -7,6 +7,7 @@ import {
 } from '@larixy/schema/src/domains/admin/DomainMigrationSchemas';
 import {GuildVisitsAssignmentResponse} from '@larixy/schema/src/domains/admin/GuildVisitsSchemas';
 import {PlutoniumPageAssignmentResponse} from '@larixy/schema/src/domains/admin/PlutoniumPageSchemas';
+import {StreamerModeAssignmentResponse} from '@larixy/schema/src/domains/admin/StreamerModeSchemas';
 import {INERT_VOICE_P2P_ASSIGNMENT, VoiceP2pAssignmentResponse} from '@larixy/schema/src/domains/admin/VoiceP2pSchemas';
 import {z} from 'zod';
 
@@ -48,6 +49,7 @@ const ExperimentAssignmentsSchema = z.object({
 	plutonium_page: PlutoniumPageAssignmentResponse.optional(),
 	voice_p2p: VoiceP2pAssignmentResponse.optional(),
 	guild_visits: GuildVisitsAssignmentResponse.optional(),
+	streamer_mode: StreamerModeAssignmentResponse.optional(),
 });
 
 export const ExperimentAssignmentsResponse = z.object({

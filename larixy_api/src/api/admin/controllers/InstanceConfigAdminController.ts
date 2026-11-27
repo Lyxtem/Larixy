@@ -241,6 +241,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		authConfig,
 		accountsConfig,
 		guildVisitsConfig,
+		streamerModeConfig,
 	] = await Promise.all([
 		instanceConfigRepository.getSsoConfig(),
 		instanceConfigRepository.getGatewayRolloutConfig(),
@@ -254,6 +255,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		instanceConfigRepository.getAuthConfig(),
 		instanceConfigRepository.getAccountsConfig(),
 		instanceConfigRepository.getGuildVisitsConfig(),
+		instanceConfigRepository.getStreamerModeConfig(),
 	]);
 	const [
 		appPublic,
@@ -311,6 +313,7 @@ async function buildInstanceConfigResponse(warnings: Array<string> = []): Promis
 		auth: {...authConfig, instant_account_availability: instantAccountAvailability},
 		accounts: accountsConfig,
 		guild_visits: guildVisitsConfig,
+		streamer_mode: streamerModeConfig,
 		experiment_delivery: experimentDelivery,
 		registration: {
 			...registrationConfig,
@@ -742,6 +745,12 @@ const INSTANCE_CONFIG_SECTION_APPLIERS = {
 		async (guildVisits, {instanceConfigRepository}) => {
 			await instanceConfigRepository.updateGuildVisitsConfig(guildVisits);
 			await enqueueEndUnassignedGuildVisits();
+		},
+	),
+	streamer_mode: createInstanceConfigSectionApplier(
+		({data}) => data.streamer_mode,
+		async (streamerMode, {instanceConfigRepository}) => {
+			await instanceConfigRepository.updateStreamerModeConfig(streamerMode);
 		},
 	),
 	experiment_delivery: createInstanceConfigSectionApplier(
