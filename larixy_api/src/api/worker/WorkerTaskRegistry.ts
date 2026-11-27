@@ -65,6 +65,7 @@ import processInactivityDeletions from '@app/api/worker/tasks/ProcessInactivityD
 import processPendingBulkMessageDeletions from '@app/api/worker/tasks/ProcessPendingBulkMessageDeletions';
 import processPremiumStateReconciliationQueue from '@app/api/worker/tasks/ProcessPremiumStateReconciliationQueue';
 import processStorePurchaseRefreshQueue from '@app/api/worker/tasks/ProcessStorePurchaseRefreshQueue';
+import processStreamerLivePollSweep from '@app/api/worker/tasks/ProcessStreamerLivePollSweep';
 import processStripeWebhook from '@app/api/worker/tasks/ProcessStripeWebhook';
 import prunePostgresKvTtl from '@app/api/worker/tasks/PrunePostgresKvTtl';
 import reconcileAttachmentDecay from '@app/api/worker/tasks/ReconcileAttachmentDecay';
@@ -163,6 +164,7 @@ export const workerTasks: Record<WorkerTaskName, WorkerTaskHandler> = {
 	processInactivityDeletions,
 	processPendingBulkMessageDeletions,
 	processPremiumStateReconciliationQueue,
+	processStreamerLivePollSweep,
 	reconcileAttachmentDecay,
 	reconcileUserPayments,
 	processAppStoreNotification,

@@ -96,6 +96,7 @@ const LANE_CONFIG = {
 			'processPendingBulkMessageDeletions',
 			'processPremiumStateReconciliationQueue',
 			'processStorePurchaseRefreshQueue',
+			'processStreamerLivePollSweep',
 			'pollGooglePlayVoidedPurchases',
 			'pollAppStoreNotificationHistory',
 			'prunePostgresKvTtl',
