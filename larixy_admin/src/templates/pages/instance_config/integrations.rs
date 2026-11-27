@@ -126,6 +126,34 @@ pub(super) fn integrations_config_section(
                         }
                     }
 
+                    div class="space-y-4 border-t border-neutral-200 pt-6" {
+                        div class="flex flex-wrap items-center gap-2" {
+                            h3 class="text-sm font-semibold text-neutral-900" { "Streamer mode" }
+                            (secret_badge("Twitch secret", integrations.streamer.twitch_client_secret_set))
+                            (secret_badge("Kick secret", integrations.streamer.kick_client_secret_set))
+                        }
+                        div class="grid grid-cols-1 gap-4 sm:grid-cols-2" {
+                            (text_input(
+                                "integration_streamer_twitch_client_id",
+                                "Twitch client ID",
+                                integrations.streamer.twitch_client_id.as_deref().unwrap_or(""),
+                                "From the Twitch developer console",
+                            ))
+                            (password_input("integration_streamer_twitch_client_secret", "Twitch client secret", Some("Leave blank to keep the current secret.")))
+                            (text_input(
+                                "integration_streamer_kick_client_id",
+                                "Kick client ID",
+                                integrations.streamer.kick_client_id.as_deref().unwrap_or(""),
+                                "From the Kick developer settings",
+                            ))
+                            (password_input("integration_streamer_kick_client_secret", "Kick client secret", Some("Leave blank to keep the current secret.")))
+                        }
+                        p class="text-xs text-neutral-500" {
+                            "Streamer mode uses these app credentials to check whether linked \
+                             Twitch and Kick channels are live. Blank fields keep the current values."
+                        }
+                    }
+
                     @if account_identity.is_username() {
                         div class="space-y-4 border-t border-neutral-200 pt-6" {
                             div class="flex flex-wrap items-center gap-2" {

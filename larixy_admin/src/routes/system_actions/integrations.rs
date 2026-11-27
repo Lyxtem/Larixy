@@ -9,7 +9,8 @@ use crate::{
             InstanceBlueskyKeyIntegrationUpdateRequest, InstanceConfigUpdateRequest,
             InstanceEmailIntegrationUpdateRequest, InstanceEmailSmtpIntegrationUpdateRequest,
             InstanceEmailSmtpTestResponse, InstanceGifIntegrationUpdateRequest,
-            InstanceIntegrationsUpdateRequest, InstanceYoutubeIntegrationUpdateRequest,
+            InstanceIntegrationsUpdateRequest, InstanceStreamerIntegrationUpdateRequest,
+            InstanceYoutubeIntegrationUpdateRequest,
         },
     },
     middleware::flash::FlashData,
@@ -105,6 +106,12 @@ fn build_integrations_update(form: &MultiValueForm) -> Result<InstanceConfigUpda
             }),
             youtube: Some(InstanceYoutubeIntegrationUpdateRequest {
                 api_key: clean("integration_youtube_api_key"),
+            }),
+            streamer: Some(InstanceStreamerIntegrationUpdateRequest {
+                twitch_client_id: clean("integration_streamer_twitch_client_id"),
+                twitch_client_secret: clean("integration_streamer_twitch_client_secret"),
+                kick_client_id: clean("integration_streamer_kick_client_id"),
+                kick_client_secret: clean("integration_streamer_kick_client_secret"),
             }),
             email: (form.has_key_starting_with("integration_email_")
                 || form.has_key_starting_with("integration_smtp_"))

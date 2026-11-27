@@ -272,6 +272,8 @@ pub struct InstanceIntegrationsResponse {
     pub gif: InstanceGifIntegrationResponse,
     #[serde(default)]
     pub youtube: InstanceYoutubeIntegrationResponse,
+    #[serde(default)]
+    pub streamer: InstanceStreamerIntegrationResponse,
     pub email: InstanceEmailIntegrationResponse,
     #[serde(default)]
     pub bluesky: InstanceBlueskyIntegrationResponse,
@@ -313,6 +315,18 @@ pub struct InstanceYoutubeIntegrationResponse {
     pub api_key_set: bool,
     #[serde(default)]
     pub effective_available: bool,
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize)]
+pub struct InstanceStreamerIntegrationResponse {
+    #[serde(default)]
+    pub twitch_client_id: Option<String>,
+    #[serde(default)]
+    pub twitch_client_secret_set: bool,
+    #[serde(default)]
+    pub kick_client_id: Option<String>,
+    #[serde(default)]
+    pub kick_client_secret_set: bool,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -1110,6 +1124,8 @@ pub struct InstanceIntegrationsUpdateRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub youtube: Option<InstanceYoutubeIntegrationUpdateRequest>,
     #[serde(skip_serializing_if = "Option::is_none")]
+    pub streamer: Option<InstanceStreamerIntegrationUpdateRequest>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub email: Option<InstanceEmailIntegrationUpdateRequest>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub bluesky: Option<InstanceBlueskyIntegrationUpdateRequest>,
@@ -1148,6 +1164,18 @@ pub struct InstanceGifIntegrationUpdateRequest {
 pub struct InstanceYoutubeIntegrationUpdateRequest {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub api_key: Option<String>,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct InstanceStreamerIntegrationUpdateRequest {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub twitch_client_id: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub twitch_client_secret: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub kick_client_id: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub kick_client_secret: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, Serialize)]
