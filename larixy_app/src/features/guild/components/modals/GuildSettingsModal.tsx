@@ -8,6 +8,7 @@ import {SettingsModalContainer} from '@app/features/app/components/dialogs/share
 import settingsModalStyles from '@app/features/app/components/dialogs/shared/SettingsModalLayout.module.css';
 import RuntimeConfig from '@app/features/app/state/RuntimeConfig';
 import GatewaySessions from '@app/features/gateway/transport/GatewaySessionPool';
+import * as GuildCommands from '@app/features/guild/commands/GuildCommands';
 import GuildSettingsModalState from '@app/features/guild/state/GuildSettingsModal';
 import Guilds from '@app/features/guild/state/Guilds';
 import * as RouterUtils from '@app/features/navigation/utils/RouterUtils';
@@ -22,6 +23,7 @@ import {
 	getGuildSettingsTabs,
 } from '@app/features/user/components/settings_utils/GuildSettingsConstants';
 import {useMobileNavigation} from '@app/features/user/hooks/useMobileNavigation';
+import {Permissions} from '@larixy/constants/src/ChannelConstants';
 import {useLingui} from '@lingui/react/macro';
 import {observer} from 'mobx-react-lite';
 import type React from 'react';
@@ -38,6 +40,26 @@ export const GuildSettingsModal: React.FC<GuildSettingsModalProps> = observer(
 		const guild = Guilds.getGuild(guildId);
 		const [selectedTab, setSelectedTab] = useState<GuildSettingsTabType>(initialTabProp ?? 'overview');
 		const discoveryEnabled = RuntimeConfig.discoveryEnabled;
+		const canManageGuild = Permission.can(Permissions.MANAGE_GUILD, {guildId});
+		const [hasStreamerConfig, setHasStreamerConfig] = useState(false);
+		useEffect(() => {
+			setHasStreamerConfig(false);
+			if (!canManageGuild) return;
+			let cancelled = false;
+			void (async () => {
+				try {
+					await GuildCommands.getStreamerConfig(guildId);
+					if (!cancelled) setHasStreamerConfig(true);
+				} catch {
+					// Guilds without a streamer config answer as if it did not
+					// exist: the Streamer tab stays hidden for them.
+					if (!cancelled) setHasStreamerConfig(false);
+				}
+			})();
+			return () => {
+				cancelled = true;
+			};
+		}, [canManageGuild, guildId]);
 		const availableTabs = useMemo(() => {
 			const guildSettingsTabs = getGuildSettingsTabs(i18n);
 			if (!guild) return guildSettingsTabs;
@@ -54,9 +76,12 @@ export const GuildSettingsModal: React.FC<GuildSettingsModalProps> = observer(
 				if (tab.requireDiscovery && !discoveryEnabled) {
 					return false;
 				}
+				if (tab.requireStreamerConfig && !hasStreamerConfig) {
+					return false;
+				}
 				return true;
 			});
-		}, [discoveryEnabled, guild, guildId, i18n.locale]);
+		}, [discoveryEnabled, guild, guildId, hasStreamerConfig, i18n.locale]);
 
 		const mobileNav = useMobileNavigation<GuildSettingsTabType>();
 		const mobileNavigateTo = mobileNav.navigateTo;

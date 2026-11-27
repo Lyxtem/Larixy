@@ -10,6 +10,7 @@ import type {I18n, MessageDescriptor} from '@lingui/core';
 import {msg} from '@lingui/core/macro';
 import {
 	BookOpenIcon,
+	BroadcastIcon,
 	CompassIcon,
 	GearIcon,
 	HammerIcon,
@@ -86,6 +87,11 @@ const BANS_DESCRIPTOR = msg({
 	context: 'community-settings-tab',
 	comment: 'Community settings tab for banned users.',
 });
+const STREAMER_DESCRIPTOR = msg({
+	message: 'Streamer',
+	comment:
+		'Community settings tab for streamer mode: live alerts and linked streaming channels. Same message as the streamer section heading so both share one translation.',
+});
 
 export type GuildSettingsTabType =
 	| 'overview'
@@ -99,7 +105,8 @@ export type GuildSettingsTabType =
 	| 'discovery'
 	| 'members'
 	| 'invites'
-	| 'bans';
+	| 'bans'
+	| 'streamer';
 export type GuildSettingsTabCategories =
 	| 'guild_settings'
 	| 'expressions'
@@ -116,6 +123,7 @@ export interface GuildSettingsTab {
 	permission?: bigint | ReadonlyArray<bigint>;
 	requireFeature?: string;
 	requireDiscovery?: boolean;
+	requireStreamerConfig?: boolean;
 }
 
 interface GuildSettingsTabDescriptor {
@@ -127,6 +135,7 @@ interface GuildSettingsTabDescriptor {
 	permission?: bigint | ReadonlyArray<bigint>;
 	requireFeature?: string;
 	requireDiscovery?: boolean;
+	requireStreamerConfig?: boolean;
 }
 
 const GUILD_SETTINGS_TABS_DESCRIPTORS: Array<GuildSettingsTabDescriptor> = [
@@ -196,6 +205,14 @@ const GUILD_SETTINGS_TABS_DESCRIPTORS: Array<GuildSettingsTabDescriptor> = [
 		label: WEBHOOKS_DESCRIPTOR,
 		icon: WebhooksLogoIcon,
 		permission: Permissions.MANAGE_WEBHOOKS,
+	},
+	{
+		type: 'streamer',
+		category: 'integrations',
+		label: STREAMER_DESCRIPTOR,
+		icon: BroadcastIcon,
+		permission: Permissions.MANAGE_GUILD,
+		requireStreamerConfig: true,
 	},
 	{
 		type: 'members',
