@@ -602,6 +602,7 @@ type StoredConfigSection =
 	| 'auth'
 	| 'accounts'
 	| 'guild visits'
+	| 'streamer mode'
 	| 'channel threads'
 	| 'experiment delivery'
 	| 'instance policy'
