@@ -84,7 +84,6 @@ export class KickStreamerClient implements StreamerPlatformClient {
 		const form = new URLSearchParams({
 			client_id: clientId,
 			grant_type: 'client_credentials',
-			scope: 'channel:read',
 		});
 		form.set('client_secret', clientSecret);
 		const response = await streamerPlatformFetch(KICK_TOKEN_URL, {
