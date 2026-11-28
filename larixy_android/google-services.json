@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "651393901176",
+    "project_id": "larixy-1a4bb",
+    "storage_bucket": "larixy-1a4bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651393901176:android:980d72b1a53baecf01438d",
+        "android_client_info": {
+          "package_name": "xyz.larixy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqs1xmifH3Vh3R84LkgOywKeFxT78xMME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
