@@ -12,8 +12,10 @@
 #   ANDROID_KEY_PASSWORD       key password
 # Set them BEFORE dispatching: without them the release job fails loudly
 # in its decode step (the debug job still succeeds). The keystore is
-# decoded into the runner's temp dir and the four ANDROID_KEYSTORE_*/
-# ANDROID_KEY_* variables are exposed at job level, so the patch script
+# decoded into the runner's temp dir; the decode step publishes
+# ANDROID_KEYSTORE_PATH through $GITHUB_ENV (the runner context is not
+# available in a job-level env block) and the other three variables are
+# exposed at job level, so the patch script
 # (scripts/patch-android-manifest.py) injects the release signingConfig
 # reading them via System.getenv; no secret is written into the repo or
 # the generated project.
@@ -95,7 +97,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/larixy-release.jks
       ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
       ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
@@ -128,7 +129,8 @@ jobs:
             echo "The ANDROID_KEYSTORE_BASE64 secret is not set; cannot sign the release APK." >&2
             exit 1
           fi
-          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$ANDROID_KEYSTORE_PATH"
+          echo "ANDROID_KEYSTORE_PATH=$RUNNER_TEMP/larixy-release.jks" >> "$GITHUB_ENV"
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/larixy-release.jks"
 
       - name: Install Capacitor and generate the Android project
         working-directory: larixy_android
