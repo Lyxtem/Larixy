@@ -43,6 +43,12 @@ export interface StreamerPlatformClient {
 
 export type StreamerCredentialsProvider = () => Promise<{clientId: string | null; clientSecret: string | null}>;
 
+// Kick and Twitch sit behind Cloudflare, which rejects non-browser user
+// agents with error 1010, so platform API calls must present a browser UA.
+// Same string the YouTube client sends with its page requests.
+export const STREAMER_BROWSER_USER_AGENT =
+	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+
 const FETCH_TIMEOUT_MS = ms('10 seconds');
 
 export async function streamerPlatformFetch(url: string, init?: RequestInit): Promise<Response> {

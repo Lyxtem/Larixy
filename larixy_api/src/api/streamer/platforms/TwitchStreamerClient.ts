@@ -2,6 +2,7 @@
 
 import {
 	offlineStreamerLiveStatus,
+	STREAMER_BROWSER_USER_AGENT,
 	StreamerPlatformError,
 	streamerPlatformFetch,
 	type ResolvedStreamerChannel,
@@ -75,6 +76,7 @@ export class TwitchStreamerClient implements StreamerPlatformClient {
 			headers: {
 				'Client-Id': clientId,
 				Authorization: `Bearer ${token}`,
+				'User-Agent': STREAMER_BROWSER_USER_AGENT,
 			},
 		});
 		if (response.status === 401) {
@@ -99,7 +101,7 @@ export class TwitchStreamerClient implements StreamerPlatformClient {
 		}
 		const response = await streamerPlatformFetch(TWITCH_TOKEN_URL, {
 			method: 'POST',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			headers: {'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': STREAMER_BROWSER_USER_AGENT},
 			body: new URLSearchParams({
 				client_id: clientId,
 				client_secret: clientSecret,

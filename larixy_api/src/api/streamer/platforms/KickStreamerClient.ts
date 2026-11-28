@@ -2,6 +2,7 @@
 
 import {
 	offlineStreamerLiveStatus,
+	STREAMER_BROWSER_USER_AGENT,
 	StreamerPlatformError,
 	streamerPlatformFetch,
 	type ResolvedStreamerChannel,
@@ -57,7 +58,7 @@ export class KickStreamerClient implements StreamerPlatformClient {
 	private async getChannel(query: string): Promise<KickChannel> {
 		const token = await this.getAppToken();
 		const response = await streamerPlatformFetch(`${KICK_API_BASE}/channels?${query}`, {
-			headers: {Authorization: `Bearer ${token}`},
+			headers: {Authorization: `Bearer ${token}`, 'User-Agent': STREAMER_BROWSER_USER_AGENT},
 		});
 		if (response.status === 401) {
 			cachedAppToken = null;
@@ -88,7 +89,7 @@ export class KickStreamerClient implements StreamerPlatformClient {
 		form.set('client_secret', clientSecret);
 		const response = await streamerPlatformFetch(KICK_TOKEN_URL, {
 			method: 'POST',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			headers: {'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': STREAMER_BROWSER_USER_AGENT},
 			body: form,
 		});
 		if (!response.ok) {
