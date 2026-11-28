@@ -1,4 +1,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
+# PREPARED FILE — not a live workflow. To activate it, replace
+# .github/workflows/build-android.yaml with this file (from a PC with git;
+# the GitHub App cannot write .github/workflows/).
+#
+# It is the current build-android.yaml plus a "build release apk" job.
+# The debug job is unchanged. The release job expects these repository
+# secrets (Settings -> Secrets and variables -> Actions):
+#   ANDROID_KEYSTORE_BASE64    base64 of the larixy-release.jks keystore
+#   ANDROID_KEYSTORE_PASSWORD  keystore password
+#   ANDROID_KEY_ALIAS          key alias (larixy)
+#   ANDROID_KEY_PASSWORD       key password
+# Set them BEFORE dispatching: without them the release job fails loudly
+# in its decode step (the debug job still succeeds). The keystore is
+# decoded into the runner's temp dir and the four ANDROID_KEYSTORE_*/
+# ANDROID_KEY_* variables are exposed at job level, so the patch script
+# (scripts/patch-android-manifest.py) injects the release signingConfig
+# reading them via System.getenv; no secret is written into the repo or
+# the generated project.
 name: build android apk
 
 on:
@@ -69,4 +87,64 @@ jobs:
         with:
           name: larixy-android-debug-apk
           path: larixy_android/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+
+  release:
+    name: build release apk
+    needs: approve
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/larixy-release.jks
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+        with:
+          # See the debug job: 'platform-tools' only, the legacy 'tools'
+          # package no longer exists and sdkmanager must be on PATH.
+          packages: platform-tools
+
+      - name: Install the Android SDK platform Capacitor targets
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Decode the release keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then
+            echo "The ANDROID_KEYSTORE_BASE64 secret is not set; cannot sign the release APK." >&2
+            exit 1
+          fi
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$ANDROID_KEYSTORE_PATH"
+
+      - name: Install Capacitor and generate the Android project
+        working-directory: larixy_android
+        run: |
+          npm install
+          npx cap add android
+          python3 scripts/patch-android-manifest.py
+          npx cap sync android
+          npx @capacitor/assets generate --android --iconBackgroundColor '#000000' --iconBackgroundColorDark '#000000' --splashBackgroundColor '#000000' --splashBackgroundColorDark '#000000'
+
+      - name: Build the release APK
+        working-directory: larixy_android/android
+        run: ./gradlew assembleRelease --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: larixy-android-release-apk
+          path: larixy_android/android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
